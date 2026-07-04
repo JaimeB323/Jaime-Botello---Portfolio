@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Resume page for Jaime Botello, strategic communications, corporate affairs, digital storytelling, AI-enabled communications, and public health communications leader.">
+  <meta name="theme-color" content="#f4eddf">
+  <title>Resume | Jaime Botello</title>
+  <style>
+    :root {
+      --ink: #050505;
+      --paper: #f4eddf;
+      --panel: #f8f0e3;
+      --red: #c2174b;
+      --teal: #145f59;
+      --linkedin: #0a66c2;
+      --gold: #f6bf3d;
+      --condensed: Impact, "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+      --script: "Brush Script MT", "Segoe Script", cursive;
+      --max: 1280px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Avenir, "Avenir Next", Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(5, 5, 5, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(5, 5, 5, 0.025) 1px, transparent 1px);
+      background-size: 140px 140px;
+      opacity: 0.45;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 3px solid var(--ink);
+      background: rgba(244, 237, 223, 0.94);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 3rem));
+      min-height: 62px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav::before {
+      content: "JAIME BOTELLO";
+      font-family: var(--condensed);
+      font-size: 1.2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      padding: 0.62rem 0.78rem;
+      border: 2px solid transparent;
+      font-family: var(--condensed);
+      font-size: 0.98rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav a:hover {
+      border-color: var(--ink);
+      background: var(--gold);
+    }
+
+    .section {
+      width: min(var(--max), calc(100% - 3rem));
+      margin: 0 auto;
+      padding: 1.35rem 0;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.32fr);
+      gap: 2rem;
+      align-items: end;
+      overflow: hidden;
+      min-height: auto;
+      padding: 10.2rem 1.4rem 1.35rem;
+      border: 3px solid var(--ink);
+      border-radius: 10px;
+      background: #fffaf1;
+      box-shadow: 10px 10px 0 rgba(5, 5, 5, 0.12);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8.25rem;
+      background:
+        radial-gradient(circle at 18% 35%, rgba(246, 191, 61, 0.95), transparent 28%),
+        linear-gradient(135deg, #0a66c2 0%, #145f59 48%, #c2174b 100%);
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .script-label {
+      margin: 0 0 0.45rem;
+      color: var(--red);
+      font-family: var(--script);
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      font-weight: 400;
+      line-height: 0.8;
+      transform: rotate(-4deg);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--condensed);
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(3.5rem, 8.5vw, 7.2rem);
+    }
+
+    h2 {
+      font-size: clamp(2.8rem, 5.4vw, 5.1rem);
+    }
+
+    h3 {
+      font-size: clamp(1.65rem, 2.4vw, 2.35rem);
+      line-height: 0.98;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .hero-copy {
+      max-width: 840px;
+      margin-top: 0.85rem;
+      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-weight: 400;
+    }
+
+    .contact-card {
+      width: min(100%, 380px);
+      justify-self: end;
+      align-self: start;
+      display: grid;
+      justify-items: center;
+      gap: 1rem;
+    }
+
+    .contact-details {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid rgba(5, 5, 5, 0.18);
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(5, 5, 5, 0.08);
+    }
+
+    .contact-details a,
+    .contact-details span {
+      display: block;
+      margin-top: 0.65rem;
+      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-weight: 400;
+      text-decoration: none;
+    }
+
+    .headshot-placeholder {
+      width: min(100%, 15.5rem);
+      aspect-ratio: 1;
+      border: 5px solid #ffffff;
+      border-radius: 999px;
+      outline: 3px solid var(--ink);
+      box-shadow: 0 10px 24px rgba(5, 5, 5, 0.16);
+      object-fit: cover;
+      object-position: center 18%;
+    }
+
+    .profile-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.2rem;
+    }
+
+    .profile-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.5rem;
+      padding: 0.55rem 0.9rem;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--linkedin);
+      color: #ffffff;
+      font-family: var(--condensed);
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .profile-actions a:last-child {
+      background: #ffffff;
+      color: var(--ink);
+    }
+
+    .resume-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.35rem;
+      align-items: start;
+    }
+
+    .sidebar,
+    .main-stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .sidebar {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .panel,
+    .experience-card,
+    .event-card {
+      border: 2px solid rgba(5, 5, 5, 0.16);
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(5, 5, 5, 0.06);
+    }
+
+    .panel {
+      padding: 1rem;
+      min-height: 100%;
+    }
+
+    .panel:nth-child(2) {
+      background: #ffffff;
+    }
+
+    .panel:nth-child(3) {
+      background: #ffffff;
+    }
+
+    .panel h2 {
+      font-size: clamp(1.28rem, 1.7vw, 1.75rem);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .skill-list,
+    .bullet-list {
+      margin: 0.8rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    .skill-list {
+      columns: 2;
+      column-gap: 1.8rem;
+    }
+
+    .skill-list li,
+    .bullet-list li {
+      margin: 0.42rem 0;
+      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-weight: 400;
+      break-inside: avoid;
+    }
+
+    .education-card h2 {
+      font-size: clamp(1.28rem, 1.7vw, 1.75rem);
+      line-height: 1;
+      white-space: nowrap;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-heading {
+      position: relative;
+      margin-bottom: 0.9rem;
+      padding-top: 0.62em;
+    }
+
+    .section-heading::before {
+      content: attr(data-script);
+      position: absolute;
+      left: -0.12em;
+      top: -0.02em;
+      color: var(--red);
+      font-family: var(--script);
+      font-size: 0.72em;
+      font-weight: 400;
+      line-height: 1;
+      text-transform: none;
+      transform: rotate(-5deg);
+    }
+
+    .experience-card,
+    .event-card {
+      position: relative;
+      padding: 1.15rem 1.15rem 1.15rem 4.25rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .experience-card::before,
+    .event-card::before {
+      content: "";
+      position: absolute;
+      left: 1.15rem;
+      top: 1.2rem;
+      width: 2rem;
+      aspect-ratio: 1;
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--linkedin), var(--teal));
+    }
+
+    .experience-card::after,
+    .event-card::after {
+      content: "";
+      position: absolute;
+      left: 2.12rem;
+      top: 3.45rem;
+      bottom: 1.2rem;
+      width: 2px;
+      background: rgba(5, 5, 5, 0.18);
+    }
+
+    .experience-card:nth-of-type(3n + 1)::before,
+    .event-card:nth-of-type(3n + 1)::before {
+      background: linear-gradient(135deg, var(--red), #f06b8d);
+    }
+
+    .experience-card:nth-of-type(3n + 2)::before,
+    .event-card:nth-of-type(3n + 2)::before {
+      background: linear-gradient(135deg, var(--linkedin), var(--teal));
+    }
+
+    .experience-card:nth-of-type(3n + 3)::before,
+    .event-card:nth-of-type(3n + 3)::before {
+      background: linear-gradient(135deg, var(--gold), #ff7c53);
+    }
+
+    .role-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin: 0.55rem 0 0.75rem;
+      font-weight: 800;
+    }
+
+    .role-meta span {
+      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-weight: 400;
+    }
+
+    .summary-card {
+      max-width: none;
+      padding: 1.2rem;
+      border: 2px solid rgba(5, 5, 5, 0.16);
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(5, 5, 5, 0.06);
+      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-weight: 400;
+    }
+
+    .education-card {
+      padding: 1rem;
+      border: 2px solid rgba(5, 5, 5, 0.16);
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(5, 5, 5, 0.06);
+      min-height: 100%;
+    }
+
+    .education-card p {
+      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-weight: 400;
+    }
+
+    .footer {
+      padding: 2rem 1rem;
+      border-top: 3px solid var(--ink);
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 650;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .resume-grid,
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        justify-self: stretch;
+        width: 100%;
+      }
+
+      .skill-list {
+        columns: 1;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0.8rem 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .section,
+      .nav {
+        width: min(var(--max), calc(100% - 1.5rem));
+      }
+
+      .section {
+        padding: 2.35rem 0;
+      }
+
+      h1 {
+        font-size: clamp(3.5rem, 18vw, 6rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="meeting-the-moment.html">Corporate</a>
+        <a href="strategic-communications-corporate-storytelling.html">Executive</a>
+        <a href="community-engagement-public-awareness.html">Community</a>
+        <a href="ai-capabilities.html">Capabilities</a>
+        <a href="resume.html">Resume</a>
+        <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section hero">
+      <div>
+        <p class="script-label">resume</p>
+        <h1>Jaime Botello</h1>
+        <p class="hero-copy">
+          Strategic communications leader with 20+ years of experience across corporate affairs, AI-enabled communications, multimedia storytelling, public health, executive visibility, and reputation-building campaigns.
+        </p>
+        <div class="profile-actions" aria-label="Profile actions">
+          <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">View LinkedIn</a>
+          <a href="index.html#projects">View Work</a>
+        </div>
+      </div>
+
+      <aside class="contact-card" aria-label="Contact information">
+        <img class="headshot-placeholder" src="images/jaime-botello-headshot.jpg" alt="Headshot of Jaime Botello">
+        <div class="contact-details">
+          <h3>Contact</h3>
+          <a href="tel:13233710265">(323) 371-0265</a>
+          <a href="mailto:Jaime.Botello@me.com">Jaime.Botello@me.com</a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading" data-script="profile">About</h2>
+      <p class="summary-card">
+        Strategic communications leader with 20+ years of experience at the intersection of corporate affairs, AI, and multimedia storytelling. Partner with senior leaders to transform complex science and innovation into engaging executive, digital, and thought leadership content. Recognized for leveraging generative AI, emerging technologies, and data-driven communications strategies to accelerate content development, enhance audience engagement, and elevate corporate reputation.
+      </p>
+    </section>
+
+    <section class="section resume-grid">
+      <h2 class="section-heading" data-script="skills">Skills &amp; Education</h2>
+      <aside class="sidebar">
+        <div class="panel">
+          <h2>AI &amp; Productivity</h2>
+          <ul class="skill-list">
+            <li>ChatGPT</li>
+            <li>Claude</li>
+            <li>Codex</li>
+            <li>GitHub</li>
+            <li>Microsoft Copilot</li>
+            <li>Google Gemini</li>
+            <li>Canva</li>
+            <li>Vyond</li>
+            <li>Airtable</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h2>Comms &amp; Analytics</h2>
+          <ul class="skill-list">
+            <li>Microsoft 365</li>
+            <li>SharePoint</li>
+            <li>Hootsuite</li>
+            <li>Meltwater</li>
+            <li>Cision</li>
+          </ul>
+        </div>
+
+        <div class="education-card">
+          <h2>Education</h2>
+          <p><strong>California State University Dominguez Hills</strong></p>
+          <p>B.A. in Kinesiology, Minor in Marketing</p>
+          <p>1999-2005</p>
+        </div>
+      </aside>
+
+      <div class="main-stack">
+        <section>
+          <h2 class="section-heading" data-script="career">Professional Experience</h2>
+
+          <article class="experience-card">
+            <h3>Amgen | Thousand Oaks, CA</h3>
+            <div class="role-meta">
+              <span>Senior Manager, Corporate Affairs R&amp;D</span>
+              <span>April 2025-Present</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Advise senior R&amp;D leaders on strategic communications, executive messaging, change management, and employee engagement.</li>
+              <li>Lead integrated communications strategies across executive, internal, digital, social, and thought leadership channels for Amgen's R&amp;D organization.</li>
+              <li>Translate complex science, AI, and innovation initiatives into compelling narratives for internal and external audiences.</li>
+              <li>Lead cross-functional teams, agencies, and vendors to deliver executive communications, thought leadership, video content, and digital campaigns.</li>
+              <li>Advance AI-enabled communications capabilities through automation, content optimization, audience segmentation, and analytics.</li>
+              <li>Develop measurement frameworks and dashboards to assess communications effectiveness, engagement, and business impact.</li>
+            </ul>
+          </article>
+
+          <article class="experience-card">
+            <h3>Kaiser Permanente | Los Angeles, CA</h3>
+            <div class="role-meta">
+              <span>Communications Lead</span>
+              <span>September 2024-April 2025</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Led and coached a team of 3-4 communications professionals across multiple business initiatives.</li>
+              <li>Developed and executed multi-channel communications strategies aligned with enterprise priorities.</li>
+              <li>Directed leadership communications, executive town halls, employee engagement initiatives, and enterprise-wide programs.</li>
+              <li>Established measurement frameworks and reporting to assess communications effectiveness and engagement.</li>
+              <li>Led communications support for crisis and issues management, ensuring timely and coordinated messaging.</li>
+            </ul>
+          </article>
+
+          <article class="experience-card">
+            <h3>Fraser Communications | Los Angeles, CA</h3>
+            <div class="role-meta">
+              <span>Director - Los Angeles Department of Public Health</span>
+              <span>November 2021-October 2023</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Developed media strategies, press releases, and materials supporting LADPH COVID-19 messaging, community outreach, and sector outreach.</li>
+              <li>Established KPI tracking and analysis processes that informed successful PR and social media strategies.</li>
+              <li>Translated complex health data into PR and social content that contributed to a 30% increase in top-tier media coverage and over 50% increase in social engagement.</li>
+              <li>Prepared public health experts for interviews, shared best practices, and offered media training.</li>
+              <li>Managed an editorial calendar to support proactive COVID-19 mitigation outreach across L.A. County.</li>
+            </ul>
+          </article>
+
+          <article class="experience-card">
+            <h3>Health Net of California | Woodland Hills, CA</h3>
+            <div class="role-meta">
+              <span>Senior Manager - Internal/External Communications, Social Media &amp; Community Relations</span>
+              <span>April 2019-November 2021</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Led a high-performing communications team while overseeing agency partners and contractors supporting statewide communications initiatives.</li>
+              <li>Directed integrated communications strategies spanning media relations, executive communications, internal communications, social media, community engagement, and digital content.</li>
+              <li>Partnered with executive leadership on strategic messaging, thought leadership, crisis communications, and executive visibility programs.</li>
+              <li>Led communications efforts that contributed to a 200% increase in positive media coverage and improved customer perception across more than 30 California counties.</li>
+              <li>Established enterprise measurement and reporting processes for earned media, social media, thought leadership, and digital engagement performance.</li>
+            </ul>
+          </article>
+
+          <article class="experience-card">
+            <h3>Ogilvy PR | Playa Vista, CA</h3>
+            <div class="role-meta">
+              <span>Account Supervisor - Public Relations</span>
+              <span>July 2016-February 2018</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Managed multiple clients across industries and developed integrated communications strategies for CPG and entertainment clients.</li>
+              <li>Created blogger news bureau programming and provided day-to-day strategic counsel across PR and social media accounts.</li>
+              <li>Collaborated with agency leadership to leverage resources and deliver high-quality client work.</li>
+            </ul>
+          </article>
+
+          <article class="experience-card">
+            <h3>Porter Novelli PR | Playa Del Rey, CA</h3>
+            <div class="role-meta">
+              <span>Senior Account Executive - Public Relations &amp; Social Media</span>
+              <span>November 2013-July 2016</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Managed media relations activities to position agency clients positively with press and industry stakeholders.</li>
+              <li>Served as Hispanic media relations expert for Porter Novelli on the West Coast.</li>
+              <li>Developed press materials, media statements, fact sheets, releases, key messages, and Q&amp;As.</li>
+            </ul>
+          </article>
+
+          <article class="experience-card">
+            <h3>The Axis Agency / Weber Shandwick | West Hollywood, CA</h3>
+            <div class="role-meta">
+              <span>Senior Account Executive / Social Media Community Manager</span>
+              <span>September 2008-November 2013</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Supervised media relations and social media professionals across client accounts.</li>
+              <li>Led integrated public relations and social media campaigns, driving earned media coverage, influencer engagement, and audience growth.</li>
+              <li>Developed social media strategies, content calendars, and community engagement programs across major social platforms.</li>
+              <li>Managed special events, promotions, influencer activations, and field marketing initiatives.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section>
+          <h2 class="section-heading" data-script="events">Major Event Leadership</h2>
+
+          <article class="event-card">
+            <h3>FIFA World Cup 2026 | Los Angeles, CA</h3>
+            <div class="role-meta">
+              <span>ADA Communications Area Zone Leader</span>
+              <span>June-July 2026</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Oversee ADA communications and accessibility operations for FIFA World Cup matches at SoFi Stadium.</li>
+              <li>Coordinate disability accommodations, mobility services, accessibility support, wayfinding, and venue accessibility communications.</li>
+              <li>Partner with event leadership, stadium operations, transportation providers, volunteers, and community stakeholders to support inclusive guest experiences.</li>
+            </ul>
+          </article>
+
+          <article class="event-card">
+            <h3>NBA All-Star Weekend 2026 | Los Angeles, CA</h3>
+            <div class="role-meta">
+              <span>Area Zone Leader - Guest Experience / Fan Engagement Communications</span>
+              <span>February 2026</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Led communications and guest experience operations supporting NBA All-Star Weekend at Intuit Dome.</li>
+              <li>Coordinated cross-functional communications across arena operations, guest services, security, transportation, volunteers, sponsors, and event leadership.</li>
+              <li>Supported fan engagement initiatives, venue communications, wayfinding programs, and real-time guest experience operations.</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Jaime Botello. Resume page built for personal portfolio use.</p>
+  </footer>
+
+  <script>
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
