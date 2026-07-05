@@ -1463,6 +1463,11 @@
       font-size: clamp(2.5rem, 5.1vw, 4.8rem);
     }
 
+    .content-section .eyebrow {
+      white-space: nowrap;
+      font-size: clamp(2.5rem, 5.1vw, 4.8rem);
+    }
+
     .eyebrow::before {
       position: absolute;
       left: -0.12em;
@@ -1497,6 +1502,10 @@
 
     .strategy-section .eyebrow::before {
       content: "activate";
+    }
+
+    .content-section .eyebrow::before {
+      content: "content";
     }
 
     .impact-section .eyebrow::before {
@@ -1661,6 +1670,7 @@
       overflow: hidden;
       color: var(--ink);
       background: var(--panel);
+      min-width: 0;
     }
 
     .collection-thumb img {
@@ -1668,6 +1678,12 @@
       height: 100%;
       display: block;
       object-fit: cover;
+    }
+
+    .collection-thumb.logo-thumb img {
+      object-fit: contain;
+      padding: 1rem;
+      background: #ffffff;
     }
 
     .collection-thumb span {
@@ -1687,12 +1703,15 @@
       flex-direction: column;
       align-items: flex-start;
       padding-top: 1rem;
+      min-width: 0;
     }
 
     .collection-body h3 {
-      font-size: clamp(1.05rem, 1.35vw, 1.38rem);
-      line-height: 0.98;
-      white-space: nowrap;
+      max-width: 100%;
+      font-size: clamp(1rem, 1.18vw, 1.28rem);
+      line-height: 1.04;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .collection-body p {
@@ -2123,7 +2142,8 @@
         font-size: 0.66em;
       }
 
-      .strategy-section .eyebrow {
+      .strategy-section .eyebrow,
+      .content-section .eyebrow {
         white-space: nowrap;
         font-size: clamp(1.9rem, 7.8vw, 3rem);
       }
@@ -2164,7 +2184,6 @@
 
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
-        <a href="meeting-the-moment.html">Corporate</a>
         <a href="strategic-communications-corporate-storytelling.html">Executive</a>
         <a href="community-engagement-public-awareness.html">Community</a>
         <a href="ai-capabilities.html">Capabilities</a>
@@ -2209,23 +2228,23 @@
 
         <article class="collection-card">
           <div class="collection-thumb">
-            <img src="images/amgen-south-sf-small-molecule-card.jpg" alt="Amgen South San Francisco building exterior for Small Molecule Lab Expansion case study.">
+            <img src="images/amgen-south-sf-small-molecule-card.jpg" alt="Amgen South San Francisco building exterior for Small Molecule Drug Discovery Lab Expansion case study.">
           </div>
           <div class="collection-body">
-            <h3>Small Molecule Lab Expansion</h3>
-            <p>Corporate storytelling around R&amp;D lab expansion, innovation visibility, and the role of research infrastructure in advancing scientific discovery.</p>
-            <a class="mini-button" href="#small-molecule-detail">View Placeholder Case Study</a>
+            <h3>Small Molecule Drug Discovery Lab Expansion</h3>
+            <p>Corporate storytelling around R&amp;D lab expansion, innovation visibility, and the role of next-generation research spaces in advancing scientific discovery.</p>
+            <a class="mini-button" href="#small-molecule-detail">View Case Study</a>
           </div>
         </article>
 
         <article class="collection-card">
-          <div class="collection-thumb">
-            <span>KRAS ACS Heroes of Chemistry Award</span>
+          <div class="collection-thumb logo-thumb">
+            <img src="images/acs-heroes-of-chemistry-card.webp" alt="American Chemical Society Heroes of Chemistry logo.">
           </div>
           <div class="collection-body">
-            <h3>KRAS ACS Heroes of Chemistry Award</h3>
+            <h3>ACS Heroes of Chemistry</h3>
             <p>Scientist profile and award storytelling connected to recognition, scientific achievement, and corporate reputation.</p>
-            <a class="mini-button" href="#kras-detail">View Placeholder Case Study</a>
+            <a class="mini-button" href="#kras-detail">View Case Study</a>
           </div>
         </article>
       </div>
@@ -2254,7 +2273,7 @@
 
     <section class="section strategy-section" id="strategy">
       <div class="section-header">
-        <p class="eyebrow">Strategy &amp; Content</p>
+        <p class="eyebrow">Strategy</p>
       </div>
 
       <div class="strategy-narrative">
@@ -2268,6 +2287,12 @@
         <p>
           The project also served as a pilot for future multimedia storytelling initiatives, demonstrating how long-form video, executive thought leadership, and digital-first content can strengthen corporate reputation, increase awareness of scientific innovation, and inspire broader conversations about the future of AI in healthcare.
         </p>
+      </div>
+    </section>
+
+    <section class="section content-section">
+      <div class="section-header">
+        <p class="eyebrow">Campaign Assets</p>
       </div>
 
       <div class="activation-examples">
@@ -2305,7 +2330,7 @@
             <h3>Executive Amplification Example</h3>
             <p>Placeholder for a LinkedIn or social post that extended the story through executive thought leadership and digital-first packaging.</p>
             <!-- UPDATE: Replace this with the live social post URL if available. -->
-            <a class="mini-button" href="https://www.linkedin.com/posts/drhoward-chang_one-of-the-greatest-opportunities-in-drug-ugcPost-7474782400124776449-63Dl/?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAFS9GkBg0jxSlclN5U5kjMR_LBuUCsMdes" target="_blank" rel="noopener">View Social Post</a>
+            <a class="mini-button" href="https://www.linkedin.com/company/amgen/" target="_blank" rel="noopener">View LinkedIn Channel</a>
           </div>
         </article>
       </div>
@@ -2340,10 +2365,10 @@
         <div class="copy-stack">
           <p class="eyebrow">Project Overview</p>
           <p>
-            Placeholder overview for a corporate storytelling case study focused on a small molecule drug discovery lab expansion. Use this space to explain the business milestone, why it mattered for R&amp;D visibility, and how the story connected research infrastructure to scientific innovation.
+            The expansion of Amgen's Small Molecule Drug Discovery Labs in South San Francisco created an opportunity to tell a broader story about the company's investment in the future of scientific discovery. A ribbon-cutting ceremony marked the opening of the expanded research space and brought together Amgen leaders, scientists, and employees to celebrate the milestone.
           </p>
           <p>
-            This section can be updated with approved details about target audiences, internal and external communications priorities, executive visibility, scientific storytelling themes, and the role the project played in strengthening awareness of Amgen's research capabilities.
+            The communications plan extended the story beyond the event itself by showing how the new labs bring science, technology, automation, and integrated research teams together. The goal was to make a complex R&amp;D milestone clear and engaging while reinforcing how next-generation lab capabilities help scientists learn faster, make better decisions, and move potential medicines forward with greater confidence.
           </p>
         </div>
 
@@ -2352,51 +2377,57 @@
 
     <section class="section strategy-section">
       <div class="section-header">
-        <p class="eyebrow">Strategy &amp; Content</p>
+        <p class="eyebrow">Strategy</p>
       </div>
 
       <div class="strategy-narrative">
         <p>
-          Placeholder narrative for the communications strategy behind the lab expansion story. This can describe how the project translated a facility or research investment into a broader corporate narrative about innovation, scientific capability, and the people behind discovery.
+          To amplify the lab expansion, a multi-channel communications strategy turned the ribbon-cutting ceremony into a broader science and innovation story. The content strategy combined event storytelling with behind-the-scenes access to the labs, helping explain complex scientific processes in a way that felt clear, visual, and accessible for internal and external audiences.
         </p>
         <p>
-          Use this paragraph to capture how content was planned and activated across channels such as internal communications, executive messaging, social media, Amgen.com, photography, video, and stakeholder materials. The goal is to show how a business milestone became a story with relevance beyond the announcement itself.
+          As Project Manager, responsibilities included leading the editorial strategy, coordinating communications, digital, creative, and production teams, managing timelines and approvals, and aligning content across internal and external channels. Each asset was developed for a specific audience and platform while supporting one consistent story: Amgen's next-generation labs are designed to bring teams and technologies closer together and strengthen how potential new medicines are discovered.
         </p>
+      </div>
+    </section>
+
+    <section class="section content-section">
+      <div class="section-header">
+        <p class="eyebrow">Campaign Assets</p>
       </div>
 
       <div class="activation-examples">
         <article class="activation-card">
           <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Visual Asset Placeholder</span>
+            <span>Video Asset Placeholder</span>
           </div>
           <div class="activation-body">
-            <span class="activation-type">Visual Story</span>
-            <h3>Lab Expansion Visual</h3>
-            <p>Placeholder for photography, campaign graphics, or a visual asset showing the lab expansion and research environment.</p>
+            <span class="activation-type">Social Video</span>
+            <h3>90-Second Social Video</h3>
+            <p>Short-form video content designed to introduce the lab expansion story and highlight the science, technology, and people behind the new research space.</p>
             <a class="mini-button disabled" href="#">Add Link</a>
           </div>
         </article>
 
         <article class="activation-card">
           <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Article Placeholder</span>
+            <span>Editorial Asset Placeholder</span>
           </div>
           <div class="activation-body">
-            <span class="activation-type">Article</span>
-            <h3>Innovation Story</h3>
-            <p>Placeholder for an internal or external article explaining the strategic importance of the lab expansion.</p>
+            <span class="activation-type">Editorial Content</span>
+            <h3>Feature Story &amp; Internal Article</h3>
+            <p>Longer-form storytelling across Amgen.com and internal channels that connected the lab milestone to broader R&amp;D innovation priorities.</p>
             <a class="mini-button disabled" href="#">Add Link</a>
           </div>
         </article>
 
         <article class="activation-card">
           <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Social Post Placeholder</span>
+            <span>Channel Asset Placeholder</span>
           </div>
           <div class="activation-body">
-            <span class="activation-type">Social Post</span>
-            <h3>Milestone Amplification</h3>
-            <p>Placeholder for social content that translated the expansion story into a digital-first post for broader audiences.</p>
+            <span class="activation-type">Channel Rollout</span>
+            <h3>Social &amp; Internal Amplification</h3>
+            <p>Platform-specific content across LinkedIn, Instagram, X, Threads, YouTube Shorts, and Viva Engage to extend the story across priority audiences.</p>
             <a class="mini-button disabled" href="#">Add Link</a>
           </div>
         </article>
@@ -2407,7 +2438,10 @@
       <div class="section-header">
         <p class="eyebrow">Results</p>
         <p>
-          Placeholder impact narrative for the lab expansion story. Use this space to summarize communications outcomes such as increased visibility for R&amp;D, stronger stakeholder understanding, employee engagement, executive visibility, or broader awareness of scientific innovation.
+          The campaign transformed a single ribbon-cutting ceremony into a broader multimedia storytelling initiative that extended the life and reach of the lab expansion story. By combining editorial content, short-form video, event storytelling, social media, and internal communications, the project created multiple ways for employees and external audiences to engage with Amgen's research and innovation story.
+        </p>
+        <p>
+          Beyond individual content performance, the campaign helped make a complex scientific process more accessible and demonstrated the value of building an integrated communications strategy around a key R&amp;D milestone. The work reinforced Amgen's commitment to scientific innovation and positioned the expanded labs as more than a new facility: an investment in the people, technology, and research capabilities shaping the future of drug discovery.
         </p>
       </div>
 
@@ -2422,8 +2456,8 @@
             <span>Placeholder for employee, social, or stakeholder engagement.</span>
           </div>
           <div class="placeholder-result-card">
-            <strong>Impact</strong>
-            <span>Placeholder for brand, reputation, or business communications impact.</span>
+            <strong>Brand Value</strong>
+            <span>Placeholder for brand, reputation, or business communications value.</span>
           </div>
         </div>
       </figure>
@@ -2433,17 +2467,17 @@
 
     <section class="section meeting-overview" id="kras-detail">
       <figure class="case-hero-image">
-        <img src="images/kras-acs-case-study-hero.png" alt="KRAS ACS Heroes of Chemistry Award scientist spotlight case study graphic.">
+        <img src="images/acs-heroes-case-study-hero.png" alt="ACS Heroes of Chemistry Award case study graphic celebrating scientific innovation and impact.">
       </figure>
 
       <div class="split text-only">
         <div class="copy-stack">
           <p class="eyebrow">Project Overview</p>
           <p>
-            Placeholder overview for a scientific storytelling case study connected to the KRAS ACS Heroes of Chemistry Award. Use this space to explain the award, the scientific achievement being recognized, and why the story mattered for reputation, research visibility, and scientist recognition.
+            In 2025, the LUMAKRAS team was recognized as an American Chemical Society Heroes of Chemistry recipient, an honor celebrating the scientific innovation and persistence behind LUMAKRAS, Amgen's first-in-class KRAS G12C inhibitor.
           </p>
           <p>
-            This section can be updated with approved details about the featured scientist or team, the core scientific narrative, target audiences, and how the story connected discovery, recognition, and corporate thought leadership.
+            The recognition created an opportunity to tell a broader story about the people and science behind a target once considered "undruggable." The goal was to celebrate the achievement while making the science more accessible and reinforcing Amgen's leadership in oncology and bold scientific innovation.
           </p>
         </div>
 
@@ -2452,51 +2486,57 @@
 
     <section class="section strategy-section">
       <div class="section-header">
-        <p class="eyebrow">Strategy &amp; Content</p>
+        <p class="eyebrow">Strategy</p>
       </div>
 
       <div class="strategy-narrative">
         <p>
-          Placeholder narrative for the award campaign strategy. This can describe how the story elevated scientific achievement through a human-centered profile, clear editorial framing, and coordinated communications across internal and external channels.
+          To amplify the achievement, a targeted communications campaign was developed to showcase Amgen's leadership in oncology, engage internal and external audiences, and reinforce the company's reputation for bold science and meaningful impact.
         </p>
         <p>
-          Use this paragraph to capture how the campaign balanced scientific credibility with accessible storytelling, supported executive or scientist visibility, and turned an award moment into a broader reputation-building opportunity.
+          The campaign connected science storytelling, executive visibility, employee engagement, social amplification, and earned media around a single innovation story. The work highlighted the breakthrough while keeping the human side of the discovery visible through scientist-centered storytelling and clear editorial framing.
         </p>
+      </div>
+    </section>
+
+    <section class="section content-section">
+      <div class="section-header">
+        <p class="eyebrow">Campaign Assets</p>
       </div>
 
       <div class="activation-examples">
         <article class="activation-card">
           <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Scientist Profile Placeholder</span>
+            <span>Scientist Profile</span>
           </div>
           <div class="activation-body">
             <span class="activation-type">Profile</span>
-            <h3>Scientist Story</h3>
-            <p>Placeholder for a scientist profile, Q&amp;A, or feature story tied to the ACS Heroes of Chemistry recognition.</p>
+            <h3>Scientist Spotlight</h3>
+            <p>Scientist-centered storytelling featuring an Amgen research leader and the people behind the ACS Heroes of Chemistry recognition.</p>
             <a class="mini-button disabled" href="#">Add Link</a>
           </div>
         </article>
 
         <article class="activation-card">
           <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Award Article Placeholder</span>
+            <span>Science Article</span>
           </div>
           <div class="activation-body">
             <span class="activation-type">Article</span>
-            <h3>Award Campaign Feature</h3>
-            <p>Placeholder for an article or editorial asset explaining the scientific milestone and recognition.</p>
+            <h3>Cracking the KRAS Code</h3>
+            <p>Amgen.com feature content explaining the scientific journey behind LUMAKRAS and the persistence required to pursue a once-undruggable target.</p>
             <a class="mini-button disabled" href="#">Add Link</a>
           </div>
         </article>
 
         <article class="activation-card">
           <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Social Post Placeholder</span>
+            <span>Social &amp; Executive</span>
           </div>
           <div class="activation-body">
-            <span class="activation-type">Social Post</span>
-            <h3>Recognition Amplification</h3>
-            <p>Placeholder for social content highlighting the award, scientist visibility, and broader corporate storytelling.</p>
+            <span class="activation-type">Amplification</span>
+            <h3>Executive &amp; Channel Activation</h3>
+            <p>LinkedIn, X, ACS-produced social video, executive thought leadership posts, internal news, and Viva Engage amplification extended the story across audiences.</p>
             <a class="mini-button disabled" href="#">Add Link</a>
           </div>
         </article>
@@ -2507,25 +2547,12 @@
       <div class="section-header">
         <p class="eyebrow">Results</p>
         <p>
-          Placeholder impact narrative for the KRAS award campaign. Use this section to summarize how the story supported scientific reputation, employee pride, external visibility, executive or scientist thought leadership, and broader awareness of research excellence.
+          Beyond the numbers, the campaign made a complex scientific breakthrough more accessible by putting the people behind the discovery at the center of the story. The integrated approach reinforced Amgen's leadership in oncology, elevated senior leader and scientist visibility, and demonstrated how a major scientific recognition can become a sustained, multi-channel storytelling opportunity.
         </p>
       </div>
 
       <figure class="impact-graphic">
-        <div class="placeholder-results">
-          <div class="placeholder-result-card">
-            <strong>Visibility</strong>
-            <span>Placeholder for article traffic, social impressions, or earned visibility.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>Engagement</strong>
-            <span>Placeholder for internal readership, comments, reactions, or shares.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>Reputation</strong>
-            <span>Placeholder for stakeholder feedback or reputation-building outcomes.</span>
-          </div>
-        </div>
+        <img src="images/kras-results-broad-impact.png" alt="ACS Heroes of Chemistry results graphic showing page views, engagements, earned media impressions, and social impressions.">
       </figure>
     </section>
 

@@ -1310,7 +1310,7 @@
     }
 
     .hero-title::before {
-      content: "corporate storytelling";
+      content: "executive storytelling";
       position: static;
       display: block;
       color: var(--science);
@@ -1460,13 +1460,12 @@
 
     .strategy-section .eyebrow {
       white-space: nowrap;
+      font-size: clamp(2.5rem, 5.1vw, 4.8rem);
     }
 
-    .hero-heading,
-    .featured-case-heading,
-    .eyebrow,
-    .strategy-section .eyebrow {
-      font-size: clamp(2.2rem, 3.85vw, 4.35rem);
+    .content-section .eyebrow {
+      white-space: nowrap;
+      font-size: clamp(2.5rem, 5.1vw, 4.8rem);
     }
 
     .eyebrow::before {
@@ -1503,6 +1502,10 @@
 
     .strategy-section .eyebrow::before {
       content: "activate";
+    }
+
+    .content-section .eyebrow::before {
+      content: "content";
     }
 
     .impact-section .eyebrow::before {
@@ -1636,6 +1639,69 @@
       font-weight: 520;
     }
 
+    .dna-results {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      padding: 1.4rem 0.9rem;
+      border: 4px solid var(--ink);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    .dna-result-card {
+      min-height: 230px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 0.65rem;
+      padding: 1.1rem;
+      text-align: center;
+      border-right: 2px solid rgba(194, 23, 75, 0.45);
+    }
+
+    .dna-result-card:last-child {
+      border-right: 0;
+    }
+
+    .dna-result-icon {
+      width: 76px;
+      height: 76px;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      border-radius: 999px;
+      background: var(--science);
+      font-family: var(--condensed);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .dna-result-value {
+      color: var(--science);
+      font-family: var(--condensed);
+      font-size: clamp(2.4rem, 4.6vw, 4.4rem);
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+    }
+
+    .dna-result-label {
+      color: var(--ink);
+      font-family: var(--condensed);
+      font-size: clamp(1.2rem, 1.7vw, 1.55rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .dna-result-note {
+      max-width: 190px;
+      color: var(--ink);
+      font-size: 0.92rem;
+      font-weight: 520;
+      line-height: 1.35;
+    }
+
     .case-study-collection {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1671,6 +1737,7 @@
       overflow: hidden;
       color: var(--ink);
       background: var(--panel);
+      min-width: 0;
     }
 
     .collection-thumb img {
@@ -1693,16 +1760,19 @@
 
     .collection-body {
       display: flex;
-      min-height: auto;
+      min-height: 230px;
       flex-direction: column;
       align-items: flex-start;
-      padding: 0.9rem 0 1rem;
+      padding-top: 1rem;
+      min-width: 0;
     }
 
     .collection-body h3 {
-      font-size: clamp(1.05rem, 1.35vw, 1.38rem);
-      line-height: 0.98;
+      max-width: 100%;
+      font-size: clamp(1rem, 1.18vw, 1.28rem);
+      line-height: 1.04;
       white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .collection-body p {
@@ -1713,7 +1783,7 @@
     }
 
     .collection-body .mini-button {
-      margin-top: 0.9rem;
+      margin-top: auto;
     }
 
     .mini-button.disabled {
@@ -1723,7 +1793,8 @@
 
     .featured-case-heading {
       max-width: 1120px;
-      margin: 0 auto 1.35rem;
+      margin: 0 0 1.35rem;
+      font-size: clamp(2rem, 3.9vw, 4.35rem);
       line-height: 0.95;
       text-align: center;
     }
@@ -2032,7 +2103,8 @@
       .activation-examples,
       .contribution-infographic,
       .case-study-collection,
-      .placeholder-results {
+      .placeholder-results,
+      .dna-results {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -2094,8 +2166,19 @@
       .activation-examples,
       .contribution-infographic,
       .case-study-collection,
-      .placeholder-results {
+      .placeholder-results,
+      .dna-results {
         grid-template-columns: 1fr;
+      }
+
+      .dna-result-card {
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 2px solid rgba(194, 23, 75, 0.45);
+      }
+
+      .dna-result-card:last-child {
+        border-bottom: 0;
       }
 
       .hero {
@@ -2132,7 +2215,8 @@
         font-size: 0.66em;
       }
 
-      .strategy-section .eyebrow {
+      .strategy-section .eyebrow,
+      .content-section .eyebrow {
         white-space: nowrap;
         font-size: clamp(1.9rem, 7.8vw, 3rem);
       }
@@ -2174,7 +2258,6 @@
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
         <a href="meeting-the-moment.html">Corporate</a>
-        <a href="strategic-communications-corporate-storytelling.html">Executive</a>
         <a href="community-engagement-public-awareness.html">Community</a>
         <a href="ai-capabilities.html">Capabilities</a>
         <a href="resume.html">Resume</a>
@@ -2191,7 +2274,7 @@
 
       <aside class="hero-visual" aria-label="Project image">
         <!-- UPDATE: Replace this image with another approved project visual if needed. -->
-        <img class="project-image" src="images/howard-chang-my-9-5-case-study-hero.png" alt="My 9-5 social video case study graphic featuring Howard Chang.">
+        <img class="project-image" src="images/my-9-5-case-study-hero-anonymous.png" alt="My 9-5 social video case study graphic featuring an Amgen R&D executive.">
       </aside>
 
       <div class="hero-copy">
@@ -2207,7 +2290,7 @@
       <div class="case-study-collection two-up">
         <article class="collection-card">
           <div class="collection-thumb">
-            <img src="images/howard-chang-my-9-5-case-study-hero.png" alt="My 9-5 social video case study graphic featuring Howard Chang.">
+            <img src="images/my-9-5-card-option-2-brainstorming.jpg" alt="My 9-5 social video still showing a brainstorming moment with an Amgen R&D executive.">
           </div>
           <div class="collection-body">
             <h3>My 9-5 Social Video</h3>
@@ -2217,11 +2300,11 @@
 
         <article class="collection-card">
           <div class="collection-thumb">
-            <img src="images/howard-chang-dna-day-case-study-hero.png" alt="DNA Day social video case study graphic featuring Howard Chang.">
+            <img src="images/dna-day-top-card.jpg" alt="Behind-the-scenes video production with an Amgen R&D executive outside an Amgen building.">
           </div>
           <div class="collection-body">
             <h3>DNA Day Social Activation</h3>
-            <a class="mini-button" href="#dna-day-detail">View Placeholder Case Study</a>
+            <a class="mini-button" href="#dna-day-detail">View Case Study</a>
           </div>
         </article>
       </div>
@@ -2231,14 +2314,14 @@
 
     <section class="section meeting-overview" id="my-9-5-detail">
       <figure class="case-hero-image">
-        <img src="images/howard-chang-my-9-5-case-study-hero.png" alt="My 9-5 social video case study graphic featuring Howard Chang.">
+        <img src="images/my-9-5-case-study-hero-anonymous.png" alt="My 9-5 social video case study graphic featuring an Amgen R&D executive.">
       </figure>
 
       <div class="split text-only">
         <div class="copy-stack">
           <p class="eyebrow">Project Overview</p>
           <p>
-            Howard Chang, M.D., Executive Vice President, Research &amp; Development - "My 9-5" Executive Social Video reimagined a popular social media trend as a strategic executive storytelling opportunity. The project humanized a senior scientific leader through an authentic, behind-the-scenes look at a day in the life of the executive leading Amgen's research organization.
+            An Amgen Executive Vice President, Research &amp; Development "My 9-5" social video reimagined a popular social media trend as a strategic executive storytelling opportunity. The project humanized a senior scientific leader through an authentic, behind-the-scenes look at a day in the life of the executive leading Amgen's research organization.
           </p>
           <p>
             As audiences increasingly engage with authentic, people-first content, the communications opportunity was to showcase one of Amgen's leading scientists in a way that felt native to social media rather than traditional corporate communications. The project supported executive visibility, employer branding, and Amgen's broader innovation narrative.
@@ -2249,22 +2332,28 @@
 
     <section class="section strategy-section" id="strategy">
       <div class="section-header">
-        <p class="eyebrow">Strategy &amp; Content</p>
+        <p class="eyebrow">Strategy</p>
       </div>
 
       <div class="strategy-narrative">
         <p>
-          The strategy focused on adapting the popular "My 9-5" trend into a polished corporate story without losing the authenticity that made the format engaging. The content needed to feel social-first, fast-moving, and human, while still supporting Amgen's executive communications and corporate storytelling priorities.
+          The strategy focused on adapting the popular "My 9-5" trend into a polished executive story without losing the authenticity that made the format engaging. The content needed to feel social-first, fast-moving, and human, while still supporting Amgen's executive communications and executive storytelling priorities.
         </p>
         <p>
-          Working closely with cross-functional partners, production teams, and executive stakeholders, the video captured Howard's daily routine through fast-paced visuals, candid workplace moments, and concise storytelling. The final asset was optimized for LinkedIn and YouTube Shorts, allowing the story to reach audiences through formats already familiar to social users while reinforcing Amgen's research culture.
+          Working closely with cross-functional partners, production teams, and executive stakeholders, the video captured the R&amp;D leader's daily routine through fast-paced visuals, candid workplace moments, and concise storytelling. The final asset was optimized for LinkedIn and YouTube Shorts, allowing the story to reach audiences through formats already familiar to social users while reinforcing Amgen's research culture.
         </p>
+      </div>
+    </section>
+
+    <section class="section content-section">
+      <div class="section-header">
+        <p class="eyebrow">Campaign Assets</p>
       </div>
 
       <div class="activation-examples">
         <article class="activation-card">
           <div class="activation-thumbnail">
-            <img src="images/howard-chang-my-9-5-case-study-hero.png" alt="My 9-5 social video case study graphic featuring Howard Chang.">
+            <img src="images/my-9-5-case-study-hero-anonymous.png" alt="My 9-5 social video case study graphic featuring an Amgen R&D executive.">
           </div>
           <div class="activation-body">
             <span class="activation-type">Social Video</span>
@@ -2333,17 +2422,17 @@
 
     <section class="section meeting-overview" id="dna-day-detail">
       <figure class="case-hero-image">
-        <img src="images/howard-chang-dna-day-case-study-hero.png" alt="DNA Day social video case study graphic featuring Howard Chang.">
+        <img src="images/dna-day-case-study-hero-anonymous.png" alt="DNA Day social video case study graphic featuring an Amgen R&D executive.">
       </figure>
 
       <div class="split text-only">
         <div class="copy-stack">
           <p class="eyebrow">Project Overview</p>
           <p>
-            Placeholder overview for a DNA Day social activation featuring Howard Chang. Use this space to explain the communications opportunity, the scientific or awareness moment, and how the activation helped connect executive thought leadership to a timely conversation about genomics, discovery, and biomedical innovation.
+            On April 25, 2025, teams across Amgen came together to mark DNA Day and highlight how far the science of genetics has come. The campaign focused on the 98% of DNA once largely overlooked, often called the "dark genome," and its growing role in understanding disease and opening new possibilities for discovery.
           </p>
           <p>
-            This section can be updated with approved details about the content format, channel strategy, audience priorities, executive voice, and how the activation supported broader R&amp;D storytelling and scientific visibility.
+            The moment created an opportunity to make a complex area of science more relevant and accessible while highlighting the people, research capabilities, and AI-enabled discovery work shaping the future of research at Amgen.
           </p>
         </div>
 
@@ -2352,51 +2441,57 @@
 
     <section class="section strategy-section">
       <div class="section-header">
-        <p class="eyebrow">Strategy &amp; Content</p>
+        <p class="eyebrow">Strategy</p>
       </div>
 
       <div class="strategy-narrative">
         <p>
-          Placeholder narrative for the DNA Day activation strategy. This can describe how the content connected a recognized science moment to executive visibility, making the topic relevant for social audiences while preserving scientific credibility and clarity.
+          Through science storytelling and leadership engagement, the strategy connected Amgen's research, AI capabilities, and people to a clear, forward-looking narrative about the future of discovery.
         </p>
         <p>
-          Use this paragraph to capture how the story was planned and activated across social media, executive channels, internal communications, and digital storytelling touchpoints. The goal is to show how a timely scientific moment became an accessible thought leadership opportunity.
+          At the center of the campaign was a 90-second, man-on-the-street-style video featuring Amgen's Senior Vice President, Global Research and Chief Scientific Officer. The informal format followed the research leader through Amgen's San Francisco research site, stopping colleagues to ask what they knew about the "dark genome" and what they had planned for DNA Day, bringing energy and personality to a complex scientific topic.
         </p>
+      </div>
+    </section>
+
+    <section class="section content-section">
+      <div class="section-header">
+        <p class="eyebrow">Campaign Assets</p>
       </div>
 
       <div class="activation-examples">
         <article class="activation-card">
           <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Social Video Placeholder</span>
+            <span>Social Video</span>
           </div>
           <div class="activation-body">
             <span class="activation-type">Social Video</span>
             <h3>DNA Day Video</h3>
-            <p>Placeholder for a short-form social video or motion asset tied to DNA Day and executive science storytelling.</p>
+            <p>90-second social-first video that used an informal, man-on-the-street format to make the "dark genome" more approachable.</p>
             <a class="mini-button disabled" href="#">Add Link</a>
           </div>
         </article>
 
         <article class="activation-card">
           <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Thought Leadership Placeholder</span>
+            <span>Leadership Posts</span>
           </div>
           <div class="activation-body">
             <span class="activation-type">Thought Leadership</span>
             <h3>Executive Message</h3>
-            <p>Placeholder for executive copy or a post that connected DNA Day to broader research, discovery, and innovation themes.</p>
+            <p>Senior R&amp;D leader amplification connected DNA Day to Amgen's broader research, AI, and discovery narrative.</p>
             <a class="mini-button disabled" href="#">Add Link</a>
           </div>
         </article>
 
         <article class="activation-card">
           <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Social Post Placeholder</span>
+            <span>Channel Rollout</span>
           </div>
           <div class="activation-body">
-            <span class="activation-type">Social Post</span>
-            <h3>Science Moment Amplification</h3>
-            <p>Placeholder for social content that translated DNA Day into an accessible, platform-ready story for broader audiences.</p>
+            <span class="activation-type">Amplification</span>
+            <h3>Enterprise Channel Activation</h3>
+            <p>LinkedIn, YouTube Shorts, internal news, and Viva Engage extended the story across external, leadership, and employee audiences.</p>
             <a class="mini-button disabled" href="#">Add Link</a>
           </div>
         </article>
@@ -2407,23 +2502,38 @@
       <div class="section-header">
         <p class="eyebrow">Results</p>
         <p>
-          Placeholder impact narrative for the DNA Day activation. Use this section to summarize outcomes such as executive visibility, audience engagement, social reach, employee pride, or increased awareness of Amgen's scientific leadership and discovery culture.
+          The campaign demonstrated how short-form video, executive visibility, and coordinated multi-channel amplification could make complex science more accessible while strengthening awareness of Amgen's research and AI-enabled discovery capabilities.
+        </p>
+        <p>
+          The results show that audiences engaged with the story at meaningful scale, with strong reach, video consumption, and interaction across social channels. The performance reinforced the value of using timely science moments to connect executive storytelling, employee engagement, and digital-first education.
         </p>
       </div>
 
       <figure class="impact-graphic">
-        <div class="placeholder-results">
-          <div class="placeholder-result-card">
-            <strong>Reach</strong>
-            <span>Placeholder for impressions, video views, or audience reach.</span>
+        <div class="dna-results">
+          <div class="dna-result-card">
+            <div class="dna-result-icon" aria-hidden="true">+</div>
+            <strong class="dna-result-value">120K+</strong>
+            <span class="dna-result-label">Impressions</span>
+            <span class="dna-result-note">Social reach across priority channels.</span>
           </div>
-          <div class="placeholder-result-card">
-            <strong>Engagement</strong>
-            <span>Placeholder for reactions, comments, shares, or completion rate.</span>
+          <div class="dna-result-card">
+            <div class="dna-result-icon" aria-hidden="true">%</div>
+            <strong class="dna-result-value">2.5%+</strong>
+            <span class="dna-result-label">Engagement Rate</span>
+            <span class="dna-result-note">Audience interaction above baseline expectations.</span>
           </div>
-          <div class="placeholder-result-card">
-            <strong>Visibility</strong>
-            <span>Placeholder for executive visibility, stakeholder feedback, or channel performance.</span>
+          <div class="dna-result-card">
+            <div class="dna-result-icon" aria-hidden="true">*</div>
+            <strong class="dna-result-value">3K+</strong>
+            <span class="dna-result-label">Engagements</span>
+            <span class="dna-result-note">Reactions, comments, shares, and clicks.</span>
+          </div>
+          <div class="dna-result-card">
+            <div class="dna-result-icon" aria-hidden="true">PLAY</div>
+            <strong class="dna-result-value">35K+</strong>
+            <span class="dna-result-label">Video Views</span>
+            <span class="dna-result-note">Short-form content views across channels.</span>
           </div>
         </div>
       </figure>

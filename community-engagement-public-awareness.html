@@ -1463,6 +1463,11 @@
       font-size: clamp(2.5rem, 5.1vw, 4.8rem);
     }
 
+    .content-section .eyebrow {
+      white-space: nowrap;
+      font-size: clamp(2.5rem, 5.1vw, 4.8rem);
+    }
+
     .eyebrow::before {
       position: absolute;
       left: -0.12em;
@@ -1497,6 +1502,10 @@
 
     .strategy-section .eyebrow::before {
       content: "activate";
+    }
+
+    .content-section .eyebrow::before {
+      content: "content";
     }
 
     .impact-section .eyebrow::before {
@@ -1661,6 +1670,7 @@
       overflow: hidden;
       color: var(--ink);
       background: var(--panel);
+      min-width: 0;
     }
 
     .collection-thumb img {
@@ -1683,16 +1693,19 @@
 
     .collection-body {
       display: flex;
-      min-height: auto;
+      min-height: 230px;
       flex-direction: column;
       align-items: flex-start;
-      padding: 0.9rem 0 1rem;
+      padding-top: 1rem;
+      min-width: 0;
     }
 
     .collection-body h3 {
-      font-size: clamp(1.05rem, 1.35vw, 1.38rem);
-      line-height: 0.98;
+      max-width: 100%;
+      font-size: clamp(1rem, 1.18vw, 1.28rem);
+      line-height: 1.04;
       white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .collection-body p {
@@ -1703,7 +1716,7 @@
     }
 
     .collection-body .mini-button {
-      margin-top: 0.9rem;
+      margin-top: auto;
     }
 
     .mini-button.disabled {
@@ -2123,7 +2136,8 @@
         font-size: 0.66em;
       }
 
-      .strategy-section .eyebrow {
+      .strategy-section .eyebrow,
+      .content-section .eyebrow {
         white-space: nowrap;
         font-size: clamp(1.9rem, 7.8vw, 3rem);
       }
@@ -2166,7 +2180,6 @@
         <a href="index.html">Home</a>
         <a href="meeting-the-moment.html">Corporate</a>
         <a href="strategic-communications-corporate-storytelling.html">Executive</a>
-        <a href="community-engagement-public-awareness.html">Community</a>
         <a href="ai-capabilities.html">Capabilities</a>
         <a href="resume.html">Resume</a>
         <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
@@ -2254,7 +2267,7 @@
 
     <section class="section strategy-section" id="strategy">
       <div class="section-header">
-        <p class="eyebrow">Strategy &amp; Content</p>
+        <p class="eyebrow">Strategy</p>
       </div>
 
       <div class="strategy-narrative">
@@ -2264,6 +2277,12 @@
         <p>
           Use this paragraph to capture how content was adapted across earned media, social media, community events, digital platforms, partner toolkits, or multilingual materials to reach audiences where they were already seeking information.
         </p>
+      </div>
+    </section>
+
+    <section class="section content-section">
+      <div class="section-header">
+        <p class="eyebrow">Campaign Assets</p>
       </div>
 
       <div class="activation-examples">
@@ -2355,7 +2374,7 @@
 
     <section class="section strategy-section">
       <div class="section-header">
-        <p class="eyebrow">Strategy &amp; Content</p>
+        <p class="eyebrow">Strategy</p>
       </div>
 
       <div class="strategy-narrative">
@@ -2365,6 +2384,12 @@
         <p>
           Use this paragraph to capture how campaign content moved across digital, social, community, school, partner, and media channels to reach students and families with practical information.
         </p>
+      </div>
+    </section>
+
+    <section class="section content-section">
+      <div class="section-header">
+        <p class="eyebrow">Campaign Assets</p>
       </div>
 
       <div class="activation-examples">
@@ -2456,7 +2481,7 @@
 
     <section class="section strategy-section">
       <div class="section-header">
-        <p class="eyebrow">Strategy &amp; Content</p>
+        <p class="eyebrow">Strategy</p>
       </div>
 
       <div class="strategy-narrative">
@@ -2466,6 +2491,12 @@
         <p>
           Use this paragraph to capture how communications supported local events, community partners, earned media, social content, member outreach, and on-site engagement.
         </p>
+      </div>
+    </section>
+
+    <section class="section content-section">
+      <div class="section-header">
+        <p class="eyebrow">Campaign Assets</p>
       </div>
 
       <div class="activation-examples">
