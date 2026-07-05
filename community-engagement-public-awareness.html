@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Community engagement portfolio hub featuring public health, access, and awareness campaign case studies.">
   <meta name="theme-color" content="#f4eddf">
-  <title>Community Engagement & Public Awareness Case Studies | Jaime Botello</title>
+  <title>Community Engagement &amp; Public Awareness Case Studies | Jaime Botello</title>
   <style>
     /* =========================================================
       PERSONAL PORTFOLIO CASE STUDY
@@ -1646,6 +1646,76 @@
       margin-top: 1.6rem;
     }
 
+    .case-study-collection.corporate-stacked {
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+
+    .corporate-case-row {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.5fr) minmax(0, 1fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: stretch;
+    }
+
+    .corporate-stacked .collection-card {
+      grid-template-rows: auto 1fr;
+      padding: 1rem 1rem 1.1rem;
+    }
+
+    .corporate-case-row:nth-child(2) .collection-card {
+      background: #dce8df;
+    }
+
+    .corporate-case-row:nth-child(3) .collection-card {
+      background: #f5e7bf;
+    }
+
+    .corporate-stacked .collection-thumb {
+      height: 100%;
+      min-height: 285px;
+      aspect-ratio: auto;
+    }
+
+    .corporate-stacked .collection-card .collection-body {
+      min-height: auto;
+      padding-top: 0.9rem;
+    }
+
+    .corporate-stacked .collection-card h3 {
+      font-size: clamp(1.18rem, 1.55vw, 1.55rem);
+    }
+
+    .corporate-description-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 760px;
+      padding: 0.5rem 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .corporate-description-box p {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    .corporate-description-box .mini-button {
+      margin-top: 1rem;
+    }
+
+    .corporate-stacked .collection-body {
+      min-height: auto;
+      justify-content: center;
+      padding: 0.35rem 0 0.35rem;
+    }
+
     .collection-card {
       display: grid;
       grid-template-rows: auto 1fr;
@@ -2098,8 +2168,18 @@
       .activation-examples,
       .contribution-infographic,
       .case-study-collection,
+      .case-study-collection.corporate-stacked,
       .placeholder-results {
         grid-template-columns: 1fr;
+      }
+
+      .corporate-case-row {
+        grid-template-columns: 1fr;
+      }
+
+      .corporate-stacked .collection-thumb {
+        min-height: 230px;
+        aspect-ratio: 16 / 10;
       }
 
       .hero {
@@ -2321,36 +2401,51 @@
     </section>
 
     <section class="section" id="overview">
-      <div class="case-study-collection">
-        <article class="collection-card">
-          <div class="collection-thumb">
-            <span>COVID-19 Vaccine</span>
-          </div>
-          <div class="collection-body">
-            <h3>COVID-19 Vaccine</h3>
+      <div class="case-study-collection corporate-stacked">
+        <div class="corporate-case-row">
+          <article class="collection-card">
+            <div class="collection-thumb">
+              <span>COVID-19 Vaccine</span>
+            </div>
+            <div class="collection-body">
+              <h3>COVID-19 Vaccine</h3>
+            </div>
+          </article>
+          <div class="corporate-description-box">
+            <p>Public health awareness campaign focused on vaccine education, trusted messengers, and community relevance during a critical public health moment.</p>
             <a class="mini-button" href="covid-19-vaccine-awareness.html">View Case Study</a>
           </div>
-        </article>
+        </div>
 
-        <article class="collection-card">
-          <div class="collection-thumb">
-            <span>ICAN Afford College</span>
-          </div>
-          <div class="collection-body">
-            <h3>ICAN Afford College: Financial Aid Awareness</h3>
+        <div class="corporate-case-row">
+          <article class="collection-card">
+            <div class="collection-thumb">
+              <span>ICAN Afford College</span>
+            </div>
+            <div class="collection-body">
+              <h3>ICAN Afford College: Financial Aid Awareness</h3>
+            </div>
+          </article>
+          <div class="corporate-description-box">
+            <p>Financial aid awareness campaign designed to make college access resources clearer, more actionable, and easier for students and families to navigate.</p>
             <a class="mini-button" href="ican-afford-college-financial-aid-awareness.html">View Case Study</a>
           </div>
-        </article>
+        </div>
 
-        <article class="collection-card">
-          <div class="collection-thumb">
-            <span>Health Net Mobile RV</span>
-          </div>
-          <div class="collection-body">
-            <h3>Health Net Mobile RV Community Health Screenings</h3>
+        <div class="corporate-case-row">
+          <article class="collection-card">
+            <div class="collection-thumb">
+              <span>Health Net Mobile RV</span>
+            </div>
+            <div class="collection-body">
+              <h3>Health Net Mobile RV Community Health Screenings</h3>
+            </div>
+          </article>
+          <div class="corporate-description-box">
+            <p>Community health access initiative using mobile screenings, local engagement, and public awareness to connect residents with preventive care resources.</p>
             <a class="mini-button" href="health-net-mobile-rv-community-health-screenings.html">View Case Study</a>
           </div>
-        </article>
+        </div>
       </div>
     </section>
   </main>
