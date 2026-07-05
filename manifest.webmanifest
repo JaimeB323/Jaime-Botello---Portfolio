@@ -1,7 +1,7 @@
 {
-  "name": "Jaime Botello Resume",
-  "short_name": "Jaime B.",
-  "description": "Mobile-ready resume site for Jaime Botello.",
+  "name": "Jaime Botello Communications Portfolio",
+  "short_name": "Portfolio",
+  "description": "Portfolio site for Jaime Botello's communications, storytelling, and campaign strategy work.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

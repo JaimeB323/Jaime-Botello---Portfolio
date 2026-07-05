@@ -775,14 +775,136 @@
         min-height: auto;
       }
     }
+  
+
+    /* Shared dropdown navigation for the portfolio hub and case study pages. */
+
+    .nav-toggle {
+      display: none !important;
+    }
+
+    .nav-menu {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-menu-button {
+      min-height: 40px;
+      padding: 0.62rem 0.78rem;
+      color: var(--ink);
+      border: 2px solid transparent;
+      border-radius: 0;
+      background: transparent;
+      font-family: var(--condensed, inherit);
+      font-size: 0.98rem;
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-menu-button:hover,
+    .nav-menu:focus-within .nav-menu-button {
+      color: var(--ink);
+      border-color: var(--ink);
+      background: var(--gold);
+    }
+
+    .nav-menu-button::after {
+      content: "";
+      display: inline-block;
+      margin-left: 0.45rem;
+      border-left: 0.28rem solid transparent;
+      border-right: 0.28rem solid transparent;
+      border-top: 0.35rem solid currentColor;
+      vertical-align: middle;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.35rem);
+      left: 0;
+      z-index: 80;
+      min-width: 250px;
+      display: none;
+      gap: 0.2rem;
+      padding: 0.45rem;
+      border: 3px solid var(--ink);
+      border-radius: 6px;
+      background: var(--paper, #ffffff);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .nav-menu:hover .dropdown-menu,
+    .nav-menu:focus-within .dropdown-menu {
+      display: grid;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      white-space: normal;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        position: static !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+      }
+
+      .nav-menu {
+        width: 100%;
+        display: grid;
+      }
+
+      .nav-menu-button {
+        width: 100%;
+        text-align: left;
+      }
+
+      .dropdown-menu {
+        position: static;
+        display: grid;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+    }
+
   </style>
 </head>
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Primary navigation">
-      <a href="ai-capabilities.html">Capabilities</a>
-      <a href="resume.html">Resume</a>
-      <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav-menu">
+          <button class="nav-menu-button" type="button">Work</button>
+          <div class="dropdown-menu">
+            <a href="meeting-the-moment.html">Corporate Storytelling</a>
+            <a href="strategic-communications-corporate-storytelling.html">Executive Storytelling</a>
+            <a href="community-engagement-public-awareness.html">Community Engagement</a>
+          </div>
+        </div>
+        <a href="ai-capabilities.html">Capabilities</a>
+        <a href="resume.html">Resume</a>
+        <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </nav>
   </header>
 
@@ -818,7 +940,7 @@
           </div>
           <div class="project-body">
             <h3>Corporate Storytelling</h3>
-            <a class="button secondary" href="meeting-the-moment.html">View Case Study</a>
+            <a class="button secondary" href="meeting-the-moment.html">View Category</a>
           </div>
         </article>
 
@@ -828,7 +950,7 @@
           </div>
           <div class="project-body">
             <h3>Executive Thought Leadership</h3>
-            <a class="button secondary" href="strategic-communications-corporate-storytelling.html">View Case Study</a>
+            <a class="button secondary" href="strategic-communications-corporate-storytelling.html">View Category</a>
           </div>
         </article>
 
@@ -838,7 +960,7 @@
           </div>
           <div class="project-body">
             <h3>Community Engagement &amp; Public Awareness</h3>
-            <a class="button secondary" href="community-engagement-public-awareness.html">View Case Study</a>
+            <a class="button secondary" href="community-engagement-public-awareness.html">View Category</a>
           </div>
         </article>
       </div>
@@ -880,7 +1002,46 @@
   </footer>
 
   <script>
-    document.querySelector("#year").textContent = new Date().getFullYear();
+    const yearTarget = document.querySelector("#year");
+    if (yearTarget) yearTarget.textContent = new Date().getFullYear();
+
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector("#nav-links");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+        navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      });
+
+      navItems.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+          navToggle.setAttribute("aria-label", "Open menu");
+        });
+      });
+    }
+
+    const sections = [...navItems]
+      .filter((link) => link.getAttribute("href") && link.getAttribute("href").startsWith("#"))
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    if ("IntersectionObserver" in window && sections.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navItems.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+          });
+        });
+      }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
+
+      sections.forEach((section) => observer.observe(section));
+    }
   </script>
 </body>
 </html>

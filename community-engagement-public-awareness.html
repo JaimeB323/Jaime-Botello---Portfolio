@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal portfolio page featuring community engagement and public awareness case studies across vaccine education, financial aid awareness, and community health screenings.">
+  <meta name="description" content="Community engagement portfolio hub featuring public health, access, and awareness campaign case studies.">
   <meta name="theme-color" content="#f4eddf">
-  <title>Community Engagement &amp; Public Awareness Case Studies | Jaime Botello</title>
+  <title>Community Engagement & Public Awareness Case Studies | Jaime Botello</title>
   <style>
     /* =========================================================
       PERSONAL PORTFOLIO CASE STUDY
@@ -2162,6 +2162,111 @@
         min-height: auto;
       }
     }
+  
+
+    /* Shared dropdown navigation for the portfolio hub and case study pages. */
+
+    .nav-toggle {
+      display: none !important;
+    }
+
+    .nav-menu {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-menu-button {
+      min-height: 40px;
+      padding: 0.62rem 0.78rem;
+      color: var(--ink);
+      border: 2px solid transparent;
+      border-radius: 0;
+      background: transparent;
+      font-family: var(--condensed, inherit);
+      font-size: 0.98rem;
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-menu-button:hover,
+    .nav-menu:focus-within .nav-menu-button {
+      color: var(--ink);
+      border-color: var(--ink);
+      background: var(--gold);
+    }
+
+    .nav-menu-button::after {
+      content: "";
+      display: inline-block;
+      margin-left: 0.45rem;
+      border-left: 0.28rem solid transparent;
+      border-right: 0.28rem solid transparent;
+      border-top: 0.35rem solid currentColor;
+      vertical-align: middle;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.35rem);
+      left: 0;
+      z-index: 80;
+      min-width: 250px;
+      display: none;
+      gap: 0.2rem;
+      padding: 0.45rem;
+      border: 3px solid var(--ink);
+      border-radius: 6px;
+      background: var(--paper, #ffffff);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .nav-menu:hover .dropdown-menu,
+    .nav-menu:focus-within .dropdown-menu {
+      display: grid;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      white-space: normal;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        position: static !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+      }
+
+      .nav-menu {
+        width: 100%;
+        display: grid;
+      }
+
+      .nav-menu-button {
+        width: 100%;
+        text-align: left;
+      }
+
+      .dropdown-menu {
+        position: static;
+        display: grid;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+    }
+
   </style>
 </head>
 
@@ -2178,8 +2283,14 @@
 
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
-        <a href="meeting-the-moment.html">Corporate</a>
-        <a href="strategic-communications-corporate-storytelling.html">Executive</a>
+        <div class="nav-menu">
+          <button class="nav-menu-button" type="button">Work</button>
+          <div class="dropdown-menu">
+            <a href="meeting-the-moment.html">Corporate Storytelling</a>
+            <a href="strategic-communications-corporate-storytelling.html">Executive Storytelling</a>
+            <a href="community-engagement-public-awareness.html">Community Engagement</a>
+          </div>
+        </div>
         <a href="ai-capabilities.html">Capabilities</a>
         <a href="resume.html">Resume</a>
         <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
@@ -2204,7 +2315,7 @@
         <p class="hero-tagline">A curated set of community engagement and public awareness case studies showing how strategic communications can make public health, education, and access-focused programs more understandable, relevant, and actionable for diverse audiences.</p>
         <div class="hero-actions">
           <a class="button primary" href="#overview">View Case Studies</a>
-          <a class="button secondary" href="#covid-vaccine-detail">Featured Case Study</a>
+          <a class="button secondary" href="covid-19-vaccine-awareness.html">Featured Case Study</a>
         </div>
       </div>
     </section>
@@ -2217,7 +2328,7 @@
           </div>
           <div class="collection-body">
             <h3>COVID-19 Vaccine</h3>
-            <a class="mini-button" href="#covid-vaccine-detail">View Case Study</a>
+            <a class="mini-button" href="covid-19-vaccine-awareness.html">View Case Study</a>
           </div>
         </article>
 
@@ -2227,7 +2338,7 @@
           </div>
           <div class="collection-body">
             <h3>ICAN Afford College: Financial Aid Awareness</h3>
-            <a class="mini-button" href="#ican-detail">View Placeholder Case Study</a>
+            <a class="mini-button" href="ican-afford-college-financial-aid-awareness.html">View Case Study</a>
           </div>
         </article>
 
@@ -2237,331 +2348,10 @@
           </div>
           <div class="collection-body">
             <h3>Health Net Mobile RV Community Health Screenings</h3>
-            <a class="mini-button" href="#mobile-rv-detail">View Placeholder Case Study</a>
+            <a class="mini-button" href="health-net-mobile-rv-community-health-screenings.html">View Case Study</a>
           </div>
         </article>
       </div>
-    </section>
-
-    <div class="case-divider" aria-hidden="true"></div>
-
-    <section class="section meeting-overview" id="covid-vaccine-detail">
-      <figure class="case-hero-image">
-        <div class="case-media-placeholder">
-          <span>COVID-19 Vaccine Campaign Visual Placeholder</span>
-        </div>
-      </figure>
-
-      <div class="split text-only">
-        <div class="copy-stack">
-          <p class="eyebrow">Project Overview</p>
-          <p>
-            Placeholder overview for a COVID-19 vaccine awareness campaign focused on public education, trust-building, and access to accurate health information. Use this space to describe the communications challenge, priority audiences, and why clear, culturally relevant messaging mattered.
-          </p>
-          <p>
-            This section can be updated with approved details about campaign partners, spokespeople, community outreach, paid and earned media, digital content, and how the work helped address vaccine questions, hesitancy, and access barriers.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section strategy-section" id="strategy">
-      <div class="section-header">
-        <p class="eyebrow">Strategy</p>
-      </div>
-
-      <div class="strategy-narrative">
-        <p>
-          Placeholder narrative for the campaign strategy. This can describe how audience insights, trusted messengers, community partnerships, and clear public health messaging were used to make vaccine information more accessible and actionable.
-        </p>
-        <p>
-          Use this paragraph to capture how content was adapted across earned media, social media, community events, digital platforms, partner toolkits, or multilingual materials to reach audiences where they were already seeking information.
-        </p>
-      </div>
-    </section>
-
-    <section class="section content-section">
-      <div class="section-header">
-        <p class="eyebrow">Campaign Assets</p>
-      </div>
-
-      <div class="activation-examples">
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Video Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Video</span>
-            <h3>Trusted Messenger Story</h3>
-            <p>Placeholder for video or spokesperson content designed to answer questions and build trust with priority communities.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Media Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Media</span>
-            <h3>Public Awareness Outreach</h3>
-            <p>Placeholder for earned, paid, or community media outreach supporting vaccine education and access.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Toolkit Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Community Toolkit</span>
-            <h3>Accessible Messaging</h3>
-            <p>Placeholder for partner materials, social content, or FAQs designed to make vaccine information easier to share.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section impact-section" id="impact">
-      <div class="section-header">
-        <p class="eyebrow">Results</p>
-        <p>
-          Placeholder results narrative for the COVID-19 vaccine campaign. Use this section to summarize community reach, media visibility, social engagement, stakeholder feedback, or public awareness outcomes.
-        </p>
-      </div>
-
-      <figure class="impact-graphic">
-        <div class="placeholder-results">
-          <div class="placeholder-result-card">
-            <strong>Reach</strong>
-            <span>Placeholder for audience reach, impressions, or community touchpoints.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>Engagement</strong>
-            <span>Placeholder for content engagement, event participation, or inquiries.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>Trust</strong>
-            <span>Placeholder for stakeholder feedback or trust-building outcomes.</span>
-          </div>
-        </div>
-      </figure>
-    </section>
-
-    <div class="case-divider" aria-hidden="true"></div>
-
-    <section class="section meeting-overview" id="ican-detail">
-      <figure class="case-hero-image">
-        <div class="case-media-placeholder">
-          <span>Financial Aid Awareness Visual Placeholder</span>
-        </div>
-      </figure>
-
-      <div class="split text-only">
-        <div class="copy-stack">
-          <p class="eyebrow">Project Overview</p>
-          <p>
-            Placeholder overview for the ICAN Afford College financial aid awareness campaign. Use this space to explain the challenge of reaching students and families with clear information about financial aid, affordability, and next steps.
-          </p>
-          <p>
-            This section can be updated with approved details about target audiences, campaign messaging, creative approach, media strategy, education partners, and how the campaign helped make college affordability feel more accessible.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section strategy-section">
-      <div class="section-header">
-        <p class="eyebrow">Strategy</p>
-      </div>
-
-      <div class="strategy-narrative">
-        <p>
-          Placeholder narrative for the financial aid awareness strategy. This can describe how messaging reduced confusion, clarified application steps, and encouraged students to explore available support.
-        </p>
-        <p>
-          Use this paragraph to capture how campaign content moved across digital, social, community, school, partner, and media channels to reach students and families with practical information.
-        </p>
-      </div>
-    </section>
-
-    <section class="section content-section">
-      <div class="section-header">
-        <p class="eyebrow">Campaign Assets</p>
-      </div>
-
-      <div class="activation-examples">
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Digital Ad Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Digital</span>
-            <h3>Financial Aid Awareness</h3>
-            <p>Placeholder for digital or social campaign assets explaining financial aid resources and deadlines.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Partner Toolkit Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Toolkit</span>
-            <h3>Student Support Materials</h3>
-            <p>Placeholder for partner materials created to help schools and community organizations share campaign messages.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Media Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Media</span>
-            <h3>Public Awareness Push</h3>
-            <p>Placeholder for outreach designed to increase awareness of financial aid availability and action steps.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section impact-section">
-      <div class="section-header">
-        <p class="eyebrow">Results</p>
-        <p>
-          Placeholder results narrative for the financial aid awareness campaign. Use this section to summarize awareness, engagement, partner participation, media results, or student action outcomes.
-        </p>
-      </div>
-
-      <figure class="impact-graphic">
-        <div class="placeholder-results">
-          <div class="placeholder-result-card">
-            <strong>Awareness</strong>
-            <span>Placeholder for reach, impressions, or campaign visibility.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>Action</strong>
-            <span>Placeholder for clicks, inquiries, form starts, or application-related outcomes.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>Partners</strong>
-            <span>Placeholder for school, community, or partner engagement.</span>
-          </div>
-        </div>
-      </figure>
-    </section>
-
-    <div class="case-divider" aria-hidden="true"></div>
-
-    <section class="section meeting-overview" id="mobile-rv-detail">
-      <figure class="case-hero-image">
-        <div class="case-media-placeholder">
-          <span>Mobile RV Health Screening Visual Placeholder</span>
-        </div>
-      </figure>
-
-      <div class="split text-only">
-        <div class="copy-stack">
-          <p class="eyebrow">Project Overview</p>
-          <p>
-            Placeholder overview for Health Net Mobile RV Community Health Screenings. Use this space to explain how the program brought preventive care, screenings, and health resources directly into communities.
-          </p>
-          <p>
-            This section can be updated with approved details about target communities, health access barriers, outreach partners, event promotion, on-site communications, and how the program supported community trust and care access.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section strategy-section">
-      <div class="section-header">
-        <p class="eyebrow">Strategy</p>
-      </div>
-
-      <div class="strategy-narrative">
-        <p>
-          Placeholder narrative for the mobile health screening communications strategy. This can describe how outreach connected community members to services by making the program visible, understandable, and easy to access.
-        </p>
-        <p>
-          Use this paragraph to capture how communications supported local events, community partners, earned media, social content, member outreach, and on-site engagement.
-        </p>
-      </div>
-    </section>
-
-    <section class="section content-section">
-      <div class="section-header">
-        <p class="eyebrow">Campaign Assets</p>
-      </div>
-
-      <div class="activation-examples">
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Event Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Event</span>
-            <h3>Community Screening</h3>
-            <p>Placeholder for event promotion or on-site communications supporting health screenings.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Partner Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Partners</span>
-            <h3>Local Outreach</h3>
-            <p>Placeholder for community partner materials designed to help residents learn about screening opportunities.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Media Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Media</span>
-            <h3>Access Awareness</h3>
-            <p>Placeholder for public awareness content showing how the mobile RV expanded access to preventive care.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section impact-section">
-      <div class="section-header">
-        <p class="eyebrow">Results</p>
-        <p>
-          Placeholder results narrative for the mobile RV screening campaign. Use this section to summarize attendance, screenings completed, local reach, earned media, partner feedback, or community impact.
-        </p>
-      </div>
-
-      <figure class="impact-graphic">
-        <div class="placeholder-results">
-          <div class="placeholder-result-card">
-            <strong>Screenings</strong>
-            <span>Placeholder for screenings completed or residents served.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>Reach</strong>
-            <span>Placeholder for community reach, media impressions, or event promotion.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>Access</strong>
-            <span>Placeholder for care access, referrals, or community feedback.</span>
-          </div>
-        </div>
-      </figure>
     </section>
   </main>
 
@@ -2572,41 +2362,46 @@
   </footer>
 
   <script>
-    /* Lightweight JavaScript for mobile navigation, active section state, and current year. */
+    const yearTarget = document.querySelector("#year");
+    if (yearTarget) yearTarget.textContent = new Date().getFullYear();
+
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector("#nav-links");
     const navItems = document.querySelectorAll(".nav-links a");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+        navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      });
+
+      navItems.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+          navToggle.setAttribute("aria-label", "Open menu");
+        });
+      });
+    }
+
     const sections = [...navItems]
-      .filter((link) => link.getAttribute("href").startsWith("#"))
+      .filter((link) => link.getAttribute("href") && link.getAttribute("href").startsWith("#"))
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);
 
-    document.querySelector("#year").textContent = new Date().getFullYear();
-
-    navToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-      navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-    });
-
-    navItems.forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-        navToggle.setAttribute("aria-label", "Open menu");
-      });
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        navItems.forEach((link) => {
-          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+    if ("IntersectionObserver" in window && sections.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navItems.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+          });
         });
-      });
-    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
+      }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
 
-    sections.forEach((section) => observer.observe(section));
+      sections.forEach((section) => observer.observe(section));
+    }
   </script>
 </body>
 </html>

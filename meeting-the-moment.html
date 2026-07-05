@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal portfolio page featuring corporate storytelling case studies across AI in drug discovery, lab expansion communications, and scientific award storytelling.">
+  <meta name="description" content="Corporate storytelling portfolio hub featuring science and innovation case studies.">
   <meta name="theme-color" content="#f4eddf">
   <title>Corporate Storytelling Case Studies | Jaime Botello</title>
   <style>
@@ -1646,6 +1646,71 @@
       margin-top: 1.6rem;
     }
 
+    .case-study-collection.corporate-stacked {
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+
+    .corporate-case-row {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.5fr) minmax(0, 1fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: stretch;
+    }
+
+    .corporate-stacked .collection-card {
+      grid-template-rows: auto 1fr;
+      padding: 1rem 1rem 1.1rem;
+    }
+
+    .corporate-stacked .collection-thumb {
+      height: 100%;
+      min-height: 285px;
+      aspect-ratio: auto;
+    }
+
+    .corporate-stacked .collection-card .collection-body {
+      min-height: auto;
+      padding-top: 0.9rem;
+    }
+
+    .corporate-stacked .collection-card h3 {
+      font-size: clamp(1.18rem, 1.55vw, 1.55rem);
+    }
+
+    .corporate-description-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0.5rem 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .corporate-description-box p {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    .corporate-description-box .mini-button {
+      margin-top: 1rem;
+    }
+
+    .corporate-stacked .collection-body {
+      min-height: auto;
+      justify-content: center;
+      padding: 0.35rem 0 0.35rem;
+    }
+
+    .corporate-stacked .collection-body .mini-button {
+      margin-top: 1rem;
+    }
+
     .collection-card {
       display: grid;
       grid-template-rows: auto 1fr;
@@ -1770,6 +1835,40 @@
       margin-top: 2.2rem;
     }
 
+    .meeting-assets {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .meeting-assets .activation-card {
+      padding: 1rem 1rem 0;
+    }
+
+    .compact-assets {
+      gap: 1rem;
+    }
+
+    .compact-assets .activation-card {
+      padding: 0.85rem 0.85rem 0;
+    }
+
+    .compact-assets .activation-body {
+      padding-bottom: 0.9rem;
+    }
+
+    .compact-assets .activation-type {
+      min-height: 42px;
+      min-width: min(100%, 200px);
+      margin-bottom: 0.75rem;
+      font-size: 1.02rem;
+    }
+
+    .compact-assets .activation-body p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
     .activation-card {
       display: grid;
       grid-template-rows: auto 1fr;
@@ -1793,6 +1892,10 @@
       background: #f5e7bf;
     }
 
+    .activation-card:nth-child(4) {
+      background: #dce8df;
+    }
+
     .activation-thumbnail {
       aspect-ratio: 16 / 10;
       border: 0;
@@ -1801,6 +1904,11 @@
 
     .activation-thumbnail img {
       object-fit: cover;
+    }
+
+    .executive-amplification-thumb img {
+      object-fit: contain;
+      background: #ffffff;
     }
 
     .activation-body {
@@ -1836,6 +1944,10 @@
     .activation-card:nth-child(3) .activation-type {
       color: var(--ink);
       background: var(--gold);
+    }
+
+    .activation-card:nth-child(4) .activation-type {
+      background: var(--aqua);
     }
 
     .activation-body h3 {
@@ -2104,8 +2216,18 @@
       .activation-examples,
       .contribution-infographic,
       .case-study-collection,
+      .case-study-collection.corporate-stacked,
       .placeholder-results {
         grid-template-columns: 1fr;
+      }
+
+      .corporate-case-row {
+        grid-template-columns: 1fr;
+      }
+
+      .corporate-stacked .collection-thumb {
+        min-height: 230px;
+        aspect-ratio: 16 / 10;
       }
 
       .hero {
@@ -2168,6 +2290,111 @@
         min-height: auto;
       }
     }
+  
+
+    /* Shared dropdown navigation for the portfolio hub and case study pages. */
+
+    .nav-toggle {
+      display: none !important;
+    }
+
+    .nav-menu {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-menu-button {
+      min-height: 40px;
+      padding: 0.62rem 0.78rem;
+      color: var(--ink);
+      border: 2px solid transparent;
+      border-radius: 0;
+      background: transparent;
+      font-family: var(--condensed, inherit);
+      font-size: 0.98rem;
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-menu-button:hover,
+    .nav-menu:focus-within .nav-menu-button {
+      color: var(--ink);
+      border-color: var(--ink);
+      background: var(--gold);
+    }
+
+    .nav-menu-button::after {
+      content: "";
+      display: inline-block;
+      margin-left: 0.45rem;
+      border-left: 0.28rem solid transparent;
+      border-right: 0.28rem solid transparent;
+      border-top: 0.35rem solid currentColor;
+      vertical-align: middle;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.35rem);
+      left: 0;
+      z-index: 80;
+      min-width: 250px;
+      display: none;
+      gap: 0.2rem;
+      padding: 0.45rem;
+      border: 3px solid var(--ink);
+      border-radius: 6px;
+      background: var(--paper, #ffffff);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .nav-menu:hover .dropdown-menu,
+    .nav-menu:focus-within .dropdown-menu {
+      display: grid;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      white-space: normal;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        position: static !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+      }
+
+      .nav-menu {
+        width: 100%;
+        display: grid;
+      }
+
+      .nav-menu-button {
+        width: 100%;
+        text-align: left;
+      }
+
+      .dropdown-menu {
+        position: static;
+        display: grid;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+    }
+
   </style>
 </head>
 
@@ -2184,8 +2411,14 @@
 
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
-        <a href="strategic-communications-corporate-storytelling.html">Executive</a>
-        <a href="community-engagement-public-awareness.html">Community</a>
+        <div class="nav-menu">
+          <button class="nav-menu-button" type="button">Work</button>
+          <div class="dropdown-menu">
+            <a href="meeting-the-moment.html">Corporate Storytelling</a>
+            <a href="strategic-communications-corporate-storytelling.html">Executive Storytelling</a>
+            <a href="community-engagement-public-awareness.html">Community Engagement</a>
+          </div>
+        </div>
         <a href="ai-capabilities.html">Capabilities</a>
         <a href="resume.html">Resume</a>
         <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
@@ -2201,361 +2434,66 @@
 
       <aside class="hero-visual" aria-label="Project image">
         <!-- UPDATE: Replace this image with another approved project visual if needed. -->
-        <img class="project-image" src="images/meeting-the-moment-panel.png" alt="Panel of experts seated around a table for the Meeting the Moment AI in drug discovery discussion.">
+        <img class="project-image" src="images/corporate-storytelling-top-lab.jpg" alt="Amgen lab scene showing researchers in a small molecule discovery workspace.">
       </aside>
 
       <div class="hero-copy">
         <p class="hero-tagline">A curated set of science and innovation case studies showing how I leveraged my corporate storytelling expertise to make complex research, scientific milestones, and expert voices more accessible to internal and external audiences.</p>
         <div class="hero-actions">
           <a class="button primary" href="#overview">View Case Studies</a>
-          <a class="button secondary" href="#meeting-detail">Featured Case Study</a>
+          <a class="button secondary" href="meeting-the-moment-ai-drug-discovery.html">View Case Study</a>
         </div>
       </div>
     </section>
 
     <section class="section" id="overview">
-      <div class="case-study-collection">
-        <article class="collection-card">
-          <div class="collection-thumb">
-            <img src="images/meeting-the-moment-panel.png" alt="Panel of experts seated around a table for Meeting the Moment.">
-          </div>
-          <div class="collection-body">
-            <h3>Meeting the Moment: AI in Drug Discovery</h3>
+      <div class="case-study-collection corporate-stacked">
+        <div class="corporate-case-row">
+          <article class="collection-card">
+            <div class="collection-thumb">
+              <img src="images/meeting-the-moment-panel.png" alt="Panel of experts seated around a table for Meeting the Moment.">
+            </div>
+            <div class="collection-body">
+              <h3>Meeting the Moment: AI in Drug Discovery</h3>
+            </div>
+          </article>
+          <div class="corporate-description-box">
             <p>Flagship multimedia storytelling initiative exploring how AI is reshaping drug discovery, featuring perspectives from Amgen, Harvard Medical School, and MIT.</p>
-            <a class="mini-button" href="#meeting-detail">View Featured Case Study</a>
+            <a class="mini-button" href="meeting-the-moment-ai-drug-discovery.html">View Case Study</a>
           </div>
-        </article>
+        </div>
 
-        <article class="collection-card">
-          <div class="collection-thumb">
-            <img src="images/amgen-south-sf-small-molecule-card.jpg" alt="Amgen South San Francisco building exterior for Small Molecule Drug Discovery Lab Expansion case study.">
-          </div>
-          <div class="collection-body">
-            <h3>Small Molecule Drug Discovery Lab Expansion</h3>
+        <div class="corporate-case-row">
+          <article class="collection-card">
+            <div class="collection-thumb">
+              <img src="images/amgen-south-sf-small-molecule-card.jpg" alt="Amgen South San Francisco building exterior for Small Molecule Drug Discovery Lab Expansion case study.">
+            </div>
+            <div class="collection-body">
+              <h3>Small Molecule Drug Discovery Lab Expansion</h3>
+            </div>
+          </article>
+          <div class="corporate-description-box">
             <p>Corporate storytelling around R&amp;D lab expansion, innovation visibility, and the role of next-generation research spaces in advancing scientific discovery.</p>
-            <a class="mini-button" href="#small-molecule-detail">View Case Study</a>
+            <a class="mini-button" href="small-molecule-drug-discovery-lab-expansion.html">View Case Study</a>
           </div>
-        </article>
+        </div>
 
-        <article class="collection-card">
-          <div class="collection-thumb logo-thumb">
-            <img src="images/acs-heroes-of-chemistry-card.webp" alt="American Chemical Society Heroes of Chemistry logo.">
-          </div>
-          <div class="collection-body">
-            <h3>ACS Heroes of Chemistry</h3>
+        <div class="corporate-case-row">
+          <article class="collection-card">
+            <div class="collection-thumb logo-thumb">
+              <img src="images/acs-heroes-of-chemistry-card.webp" alt="American Chemical Society Heroes of Chemistry logo.">
+            </div>
+            <div class="collection-body">
+              <h3>ACS Heroes of Chemistry</h3>
+            </div>
+          </article>
+          <div class="corporate-description-box">
             <p>Scientist profile and award storytelling connected to recognition, scientific achievement, and corporate reputation.</p>
-            <a class="mini-button" href="#kras-detail">View Case Study</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <div class="case-divider" aria-hidden="true"></div>
-
-    <section class="section meeting-overview" id="meeting-detail">
-      <figure class="case-hero-image">
-        <img src="images/meeting-the-moment-case-study-hero.png" alt="Meeting the Moment AI in Drug Discovery case study graphic featuring a panel conversation.">
-      </figure>
-
-      <div class="split text-only">
-        <div class="copy-stack">
-          <p class="eyebrow">Project Overview</p>
-          <p>
-            Meeting the Moment was a flagship 30-minute, podcast-style video conversation hosted on Amgen's YouTube channel, designed to showcase how artificial intelligence is transforming drug discovery and accelerating scientific innovation. The discussion brought together thought leaders from Amgen, Harvard Medical School, and the Massachusetts Institute of Technology (MIT) to explore AI's role in advancing biomedical research and shaping the future of medicine.
-          </p>
-          <p>
-            The YouTube conversation served as the foundation for a broader multimedia storytelling initiative, with content strategically repurposed and amplified across digital, social, and internal communications channels. The campaign also included a paid thought leadership advertising strategy to extend the conversation beyond Amgen's owned channels, increase visibility among priority audiences, and reinforce the company's leadership in AI-enabled drug discovery.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section strategy-section" id="strategy">
-      <div class="section-header">
-        <p class="eyebrow">Strategy</p>
-      </div>
-
-      <div class="strategy-narrative">
-        <!-- UPDATE: Customize this narrative with the specific strategy, partners, channels, and timing for your project. -->
-        <p>
-          To help amplify the conversation, a multi-channel communications strategy was developed to extend the reach and impact of the 30-minute video beyond Amgen's YouTube channel. Rather than treating it as a one-time release, the strategy repurposed the content into platform-specific assets across Amgen's enterprise social channels including LinkedIn and YouTube Shorts, Amgen.com, the company's internal global news channel, and LinkedIn thought leadership posts from Amgen senior leaders and the Harvard and MIT panelists. The campaign also included a paid thought leadership ad to extend reach among priority external audiences.
-        </p>
-        <p>
-          As Project Manager, responsibilities included leading the editorial strategy, coordinating communications, digital, creative, production, and executive stakeholders, managing timelines and approvals, and ensuring each channel supported a consistent story while tailoring content for its audience and platform. The integrated campaign transformed a single 30-minute conversation into a sustained, enterprise-wide storytelling initiative that expanded audience reach, elevated executive thought leadership, and reinforced Amgen's leadership in AI-enabled drug discovery.
-        </p>
-        <p>
-          The project also served as a pilot for future multimedia storytelling initiatives, demonstrating how long-form video, executive thought leadership, and digital-first content can strengthen corporate reputation, increase awareness of scientific innovation, and inspire broader conversations about the future of AI in healthcare.
-        </p>
-      </div>
-    </section>
-
-    <section class="section content-section">
-      <div class="section-header">
-        <p class="eyebrow">Campaign Assets</p>
-      </div>
-
-      <div class="activation-examples">
-        <article class="activation-card">
-          <div class="activation-thumbnail">
-            <img src="images/social-video-thumbnail.png" alt="Thumbnail for AI in Drug Discovery social video featuring the panel conversation.">
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Video</span>
-            <h3>AI in Drug Discovery: Full Episode</h3>
-            <p>Short-form video asset designed to introduce the story quickly, drive engagement, and extend the campaign across social channels.</p>
-            <a class="mini-button" href="https://youtu.be/EzO3BcG8BiE?si=AoBxhrcLPe_k-HxU" target="_blank" rel="noopener">Watch on YouTube</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>External Article Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">External Article</span>
-            <h3>AI in Drug Discovery Feature</h3>
-            <p>Public-facing editorial content that expanded the core video story and helped audiences understand why AI matters for biomedical research.</p>
-            <!-- UPDATE: Replace this with the live article URL. -->
-            <a class="mini-button" href="https://www.amgen.com/stories" target="_blank" rel="noopener">Read Article</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail social-post-thumb">
-            <img src="images/social-post-thumbnail.png" alt="Thumbnail for LinkedIn social post featuring a speaker from the Meeting the Moment video.">
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Post</span>
-            <h3>Executive Amplification Example</h3>
-            <p>Placeholder for a LinkedIn or social post that extended the story through executive thought leadership and digital-first packaging.</p>
-            <!-- UPDATE: Replace this with the live social post URL if available. -->
-            <a class="mini-button" href="https://www.linkedin.com/company/amgen/" target="_blank" rel="noopener">View LinkedIn Channel</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section impact-section" id="impact">
-      <div class="section-header">
-        <p class="eyebrow">Results</p>
-        <p>
-          The campaign demonstrated how a single long-form conversation could become a scalable, enterprise-wide storytelling initiative. By combining executive thought leadership with an integrated multi-channel distribution strategy, the project made AI-enabled drug discovery more accessible to internal and external audiences while reinforcing Amgen's position as a leader in scientific innovation.
-        </p>
-        <p>
-          Beyond the campaign's performance, the project created a repeatable framework for future multimedia storytelling by connecting long-form video, digital-first content, executive visibility, and strategic amplification into a single communications model. The campaign was also well received by internal stakeholders, including senior leaders, reinforcing the value of the approach and helping establish a foundation for future multimedia storytelling initiatives.
-        </p>
-      </div>
-
-      <figure class="impact-graphic">
-        <!-- UPDATE: Replace this graphic with a revised results visual if metrics or campaign artwork changes. -->
-        <img src="images/results-at-a-glance.png" alt="Results at a glance graphic showing campaign performance metric placeholders for the Meeting the Moment initiative.">
-      </figure>
-
-    </section>
-
-    <div class="case-divider" aria-hidden="true"></div>
-
-    <section class="section meeting-overview" id="small-molecule-detail">
-      <figure class="case-hero-image">
-        <img src="images/small-molecule-case-study-hero.png" alt="Small Molecule Drug Discovery lab expansion case study graphic.">
-      </figure>
-
-      <div class="split text-only">
-        <div class="copy-stack">
-          <p class="eyebrow">Project Overview</p>
-          <p>
-            The expansion of Amgen's Small Molecule Drug Discovery Labs in South San Francisco created an opportunity to tell a broader story about the company's investment in the future of scientific discovery. A ribbon-cutting ceremony marked the opening of the expanded research space and brought together Amgen leaders, scientists, and employees to celebrate the milestone.
-          </p>
-          <p>
-            The communications plan extended the story beyond the event itself by showing how the new labs bring science, technology, automation, and integrated research teams together. The goal was to make a complex R&amp;D milestone clear and engaging while reinforcing how next-generation lab capabilities help scientists learn faster, make better decisions, and move potential medicines forward with greater confidence.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section strategy-section">
-      <div class="section-header">
-        <p class="eyebrow">Strategy</p>
-      </div>
-
-      <div class="strategy-narrative">
-        <p>
-          To amplify the lab expansion, a multi-channel communications strategy turned the ribbon-cutting ceremony into a broader science and innovation story. The content strategy combined event storytelling with behind-the-scenes access to the labs, helping explain complex scientific processes in a way that felt clear, visual, and accessible for internal and external audiences.
-        </p>
-        <p>
-          As Project Manager, responsibilities included leading the editorial strategy, coordinating communications, digital, creative, and production teams, managing timelines and approvals, and aligning content across internal and external channels. Each asset was developed for a specific audience and platform while supporting one consistent story: Amgen's next-generation labs are designed to bring teams and technologies closer together and strengthen how potential new medicines are discovered.
-        </p>
-      </div>
-    </section>
-
-    <section class="section content-section">
-      <div class="section-header">
-        <p class="eyebrow">Campaign Assets</p>
-      </div>
-
-      <div class="activation-examples">
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Video Asset Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Video</span>
-            <h3>90-Second Social Video</h3>
-            <p>Short-form video content designed to introduce the lab expansion story and highlight the science, technology, and people behind the new research space.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Editorial Asset Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Editorial Content</span>
-            <h3>Feature Story &amp; Internal Article</h3>
-            <p>Longer-form storytelling across Amgen.com and internal channels that connected the lab milestone to broader R&amp;D innovation priorities.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Channel Asset Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Channel Rollout</span>
-            <h3>Social &amp; Internal Amplification</h3>
-            <p>Platform-specific content across LinkedIn, Instagram, X, Threads, YouTube Shorts, and Viva Engage to extend the story across priority audiences.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section impact-section">
-      <div class="section-header">
-        <p class="eyebrow">Results</p>
-        <p>
-          The campaign transformed a single ribbon-cutting ceremony into a broader multimedia storytelling initiative that extended the life and reach of the lab expansion story. By combining editorial content, short-form video, event storytelling, social media, and internal communications, the project created multiple ways for employees and external audiences to engage with Amgen's research and innovation story.
-        </p>
-        <p>
-          Beyond individual content performance, the campaign helped make a complex scientific process more accessible and demonstrated the value of building an integrated communications strategy around a key R&amp;D milestone. The work reinforced Amgen's commitment to scientific innovation and positioned the expanded labs as more than a new facility: an investment in the people, technology, and research capabilities shaping the future of drug discovery.
-        </p>
-      </div>
-
-      <figure class="impact-graphic">
-        <div class="placeholder-results">
-          <div class="placeholder-result-card">
-            <strong>Reach</strong>
-            <span>Placeholder for audience reach, impressions, or article traffic.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>Engagement</strong>
-            <span>Placeholder for employee, social, or stakeholder engagement.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>Brand Value</strong>
-            <span>Placeholder for brand, reputation, or business communications value.</span>
+            <a class="mini-button" href="acs-heroes-of-chemistry.html">View Case Study</a>
           </div>
         </div>
-      </figure>
-    </section>
-
-    <div class="case-divider" aria-hidden="true"></div>
-
-    <section class="section meeting-overview" id="kras-detail">
-      <figure class="case-hero-image">
-        <img src="images/acs-heroes-case-study-hero.png" alt="ACS Heroes of Chemistry Award case study graphic celebrating scientific innovation and impact.">
-      </figure>
-
-      <div class="split text-only">
-        <div class="copy-stack">
-          <p class="eyebrow">Project Overview</p>
-          <p>
-            In 2025, the LUMAKRAS team was recognized as an American Chemical Society Heroes of Chemistry recipient, an honor celebrating the scientific innovation and persistence behind LUMAKRAS, Amgen's first-in-class KRAS G12C inhibitor.
-          </p>
-          <p>
-            The recognition created an opportunity to tell a broader story about the people and science behind a target once considered "undruggable." The goal was to celebrate the achievement while making the science more accessible and reinforcing Amgen's leadership in oncology and bold scientific innovation.
-          </p>
-        </div>
-
       </div>
     </section>
-
-    <section class="section strategy-section">
-      <div class="section-header">
-        <p class="eyebrow">Strategy</p>
-      </div>
-
-      <div class="strategy-narrative">
-        <p>
-          To amplify the achievement, a targeted communications campaign was developed to showcase Amgen's leadership in oncology, engage internal and external audiences, and reinforce the company's reputation for bold science and meaningful impact.
-        </p>
-        <p>
-          The campaign connected science storytelling, executive visibility, employee engagement, social amplification, and earned media around a single innovation story. The work highlighted the breakthrough while keeping the human side of the discovery visible through scientist-centered storytelling and clear editorial framing.
-        </p>
-      </div>
-    </section>
-
-    <section class="section content-section">
-      <div class="section-header">
-        <p class="eyebrow">Campaign Assets</p>
-      </div>
-
-      <div class="activation-examples">
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Scientist Profile</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Profile</span>
-            <h3>Scientist Spotlight</h3>
-            <p>Scientist-centered storytelling featuring an Amgen research leader and the people behind the ACS Heroes of Chemistry recognition.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Science Article</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Article</span>
-            <h3>Cracking the KRAS Code</h3>
-            <p>Amgen.com feature content explaining the scientific journey behind LUMAKRAS and the persistence required to pursue a once-undruggable target.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Social &amp; Executive</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Amplification</span>
-            <h3>Executive &amp; Channel Activation</h3>
-            <p>LinkedIn, X, ACS-produced social video, executive thought leadership posts, internal news, and Viva Engage amplification extended the story across audiences.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section impact-section">
-      <div class="section-header">
-        <p class="eyebrow">Results</p>
-        <p>
-          Beyond the numbers, the campaign made a complex scientific breakthrough more accessible by putting the people behind the discovery at the center of the story. The integrated approach reinforced Amgen's leadership in oncology, elevated senior leader and scientist visibility, and demonstrated how a major scientific recognition can become a sustained, multi-channel storytelling opportunity.
-        </p>
-      </div>
-
-      <figure class="impact-graphic">
-        <img src="images/kras-results-broad-impact.png" alt="ACS Heroes of Chemistry results graphic showing page views, engagements, earned media impressions, and social impressions.">
-      </figure>
-    </section>
-
   </main>
 
   <footer class="footer">
@@ -2565,41 +2503,46 @@
   </footer>
 
   <script>
-    /* Lightweight JavaScript for mobile navigation, active section state, and current year. */
+    const yearTarget = document.querySelector("#year");
+    if (yearTarget) yearTarget.textContent = new Date().getFullYear();
+
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector("#nav-links");
     const navItems = document.querySelectorAll(".nav-links a");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+        navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      });
+
+      navItems.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+          navToggle.setAttribute("aria-label", "Open menu");
+        });
+      });
+    }
+
     const sections = [...navItems]
-      .filter((link) => link.getAttribute("href").startsWith("#"))
+      .filter((link) => link.getAttribute("href") && link.getAttribute("href").startsWith("#"))
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);
 
-    document.querySelector("#year").textContent = new Date().getFullYear();
-
-    navToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-      navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-    });
-
-    navItems.forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-        navToggle.setAttribute("aria-label", "Open menu");
-      });
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        navItems.forEach((link) => {
-          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+    if ("IntersectionObserver" in window && sections.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navItems.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+          });
         });
-      });
-    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
+      }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
 
-    sections.forEach((section) => observer.observe(section));
+      sections.forEach((section) => observer.observe(section));
+    }
   </script>
 </body>
 </html>

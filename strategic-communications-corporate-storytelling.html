@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal portfolio page featuring executive thought leadership case studies across social video, scientific storytelling, and digital activation.">
+  <meta name="description" content="Executive storytelling portfolio hub featuring social video and thought leadership case studies.">
   <meta name="theme-color" content="#f4eddf">
-  <title>Executive Thought Leadership Case Studies | Jaime Botello</title>
+  <title>Executive Storytelling Case Studies | Jaime Botello</title>
   <style>
     /* =========================================================
       PERSONAL PORTFOLIO CASE STUDY
@@ -2241,6 +2241,111 @@
         min-height: auto;
       }
     }
+  
+
+    /* Shared dropdown navigation for the portfolio hub and case study pages. */
+
+    .nav-toggle {
+      display: none !important;
+    }
+
+    .nav-menu {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-menu-button {
+      min-height: 40px;
+      padding: 0.62rem 0.78rem;
+      color: var(--ink);
+      border: 2px solid transparent;
+      border-radius: 0;
+      background: transparent;
+      font-family: var(--condensed, inherit);
+      font-size: 0.98rem;
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-menu-button:hover,
+    .nav-menu:focus-within .nav-menu-button {
+      color: var(--ink);
+      border-color: var(--ink);
+      background: var(--gold);
+    }
+
+    .nav-menu-button::after {
+      content: "";
+      display: inline-block;
+      margin-left: 0.45rem;
+      border-left: 0.28rem solid transparent;
+      border-right: 0.28rem solid transparent;
+      border-top: 0.35rem solid currentColor;
+      vertical-align: middle;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.35rem);
+      left: 0;
+      z-index: 80;
+      min-width: 250px;
+      display: none;
+      gap: 0.2rem;
+      padding: 0.45rem;
+      border: 3px solid var(--ink);
+      border-radius: 6px;
+      background: var(--paper, #ffffff);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .nav-menu:hover .dropdown-menu,
+    .nav-menu:focus-within .dropdown-menu {
+      display: grid;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      white-space: normal;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        position: static !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+      }
+
+      .nav-menu {
+        width: 100%;
+        display: grid;
+      }
+
+      .nav-menu-button {
+        width: 100%;
+        text-align: left;
+      }
+
+      .dropdown-menu {
+        position: static;
+        display: grid;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+    }
+
   </style>
 </head>
 
@@ -2257,8 +2362,14 @@
 
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
-        <a href="meeting-the-moment.html">Corporate</a>
-        <a href="community-engagement-public-awareness.html">Community</a>
+        <div class="nav-menu">
+          <button class="nav-menu-button" type="button">Work</button>
+          <div class="dropdown-menu">
+            <a href="meeting-the-moment.html">Corporate Storytelling</a>
+            <a href="strategic-communications-corporate-storytelling.html">Executive Storytelling</a>
+            <a href="community-engagement-public-awareness.html">Community Engagement</a>
+          </div>
+        </div>
         <a href="ai-capabilities.html">Capabilities</a>
         <a href="resume.html">Resume</a>
         <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
@@ -2274,14 +2385,14 @@
 
       <aside class="hero-visual" aria-label="Project image">
         <!-- UPDATE: Replace this image with another approved project visual if needed. -->
-        <img class="project-image" src="images/my-9-5-case-study-hero-anonymous.png" alt="My 9-5 social video case study graphic featuring an Amgen R&D executive.">
+        <img class="project-image" src="images/executive-storytelling-top-production.jpg" alt="Behind-the-scenes video production for an Amgen executive storytelling project.">
       </aside>
 
       <div class="hero-copy">
         <p class="hero-tagline">A curated set of executive thought leadership case studies showing how social-first storytelling can make scientific leaders more visible, accessible, and connected to audiences across digital channels.</p>
         <div class="hero-actions">
           <a class="button primary" href="#overview">View Case Studies</a>
-          <a class="button secondary" href="#my-9-5-detail">Featured Case Study</a>
+          <a class="button secondary" href="my-9-5-social-video.html">Featured Case Study</a>
         </div>
       </div>
     </section>
@@ -2295,7 +2406,7 @@
           <div class="collection-body">
             <h3>My 9-5 Social Video</h3>
             <p>Executive social video that turned a day-in-the-life format into an authentic story about scientific leadership, culture, and discovery.</p>
-            <a class="mini-button" href="#my-9-5-detail">View Case Study</a>
+            <a class="mini-button" href="my-9-5-social-video.html">View Case Study</a>
           </div>
         </article>
 
@@ -2306,239 +2417,10 @@
           <div class="collection-body">
             <h3>DNA Day Social Activation</h3>
             <p>Digital-first science storytelling that used a timely awareness moment to elevate genomics, research visibility, and executive thought leadership.</p>
-            <a class="mini-button" href="#dna-day-detail">View Case Study</a>
+            <a class="mini-button" href="dna-day-social-activation.html">View Case Study</a>
           </div>
         </article>
       </div>
-    </section>
-
-    <div class="case-divider" aria-hidden="true"></div>
-
-    <section class="section meeting-overview" id="my-9-5-detail">
-      <figure class="case-hero-image">
-        <img src="images/my-9-5-case-study-hero-anonymous.png" alt="My 9-5 social video case study graphic featuring an Amgen R&D executive.">
-      </figure>
-
-      <div class="split text-only">
-        <div class="copy-stack">
-          <p class="eyebrow">Project Overview</p>
-          <p>
-            An Amgen Executive Vice President, Research &amp; Development "My 9-5" social video reimagined a popular social media trend as a strategic executive storytelling opportunity. The project humanized a senior scientific leader through an authentic, behind-the-scenes look at a day in the life of the executive leading Amgen's research organization.
-          </p>
-          <p>
-            As audiences increasingly engage with authentic, people-first content, the communications opportunity was to showcase one of Amgen's leading scientists in a way that felt native to social media rather than traditional corporate communications. The project supported executive visibility, employer branding, and Amgen's broader innovation narrative.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section strategy-section" id="strategy">
-      <div class="section-header">
-        <p class="eyebrow">Strategy</p>
-      </div>
-
-      <div class="strategy-narrative">
-        <p>
-          The strategy focused on adapting the popular "My 9-5" trend into a polished executive story without losing the authenticity that made the format engaging. The content needed to feel social-first, fast-moving, and human, while still supporting Amgen's executive communications and executive storytelling priorities.
-        </p>
-        <p>
-          Working closely with cross-functional partners, production teams, and executive stakeholders, the video captured the R&amp;D leader's daily routine through fast-paced visuals, candid workplace moments, and concise storytelling. The final asset was optimized for LinkedIn and YouTube Shorts, allowing the story to reach audiences through formats already familiar to social users while reinforcing Amgen's research culture.
-        </p>
-      </div>
-    </section>
-
-    <section class="section content-section">
-      <div class="section-header">
-        <p class="eyebrow">Campaign Assets</p>
-      </div>
-
-      <div class="activation-examples">
-        <article class="activation-card">
-          <div class="activation-thumbnail">
-            <img src="images/my-9-5-case-study-hero-anonymous.png" alt="My 9-5 social video case study graphic featuring an Amgen R&D executive.">
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Video</span>
-            <h3>My 9-5 Social Video</h3>
-            <p>Social-first executive video designed to capture attention, humanize scientific leadership, and make the story feel native to digital platforms.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Executive Story Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Executive Story</span>
-            <h3>Leadership Visibility</h3>
-            <p>Content approach designed to elevate a senior scientific leader in a way that felt approachable, credible, and audience-ready.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Social Post Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Post</span>
-            <h3>Platform Amplification</h3>
-            <p>Placeholder for LinkedIn, YouTube Shorts, or other digital amplification that helped extend the executive story.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section impact-section" id="impact">
-      <div class="section-header">
-        <p class="eyebrow">Results</p>
-        <p>
-          The project demonstrated how social-first storytelling can elevate executive visibility while making complex scientific work more approachable. By showcasing the person behind the science, the video strengthened Amgen's employer brand, reinforced its culture of innovation, and created a repeatable storytelling framework for future executive and scientist profiles.
-        </p>
-        <p>
-          The impact was reflected in measurable performance: in Q4 2025, the video ranked #1 in both engagement and impressions among all content published across Amgen's LinkedIn and X social platforms, demonstrating the effectiveness of authentic, executive-led storytelling in driving audience engagement.
-        </p>
-      </div>
-
-      <figure class="impact-graphic">
-        <div class="placeholder-results">
-          <div class="placeholder-result-card">
-            <strong>#1</strong>
-            <span>Ranked first for engagement across Amgen LinkedIn and X content in Q4 2025.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>#1</strong>
-            <span>Ranked first for impressions across Amgen LinkedIn and X content in Q4 2025.</span>
-          </div>
-          <div class="placeholder-result-card">
-            <strong>2</strong>
-            <span>Priority social channels supported social-first executive storytelling.</span>
-          </div>
-        </div>
-      </figure>
-    </section>
-
-    <div class="case-divider" aria-hidden="true"></div>
-
-    <section class="section meeting-overview" id="dna-day-detail">
-      <figure class="case-hero-image">
-        <img src="images/dna-day-case-study-hero-anonymous.png" alt="DNA Day social video case study graphic featuring an Amgen R&D executive.">
-      </figure>
-
-      <div class="split text-only">
-        <div class="copy-stack">
-          <p class="eyebrow">Project Overview</p>
-          <p>
-            On April 25, 2025, teams across Amgen came together to mark DNA Day and highlight how far the science of genetics has come. The campaign focused on the 98% of DNA once largely overlooked, often called the "dark genome," and its growing role in understanding disease and opening new possibilities for discovery.
-          </p>
-          <p>
-            The moment created an opportunity to make a complex area of science more relevant and accessible while highlighting the people, research capabilities, and AI-enabled discovery work shaping the future of research at Amgen.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section strategy-section">
-      <div class="section-header">
-        <p class="eyebrow">Strategy</p>
-      </div>
-
-      <div class="strategy-narrative">
-        <p>
-          Through science storytelling and leadership engagement, the strategy connected Amgen's research, AI capabilities, and people to a clear, forward-looking narrative about the future of discovery.
-        </p>
-        <p>
-          At the center of the campaign was a 90-second, man-on-the-street-style video featuring Amgen's Senior Vice President, Global Research and Chief Scientific Officer. The informal format followed the research leader through Amgen's San Francisco research site, stopping colleagues to ask what they knew about the "dark genome" and what they had planned for DNA Day, bringing energy and personality to a complex scientific topic.
-        </p>
-      </div>
-    </section>
-
-    <section class="section content-section">
-      <div class="section-header">
-        <p class="eyebrow">Campaign Assets</p>
-      </div>
-
-      <div class="activation-examples">
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Social Video</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Video</span>
-            <h3>DNA Day Video</h3>
-            <p>90-second social-first video that used an informal, man-on-the-street format to make the "dark genome" more approachable.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Leadership Posts</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Thought Leadership</span>
-            <h3>Executive Message</h3>
-            <p>Senior R&amp;D leader amplification connected DNA Day to Amgen's broader research, AI, and discovery narrative.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Channel Rollout</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Amplification</span>
-            <h3>Enterprise Channel Activation</h3>
-            <p>LinkedIn, YouTube Shorts, internal news, and Viva Engage extended the story across external, leadership, and employee audiences.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section impact-section">
-      <div class="section-header">
-        <p class="eyebrow">Results</p>
-        <p>
-          The campaign demonstrated how short-form video, executive visibility, and coordinated multi-channel amplification could make complex science more accessible while strengthening awareness of Amgen's research and AI-enabled discovery capabilities.
-        </p>
-        <p>
-          The results show that audiences engaged with the story at meaningful scale, with strong reach, video consumption, and interaction across social channels. The performance reinforced the value of using timely science moments to connect executive storytelling, employee engagement, and digital-first education.
-        </p>
-      </div>
-
-      <figure class="impact-graphic">
-        <div class="dna-results">
-          <div class="dna-result-card">
-            <div class="dna-result-icon" aria-hidden="true">+</div>
-            <strong class="dna-result-value">120K+</strong>
-            <span class="dna-result-label">Impressions</span>
-            <span class="dna-result-note">Social reach across priority channels.</span>
-          </div>
-          <div class="dna-result-card">
-            <div class="dna-result-icon" aria-hidden="true">%</div>
-            <strong class="dna-result-value">2.5%+</strong>
-            <span class="dna-result-label">Engagement Rate</span>
-            <span class="dna-result-note">Audience interaction above baseline expectations.</span>
-          </div>
-          <div class="dna-result-card">
-            <div class="dna-result-icon" aria-hidden="true">*</div>
-            <strong class="dna-result-value">3K+</strong>
-            <span class="dna-result-label">Engagements</span>
-            <span class="dna-result-note">Reactions, comments, shares, and clicks.</span>
-          </div>
-          <div class="dna-result-card">
-            <div class="dna-result-icon" aria-hidden="true">PLAY</div>
-            <strong class="dna-result-value">35K+</strong>
-            <span class="dna-result-label">Video Views</span>
-            <span class="dna-result-note">Short-form content views across channels.</span>
-          </div>
-        </div>
-      </figure>
     </section>
   </main>
 
@@ -2549,41 +2431,46 @@
   </footer>
 
   <script>
-    /* Lightweight JavaScript for mobile navigation, active section state, and current year. */
+    const yearTarget = document.querySelector("#year");
+    if (yearTarget) yearTarget.textContent = new Date().getFullYear();
+
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector("#nav-links");
     const navItems = document.querySelectorAll(".nav-links a");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+        navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      });
+
+      navItems.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+          navToggle.setAttribute("aria-label", "Open menu");
+        });
+      });
+    }
+
     const sections = [...navItems]
-      .filter((link) => link.getAttribute("href").startsWith("#"))
+      .filter((link) => link.getAttribute("href") && link.getAttribute("href").startsWith("#"))
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);
 
-    document.querySelector("#year").textContent = new Date().getFullYear();
-
-    navToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-      navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-    });
-
-    navItems.forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-        navToggle.setAttribute("aria-label", "Open menu");
-      });
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        navItems.forEach((link) => {
-          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+    if ("IntersectionObserver" in window && sections.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navItems.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+          });
         });
-      });
-    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
+      }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
 
-    sections.forEach((section) => observer.observe(section));
+      sections.forEach((section) => observer.observe(section));
+    }
   </script>
 </body>
 </html>
