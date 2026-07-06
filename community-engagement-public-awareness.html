@@ -279,7 +279,8 @@
       max-width: 760px;
       margin-top: 1.35rem;
       color: var(--ink-soft);
-      font-size: 1rem;
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      line-height: 1.55;
     }
 
     .hero-actions,
@@ -375,7 +376,8 @@
     .section-header p:not(.eyebrow) {
       margin-top: 1rem;
       color: var(--ink-soft);
-      font-size: 1.05rem;
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      line-height: 1.55;
     }
 
     .split {
@@ -389,14 +391,15 @@
       display: grid;
       gap: 1rem;
       color: var(--ink-soft);
-      font-size: 1.02rem;
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      line-height: 1.55;
     }
 
     .overview-media {
       display: grid;
       place-items: center;
       justify-self: center;
-      width: min(100%, 360px);
+      width: min(100%, 460px);
       aspect-ratio: 9 / 16;
       text-align: center;
       border: 1px solid rgba(0, 194, 209, 0.24);
@@ -755,7 +758,8 @@
 
     .strategy-narrative p {
       color: var(--ink-soft);
-      font-size: 1rem;
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      line-height: 1.55;
     }
 
     .activation-examples {
@@ -1302,7 +1306,7 @@
     }
 
     .hero-title {
-      grid-column: 1 / -1;
+      grid-column: 1;
       position: relative;
       display: block;
       min-height: auto;
@@ -1367,10 +1371,11 @@
 
     .hero-visual {
       grid-column: 2;
-      grid-row: 2;
+      grid-row: 1 / span 2;
       justify-self: center;
       align-self: start;
-      width: min(100%, 440px);
+      width: min(100%, 360px);
+      margin-top: clamp(3.6rem, 6.8vw, 6.2rem);
       padding: 0;
       border: 0;
       border-radius: 6px;
@@ -1384,7 +1389,7 @@
     }
 
     .project-image {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 3 / 4;
       border: 0;
       object-fit: cover;
       object-position: center;
@@ -1440,7 +1445,8 @@
       max-width: 720px;
       gap: 1.2rem;
       color: var(--ink);
-      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      line-height: 1.55;
     }
 
     .eyebrow {
@@ -1524,8 +1530,9 @@
     .section-header p:not(.eyebrow) {
       margin-top: 1.2rem;
       color: var(--ink);
-      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
       font-weight: 400;
+      line-height: 1.55;
     }
 
     .overview-media {
@@ -1672,9 +1679,15 @@
     }
 
     .corporate-stacked .collection-thumb {
-      height: 100%;
-      min-height: 285px;
+      width: 100%;
+      height: 285px;
+      min-height: 0;
       aspect-ratio: auto;
+      max-width: 100%;
+    }
+
+    .corporate-case-row:nth-child(3) .collection-thumb img {
+      object-position: center;
     }
 
     .corporate-stacked .collection-card .collection-body {
@@ -1816,8 +1829,9 @@
     .strategy-narrative p,
     .impact-intro {
       color: var(--ink);
-      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
       font-weight: 400;
+      line-height: 1.55;
     }
 
     .strategy-narrative p {
@@ -1943,8 +1957,9 @@
       border-radius: 0;
       background: transparent;
       box-shadow: none;
-      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
       font-weight: 400;
+      line-height: 1.55;
     }
 
     .impact-graphic {
@@ -2178,8 +2193,8 @@
       }
 
       .corporate-stacked .collection-thumb {
-        min-height: 230px;
-        aspect-ratio: 16 / 10;
+        height: 230px;
+        aspect-ratio: auto;
       }
 
       .hero {
@@ -2204,6 +2219,7 @@
 
       .hero-visual {
         width: 100%;
+        margin-top: 0;
         padding: 0;
       }
 
@@ -2385,10 +2401,7 @@
       </div>
 
       <aside class="hero-visual" aria-label="Project image">
-        <div class="project-image-placeholder">
-          <strong>Community Engagement</strong>
-          <span>Public awareness, access, and education campaigns.</span>
-        </div>
+        <img class="project-image" src="images/community-rv-clinic-hero.jpg" alt="Health Net mobile clinic blood pressure screening inside an RV.">
       </aside>
 
       <div class="hero-copy">
@@ -2405,14 +2418,14 @@
         <div class="corporate-case-row">
           <article class="collection-card">
             <div class="collection-thumb">
-              <span>COVID-19 Vaccine</span>
+              <img src="images/covid-vaccine-card.png" alt="COVID-19 vaccine awareness campaign signage beside a Health Net vehicle.">
             </div>
             <div class="collection-body">
               <h3>COVID-19 Vaccine</h3>
             </div>
           </article>
           <div class="corporate-description-box">
-            <p>Public health awareness campaign focused on vaccine education, trusted messengers, and community relevance during a critical public health moment.</p>
+            <p>Building trust and expanding vaccine access required meeting communities where they were. This multi-county public health campaign brought together Health Net, community organizations, local health departments and NFL Hall of Famer Anthony Muñoz to connect underserved communities with trusted information and free COVID-19 vaccines. Through media relations, community engagement and multimedia storytelling, the campaign helped strengthen relationships with community partners and local leaders.</p>
             <a class="mini-button" href="covid-19-vaccine-awareness.html">View Case Study</a>
           </div>
         </div>
@@ -2420,14 +2433,14 @@
         <div class="corporate-case-row">
           <article class="collection-card">
             <div class="collection-thumb">
-              <span>ICAN Afford College</span>
+              <img src="images/ican-afford-college-card.png" alt="Telenovela-style I Can Afford College campaign still.">
             </div>
             <div class="collection-body">
               <h3>ICAN Afford College: Financial Aid Awareness</h3>
             </div>
           </article>
           <div class="corporate-description-box">
-            <p>Financial aid awareness campaign designed to make college access resources clearer, more actionable, and easier for students and families to navigate.</p>
+            <p>How do you make college pathways more relevant to Latino students and families? The I Can Afford College campaign used four short, telenovela-style stories to turn complex education messages into culturally relevant entertainment. The campaign highlighted affordability, career education, staying close to family and transferring to a four-year university through an integrated multicultural communications strategy.</p>
             <a class="mini-button" href="ican-afford-college-financial-aid-awareness.html">View Case Study</a>
           </div>
         </div>
@@ -2435,14 +2448,14 @@
         <div class="corporate-case-row">
           <article class="collection-card">
             <div class="collection-thumb">
-              <span>Health Net Mobile RV</span>
+              <img src="images/health-net-mobile-rv-card.jpg" alt="Health Net mobile RV clinic blood pressure screening.">
             </div>
             <div class="collection-body">
               <h3>Health Net Mobile RV Community Health Screenings</h3>
             </div>
           </article>
           <div class="corporate-description-box">
-            <p>Community health access initiative using mobile screenings, local engagement, and public awareness to connect residents with preventive care resources.</p>
+            <p>Community engagement works best when resources are accessible, visible and rooted in trusted local partnerships. The Health Net Mobile RV Program brought health education, wellness resources and services directly to communities across California. During the COVID-19 pandemic, the program evolved into a critical vaccine access platform while helping build relationships with elected officials, local health departments and community-based organizations.</p>
             <a class="mini-button" href="health-net-mobile-rv-community-health-screenings.html">View Case Study</a>
           </div>
         </div>

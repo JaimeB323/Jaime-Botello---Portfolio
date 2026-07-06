@@ -279,7 +279,8 @@
       max-width: 760px;
       margin-top: 1.35rem;
       color: var(--ink-soft);
-      font-size: 1rem;
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      line-height: 1.55;
     }
 
 
@@ -386,7 +387,8 @@
     .section-header p:not(.eyebrow) {
       margin-top: 1rem;
       color: var(--ink-soft);
-      font-size: 1.05rem;
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      line-height: 1.55;
     }
 
     .split {
@@ -400,7 +402,8 @@
       display: grid;
       gap: 1rem;
       color: var(--ink-soft);
-      font-size: 1.02rem;
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      line-height: 1.55;
     }
 
     .overview-media {
@@ -766,7 +769,8 @@
 
     .strategy-narrative p {
       color: var(--ink-soft);
-      font-size: 1rem;
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      line-height: 1.55;
     }
 
     .activation-examples {
@@ -1451,7 +1455,8 @@
       max-width: 720px;
       gap: 1.2rem;
       color: var(--ink);
-      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
+      line-height: 1.55;
     }
 
     .eyebrow {
@@ -1535,8 +1540,9 @@
     .section-header p:not(.eyebrow) {
       margin-top: 1.2rem;
       color: var(--ink);
-      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
       font-weight: 400;
+      line-height: 1.55;
     }
 
     .overview-media {
@@ -1757,8 +1763,9 @@
     .strategy-narrative p,
     .impact-intro {
       color: var(--ink);
-      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
       font-weight: 400;
+      line-height: 1.55;
     }
 
     .strategy-narrative p {
@@ -1884,8 +1891,9 @@
       border-radius: 0;
       background: transparent;
       box-shadow: none;
-      font-size: clamp(1.02rem, 1.25vw, 1.17rem);
+      font-size: clamp(1.08rem, 1.55vw, 1.42rem);
       font-weight: 400;
+      line-height: 1.55;
     }
 
     .impact-graphic {
@@ -1902,6 +1910,111 @@
       height: auto;
       display: block;
       border-radius: 6px;
+    }
+
+    .rv-results-infographic {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0;
+      overflow: hidden;
+      border: 4px solid var(--ink);
+      border-radius: 8px;
+      background: #fff9ec;
+      box-shadow: 8px 8px 0 rgba(16, 34, 47, 0.16);
+    }
+
+    .rv-results-header {
+      grid-column: 1 / -1;
+      padding: clamp(1.1rem, 2.4vw, 1.8rem);
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--science-dark), var(--science));
+      text-align: center;
+    }
+
+    .rv-results-header h3 {
+      color: #ffffff;
+      font-size: clamp(1.6rem, 3vw, 2.8rem);
+      line-height: 0.98;
+    }
+
+    .rv-results-header p {
+      max-width: 760px;
+      margin: 0.65rem auto 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(0.98rem, 1.3vw, 1.15rem);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .rv-result-item {
+      min-height: 220px;
+      display: grid;
+      grid-template-rows: 52px 2.4em auto 2.8em;
+      align-items: center;
+      align-content: center;
+      gap: 0.75rem;
+      padding: clamp(1rem, 2vw, 1.45rem);
+      border-right: 2px solid rgba(16, 34, 47, 0.22);
+      text-align: center;
+    }
+
+    .rv-result-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto;
+      color: #ffffff;
+      border-radius: 50%;
+      background: var(--science);
+      box-shadow: 4px 4px 0 rgba(16, 34, 47, 0.18);
+    }
+
+    .rv-result-icon svg {
+      width: 27px;
+      height: 27px;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2.4;
+    }
+
+    .rv-result-item:last-child {
+      border-right: 0;
+    }
+
+    .rv-result-item:nth-child(odd) {
+      background: #f2d8df;
+    }
+
+    .rv-result-item:nth-child(even) {
+      background: #dce8df;
+    }
+
+    .rv-result-item strong {
+      color: var(--science);
+      font-family: var(--condensed);
+      font-size: clamp(2.15rem, 4.8vw, 4.2rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .rv-result-item span {
+      color: var(--ink);
+      font-size: clamp(0.92rem, 1.15vw, 1.08rem);
+      font-weight: 800;
+      line-height: 1.22;
+    }
+
+    .rv-result-item small {
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.07em;
+      line-height: 1.15;
+      text-transform: uppercase;
     }
 
     .contribution-infographic {
@@ -2047,8 +2160,22 @@
       .activation-examples,
       .contribution-infographic,
       .case-study-collection,
-      .placeholder-results {
+      .placeholder-results,
+      .rv-results-infographic {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .rv-result-item {
+        border-right: 2px solid rgba(16, 34, 47, 0.22);
+      }
+
+      .rv-result-item:nth-child(odd),
+      .rv-result-item:last-child {
+        border-right: 0;
+      }
+
+      .rv-result-item:last-child {
+        grid-column: 1 / -1;
       }
 
       .hero-title,
@@ -2109,8 +2236,25 @@
       .activation-examples,
       .contribution-infographic,
       .case-study-collection,
-      .placeholder-results {
+      .placeholder-results,
+      .rv-results-infographic {
         grid-template-columns: 1fr;
+      }
+
+      .rv-result-item,
+      .rv-result-item:nth-child(2n) {
+        min-height: auto;
+        grid-template-rows: auto;
+        border-right: 0;
+        border-bottom: 2px solid rgba(16, 34, 47, 0.22);
+      }
+
+      .rv-result-item:last-child {
+        border-bottom: 0;
+      }
+
+      .rv-result-item:last-child {
+        grid-column: auto;
       }
 
       .hero {
@@ -2319,19 +2463,14 @@
 
     <section class="section meeting-overview" id="mobile-rv-detail">
       <figure class="case-hero-image">
-        <div class="case-media-placeholder">
-          <span>Mobile RV Health Screening Visual Placeholder</span>
-        </div>
+        <img src="images/health-net-rv-case-hero.jpg" alt="Health Net mobile RV parked near the California State Capitol.">
       </figure>
 
       <div class="split text-only">
         <div class="copy-stack">
           <p class="eyebrow">Project Overview</p>
           <p>
-            Placeholder overview for Health Net Mobile RV Community Health Screenings. Use this space to explain how the program brought preventive care, screenings, and health resources directly into communities.
-          </p>
-          <p>
-            This section can be updated with approved details about target communities, health access barriers, outreach partners, event promotion, on-site communications, and how the program supported community trust and care access.
+            The Mobile RV Program was built around a simple but important challenge: traditional health care communications did not always reach people in the places where they lived, worked and gathered. Health Net needed a scalable community engagement platform that could bring health information and wellness resources directly into neighborhoods while creating opportunities for meaningful, one-on-one conversations.
           </p>
         </div>
       </div>
@@ -2344,55 +2483,11 @@
 
       <div class="strategy-narrative">
         <p>
-          Placeholder narrative for the mobile health screening communications strategy. This can describe how outreach connected community members to services by making the program visible, understandable, and easy to access.
+          The opportunity was to create a scalable community engagement program that could bring health information and basic wellness resources directly into neighborhoods across California. As project manager, I led the development of the Mobile RV Program from the ground up, helping transform the concept into a statewide grassroots outreach platform designed to meet communities where they were.
         </p>
         <p>
-          Use this paragraph to capture how communications supported local events, community partners, earned media, social content, member outreach, and on-site engagement.
+          As project manager, I led the rebranding and interior redesign of two RVs, creating welcoming, functional mobile spaces where community members could receive simple health screenings, access health education and have one-on-one conversations about Medi-Cal, Covered California and other health and dental care options. I also developed the activation approach, coordinating deployments at cultural celebrations, community festivals, health fairs, 5Ks and other high-impact events while working with internal teams and community partners to support local needs.
         </p>
-      </div>
-    </section>
-
-    <section class="section content-section">
-      <div class="section-header">
-        <p class="eyebrow">Campaign Assets</p>
-      </div>
-
-      <div class="activation-examples">
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Event Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Event</span>
-            <h3>Community Screening</h3>
-            <p>Placeholder for event promotion or on-site communications supporting health screenings.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Partner Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Partners</span>
-            <h3>Local Outreach</h3>
-            <p>Placeholder for community partner materials designed to help residents learn about screening opportunities.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Media Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Media</span>
-            <h3>Access Awareness</h3>
-            <p>Placeholder for public awareness content showing how the mobile RV expanded access to preventive care.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -2400,23 +2495,86 @@
       <div class="section-header">
         <p class="eyebrow">Results</p>
         <p>
-          Placeholder results narrative for the mobile RV screening campaign. Use this section to summarize attendance, screenings completed, local reach, earned media, partner feedback, or community impact.
+          The program established a visible, consistent presence across California and created a more accessible way for communities to connect with health information and wellness resources.
+        </p>
+        <p>
+          During the COVID-19 pandemic, the Mobile RV Program became Health Net's second-highest funded program supporting vaccine rollout and helped administer more than 20,000 vaccinations, expanding access in underserved communities. The program also strengthened key relationships with elected officials, local health departments and community-based organizations throughout the state.
+        </p>
+        <p>
+          The Mobile RV Program demonstrated the value of sustained grassroots engagement and trusted partnerships in connecting health organizations with the communities they serve.
         </p>
       </div>
 
       <figure class="impact-graphic">
-        <div class="placeholder-results">
-          <div class="placeholder-result-card">
-            <strong>Screenings</strong>
-            <span>Placeholder for screenings completed or residents served.</span>
+        <div class="rv-results-infographic" aria-label="Health Net Mobile RV results from 2018 to 2020">
+          <div class="rv-results-header">
+            <h3>Mobile RV Impact Snapshot</h3>
+            <p>Statewide community engagement results from 2018-2020, including pandemic response, local partnerships and basic health access.</p>
           </div>
-          <div class="placeholder-result-card">
-            <strong>Reach</strong>
-            <span>Placeholder for community reach, media impressions, or event promotion.</span>
+          <div class="rv-result-item">
+            <div class="rv-result-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 3v4"></path>
+                <path d="M17 3v4"></path>
+                <path d="M4 8h16"></path>
+                <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                <path d="M8 12h3"></path>
+                <path d="M13 12h3"></path>
+                <path d="M8 16h3"></path>
+              </svg>
+            </div>
+            <small>2018-2020</small>
+            <strong>500+</strong>
+            <span>Community events staffed statewide</span>
           </div>
-          <div class="placeholder-result-card">
-            <strong>Access</strong>
-            <span>Placeholder for care access, referrals, or community feedback.</span>
+          <div class="rv-result-item">
+            <div class="rv-result-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M18 3l3 3"></path>
+                <path d="M11 10l7-7"></path>
+                <path d="M5 16l6-6 3 3-6 6H5v-3z"></path>
+                <path d="M9 20l-5 1 1-5"></path>
+              </svg>
+            </div>
+            <small>COVID-19 Response</small>
+            <strong>20K+</strong>
+            <span>COVID-19 vaccines provided</span>
+          </div>
+          <div class="rv-result-item">
+            <div class="rv-result-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V7l7-4 7 4v14"></path>
+                <path d="M9 21v-6h6v6"></path>
+                <path d="M9 9h.01"></path>
+                <path d="M15 9h.01"></path>
+              </svg>
+            </div>
+            <small>Public Health Partners</small>
+            <strong>30+</strong>
+            <span>Local health departments partnered with</span>
+          </div>
+          <div class="rv-result-item">
+            <div class="rv-result-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21s7-5.1 7-11a7 7 0 0 0-14 0c0 5.9 7 11 7 11z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+            </div>
+            <small>County Reach</small>
+            <strong>40+</strong>
+            <span>Counties partnered with statewide</span>
+          </div>
+          <div class="rv-result-item">
+            <div class="rv-result-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path>
+                <path d="M3.5 12h4l1.5-3 3 6 1.5-3h7"></path>
+              </svg>
+            </div>
+            <small>Basic Screenings</small>
+            <strong>40K+</strong>
+            <span>Basic health screenings provided statewide</span>
           </div>
         </div>
       </figure>
