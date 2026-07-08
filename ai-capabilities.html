@@ -103,15 +103,16 @@
     .section {
       width: min(var(--max), calc(100% - 3rem));
       margin: 0 auto;
-      padding: 4.8rem 0;
+      padding: 4.2rem 0;
     }
 
     .hero {
-      min-height: calc(76vh - 62px);
+      min-height: calc(72vh - 62px);
       display: grid;
       grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.68fr);
       gap: 3rem;
       align-items: center;
+      padding-bottom: 2.8rem;
     }
 
     .script-label {
@@ -162,24 +163,133 @@
     }
 
     .feature-panel {
-      padding: 1.4rem;
+      padding: 1.1rem;
       border: 4px solid var(--ink);
       border-radius: 6px;
+      background: #f2d8df;
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+
+    .hero-workflow-visual {
+      min-height: 390px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-content: center;
+      gap: 1rem;
+      padding: clamp(1.2rem, 3vw, 2rem);
+      border: 3px solid var(--ink);
+      border-radius: 4px;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)),
+        var(--panel);
+    }
+
+    .hero-workflow-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(20, 95, 89, 0.12) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(20, 95, 89, 0.12) 1px, transparent 1px);
+      background-size: 54px 54px;
+      pointer-events: none;
+    }
+
+    .dashboard-window {
+      position: relative;
+      z-index: 1;
+      padding: 1rem;
+      border: 3px solid var(--ink);
+      border-radius: 6px;
+      background: #ffffff;
+      box-shadow: 7px 7px 0 rgba(5, 5, 5, 0.18);
+    }
+
+    .window-bar {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .window-bar span {
+      width: 0.7rem;
+      height: 0.7rem;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--science);
+    }
+
+    .window-bar span:nth-child(2) {
+      background: var(--gold);
+    }
+
+    .window-bar span:nth-child(3) {
       background: var(--aqua);
     }
 
-    .feature-panel span {
-      min-height: 360px;
+    .dashboard-title {
+      margin: 0 0 0.8rem;
+      font-family: var(--condensed);
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 0.8rem;
+    }
+
+    .dashboard-card {
+      min-height: 76px;
+      padding: 0.75rem;
+      border: 2px solid var(--ink);
+      border-radius: 5px;
+      background: #dce8df;
+      font-weight: 800;
+    }
+
+    .dashboard-card:nth-child(2),
+    .dashboard-card:nth-child(3) {
+      background: #f5e7bf;
+    }
+
+    .dashboard-card strong {
+      display: block;
+      color: var(--science);
+      font-family: var(--condensed);
+      font-size: 1.45rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .dashboard-card small {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.82rem;
+      line-height: 1.25;
+    }
+
+    .proof-strip {
+      width: min(var(--max), calc(100% - 3rem));
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin: -1.2rem auto 1rem;
+    }
+
+    .proof-strip span {
+      min-height: 58px;
       display: grid;
       place-items: center;
-      padding: 2rem;
-      color: #ffffff;
-      border: 0;
-      background:
-        linear-gradient(135deg, transparent 46%, rgba(255, 255, 255, 0.2) 46% 48%, transparent 48%),
-        var(--aqua);
+      padding: 0.65rem;
+      border: 3px solid var(--ink);
+      border-radius: 4px;
+      background: var(--gold);
       font-family: var(--condensed);
-      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
       line-height: 1;
       text-align: center;
       text-transform: uppercase;
@@ -187,15 +297,18 @@
 
     .capability-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.9rem;
       margin-top: 1.4rem;
     }
 
     .capability {
-      min-height: 210px;
-      padding: 1rem;
-      border: 4px solid var(--ink);
+      min-height: 185px;
+      display: grid;
+      align-content: start;
+      gap: 0.65rem;
+      padding: 0.9rem;
+      border: 3px solid var(--ink);
       border-radius: 6px;
       background: #f2d8df;
     }
@@ -211,9 +324,26 @@
     }
 
     .capability p {
-      margin-top: 0.7rem;
       font-size: 0.96rem;
       font-weight: 520;
+    }
+
+    .capability-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: var(--science);
+      font-family: var(--condensed);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .capability h3 {
+      font-size: clamp(1.02rem, 1.35vw, 1.22rem);
     }
 
     .contribution-grid {
@@ -253,45 +383,266 @@
       grid-column: span 2;
     }
 
-    .tool-grid {
+    .process-track {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.4rem;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      counter-reset: process;
     }
 
-    .tool-card {
-      min-height: 190px;
+    .process-step {
+      position: relative;
+      min-height: 245px;
+      padding: 1rem;
+      border: 4px solid var(--ink);
+      border-radius: 6px;
+      background: #f5e7bf;
+    }
+
+    .process-step:nth-child(2n) {
+      background: #dce8df;
+    }
+
+    .process-step::before {
+      counter-increment: process;
+      content: counter(process, decimal-leading-zero);
+      display: inline-grid;
+      place-items: center;
+      width: 2.35rem;
+      height: 2.35rem;
+      margin-bottom: 0.8rem;
+      color: #ffffff;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: var(--science);
+      font-family: var(--condensed);
+      font-size: 1.05rem;
+    }
+
+    .process-step h3 {
+      font-size: clamp(1.5rem, 2.2vw, 2rem);
+    }
+
+    .process-step p {
+      margin-top: 0.75rem;
+      font-size: 0.96rem;
+      font-weight: 520;
+    }
+
+    .prototype-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.2rem;
+      margin-top: 1.4rem;
+      align-items: stretch;
+    }
+
+    .case-strip {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .case-link {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 0.85rem;
+      align-items: center;
+      padding: 0.85rem;
+      border: 4px solid var(--ink);
+      border-radius: 6px;
+      background: #ffffff;
+      text-decoration: none;
+    }
+
+    .case-link:hover {
+      background: #f5e7bf;
+    }
+
+    .case-link span {
+      width: 74px;
+      height: 74px;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: var(--aqua);
+      font-family: var(--condensed);
+      font-size: 1.35rem;
+    }
+
+    .case-link h3 {
+      font-size: clamp(1.4rem, 2.1vw, 2rem);
+    }
+
+    .case-link p {
+      margin-top: 0.35rem;
+      font-size: 0.96rem;
+      font-weight: 520;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .metric-card {
+      min-height: 140px;
+      padding: 0.95rem;
+      border: 4px solid var(--ink);
+      border-radius: 6px;
+      background: #f2d8df;
+    }
+
+    .metric-card:nth-child(2),
+    .metric-card:nth-child(3) {
+      background: #dce8df;
+    }
+
+    .metric-card strong {
+      display: block;
+      color: var(--science);
+      font-family: var(--condensed);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .metric-card span {
+      display: block;
+      margin-top: 0.55rem;
+      font-size: 0.95rem;
+      font-weight: 650;
+      line-height: 1.25;
+    }
+
+    .tool-ecosystem {
+      display: grid;
+      grid-template-columns: 1fr minmax(240px, 0.72fr) 1fr;
+      grid-template-areas:
+        "strategy core content"
+        "prototype core productivity";
+      gap: 1rem;
+      margin-top: 1.6rem;
+      align-items: stretch;
+    }
+
+    .ecosystem-core {
+      grid-area: core;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      padding: 1.25rem;
+      border: 4px solid var(--ink);
+      border-radius: 50% 50% 6px 6px;
+      background: var(--science);
+      color: #ffffff;
+      box-shadow: 8px 8px 0 rgba(5, 5, 5, 0.18);
+      text-align: center;
+    }
+
+    .ecosystem-core span {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-family: var(--script);
+      font-size: clamp(3rem, 6vw, 5.4rem);
+      font-weight: 400;
+      line-height: 0.82;
+      transform: rotate(-5deg);
+    }
+
+    .ecosystem-core strong {
+      display: block;
+      font-family: var(--condensed);
+      font-size: clamp(2.2rem, 4.8vw, 4.1rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .ecosystem-core p {
+      max-width: 260px;
+      margin: 0.9rem auto 0;
+      font-size: 0.98rem;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+
+    .tool-node {
+      min-height: 210px;
+      display: grid;
+      align-content: space-between;
       padding: 1rem;
       border: 4px solid var(--ink);
       border-radius: 6px;
       background: #dce8df;
+      position: relative;
     }
 
-    .tool-card:nth-child(2n) {
+    .tool-node::after {
+      content: "";
+      position: absolute;
+      width: 34px;
+      height: 4px;
+      top: 50%;
+      background: var(--ink);
+    }
+
+    .tool-node:nth-of-type(2n) {
       background: #f5e7bf;
     }
 
-    .tool-card p {
+    .tool-node.strategy {
+      grid-area: strategy;
+    }
+
+    .tool-node.content {
+      grid-area: content;
+    }
+
+    .tool-node.prototype {
+      grid-area: prototype;
+    }
+
+    .tool-node.productivity {
+      grid-area: productivity;
+    }
+
+    .tool-node.strategy::after,
+    .tool-node.prototype::after {
+      right: -34px;
+    }
+
+    .tool-node.content::after,
+    .tool-node.productivity::after {
+      left: -34px;
+    }
+
+    .tool-node h3 {
+      font-size: clamp(1.45rem, 2.1vw, 2rem);
+    }
+
+    .tool-node p {
       margin-top: 0.7rem;
-      font-size: 0.94rem;
+      font-size: 0.96rem;
       font-weight: 520;
     }
 
-    .tool-list {
-      margin-top: 0.9rem;
+    .tool-cluster {
       display: flex;
       flex-wrap: wrap;
       gap: 0.45rem;
+      margin-top: 1rem;
     }
 
-    .tool-list span {
-      padding: 0.32rem 0.5rem;
+    .tool-cluster span {
+      padding: 0.36rem 0.55rem;
       border: 2px solid var(--ink);
       border-radius: 999px;
       background: var(--paper);
       font-family: var(--condensed);
-      font-size: 0.82rem;
+      font-size: 0.86rem;
       letter-spacing: 0.03em;
       text-transform: uppercase;
     }
@@ -350,12 +701,38 @@
       .hero,
       .capability-grid,
       .contribution-grid,
-      .tool-grid {
+      .tool-ecosystem,
+      .proof-strip,
+      .process-track,
+      .prototype-grid,
+      .metric-grid {
         grid-template-columns: 1fr;
       }
 
       .wide-card {
         grid-column: auto;
+      }
+
+      .feature-panel {
+        box-shadow: 6px 6px 0 var(--ink);
+      }
+
+      .tool-ecosystem {
+        grid-template-areas:
+          "core"
+          "strategy"
+          "content"
+          "prototype"
+          "productivity";
+      }
+
+      .ecosystem-core {
+        min-height: 280px;
+        border-radius: 6px;
+      }
+
+      .tool-node::after {
+        display: none;
       }
     }
 
@@ -376,11 +753,24 @@
 
       .section {
         width: min(var(--max), calc(100% - 1.5rem));
-        padding: 3.6rem 0;
+        padding: 3.2rem 0;
+      }
+
+      .proof-strip {
+        width: min(var(--max), calc(100% - 1.5rem));
+        margin-top: 0;
       }
 
       h1 {
         font-size: clamp(2.7rem, 13vw, 4.3rem);
+      }
+
+      .hero-workflow-visual {
+        min-height: 320px;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
       }
     }
   
@@ -546,11 +936,45 @@
         <a class="button" href="index.html#capabilities">Back to Expertise</a>
       </div>
 
-      <div class="feature-panel" aria-label="AI capabilities visual placeholder">
-        <!-- UPDATE: Replace this placeholder with an AI/workflow visual if desired. -->
-        <span>AI + Communications</span>
+      <div class="feature-panel" aria-label="AI communications workflow visual">
+        <!-- UPDATE: Replace this visual block with a polished desk/laptop image if desired. -->
+        <div class="hero-workflow-visual">
+          <div class="dashboard-window">
+            <div class="window-bar" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p class="dashboard-title">Strategy Workspace</p>
+            <div class="dashboard-grid">
+              <div class="dashboard-card">
+                <strong>Research</strong>
+                <small>Source synthesis, narrative themes and audience signals.</small>
+              </div>
+              <div class="dashboard-card">
+                <strong>Plan</strong>
+                <small>Briefs, prompts, timelines and content systems.</small>
+              </div>
+              <div class="dashboard-card">
+                <strong>Build</strong>
+                <small>Drafts, dashboards, workflows and prototypes.</small>
+              </div>
+              <div class="dashboard-card">
+                <strong>Measure</strong>
+                <small>KPIs, insights and next-step recommendations.</small>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <div class="proof-strip" aria-label="AI communications proof points">
+      <span>AI Strategy</span>
+      <span>Content Systems</span>
+      <span>Workflow Design</span>
+      <span>Executive Storytelling</span>
+    </div>
 
     <section class="section">
       <p class="script-label">focus areas</p>
@@ -558,26 +982,32 @@
 
       <div class="capability-grid">
         <article class="capability">
+          <span class="capability-icon" aria-hidden="true">01</span>
           <h3>AI-Enabled Content Strategy</h3>
           <p>Using AI to map content opportunities, organize campaign ideas, identify audience needs and turn complex inputs into clearer strategic direction.</p>
         </article>
         <article class="capability">
+          <span class="capability-icon" aria-hidden="true">02</span>
           <h3>Research &amp; Synthesis</h3>
           <p>Using AI to organize source material, compare narratives, summarize interviews and surface patterns that support stronger communications planning.</p>
         </article>
         <article class="capability">
+          <span class="capability-icon" aria-hidden="true">03</span>
           <h3>Content Development</h3>
           <p>Pressure-testing messages, simplifying technical concepts and developing audience-specific drafts while preserving accuracy and credibility.</p>
         </article>
         <article class="capability">
+          <span class="capability-icon" aria-hidden="true">04</span>
           <h3>Workflow Design</h3>
           <p>Creating repeatable prompts, SOPs, templates, briefs and review processes that make communications work more efficient and consistent.</p>
         </article>
         <article class="capability">
+          <span class="capability-icon" aria-hidden="true">05</span>
           <h3>Measurement &amp; Dashboards</h3>
           <p>Summarizing performance inputs, identifying patterns and translating data into useful insights for reporting and future content decisions.</p>
         </article>
         <article class="capability">
+          <span class="capability-icon" aria-hidden="true">06</span>
           <h3>AI Prototyping &amp; Communications Technology</h3>
           <p>Using Codex, GitHub, HTML/CSS/JS and AI tools to prototype communications dashboards, reporting tools and portfolio experiences.</p>
         </article>
@@ -588,38 +1018,26 @@
       <p class="script-label">practical use</p>
       <h2>How I Apply AI</h2>
 
-      <div class="contribution-grid">
-        <article class="contribution-card">
-          <h3>AI-Assisted Communications Planning</h3>
-          <p>Develop prompt workflows that support briefs, messaging frameworks, audience planning, editorial calendars and stakeholder-ready communications plans.</p>
+      <div class="process-track">
+        <article class="process-step">
+          <h3>Plan</h3>
+          <p>Use AI-assisted research, audience inputs and prompt frameworks to shape briefs, messages, interview guides and editorial direction.</p>
         </article>
-        <article class="contribution-card">
-          <h3>Research &amp; Narrative Synthesis</h3>
-          <p>Use AI to organize interviews, source content, competitive information and complex scientific or business inputs into clearer narrative opportunities.</p>
+        <article class="process-step">
+          <h3>Build</h3>
+          <p>Turn complex source material into draft content systems, social ideas, executive thought leadership angles and multimedia extensions.</p>
         </article>
-        <article class="contribution-card">
-          <h3>Content Activation Workflows</h3>
-          <p>Transform long-form source material into channel-specific ideas for social posts, executive thought leadership, articles, talking points and multimedia extensions.</p>
+        <article class="process-step">
+          <h3>Coordinate</h3>
+          <p>Create repeatable SOPs, review workflows and stakeholder-ready planning tools that keep teams aligned and moving efficiently.</p>
         </article>
-        <article class="contribution-card">
-          <h3>SOPs &amp; Prompt Frameworks</h3>
-          <p>Create repeatable AI-enabled workflows for content planning, interview preparation, campaign development, review cycles and measurement reporting.</p>
+        <article class="process-step">
+          <h3>Launch</h3>
+          <p>Adapt the core story across channels while keeping content credible, audience-specific and consistent with communications priorities.</p>
         </article>
-        <article class="contribution-card">
-          <h3>Measurement &amp; Dashboard Development</h3>
-          <p>Use AI-assisted development to structure KPI dashboards, organize campaign performance inputs and turn reporting into clearer decision support.</p>
-        </article>
-        <article class="contribution-card">
-          <h3>Rapid Prototyping</h3>
-          <p>Prototype communications tools and portfolio experiences with AI, Codex, GitHub and lightweight web technologies before a full production build is needed.</p>
-        </article>
-        <article class="contribution-card">
-          <h3>Creative Exploration</h3>
-          <p>Use AI to explore formats, headlines, story angles, visual systems and campaign structures while keeping final choices grounded in communications judgment.</p>
-        </article>
-        <article class="contribution-card">
-          <h3>Human Review &amp; Credibility</h3>
-          <p>Keep accuracy, source quality, audience relevance, brand standards and ethical judgment at the center of every AI-supported workflow.</p>
+        <article class="process-step">
+          <h3>Measure</h3>
+          <p>Use AI-supported synthesis and dashboard thinking to organize KPIs, surface patterns and turn reporting into useful decisions.</p>
         </article>
       </div>
     </section>
@@ -628,23 +1046,49 @@
       <p class="script-label">proof points</p>
       <h2>AI Projects &amp; Prototypes</h2>
 
-      <div class="contribution-grid">
-        <article class="contribution-card wide-card">
-          <h3>R&amp;D Share of Voice Dashboard</h3>
-          <p>Used AI-assisted development to prototype a communications measurement dashboard and organize competitive narrative insights for R&amp;D storytelling and reputation tracking.</p>
-        </article>
-        <article class="contribution-card wide-card">
-          <h3>Content Activation Workflow</h3>
-          <p>Used AI-enabled workflows to transform long-form source content into channel-specific editorial opportunities, including social, executive thought leadership, web and internal communications.</p>
-        </article>
-        <article class="contribution-card wide-card">
-          <h3>Communications Planning Frameworks</h3>
-          <p>Developed repeatable prompt frameworks to support briefs, messaging, interview guides, content planning, stakeholder reviews and campaign launch preparation.</p>
-        </article>
-        <article class="contribution-card wide-card">
-          <h3>Portfolio &amp; Dashboard Prototyping</h3>
-          <p>Used Codex, GitHub and HTML/CSS/JavaScript to prototype web-based portfolio and reporting experiences, translating communications ideas into working examples.</p>
-        </article>
+      <div class="prototype-grid">
+        <div class="case-strip">
+          <a class="case-link" href="meeting-the-moment-ai-drug-discovery.html">
+            <span aria-hidden="true">AI</span>
+            <div>
+              <h3>Meeting the Moment</h3>
+              <p>AI in drug discovery storytelling translated into accessible digital content.</p>
+            </div>
+          </a>
+          <article class="case-link">
+            <span aria-hidden="true">SOV</span>
+            <div>
+              <h3>R&amp;D Share of Voice Dashboard</h3>
+              <p>AI-assisted prototype for measurement, competitive narrative insights and reporting.</p>
+            </div>
+          </article>
+          <article class="case-link">
+            <span aria-hidden="true">WF</span>
+            <div>
+              <h3>Content Activation Workflow</h3>
+              <p>Repeatable prompts for turning long-form source material into channel-ready ideas.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="metric-grid" aria-label="AI value areas">
+          <article class="metric-card">
+            <strong>Efficiency</strong>
+            <span>Reduces repetitive planning and drafting steps so teams can move faster.</span>
+          </article>
+          <article class="metric-card">
+            <strong>Repurposing</strong>
+            <span>Turns one strong source story into multiple channel-specific assets.</span>
+          </article>
+          <article class="metric-card">
+            <strong>Alignment</strong>
+            <span>Creates clearer briefs, review paths and shared messaging systems.</span>
+          </article>
+          <article class="metric-card">
+            <strong>Measurement</strong>
+            <span>Organizes performance inputs into insight, reporting and next actions.</span>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -652,38 +1096,57 @@
       <p class="script-label">ecosystem</p>
       <h2>Tools &amp; Platforms</h2>
 
-      <div class="tool-grid">
-        <article class="tool-card">
-          <h3>Strategy &amp; Synthesis</h3>
-          <p>Research support, source synthesis, narrative mapping, planning inputs and message pressure-testing.</p>
-          <div class="tool-list">
+      <div class="tool-ecosystem" aria-label="AI and communications technology ecosystem">
+        <div class="ecosystem-core">
+          <div>
+            <span>AI-enabled</span>
+            <strong>Communications Toolkit</strong>
+            <p>Tools grouped by how they support strategy, content, workflow design and rapid prototyping.</p>
+          </div>
+        </div>
+
+        <article class="tool-node strategy">
+          <div>
+            <h3>Strategy &amp; Synthesis</h3>
+            <p>Research support, source synthesis, narrative mapping, planning inputs and message pressure-testing.</p>
+          </div>
+          <div class="tool-cluster">
             <span>ChatGPT</span>
             <span>Claude</span>
             <span>Gemini</span>
           </div>
         </article>
-        <article class="tool-card">
-          <h3>Content &amp; Creative</h3>
-          <p>Drafting, editing, creative exploration, visual planning, presentation support and content adaptation.</p>
-          <div class="tool-list">
+
+        <article class="tool-node content">
+          <div>
+            <h3>Content &amp; Creative</h3>
+            <p>Drafting, editing, creative exploration, visual planning, presentation support and content adaptation.</p>
+          </div>
+          <div class="tool-cluster">
             <span>ChatGPT</span>
             <span>Canva</span>
             <span>Claude</span>
           </div>
         </article>
-        <article class="tool-card">
-          <h3>Prototyping &amp; Development</h3>
-          <p>Rapid prototypes for dashboards, reporting workflows, web pages and communications technology concepts.</p>
-          <div class="tool-list">
+
+        <article class="tool-node prototype">
+          <div>
+            <h3>Prototyping &amp; Development</h3>
+            <p>Rapid prototypes for dashboards, reporting workflows, web pages and communications technology concepts.</p>
+          </div>
+          <div class="tool-cluster">
             <span>Codex</span>
             <span>GitHub</span>
             <span>HTML/CSS/JS</span>
           </div>
         </article>
-        <article class="tool-card">
-          <h3>Productivity &amp; Workflows</h3>
-          <p>Meeting preparation, documentation, SOP development, task planning and cross-functional workflow support.</p>
-          <div class="tool-list">
+
+        <article class="tool-node productivity">
+          <div>
+            <h3>Productivity &amp; Workflows</h3>
+            <p>Meeting preparation, documentation, SOP development, task planning and cross-functional workflow support.</p>
+          </div>
+          <div class="tool-cluster">
             <span>Microsoft Copilot</span>
             <span>ChatGPT</span>
             <span>Gemini</span>
