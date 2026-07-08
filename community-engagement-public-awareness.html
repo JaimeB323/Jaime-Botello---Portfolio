@@ -2290,6 +2290,7 @@
     }
 
     .nav-menu-button:hover,
+    .nav-menu:hover .nav-menu-button,
     .nav-menu:focus-within .nav-menu-button {
       color: var(--ink);
       border-color: var(--ink);
@@ -2308,10 +2309,10 @@
 
     .dropdown-menu {
       position: absolute;
-      top: calc(100% + 0.35rem);
+      top: 100%;
       left: 0;
       z-index: 80;
-      min-width: 250px;
+      min-width: 285px;
       display: none;
       gap: 0.2rem;
       padding: 0.45rem;
@@ -2380,11 +2381,29 @@
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
         <div class="nav-menu">
-          <button class="nav-menu-button" type="button">Work</button>
+          <button class="nav-menu-button" type="button" aria-haspopup="true">Corporate</button>
           <div class="dropdown-menu">
-            <a href="meeting-the-moment.html">Corporate Storytelling</a>
-            <a href="strategic-communications-corporate-storytelling.html">Executive Storytelling</a>
-            <a href="community-engagement-public-awareness.html">Community Engagement</a>
+            <a href="meeting-the-moment.html">Storytelling Overview</a>
+            <a href="meeting-the-moment-ai-drug-discovery.html">Meeting the Moment: AI in Drug Discovery</a>
+            <a href="small-molecule-drug-discovery-lab-expansion.html">Small Molecule Drug Discovery Lab Expansion</a>
+            <a href="acs-heroes-of-chemistry.html">ACS Heroes of Chemistry</a>
+          </div>
+        </div>
+        <div class="nav-menu">
+          <button class="nav-menu-button" type="button" aria-haspopup="true">Executive</button>
+          <div class="dropdown-menu">
+            <a href="strategic-communications-corporate-storytelling.html">Storytelling Overview</a>
+            <a href="my-9-5-social-video.html">My 9-5 Social Video</a>
+            <a href="dna-day-social-activation.html">DNA Day Social Activation</a>
+          </div>
+        </div>
+        <div class="nav-menu">
+          <button class="nav-menu-button" type="button" aria-haspopup="true">Community</button>
+          <div class="dropdown-menu">
+            <a href="community-engagement-public-awareness.html">Storytelling Overview</a>
+            <a href="covid-19-vaccine-awareness.html">COVID-19 Vaccine Awareness</a>
+            <a href="ican-afford-college-financial-aid-awareness.html">I Can Afford College</a>
+            <a href="health-net-mobile-rv-community-health-screenings.html">Health Net Mobile RV Program</a>
           </div>
         </div>
         <a href="ai-capabilities.html">Capabilities</a>
