@@ -249,6 +249,70 @@
       font-weight: 520;
     }
 
+    .wide-card {
+      grid-column: span 2;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .tool-card {
+      min-height: 190px;
+      padding: 1rem;
+      border: 4px solid var(--ink);
+      border-radius: 6px;
+      background: #dce8df;
+    }
+
+    .tool-card:nth-child(2n) {
+      background: #f5e7bf;
+    }
+
+    .tool-card p {
+      margin-top: 0.7rem;
+      font-size: 0.94rem;
+      font-weight: 520;
+    }
+
+    .tool-list {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tool-list span {
+      padding: 0.32rem 0.5rem;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--paper);
+      font-family: var(--condensed);
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .philosophy-panel {
+      max-width: 1040px;
+      margin-top: 1.4rem;
+      padding: clamp(1.2rem, 3vw, 2rem);
+      border: 4px solid var(--ink);
+      border-radius: 6px;
+      background: var(--aqua);
+      color: #ffffff;
+      box-shadow: 8px 8px 0 rgba(5, 5, 5, 0.18);
+    }
+
+    .philosophy-panel p {
+      font-size: clamp(1.15rem, 2vw, 1.65rem);
+      font-weight: 650;
+      line-height: 1.45;
+    }
+
     .button {
       display: inline-flex;
       align-items: center;
@@ -285,8 +349,13 @@
     @media (max-width: 900px) {
       .hero,
       .capability-grid,
-      .contribution-grid {
+      .contribution-grid,
+      .tool-grid {
         grid-template-columns: 1fr;
+      }
+
+      .wide-card {
+        grid-column: auto;
       }
     }
 
@@ -472,7 +541,7 @@
         <p class="script-label">AI Capabilities</p>
         <h1>Communications Strategy With Smarter Workflows</h1>
         <p class="hero-copy">
-          This page highlights how I use AI as a practical communications tool: to strengthen planning, accelerate first drafts, organize complex information, adapt content across channels, and support sharper decision-making while keeping human judgment, credibility, and audience needs at the center.
+          I use AI to help communications teams work smarter, move faster and make better-informed decisions. My approach combines communications strategy with AI-enabled research, content development, workflow design, measurement and rapid prototyping, while keeping human judgment, credibility and audience needs at the center.
         </p>
         <a class="button" href="index.html#capabilities">Back to Expertise</a>
       </div>
@@ -490,68 +559,144 @@
       <div class="capability-grid">
         <article class="capability">
           <h3>AI-Enabled Content Strategy</h3>
-          <p>Using AI to map content opportunities, organize campaign ideas, identify audience needs, and turn complex inputs into clearer strategic direction.</p>
+          <p>Using AI to map content opportunities, organize campaign ideas, identify audience needs and turn complex inputs into clearer strategic direction.</p>
         </article>
         <article class="capability">
-          <h3>Message Development</h3>
-          <p>Pressure-testing key messages, simplifying technical concepts, and developing audience-specific language while preserving accuracy and credibility.</p>
+          <h3>Research &amp; Synthesis</h3>
+          <p>Using AI to organize source material, compare narratives, summarize interviews and surface patterns that support stronger communications planning.</p>
         </article>
         <article class="capability">
-          <h3>Editorial Planning</h3>
-          <p>Building content calendars, story frameworks, interview guides, and channel plans that help teams move from idea to execution faster.</p>
+          <h3>Content Development</h3>
+          <p>Pressure-testing messages, simplifying technical concepts and developing audience-specific drafts while preserving accuracy and credibility.</p>
         </article>
         <article class="capability">
-          <h3>Content Repurposing</h3>
-          <p>Adapting long-form source material into social posts, executive thought leadership, newsletter copy, talking points, and multimedia extensions.</p>
+          <h3>Workflow Design</h3>
+          <p>Creating repeatable prompts, SOPs, templates, briefs and review processes that make communications work more efficient and consistent.</p>
         </article>
         <article class="capability">
-          <h3>Measurement Support</h3>
-          <p>Summarizing performance inputs, identifying patterns, and translating data into useful insights for reporting and future content decisions.</p>
+          <h3>Measurement &amp; Dashboards</h3>
+          <p>Summarizing performance inputs, identifying patterns and translating data into useful insights for reporting and future content decisions.</p>
         </article>
         <article class="capability">
-          <h3>Workflow Optimization</h3>
-          <p>Creating repeatable prompts, templates, briefs, and review processes that make communications work more efficient and consistent.</p>
+          <h3>AI Prototyping &amp; Communications Technology</h3>
+          <p>Using Codex, GitHub, HTML/CSS/JS and AI tools to prototype communications dashboards, reporting tools and portfolio experiences.</p>
         </article>
       </div>
     </section>
 
     <section class="section" id="contributions">
-      <p class="script-label">personal</p>
-      <h2>My Role &amp; Contributions</h2>
+      <p class="script-label">practical use</p>
+      <h2>How I Apply AI</h2>
 
       <div class="contribution-grid">
         <article class="contribution-card">
-          <h3>Project Management</h3>
-          <p>Led project planning, execution, production timelines, stakeholder reviews, approvals, and launch readiness.</p>
+          <h3>AI-Assisted Communications Planning</h3>
+          <p>Develop prompt workflows that support briefs, messaging frameworks, audience planning, editorial calendars and stakeholder-ready communications plans.</p>
         </article>
         <article class="contribution-card">
-          <h3>Content Strategy</h3>
-          <p>Developed creative briefs, messaging, and story direction around AI, drug discovery, innovation, and audience relevance.</p>
+          <h3>Research &amp; Narrative Synthesis</h3>
+          <p>Use AI to organize interviews, source content, competitive information and complex scientific or business inputs into clearer narrative opportunities.</p>
         </article>
         <article class="contribution-card">
-          <h3>Editorial Planning</h3>
-          <p>Built editorial framing and communications plans that connected long-form video to broader enterprise priorities.</p>
+          <h3>Content Activation Workflows</h3>
+          <p>Transform long-form source material into channel-specific ideas for social posts, executive thought leadership, articles, talking points and multimedia extensions.</p>
         </article>
         <article class="contribution-card">
-          <h3>Video Production Support</h3>
-          <p>Supported development of a long-form video experience that translated complex science into accessible storytelling.</p>
+          <h3>SOPs &amp; Prompt Frameworks</h3>
+          <p>Create repeatable AI-enabled workflows for content planning, interview preparation, campaign development, review cycles and measurement reporting.</p>
         </article>
         <article class="contribution-card">
-          <h3>Stakeholder Coordination</h3>
-          <p>Coordinated executive leaders, scientists, cross-functional teams, agency partners, and production vendors.</p>
+          <h3>Measurement &amp; Dashboard Development</h3>
+          <p>Use AI-assisted development to structure KPI dashboards, organize campaign performance inputs and turn reporting into clearer decision support.</p>
         </article>
         <article class="contribution-card">
-          <h3>Social &amp; Digital Amplification</h3>
-          <p>Built a multi-channel distribution strategy across owned digital channels, social media, and internal communications.</p>
+          <h3>Rapid Prototyping</h3>
+          <p>Prototype communications tools and portfolio experiences with AI, Codex, GitHub and lightweight web technologies before a full production build is needed.</p>
         </article>
         <article class="contribution-card">
-          <h3>Executive &amp; Scientific Storytelling</h3>
-          <p>Partnered on executive thought leadership that elevated AI, biomedical research, and the future of medicine.</p>
+          <h3>Creative Exploration</h3>
+          <p>Use AI to explore formats, headlines, story angles, visual systems and campaign structures while keeping final choices grounded in communications judgment.</p>
         </article>
         <article class="contribution-card">
-          <h3>Internal &amp; External Alignment</h3>
-          <p>Aligned internal engagement, external visibility, enterprise communications priorities, and performance measurement.</p>
+          <h3>Human Review &amp; Credibility</h3>
+          <p>Keep accuracy, source quality, audience relevance, brand standards and ethical judgment at the center of every AI-supported workflow.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="script-label">proof points</p>
+      <h2>AI Projects &amp; Prototypes</h2>
+
+      <div class="contribution-grid">
+        <article class="contribution-card wide-card">
+          <h3>R&amp;D Share of Voice Dashboard</h3>
+          <p>Used AI-assisted development to prototype a communications measurement dashboard and organize competitive narrative insights for R&amp;D storytelling and reputation tracking.</p>
+        </article>
+        <article class="contribution-card wide-card">
+          <h3>Content Activation Workflow</h3>
+          <p>Used AI-enabled workflows to transform long-form source content into channel-specific editorial opportunities, including social, executive thought leadership, web and internal communications.</p>
+        </article>
+        <article class="contribution-card wide-card">
+          <h3>Communications Planning Frameworks</h3>
+          <p>Developed repeatable prompt frameworks to support briefs, messaging, interview guides, content planning, stakeholder reviews and campaign launch preparation.</p>
+        </article>
+        <article class="contribution-card wide-card">
+          <h3>Portfolio &amp; Dashboard Prototyping</h3>
+          <p>Used Codex, GitHub and HTML/CSS/JavaScript to prototype web-based portfolio and reporting experiences, translating communications ideas into working examples.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="script-label">ecosystem</p>
+      <h2>Tools &amp; Platforms</h2>
+
+      <div class="tool-grid">
+        <article class="tool-card">
+          <h3>Strategy &amp; Synthesis</h3>
+          <p>Research support, source synthesis, narrative mapping, planning inputs and message pressure-testing.</p>
+          <div class="tool-list">
+            <span>ChatGPT</span>
+            <span>Claude</span>
+            <span>Gemini</span>
+          </div>
+        </article>
+        <article class="tool-card">
+          <h3>Content &amp; Creative</h3>
+          <p>Drafting, editing, creative exploration, visual planning, presentation support and content adaptation.</p>
+          <div class="tool-list">
+            <span>ChatGPT</span>
+            <span>Canva</span>
+            <span>Claude</span>
+          </div>
+        </article>
+        <article class="tool-card">
+          <h3>Prototyping &amp; Development</h3>
+          <p>Rapid prototypes for dashboards, reporting workflows, web pages and communications technology concepts.</p>
+          <div class="tool-list">
+            <span>Codex</span>
+            <span>GitHub</span>
+            <span>HTML/CSS/JS</span>
+          </div>
+        </article>
+        <article class="tool-card">
+          <h3>Productivity &amp; Workflows</h3>
+          <p>Meeting preparation, documentation, SOP development, task planning and cross-functional workflow support.</p>
+          <div class="tool-list">
+            <span>Microsoft Copilot</span>
+            <span>ChatGPT</span>
+            <span>Gemini</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="script-label">principles</p>
+      <h2>My AI Philosophy</h2>
+      <div class="philosophy-panel">
+        <p>I don't view AI as a replacement for communications judgment or creativity. I use it to create more space for both. By reducing repetitive work, organizing complex information and accelerating early-stage development, AI allows me to spend more time on the work that matters most: understanding audiences, shaping strategy and telling stories people actually care about.</p>
       </div>
     </section>
   </main>
