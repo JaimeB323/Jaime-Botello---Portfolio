@@ -116,12 +116,13 @@
     }
 
     .script-label {
-      margin: 0 0 0.65rem;
+      margin: 0 0 1.05rem;
+      padding-top: 0.35rem;
       color: var(--science);
       font-family: var(--script);
       font-size: clamp(3.4rem, 7vw, 6.6rem);
       font-weight: 400;
-      line-height: 0.8;
+      line-height: 0.98;
       transform: rotate(-4deg);
     }
 
@@ -297,20 +298,34 @@
 
     .capability-grid {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-top: 1.4rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 1.5rem;
+      border: 4px solid var(--ink);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 8px 8px 0 rgba(5, 5, 5, 0.16);
     }
 
     .capability {
-      min-height: 185px;
+      min-height: 235px;
       display: grid;
       align-content: start;
-      gap: 0.65rem;
-      padding: 0.9rem;
-      border: 3px solid var(--ink);
-      border-radius: 6px;
+      gap: 0.75rem;
+      padding: 1.15rem;
+      border: 0;
+      border-right: 3px solid var(--ink);
+      border-bottom: 3px solid var(--ink);
+      border-radius: 0;
       background: #f2d8df;
+    }
+
+    .capability:nth-child(3n) {
+      border-right: 0;
+    }
+
+    .capability:nth-child(n + 4) {
+      border-bottom: 0;
     }
 
     .capability:nth-child(2),
@@ -329,8 +344,8 @@
     }
 
     .capability-icon {
-      width: 46px;
-      height: 46px;
+      width: 58px;
+      height: 58px;
       display: grid;
       place-items: center;
       color: #ffffff;
@@ -338,12 +353,12 @@
       border-radius: 50%;
       background: var(--science);
       font-family: var(--condensed);
-      font-size: 1.25rem;
+      font-size: 1.55rem;
       line-height: 1;
     }
 
     .capability h3 {
-      font-size: clamp(1.02rem, 1.35vw, 1.22rem);
+      font-size: clamp(1.28rem, 2vw, 1.8rem);
     }
 
     .contribution-grid {
@@ -386,18 +401,47 @@
     .process-track {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 0.8rem;
-      margin-top: 1.5rem;
+      gap: 0;
+      margin-top: 1.55rem;
       counter-reset: process;
+      border: 4px solid var(--ink);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 8px 8px 0 rgba(5, 5, 5, 0.16);
     }
 
     .process-step {
       position: relative;
-      min-height: 245px;
-      padding: 1rem;
-      border: 4px solid var(--ink);
-      border-radius: 6px;
+      min-height: 285px;
+      display: grid;
+      align-content: start;
+      padding: 1.1rem 1rem;
+      border: 0;
+      border-right: 3px solid var(--ink);
+      border-radius: 0;
       background: #f5e7bf;
+    }
+
+    .process-step:last-child {
+      border-right: 0;
+    }
+
+    .process-step::after {
+      content: "";
+      position: absolute;
+      top: 4.05rem;
+      right: -0.85rem;
+      z-index: 2;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-top: 3px solid var(--ink);
+      border-right: 3px solid var(--ink);
+      background: inherit;
+      transform: rotate(45deg);
+    }
+
+    .process-step:last-child::after {
+      display: none;
     }
 
     .process-step:nth-child(2n) {
@@ -420,6 +464,21 @@
       font-size: 1.05rem;
     }
 
+    .process-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 0.85rem;
+      color: #ffffff;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: var(--aqua);
+      font-family: var(--condensed);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
     .process-step h3 {
       font-size: clamp(1.5rem, 2.2vw, 2rem);
     }
@@ -430,17 +489,16 @@
       font-weight: 520;
     }
 
-    .prototype-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 1.2rem;
-      margin-top: 1.4rem;
-      align-items: stretch;
-    }
-
     .case-strip {
       display: grid;
       gap: 0.85rem;
+    }
+
+    .proof-point-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 1.4rem;
     }
 
     .case-link {
@@ -482,42 +540,6 @@
       font-weight: 520;
     }
 
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.8rem;
-    }
-
-    .metric-card {
-      min-height: 140px;
-      padding: 0.95rem;
-      border: 4px solid var(--ink);
-      border-radius: 6px;
-      background: #f2d8df;
-    }
-
-    .metric-card:nth-child(2),
-    .metric-card:nth-child(3) {
-      background: #dce8df;
-    }
-
-    .metric-card strong {
-      display: block;
-      color: var(--science);
-      font-family: var(--condensed);
-      font-size: clamp(1.7rem, 3vw, 2.5rem);
-      line-height: 0.95;
-      text-transform: uppercase;
-    }
-
-    .metric-card span {
-      display: block;
-      margin-top: 0.55rem;
-      font-size: 0.95rem;
-      font-weight: 650;
-      line-height: 1.25;
-    }
-
     .tool-ecosystem {
       display: grid;
       grid-template-columns: 1fr minmax(240px, 0.72fr) 1fr;
@@ -534,39 +556,47 @@
       min-height: 420px;
       display: grid;
       place-items: center;
-      padding: 1.25rem;
+      padding: clamp(1.25rem, 2.4vw, 2rem);
       border: 4px solid var(--ink);
-      border-radius: 50% 50% 6px 6px;
+      border-radius: 12px;
       background: var(--science);
       color: #ffffff;
       box-shadow: 8px 8px 0 rgba(5, 5, 5, 0.18);
       text-align: center;
+      overflow: hidden;
+    }
+
+    .ecosystem-core > div {
+      width: 100%;
+      max-width: 310px;
+      margin: 0 auto;
     }
 
     .ecosystem-core span {
       display: block;
-      margin-bottom: 0.8rem;
+      margin: 0 auto 0.5rem;
       font-family: var(--script);
-      font-size: clamp(3rem, 6vw, 5.4rem);
+      font-size: clamp(2rem, 3.2vw, 3.1rem);
       font-weight: 400;
-      line-height: 0.82;
-      transform: rotate(-5deg);
+      line-height: 1;
+      transform: none;
     }
 
     .ecosystem-core strong {
       display: block;
       font-family: var(--condensed);
-      font-size: clamp(2.2rem, 4.8vw, 4.1rem);
-      line-height: 0.9;
+      font-size: clamp(1.75rem, 2.55vw, 2.55rem);
+      line-height: 0.95;
       text-transform: uppercase;
+      overflow-wrap: break-word;
     }
 
     .ecosystem-core p {
-      max-width: 260px;
+      max-width: 280px;
       margin: 0.9rem auto 0;
-      font-size: 0.98rem;
+      font-size: clamp(0.86rem, 1vw, 0.96rem);
       font-weight: 650;
-      line-height: 1.35;
+      line-height: 1.34;
     }
 
     .tool-node {
@@ -647,21 +677,358 @@
       text-transform: uppercase;
     }
 
-    .philosophy-panel {
-      max-width: 1040px;
-      margin-top: 1.4rem;
-      padding: clamp(1.2rem, 3vw, 2rem);
+    .timeline-hero {
+      width: min(var(--max), calc(100% - 3rem));
+      min-height: calc(68vh - 62px);
+      margin: 0 auto;
+      padding: 3.8rem 0 2.4rem;
+    }
+
+    .timeline-hero-card {
+      position: relative;
+      min-height: 500px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.72fr);
+      gap: clamp(1.4rem, 3vw, 2.5rem);
+      align-items: center;
+      align-content: center;
+      padding: clamp(1.4rem, 3.5vw, 2.6rem);
       border: 4px solid var(--ink);
-      border-radius: 6px;
-      background: var(--aqua);
-      color: #ffffff;
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(194, 23, 75, 0.13), transparent 42%),
+        var(--panel);
+      box-shadow: 10px 10px 0 var(--ink);
+      overflow: hidden;
+    }
+
+    .timeline-hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(5, 5, 5, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(5, 5, 5, 0.025) 1px, transparent 1px);
+      background-size: 70px 70px;
+      pointer-events: none;
+    }
+
+    .timeline-hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-hero-content {
+      max-width: 720px;
+    }
+
+    .timeline-hero h1 {
+      font-size: clamp(2.75rem, 5.8vw, 5.4rem);
+    }
+
+    .timeline-hero .script-label {
+      font-size: clamp(2.35rem, 4.5vw, 4.4rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-hero-copy {
+      max-width: 760px;
+      margin-top: 1.15rem;
+      font-size: clamp(1.08rem, 1.7vw, 1.38rem);
+      font-weight: 560;
+    }
+
+    .timeline-visual-inner {
+      height: 100%;
+      min-height: 360px;
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      border: 4px solid var(--ink);
+      border-radius: 8px;
+      background: var(--paper);
       box-shadow: 8px 8px 0 rgba(5, 5, 5, 0.18);
     }
 
-    .philosophy-panel p {
-      font-size: clamp(1.15rem, 2vw, 1.65rem);
+    .timeline-visual-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 50%;
+      width: 38%;
+      transform: translateX(-50%);
+      background: rgba(246, 191, 61, 0.55);
+    }
+
+    .timeline-visual-inner img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      display: block;
+      object-fit: cover;
+      filter: saturate(0.92) contrast(1.04);
+    }
+
+    .timeline-visual-inner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      border: 10px solid rgba(244, 237, 223, 0.72);
+      pointer-events: none;
+    }
+
+    .visual-window,
+    .visual-note {
+      position: relative;
+      z-index: 1;
+      border: 3px solid var(--ink);
+      border-radius: 6px;
+      background: #ffffff;
+      box-shadow: 6px 6px 0 rgba(5, 5, 5, 0.18);
+    }
+
+    .visual-window {
+      min-height: 180px;
+      display: grid;
+      align-content: center;
+      gap: 0.8rem;
+      padding: 1rem;
+    }
+
+    .visual-bar {
+      height: 24px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--aqua) 68%, #dce8df 68%);
+    }
+
+    .visual-bar:nth-child(2) {
+      background: linear-gradient(90deg, var(--science) 48%, #f2d8df 48%);
+    }
+
+    .visual-bar:nth-child(3) {
+      background: linear-gradient(90deg, var(--gold) 82%, #f5e7bf 82%);
+    }
+
+    .visual-note {
+      width: min(84%, 300px);
+      justify-self: end;
+      padding: 0.9rem;
+      transform: rotate(-3deg);
+    }
+
+    .visual-note strong {
+      display: block;
+      color: var(--science);
+      font-family: var(--condensed);
+      font-size: 1.55rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .visual-note span {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.92rem;
       font-weight: 650;
-      line-height: 1.45;
+      line-height: 1.25;
+    }
+
+    .timeline-proof-strip {
+      width: min(var(--max), calc(100% - 3rem));
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin: -1.1rem auto 3rem;
+    }
+
+    .timeline-proof-strip span {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      padding: 0.65rem;
+      border: 3px solid var(--ink);
+      border-radius: 4px;
+      background: var(--gold);
+      font-family: var(--condensed);
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .ai-timeline {
+      width: min(var(--max), calc(100% - 3rem));
+      margin: 0 auto;
+      padding: 1rem 0 4.8rem;
+      position: relative;
+    }
+
+    .ai-timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: min(12vw, 150px);
+      transform: translateX(-50%);
+      background: rgba(246, 191, 61, 0.45);
+      border-left: 3px solid rgba(5, 5, 5, 0.1);
+      border-right: 3px solid rgba(5, 5, 5, 0.1);
+      pointer-events: none;
+    }
+
+    .timeline-entry {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(110px, 0.24fr) minmax(0, 1fr);
+      gap: clamp(1.4rem, 3vw, 2.4rem);
+      align-items: center;
+      min-height: 440px;
+      padding: 2.2rem 0;
+    }
+
+    .timeline-entry:nth-child(even) .timeline-copy {
+      grid-column: 3;
+      text-align: left;
+    }
+
+    .timeline-entry:nth-child(even) .timeline-frame {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .timeline-copy {
+      max-width: 420px;
+      position: relative;
+      z-index: 3;
+      padding: 0.35rem 0.45rem;
+      background: rgba(244, 237, 223, 0.88);
+    }
+
+    .timeline-copy .script-label {
+      display: inline-block;
+      font-size: clamp(1.85rem, 3.2vw, 3.15rem);
+      margin: 0 0 0.72rem 0.18rem;
+      padding-top: 0;
+      line-height: 1;
+      transform: rotate(-3deg);
+    }
+
+    .timeline-copy h2 {
+      font-size: clamp(1.9rem, 3.2vw, 3.2rem);
+    }
+
+    .timeline-copy p {
+      margin-top: 0.85rem;
+      font-size: clamp(1rem, 1.3vw, 1.12rem);
+      font-weight: 560;
+    }
+
+    .timeline-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1rem;
+    }
+
+    .timeline-entry:nth-child(even) .timeline-tools {
+      justify-content: flex-start;
+    }
+
+    .timeline-tools span {
+      padding: 0.36rem 0.55rem;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--paper);
+      font-family: var(--condensed);
+      font-size: 0.86rem;
+      text-transform: uppercase;
+    }
+
+    .timeline-year {
+      grid-column: 2;
+      grid-row: 1;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      font-family: var(--condensed);
+      font-size: clamp(3.6rem, 7.2vw, 6.8rem);
+      line-height: 0.82;
+      text-shadow: 4px 4px 0 rgba(5, 5, 5, 0.22);
+    }
+
+    .timeline-frame {
+      min-height: 230px;
+      position: relative;
+      display: grid;
+      align-content: center;
+      padding: 1rem;
+      border: 5px solid var(--ink);
+      border-radius: 6px;
+      background: var(--panel);
+      box-shadow: 8px 8px 0 rgba(5, 5, 5, 0.18);
+      overflow: visible;
+    }
+
+    .timeline-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(20, 95, 89, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(20, 95, 89, 0.08) 1px, transparent 1px);
+      background-size: 42px 42px;
+      pointer-events: none;
+    }
+
+    .timeline-frame h3,
+    .timeline-frame p,
+    .timeline-frame .timeline-icon {
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-frame h3 {
+      color: var(--science);
+      font-size: clamp(1.55rem, 2.35vw, 2.25rem);
+    }
+
+    .timeline-frame p {
+      max-width: 460px;
+      margin-top: 0.7rem;
+      font-size: 1rem;
+      font-weight: 650;
+    }
+
+    .timeline-icon {
+      width: 82px;
+      height: 82px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 0.8rem;
+      color: #ffffff;
+      border: 4px solid var(--ink);
+      border-radius: 50%;
+      background: var(--aqua);
+      font-family: var(--condensed);
+      font-size: 2rem;
+      box-shadow: 5px 5px 0 rgba(5, 5, 5, 0.18);
+    }
+
+    .timeline-entry:nth-child(3n) .timeline-icon {
+      background: var(--science);
+    }
+
+    .timeline-entry:nth-child(4n) .timeline-frame {
+      background: #dce8df;
+    }
+
+    .timeline-entry:nth-child(5n) .timeline-frame {
+      background: #f5e7bf;
     }
 
     .button {
@@ -704,8 +1071,7 @@
       .tool-ecosystem,
       .proof-strip,
       .process-track,
-      .prototype-grid,
-      .metric-grid {
+      .proof-point-grid {
         grid-template-columns: 1fr;
       }
 
@@ -715,6 +1081,28 @@
 
       .feature-panel {
         box-shadow: 6px 6px 0 var(--ink);
+      }
+
+      .capability-grid,
+      .process-track {
+        border-radius: 6px;
+      }
+
+      .capability,
+      .capability:nth-child(3n),
+      .capability:nth-child(n + 4),
+      .process-step {
+        border-right: 0;
+        border-bottom: 3px solid var(--ink);
+      }
+
+      .capability:last-child,
+      .process-step:last-child {
+        border-bottom: 0;
+      }
+
+      .process-step::after {
+        display: none;
       }
 
       .tool-ecosystem {
@@ -727,12 +1115,57 @@
       }
 
       .ecosystem-core {
-        min-height: 280px;
+        min-height: 250px;
         border-radius: 6px;
       }
 
       .tool-node::after {
         display: none;
+      }
+
+      .timeline-hero-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .ai-timeline::before {
+        left: 1.25rem;
+        width: 0.55rem;
+        transform: none;
+      }
+
+      .timeline-entry,
+      .timeline-entry:nth-child(even) .timeline-copy,
+      .timeline-entry:nth-child(even) .timeline-frame {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        text-align: left;
+      }
+
+      .timeline-entry:nth-child(even) .timeline-copy,
+      .timeline-entry:nth-child(even) .timeline-frame {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .timeline-entry {
+        min-height: 0;
+        padding-left: 3.25rem;
+      }
+
+      .timeline-copy {
+        max-width: 100%;
+        padding-left: 0.65rem;
+      }
+
+      .timeline-year {
+        grid-column: 1;
+        justify-content: start;
+        font-size: clamp(3.8rem, 18vw, 6rem);
+      }
+
+      .timeline-entry:nth-child(even) .timeline-tools {
+        justify-content: flex-start;
       }
     }
 
@@ -771,6 +1204,24 @@
 
       .dashboard-grid {
         grid-template-columns: 1fr;
+      }
+
+      .timeline-hero,
+      .timeline-proof-strip,
+      .ai-timeline {
+        width: min(var(--max), calc(100% - 1.5rem));
+      }
+
+      .timeline-hero {
+        padding-top: 3rem;
+      }
+
+      .timeline-hero h1 {
+        font-size: clamp(2.4rem, 11vw, 4rem);
+      }
+
+      .timeline-frame {
+        min-height: 0;
       }
     }
   
@@ -926,242 +1377,152 @@
   </header>
 
   <main>
-    <section class="section hero">
-      <div>
-        <p class="script-label">AI Capabilities</p>
-        <h1>Communications Strategy With Smarter Workflows</h1>
-        <p class="hero-copy">
-          I use AI to help communications teams work smarter, move faster and make better-informed decisions. My approach combines communications strategy with AI-enabled research, content development, workflow design, measurement and rapid prototyping, while keeping human judgment, credibility and audience needs at the center.
-        </p>
-        <a class="button" href="index.html#capabilities">Back to Expertise</a>
-      </div>
+    <section class="timeline-hero">
+      <div class="timeline-hero-card">
+        <div class="timeline-hero-content">
+          <p class="script-label">AI Capabilities</p>
+          <h1>Communications Strategy With Smarter Workflows</h1>
+          <p class="timeline-hero-copy">
+            I use AI to help communications teams work smarter, move faster and make better-informed decisions. My approach combines communications strategy with AI-enabled research, content development, workflow design, measurement and rapid prototyping while keeping human judgment, credibility and audience needs at the center.
+          </p>
+          <a class="button" href="index.html#capabilities">Back to Expertise</a>
+        </div>
 
-      <div class="feature-panel" aria-label="AI communications workflow visual">
-        <!-- UPDATE: Replace this visual block with a polished desk/laptop image if desired. -->
-        <div class="hero-workflow-visual">
-          <div class="dashboard-window">
-            <div class="window-bar" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <p class="dashboard-title">Strategy Workspace</p>
-            <div class="dashboard-grid">
-              <div class="dashboard-card">
-                <strong>Research</strong>
-                <small>Source synthesis, narrative themes and audience signals.</small>
-              </div>
-              <div class="dashboard-card">
-                <strong>Plan</strong>
-                <small>Briefs, prompts, timelines and content systems.</small>
-              </div>
-              <div class="dashboard-card">
-                <strong>Build</strong>
-                <small>Drafts, dashboards, workflows and prototypes.</small>
-              </div>
-              <div class="dashboard-card">
-                <strong>Measure</strong>
-                <small>KPIs, insights and next-step recommendations.</small>
-              </div>
-            </div>
-          </div>
+        <div class="timeline-visual-inner">
+          <img src="images/ai-capabilities-hero.png" alt="AI tools and digital strategy visual">
         </div>
       </div>
     </section>
 
-    <div class="proof-strip" aria-label="AI communications proof points">
+    <div class="timeline-proof-strip" aria-label="AI communications focus areas">
       <span>AI Strategy</span>
       <span>Content Systems</span>
       <span>Workflow Design</span>
       <span>Executive Storytelling</span>
     </div>
 
-    <section class="section">
-      <p class="script-label">focus areas</p>
-      <h2>AI Capabilities</h2>
-
-      <div class="capability-grid">
-        <article class="capability">
-          <span class="capability-icon" aria-hidden="true">01</span>
+    <section class="ai-timeline" aria-label="AI capabilities timeline">
+      <article class="timeline-entry">
+        <div class="timeline-copy">
+          <p class="script-label">focus areas</p>
+          <h2>AI Capabilities</h2>
+          <p>Six core areas define how I use AI as a practical communications tool: strategy, synthesis, content, workflows, measurement and prototyping.</p>
+        </div>
+        <div class="timeline-year" aria-hidden="true">01</div>
+        <div class="timeline-frame">
+          <span class="timeline-icon" aria-hidden="true">&#9673;</span>
           <h3>AI-Enabled Content Strategy</h3>
-          <p>Using AI to map content opportunities, organize campaign ideas, identify audience needs and turn complex inputs into clearer strategic direction.</p>
-        </article>
-        <article class="capability">
-          <span class="capability-icon" aria-hidden="true">02</span>
-          <h3>Research &amp; Synthesis</h3>
-          <p>Using AI to organize source material, compare narratives, summarize interviews and surface patterns that support stronger communications planning.</p>
-        </article>
-        <article class="capability">
-          <span class="capability-icon" aria-hidden="true">03</span>
-          <h3>Content Development</h3>
-          <p>Pressure-testing messages, simplifying technical concepts and developing audience-specific drafts while preserving accuracy and credibility.</p>
-        </article>
-        <article class="capability">
-          <span class="capability-icon" aria-hidden="true">04</span>
-          <h3>Workflow Design</h3>
-          <p>Creating repeatable prompts, SOPs, templates, briefs and review processes that make communications work more efficient and consistent.</p>
-        </article>
-        <article class="capability">
-          <span class="capability-icon" aria-hidden="true">05</span>
-          <h3>Measurement &amp; Dashboards</h3>
-          <p>Summarizing performance inputs, identifying patterns and translating data into useful insights for reporting and future content decisions.</p>
-        </article>
-        <article class="capability">
-          <span class="capability-icon" aria-hidden="true">06</span>
-          <h3>AI Prototyping &amp; Communications Technology</h3>
-          <p>Using Codex, GitHub, HTML/CSS/JS and AI tools to prototype communications dashboards, reporting tools and portfolio experiences.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="contributions">
-      <p class="script-label">practical use</p>
-      <h2>How I Apply AI</h2>
-
-      <div class="process-track">
-        <article class="process-step">
-          <h3>Plan</h3>
-          <p>Use AI-assisted research, audience inputs and prompt frameworks to shape briefs, messages, interview guides and editorial direction.</p>
-        </article>
-        <article class="process-step">
-          <h3>Build</h3>
-          <p>Turn complex source material into draft content systems, social ideas, executive thought leadership angles and multimedia extensions.</p>
-        </article>
-        <article class="process-step">
-          <h3>Coordinate</h3>
-          <p>Create repeatable SOPs, review workflows and stakeholder-ready planning tools that keep teams aligned and moving efficiently.</p>
-        </article>
-        <article class="process-step">
-          <h3>Launch</h3>
-          <p>Adapt the core story across channels while keeping content credible, audience-specific and consistent with communications priorities.</p>
-        </article>
-        <article class="process-step">
-          <h3>Measure</h3>
-          <p>Use AI-supported synthesis and dashboard thinking to organize KPIs, surface patterns and turn reporting into useful decisions.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <p class="script-label">proof points</p>
-      <h2>AI Projects &amp; Prototypes</h2>
-
-      <div class="prototype-grid">
-        <div class="case-strip">
-          <a class="case-link" href="meeting-the-moment-ai-drug-discovery.html">
-            <span aria-hidden="true">AI</span>
-            <div>
-              <h3>Meeting the Moment</h3>
-              <p>AI in drug discovery storytelling translated into accessible digital content.</p>
-            </div>
-          </a>
-          <article class="case-link">
-            <span aria-hidden="true">SOV</span>
-            <div>
-              <h3>R&amp;D Share of Voice Dashboard</h3>
-              <p>AI-assisted prototype for measurement, competitive narrative insights and reporting.</p>
-            </div>
-          </article>
-          <article class="case-link">
-            <span aria-hidden="true">WF</span>
-            <div>
-              <h3>Content Activation Workflow</h3>
-              <p>Repeatable prompts for turning long-form source material into channel-ready ideas.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="metric-grid" aria-label="AI value areas">
-          <article class="metric-card">
-            <strong>Efficiency</strong>
-            <span>Reduces repetitive planning and drafting steps so teams can move faster.</span>
-          </article>
-          <article class="metric-card">
-            <strong>Repurposing</strong>
-            <span>Turns one strong source story into multiple channel-specific assets.</span>
-          </article>
-          <article class="metric-card">
-            <strong>Alignment</strong>
-            <span>Creates clearer briefs, review paths and shared messaging systems.</span>
-          </article>
-          <article class="metric-card">
-            <strong>Measurement</strong>
-            <span>Organizes performance inputs into insight, reporting and next actions.</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <p class="script-label">ecosystem</p>
-      <h2>Tools &amp; Platforms</h2>
-
-      <div class="tool-ecosystem" aria-label="AI and communications technology ecosystem">
-        <div class="ecosystem-core">
-          <div>
-            <span>AI-enabled</span>
-            <strong>Communications Toolkit</strong>
-            <p>Tools grouped by how they support strategy, content, workflow design and rapid prototyping.</p>
+          <p>Mapping content opportunities, organizing campaign ideas, identifying audience needs and turning complex inputs into clearer direction.</p>
+          <div class="timeline-tools">
+            <span>Audience Needs</span>
+            <span>Messaging</span>
+            <span>Planning</span>
           </div>
         </div>
+      </article>
 
-        <article class="tool-node strategy">
-          <div>
-            <h3>Strategy &amp; Synthesis</h3>
-            <p>Research support, source synthesis, narrative mapping, planning inputs and message pressure-testing.</p>
-          </div>
-          <div class="tool-cluster">
+      <article class="timeline-entry">
+        <div class="timeline-copy">
+          <p class="script-label">research</p>
+          <h2>Research &amp; Synthesis</h2>
+          <p>AI helps organize source material, compare narratives, summarize interviews and surface patterns that support stronger communications decisions.</p>
+        </div>
+        <div class="timeline-year" aria-hidden="true">02</div>
+        <div class="timeline-frame">
+          <span class="timeline-icon" aria-hidden="true">&#8981;</span>
+          <h3>From Inputs to Insight</h3>
+          <p>Source content, competitive information and interview notes become clearer themes, storylines and recommendations.</p>
+          <div class="timeline-tools">
             <span>ChatGPT</span>
             <span>Claude</span>
             <span>Gemini</span>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="tool-node content">
-          <div>
-            <h3>Content &amp; Creative</h3>
-            <p>Drafting, editing, creative exploration, visual planning, presentation support and content adaptation.</p>
+      <article class="timeline-entry">
+        <div class="timeline-copy">
+          <p class="script-label">build</p>
+          <h2>Content Systems</h2>
+          <p>Long-form source material can become social concepts, executive thought leadership, articles, talking points and multimedia extensions.</p>
+        </div>
+        <div class="timeline-year" aria-hidden="true">03</div>
+        <div class="timeline-frame">
+          <span class="timeline-icon" aria-hidden="true">&#9998;</span>
+          <h3>Content Development</h3>
+          <p>Pressure-testing messages, simplifying technical ideas and developing audience-specific drafts while preserving accuracy and credibility.</p>
+          <div class="timeline-tools">
+            <span>Editorial Planning</span>
+            <span>Social</span>
+            <span>Web</span>
           </div>
-          <div class="tool-cluster">
+        </div>
+      </article>
+
+      <article class="timeline-entry">
+        <div class="timeline-copy">
+          <p class="script-label">process</p>
+          <h2>How I Apply AI</h2>
+          <p>The work moves through a repeatable process: plan, build, coordinate, launch and measure. That structure keeps AI useful, practical and grounded in communications judgment.</p>
+        </div>
+        <div class="timeline-year" aria-hidden="true">04</div>
+        <div class="timeline-frame">
+          <span class="timeline-icon" aria-hidden="true">&#8635;</span>
+          <h3>Workflow Design</h3>
+          <p>Creating prompts, SOPs, templates, briefs and review workflows that make communications work more efficient and consistent.</p>
+          <div class="timeline-tools">
+            <span>Plan</span>
+            <span>Build</span>
+            <span>Coordinate</span>
+            <span>Launch</span>
+            <span>Measure</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-entry">
+        <div class="timeline-copy">
+          <p class="script-label">proof points</p>
+          <h2>AI Projects &amp; Prototypes</h2>
+          <p>These examples show how AI moves from concept to practical communications output, including case study work, dashboards and content workflows.</p>
+        </div>
+        <div class="timeline-year" aria-hidden="true">05</div>
+        <div class="timeline-frame">
+          <span class="timeline-icon" aria-hidden="true">KPI</span>
+          <h3>Measurement &amp; Dashboards</h3>
+          <p>Using AI-assisted development to organize campaign performance inputs, competitive narrative insights and reporting structures.</p>
+          <div class="timeline-tools">
+            <span>R&amp;D SOV Dashboard</span>
+            <span>KPI Reporting</span>
+            <span>Insights</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-entry">
+        <div class="timeline-copy">
+          <p class="script-label">ecosystem</p>
+          <h2>Tools &amp; Platforms</h2>
+          <p>The toolset is grouped by use case rather than treated as a generic logo wall: synthesis, content, prototyping and productivity.</p>
+        </div>
+        <div class="timeline-year" aria-hidden="true">06</div>
+        <div class="timeline-frame">
+          <span class="timeline-icon" aria-hidden="true">&lt;/&gt;</span>
+          <h3>Communications Technology</h3>
+          <p>Using AI tools, Codex, GitHub and lightweight web technologies to prototype dashboards, portfolio experiences and communications workflows.</p>
+          <div class="timeline-tools">
             <span>ChatGPT</span>
-            <span>Canva</span>
             <span>Claude</span>
-          </div>
-        </article>
-
-        <article class="tool-node prototype">
-          <div>
-            <h3>Prototyping &amp; Development</h3>
-            <p>Rapid prototypes for dashboards, reporting workflows, web pages and communications technology concepts.</p>
-          </div>
-          <div class="tool-cluster">
+            <span>Gemini</span>
+            <span>Canva</span>
             <span>Codex</span>
             <span>GitHub</span>
-            <span>HTML/CSS/JS</span>
+            <span>Copilot</span>
           </div>
-        </article>
-
-        <article class="tool-node productivity">
-          <div>
-            <h3>Productivity &amp; Workflows</h3>
-            <p>Meeting preparation, documentation, SOP development, task planning and cross-functional workflow support.</p>
-          </div>
-          <div class="tool-cluster">
-            <span>Microsoft Copilot</span>
-            <span>ChatGPT</span>
-            <span>Gemini</span>
-          </div>
-        </article>
-      </div>
+        </div>
+      </article>
     </section>
 
-    <section class="section">
-      <p class="script-label">principles</p>
-      <h2>My AI Philosophy</h2>
-      <div class="philosophy-panel">
-        <p>I don't view AI as a replacement for communications judgment or creativity. I use it to create more space for both. By reducing repetitive work, organizing complex information and accelerating early-stage development, AI allows me to spend more time on the work that matters most: understanding audiences, shaping strategy and telling stories people actually care about.</p>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
