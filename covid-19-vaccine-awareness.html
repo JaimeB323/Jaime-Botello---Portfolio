@@ -10,7 +10,6 @@
     /* =========================================================
       PERSONAL PORTFOLIO CASE STUDY
       Replace text, links, images, video embeds, and metrics below.
-      This is a single-file GitHub Pages-ready HTML page.
     ========================================================= */
 
     :root {
@@ -3073,6 +3072,272 @@
       }
     }
 
+    /* Executive portfolio system polish - July 2026 */
+    :root {
+      --executive-navy: #071926;
+      --executive-text: #162b38;
+      --executive-muted: #344752;
+      --executive-cream: #f4f1ea;
+      --executive-white: #ffffff;
+      --executive-gold: #f6bf3d;
+      --executive-red: #a80f3b;
+      --executive-radius: 18px;
+      --executive-soft-shadow: 0 16px 36px rgba(7, 25, 38, 0.08);
+      --executive-hover-shadow: 0 22px 48px rgba(7, 25, 38, 0.13);
+    }
+
+    html {
+      scroll-padding-top: 82px;
+    }
+
+    body {
+      color: var(--executive-text) !important;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--executive-gold) !important;
+      outline-offset: 3px !important;
+    }
+
+    .site-header {
+      z-index: 1000 !important;
+      border-bottom: 1px solid rgba(7, 25, 38, 0.14) !important;
+      background: rgba(250, 248, 243, 0.94) !important;
+    }
+
+    .nav-links a.active,
+    .nav-links a[aria-current="page"] {
+      color: var(--executive-navy) !important;
+      background: rgba(246, 191, 61, 0.28) !important;
+    }
+
+    .dropdown-menu {
+      border-radius: 14px !important;
+      border: 1px solid rgba(7, 25, 38, 0.14) !important;
+      background: #ffffff !important;
+      box-shadow: 0 18px 42px rgba(7, 25, 38, 0.14) !important;
+    }
+
+    .dropdown-menu a:hover {
+      background: rgba(246, 191, 61, 0.22) !important;
+    }
+
+    .section,
+    .home-section {
+      padding-top: clamp(3rem, 5vw, 4.5rem) !important;
+      padding-bottom: clamp(3rem, 5vw, 4.5rem) !important;
+    }
+
+    .section-header p:not(.eyebrow),
+    .copy-stack p,
+    .strategy-narrative p,
+    .corporate-description-box p,
+    .timeline-copy p,
+    .timeline-frame p {
+      max-width: 760px;
+      color: var(--executive-muted) !important;
+    }
+
+    .project-card,
+    .collection-card,
+    .activation-card,
+    .corporate-description-box,
+    .capability,
+    .home-capability-card,
+    .home-project-card,
+    .resume-card,
+    .placeholder-result-card,
+    .impact-stat {
+      border-radius: var(--executive-radius) !important;
+      box-shadow: var(--executive-soft-shadow) !important;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease !important;
+    }
+
+    .project-card:hover,
+    .collection-card:hover,
+    .activation-card:hover,
+    .corporate-description-box:hover,
+    .capability:hover,
+    .home-capability-card:hover,
+    .home-project-card:hover,
+    .resume-card:hover {
+      transform: translateY(-4px) !important;
+      border-color: rgba(246, 191, 61, 0.9) !important;
+      box-shadow: var(--executive-hover-shadow) !important;
+    }
+
+    .project-thumb,
+    .collection-thumb,
+    .activation-thumbnail,
+    .hero-photo-placeholder,
+    .overview-media,
+    .featured-case-media,
+    .case-hero-image {
+      border-radius: var(--executive-radius) !important;
+      overflow: hidden !important;
+    }
+
+    .project-thumb img,
+    .collection-thumb img,
+    .activation-thumbnail img,
+    .overview-media img,
+    .featured-case-media img,
+    .hero-photo-placeholder img {
+      transition: transform 220ms ease !important;
+    }
+
+    .project-card:hover .project-thumb img,
+    .collection-card:hover .collection-thumb img,
+    .activation-card:hover .activation-thumbnail img,
+    .home-project-card:hover .project-thumb img {
+      transform: scale(1.03) !important;
+    }
+
+    .button,
+    .mini-button {
+      min-height: 44px !important;
+      border-radius: 999px !important;
+      box-shadow: none !important;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease !important;
+    }
+
+    .button:hover,
+    .mini-button:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 12px 24px rgba(7, 25, 38, 0.16) !important;
+    }
+
+    .button.primary,
+    .mini-button:not(.disabled) {
+      color: #ffffff !important;
+      border-color: var(--executive-navy) !important;
+      background: var(--executive-navy) !important;
+    }
+
+    .button.secondary {
+      color: var(--executive-navy) !important;
+      border-color: rgba(7, 25, 38, 0.22) !important;
+      background: var(--executive-gold) !important;
+    }
+
+    .footer {
+      padding: 2.5rem min(3rem, 5vw) !important;
+      color: #ffffff !important;
+      border-top: 0 !important;
+      background: var(--executive-navy) !important;
+      text-align: left !important;
+    }
+
+    .footer-inner {
+      width: min(var(--max, 1280px), 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .footer-brand strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1.25rem;
+    }
+
+    .footer-brand span {
+      display: block;
+      margin-top: 0.35rem;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: flex-end;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.82) !important;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff !important;
+    }
+
+    .footer-copy {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 760px) {
+      .section,
+      .home-section {
+        padding-top: 2.2rem !important;
+        padding-bottom: 2.2rem !important;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    .project-snapshot {
+      width: min(var(--max, 1180px), calc(100% - 2rem));
+      margin: clamp(1rem, 2vw, 1.6rem) auto clamp(1.4rem, 2.4vw, 2rem);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .snapshot-item {
+      min-height: 96px;
+      padding: 1rem;
+      border: 1px solid rgba(7, 25, 38, 0.12);
+      border-radius: var(--executive-radius, 18px);
+      background: #ffffff;
+      box-shadow: var(--executive-soft-shadow, 0 16px 36px rgba(7, 25, 38, 0.08));
+    }
+
+    .snapshot-item span {
+      display: block;
+      color: var(--executive-red, #a80f3b);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .snapshot-item strong {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--executive-navy, #071926);
+      font-size: 0.98rem;
+      line-height: 1.25;
+    }
+
+    @media (max-width: 900px) {
+      .project-snapshot {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .project-snapshot {
+        width: min(var(--max, 1180px), calc(100% - 1rem));
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -3090,26 +3355,16 @@
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
         <div class="nav-menu">
-          <button class="nav-menu-button" type="button" aria-haspopup="true">Corporate</button>
+          <button class="nav-menu-button" type="button" aria-haspopup="true">Work</button>
           <div class="dropdown-menu">
-            <a href="meeting-the-moment.html">Storytelling Overview</a>
+            <a href="meeting-the-moment.html">Corporate Storytelling</a>
             <a href="meeting-the-moment-ai-drug-discovery.html">Meeting the Moment: AI in Drug Discovery</a>
             <a href="small-molecule-drug-discovery-lab-expansion.html">Small Molecule Drug Discovery Lab Expansion</a>
             <a href="acs-heroes-of-chemistry.html">ACS Heroes of Chemistry</a>
-          </div>
-        </div>
-        <div class="nav-menu">
-          <button class="nav-menu-button" type="button" aria-haspopup="true">Executive</button>
-          <div class="dropdown-menu">
-            <a href="strategic-communications-corporate-storytelling.html">Storytelling Overview</a>
+            <a href="strategic-communications-corporate-storytelling.html">Executive Storytelling</a>
             <a href="my-9-5-social-video.html">My 9-5 Social Video</a>
             <a href="dna-day-social-activation.html">DNA Day Social Activation</a>
-          </div>
-        </div>
-        <div class="nav-menu">
-          <button class="nav-menu-button" type="button" aria-haspopup="true">Community</button>
-          <div class="dropdown-menu">
-            <a href="community-engagement-public-awareness.html">Storytelling Overview</a>
+            <a href="community-engagement-public-awareness.html">Community Engagement</a>
             <a href="covid-19-vaccine-awareness.html">COVID-19 Vaccine Awareness</a>
             <a href="ican-afford-college-financial-aid-awareness.html">I Can Afford College</a>
             <a href="health-net-mobile-rv-community-health-screenings.html">Health Net Mobile RV Program</a>
@@ -3134,6 +3389,13 @@
       <figure class="case-hero-image">
         <img src="images/covid-vaccine-case-hero.png" alt="Community COVID-19 vaccine awareness event with students and trusted local messengers.">
       </figure>
+
+      <div class="project-snapshot" aria-label="Project snapshot">
+        <div class="snapshot-item"><span>Role</span><strong>Public Awareness Lead</strong></div>
+        <div class="snapshot-item"><span>Organization</span><strong>Health Net</strong></div>
+        <div class="snapshot-item"><span>Focus</span><strong>Community Engagement</strong></div>
+        <div class="snapshot-item"><span>Deliverables</span><strong>Media Relations, Video, Bilingual Outreach</strong></div>
+      </div>
 
       <div class="split text-only">
         <div class="copy-stack">
@@ -3241,9 +3503,20 @@
   </main>
 
   <footer class="footer">
-    <!-- UPDATE: Replace name/year details if desired. -->
-    <p>&copy; <span id="year"></span> Jaime Botello. Personal portfolio case study. <a href="#top">Back to top</a></p>
-    <p class="footer-disclaimer">This is a personal portfolio case-study page and not an official webpage for any organization referenced. It does not represent employer endorsement, sponsorship, or publication.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>Jaime Botello</strong>
+        <span>Strategic Communications | Executive Communications | AI-Enabled Communications</span>
+      </div>
+      <div class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="meeting-the-moment.html">Work</a>
+        <a href="ai-capabilities.html">Capabilities</a>
+        <a href="resume.html">Resume</a>
+        <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="footer-copy">&copy; <span id="year"></span> Jaime Botello. Personal portfolio.</p>
+    </div>
   </footer>
 
   <script>
@@ -3253,6 +3526,20 @@
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector("#nav-links");
     const navItems = document.querySelectorAll(".nav-links a");
+
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    navItems.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#") || href.startsWith("http")) return;
+      const [hrefPath, hrefHash] = href.split("#");
+      const isSamePage = hrefPath === currentPath;
+      const isCurrentAnchor = hrefHash && isSamePage && window.location.hash === `#${hrefHash}`;
+      const isCurrentPage = isSamePage && !hrefHash;
+      if (isCurrentPage || isCurrentAnchor) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", isCurrentAnchor ? "location" : "page");
+      }
+    });
 
     if (navToggle && navLinks) {
       navToggle.addEventListener("click", () => {
