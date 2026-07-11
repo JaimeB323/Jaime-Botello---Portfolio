@@ -1801,6 +1801,321 @@
       }
     }
 
+    /* Portfolio visual balance pass - July 2026 */
+    .section {
+      padding-top: clamp(2.25rem, 3.6vw, 3.6rem) !important;
+      padding-bottom: clamp(2.25rem, 3.6vw, 3.6rem) !important;
+    }
+
+    .hero,
+    .timeline-hero,
+    .meeting-overview,
+    .case-actions {
+      padding-top: clamp(1.4rem, 2.8vw, 2.6rem) !important;
+      padding-bottom: clamp(1.4rem, 2.8vw, 2.6rem) !important;
+    }
+
+    .case-actions + .meeting-overview,
+    .case-actions + .section {
+      padding-top: clamp(1rem, 2vw, 1.8rem) !important;
+    }
+
+    .section-header,
+    .hero-copy,
+    .copy-stack,
+    .strategy-narrative,
+    .timeline-copy,
+    .timeline-frame,
+    .corporate-description-box,
+    .collection-body,
+    .activation-body,
+    .project-body {
+      text-wrap: pretty;
+    }
+
+    .section-header {
+      margin-bottom: clamp(1rem, 2vw, 1.6rem) !important;
+    }
+
+    .hero {
+      gap: clamp(1.25rem, 3vw, 2.5rem) !important;
+      align-items: center !important;
+    }
+
+    .split,
+    .hero,
+    .corporate-case-row,
+    .case-study-row,
+    .timeline-entry,
+    .overview-grid,
+    .strategy-grid,
+    .content-row {
+      column-gap: clamp(1.35rem, 3.2vw, 2.8rem) !important;
+      row-gap: clamp(1.1rem, 2.4vw, 2rem) !important;
+    }
+
+    .copy-stack p,
+    .strategy-narrative p,
+    .section-header p:not(.eyebrow),
+    .hero-copy,
+    .hero-tagline,
+    .hero-summary,
+    .corporate-description-box p,
+    .timeline-copy p,
+    .timeline-frame p,
+    .activation-body p,
+    .collection-body p,
+    .project-body p,
+    .resume-card p,
+    .resume-card li {
+      font-size: clamp(1rem, 1.05vw, 1.13rem) !important;
+      line-height: 1.5 !important;
+    }
+
+    .copy-stack,
+    .strategy-narrative,
+    .section-header,
+    .corporate-description-box,
+    .timeline-copy,
+    .timeline-frame {
+      max-width: 980px !important;
+    }
+
+    .copy-stack p + p,
+    .strategy-narrative p + p,
+    .section-header p + p,
+    .corporate-description-box p + p {
+      margin-top: clamp(0.75rem, 1.4vw, 1.15rem) !important;
+    }
+
+    h1,
+    .hero-heading {
+      font-size: clamp(2.25rem, 5.2vw, 5.25rem) !important;
+      line-height: 0.98 !important;
+    }
+
+    h2 {
+      font-size: clamp(1.85rem, 3.3vw, 3.15rem) !important;
+      line-height: 1.02 !important;
+    }
+
+    h3,
+    .collection-body h3,
+    .project-body h3,
+    .activation-body h3 {
+      font-size: clamp(1.12rem, 1.6vw, 1.55rem) !important;
+      line-height: 1.08 !important;
+    }
+
+    .eyebrow,
+    .script-label,
+    .hero-title::before {
+      line-height: 0.95 !important;
+      margin-bottom: clamp(0.35rem, 1vw, 0.75rem) !important;
+    }
+
+    .project-image,
+    .hero-photo-placeholder,
+    .timeline-visual-inner,
+    .overview-media,
+    .case-hero-image,
+    .episode-hero,
+    .impact-graphic,
+    .results-graphic {
+      width: 100% !important;
+    }
+
+    .project-image,
+    .hero-photo-placeholder img,
+    .timeline-visual-inner img,
+    .overview-media img {
+      width: 100% !important;
+      min-height: clamp(260px, 34vw, 500px) !important;
+      max-height: 560px !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      display: block !important;
+    }
+
+    .hero-photo-placeholder {
+      max-height: 560px !important;
+      min-height: clamp(260px, 34vw, 500px) !important;
+      overflow: hidden !important;
+    }
+
+    .case-hero-image {
+      max-width: min(100%, 1120px) !important;
+      margin-top: 0 !important;
+      margin-bottom: clamp(1rem, 2vw, 1.6rem) !important;
+    }
+
+    .case-hero-image img {
+      width: 100% !important;
+      max-height: 620px !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      display: block !important;
+    }
+
+    .collection-thumb,
+    .project-thumb,
+    .activation-thumbnail,
+    .corporate-stacked .collection-thumb {
+      height: clamp(220px, 24vw, 320px) !important;
+      min-height: 220px !important;
+      overflow: hidden !important;
+    }
+
+    .collection-thumb img,
+    .project-thumb img,
+    .activation-thumbnail img,
+    .episode-hero img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      display: block !important;
+    }
+
+    .logo-thumb img,
+    .collection-thumb.logo-thumb img,
+    .impact-graphic img,
+    .results-graphic img {
+      object-fit: contain !important;
+    }
+
+    .collection-card,
+    .project-card,
+    .activation-card,
+    .corporate-description-box,
+    .resume-card,
+    .capability,
+    .placeholder-result-card {
+      height: 100% !important;
+    }
+
+    .corporate-case-row {
+      align-items: stretch !important;
+      margin-bottom: clamp(1.15rem, 2.4vw, 2rem) !important;
+    }
+
+    .hero-actions,
+    .episode-buttons,
+    .button-row {
+      gap: 0.65rem !important;
+      margin-top: clamp(1rem, 1.8vw, 1.5rem) !important;
+    }
+
+    .button,
+    .mini-button {
+      min-height: 42px !important;
+      padding: 0.68rem 0.95rem !important;
+      line-height: 1.1 !important;
+    }
+
+    @media (max-width: 900px) {
+      .section {
+        width: min(var(--max), calc(100% - 1.25rem)) !important;
+        padding-top: 1.85rem !important;
+        padding-bottom: 1.85rem !important;
+      }
+
+      .hero,
+      .split,
+      .corporate-case-row,
+      .timeline-entry,
+      .overview-grid,
+      .strategy-grid,
+      .content-row {
+        grid-template-columns: 1fr !important;
+      }
+
+      .hero-copy,
+      .hero-title,
+      .hero-visual,
+      .split .copy-stack,
+      .split .overview-media {
+        grid-column: 1 / -1 !important;
+      }
+
+      .project-image,
+      .hero-photo-placeholder,
+      .hero-photo-placeholder img,
+      .timeline-visual-inner,
+      .timeline-visual-inner img,
+      .overview-media img {
+        min-height: 240px !important;
+        max-height: 420px !important;
+      }
+
+      .collection-thumb,
+      .project-thumb,
+      .activation-thumbnail,
+      .corporate-stacked .collection-thumb {
+        height: 230px !important;
+        min-height: 230px !important;
+      }
+
+      .case-hero-image img {
+        max-height: 460px !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section {
+        width: min(var(--max), calc(100% - 1rem)) !important;
+        padding-top: 1.45rem !important;
+        padding-bottom: 1.45rem !important;
+      }
+
+      h1,
+      .hero-heading {
+        font-size: clamp(2rem, 12vw, 3.25rem) !important;
+      }
+
+      h2 {
+        font-size: clamp(1.55rem, 8vw, 2.25rem) !important;
+      }
+
+      .copy-stack p,
+      .strategy-narrative p,
+      .section-header p:not(.eyebrow),
+      .hero-copy,
+      .hero-tagline,
+      .hero-summary,
+      .corporate-description-box p,
+      .timeline-copy p,
+      .timeline-frame p,
+      .activation-body p,
+      .collection-body p,
+      .project-body p {
+        font-size: 1rem !important;
+        line-height: 1.48 !important;
+      }
+
+      .project-image,
+      .hero-photo-placeholder,
+      .hero-photo-placeholder img,
+      .timeline-visual-inner,
+      .timeline-visual-inner img,
+      .overview-media img {
+        min-height: 220px !important;
+        max-height: 340px !important;
+      }
+
+      .case-hero-image img {
+        max-height: 360px !important;
+      }
+
+      .collection-thumb,
+      .project-thumb,
+      .activation-thumbnail,
+      .corporate-stacked .collection-thumb {
+        height: 220px !important;
+        min-height: 220px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
