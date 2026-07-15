@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of strategic communications, digital storytelling, multimedia, and health communications work by Jaime Botello.">
+  <meta name="description" content="Communications portfolio showcasing strategic communications, executive storytelling, multimedia, scientific communications, community engagement, and AI-enabled communications work by Jaime Botello.">
   <meta name="theme-color" content="#f4eddf">
-  <title>Jaime Botello | Communications Portfolio</title>
+  <title>Communications Portfolio | Jaime Botello</title>
   <style>
     :root {
       --ink: #10222f;
@@ -2045,7 +2045,7 @@
 
     .featured-case-card {
       display: grid;
-      grid-template-columns: minmax(320px, 0.75fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
       gap: clamp(1.4rem, 3vw, 2.4rem);
       align-items: center;
       overflow: hidden;
@@ -2056,9 +2056,7 @@
     }
 
     .featured-case-media {
-      order: 2;
-      position: relative;
-      min-height: 330px;
+      min-height: 380px;
       height: 100%;
       overflow: hidden;
     }
@@ -2066,14 +2064,13 @@
     .featured-case-media img {
       width: 100%;
       height: 100%;
-      min-height: 330px;
+      min-height: 380px;
       display: block;
       object-fit: cover;
       object-position: center;
     }
 
     .featured-case-copy {
-      order: 1;
       padding: clamp(1.6rem, 3vw, 2.4rem);
     }
 
@@ -2215,11 +2212,6 @@
       .home-hero,
       .featured-case-card {
         grid-template-columns: 1fr !important;
-      }
-
-      .featured-case-media,
-      .featured-case-copy {
-        order: initial;
       }
 
       .home-hero .hero-photo-placeholder {
@@ -2509,6 +2501,166 @@
       }
     }
 
+    /* Communications Portfolio page */
+    .portfolio-hero {
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr) !important;
+      align-items: center !important;
+    }
+
+    .portfolio-hero-visual {
+      overflow: hidden;
+      border-radius: 22px;
+      box-shadow: 0 18px 42px rgba(7, 25, 38, 0.12);
+    }
+
+    .portfolio-hero-visual img {
+      width: 100%;
+      min-height: 360px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .practice-card {
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      padding: 1.35rem;
+      border: 1px solid rgba(7, 25, 38, 0.12);
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 16px 36px rgba(7, 25, 38, 0.08);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .practice-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(246, 191, 61, 0.9);
+      box-shadow: 0 22px 48px rgba(7, 25, 38, 0.13);
+    }
+
+    .practice-card h3 {
+      margin-top: 1rem;
+      color: #071926;
+      font-size: clamp(1.15rem, 1.5vw, 1.45rem) !important;
+    }
+
+    .practice-card p {
+      margin-top: 0.75rem;
+      color: #344752;
+      font-size: 0.95rem;
+      line-height: 1.48;
+    }
+
+    .practice-card .case-count {
+      margin-top: auto;
+      padding-top: 1rem;
+    }
+
+    .portfolio-project-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .featured-work {
+      padding-top: 2.4rem !important;
+      padding-bottom: 2.4rem !important;
+    }
+
+    .featured-work .home-section-header {
+      margin-bottom: 0.9rem;
+    }
+
+    .portfolio-project-card {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+      border: 1px solid rgba(7, 25, 38, 0.12);
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 16px 36px rgba(7, 25, 38, 0.08);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .portfolio-project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(246, 191, 61, 0.9);
+      box-shadow: 0 22px 48px rgba(7, 25, 38, 0.13);
+    }
+
+    .portfolio-project-card .project-thumb {
+      position: relative;
+      height: 118px !important;
+      border-radius: 0 !important;
+    }
+
+    .portfolio-project-body {
+      display: flex;
+      min-height: 160px;
+      flex-direction: column;
+      padding: 0.75rem;
+    }
+
+    .portfolio-project-body h3 {
+      margin-top: 0.28rem;
+      color: #071926;
+      font-size: clamp(0.98rem, 1.22vw, 1.14rem) !important;
+      line-height: 1.08 !important;
+    }
+
+    .portfolio-project-body p {
+      display: -webkit-box;
+      margin-top: 0.45rem;
+      overflow: hidden;
+      color: #344752;
+      font-size: 0.82rem;
+      line-height: 1.34;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+
+    .project-meta {
+      margin-top: 0.45rem;
+      color: #071926;
+      font-size: 0.66rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .portfolio-project-body .text-link {
+      margin-top: auto;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 1120px) {
+      .practice-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .portfolio-project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .portfolio-hero,
+      .practice-grid,
+      .portfolio-project-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .portfolio-hero-visual img {
+        min-height: 260px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2530,74 +2682,206 @@
   </header>
 
   <main class="homepage-main">
-    <section class="section hero home-hero" id="about">
+    <section class="section hero home-hero portfolio-hero" id="portfolio">
       <div class="reveal">
-        <p class="hero-kicker">Strategic Communications Leader</p>
-        <h1>Jaime Botello</h1>
+        <p class="hero-kicker">Communications Portfolio</p>
+        <h1>Communications Portfolio</h1>
         <p class="hero-positioning">
-          I help organizations turn complex ideas into clear, credible stories that connect with the audiences who matter.
+          A curated portfolio of communications work across strategic communications, executive communications, multimedia storytelling, scientific communications, community engagement and AI-enabled communications.
         </p>
         <p class="hero-support">
-          With nearly 20 years of experience across healthcare and life sciences, consumer brands, public sector and higher education, my work spans corporate storytelling, executive communications, multimedia content, digital strategy, integrated campaigns and AI-enabled communications workflows.
+          The projects below show how I turn complex ideas, scientific milestones, executive voices and public-facing programs into clear stories, measurable campaigns and content systems designed for modern audiences.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="communications-portfolio.html">Explore Communications Portfolio</a>
+          <a class="button primary" href="#featured-projects">View Featured Projects</a>
           <a class="button secondary" href="resume.html">View Resume</a>
         </div>
       </div>
-      <div class="hero-photo-placeholder reveal" aria-label="Portrait of Jaime Botello">
-        <img src="images/jaime-botello-homepage-headshot.jpg" alt="Portrait of Jaime Botello.">
+      <div class="portfolio-hero-visual reveal">
+        <img src="images/corporate-storytelling-top-lab.jpg" alt="Behind-the-scenes communications and science storytelling visual.">
       </div>
     </section>
 
-    <section class="credibility-strip" aria-label="Portfolio credibility highlights">
-      <div class="credibility-inner">
-        <div class="proof-item reveal">
-          <span class="proof-icon">20+</span>
-          <span>Years Experience</span>
-        </div>
-        <div class="proof-item reveal">
-          <span class="proof-icon">H</span>
-          <span>Healthcare &amp; Life Sciences</span>
-        </div>
-        <div class="proof-item reveal">
-          <span class="proof-icon">E</span>
-          <span>Executive Communications</span>
-        </div>
-        <div class="proof-item reveal">
-          <span class="proof-icon">AI</span>
-          <span>AI-Enabled Communications</span>
-        </div>
+    <section class="home-section expertise-section" id="practice-areas">
+      <div class="section-header home-section-header reveal">
+        <p class="eyebrow">Practice Areas</p>
+        <h2>Communications Capabilities</h2>
+        <p>Five areas that reflect the range of work across enterprise communications, leadership visibility, multimedia campaigns, science storytelling and AI-enabled workflows.</p>
+      </div>
+      <div class="practice-grid">
+        <article class="practice-card reveal">
+          <span class="expertise-icon">SC</span>
+          <h3>Strategic Communications</h3>
+          <p>Enterprise narratives, campaign planning and message strategy that connect business priorities to audience needs.</p>
+          <span class="project-meta case-count">Corporate Storytelling</span>
+        </article>
+        <article class="practice-card reveal">
+          <span class="expertise-icon">EX</span>
+          <h3>Executive Communications</h3>
+          <p>Leadership visibility, thought leadership and social-first storytelling that humanize expert voices.</p>
+          <span class="project-meta case-count">Executive Storytelling</span>
+        </article>
+        <article class="practice-card reveal">
+          <span class="expertise-icon">MM</span>
+          <h3>Multimedia Storytelling</h3>
+          <p>Video, digital content and campaign assets designed to move stories across channels and formats.</p>
+          <span class="project-meta case-count">Video &amp; Social</span>
+        </article>
+        <article class="practice-card reveal">
+          <span class="expertise-icon">SCI</span>
+          <h3>Scientific Storytelling</h3>
+          <p>Clear, credible communications that make complex science, research milestones and innovation stories accessible.</p>
+          <span class="project-meta case-count">Science Communications</span>
+        </article>
+        <article class="practice-card reveal">
+          <span class="expertise-icon">AI</span>
+          <h3>AI-Enabled Communications</h3>
+          <p>AI-assisted planning, synthesis, workflow design, measurement and rapid prototyping for communications teams.</p>
+          <span class="project-meta case-count">Smarter Workflows</span>
+        </article>
       </div>
     </section>
 
-    <section class="home-section featured-case">
-      <article class="featured-case-card reveal">
-        <div class="featured-case-media">
-          <img src="images/meeting-the-moment-panel.png" alt="Meeting the Moment AI in Drug Discovery project visual.">
+    <section class="home-section featured-work" id="featured-projects">
+      <div class="section-header home-section-header reveal">
+        <p class="eyebrow">Featured Projects</p>
+        <h2>Case Studies</h2>
+        <p>Selected projects spanning biotech, executive storytelling, public health, education and community engagement.</p>
+      </div>
+      <div class="portfolio-project-grid">
+        <article class="portfolio-project-card reveal">
+          <div class="project-thumb">
+            <img src="images/meeting-the-moment-panel.png" alt="Meeting the Moment case study visual.">
+          </div>
+          <div class="portfolio-project-body">
+            <span class="project-meta">Amgen | Scientific Storytelling</span>
+            <h3>Meeting the Moment: AI in Drug Discovery</h3>
+            <p>A flagship multimedia storytelling initiative that turned a 30-minute expert conversation into a broader platform for AI-enabled drug discovery storytelling.</p>
+            <a class="text-link" href="meeting-the-moment-ai-drug-discovery.html">View Case Study &rarr;</a>
+          </div>
+        </article>
+        <article class="portfolio-project-card reveal">
+          <div class="project-thumb">
+            <img src="images/dna-day-top-card.jpg" alt="DNA Day social activation visual.">
+          </div>
+          <div class="portfolio-project-body">
+            <span class="project-meta">Amgen | Executive Communications</span>
+            <h3>DNA Day</h3>
+            <p>A social-first science activation that used executive visibility and field-style video to make genomics storytelling more accessible.</p>
+            <a class="text-link" href="dna-day-social-activation.html">View Case Study &rarr;</a>
+          </div>
+        </article>
+        <article class="portfolio-project-card reveal">
+          <div class="project-thumb">
+            <img src="images/amgen-south-sf-small-molecule-card.jpg" alt="Small molecule drug discovery lab expansion visual.">
+          </div>
+          <div class="portfolio-project-body">
+            <span class="project-meta">Amgen | Strategic Communications</span>
+            <h3>Small Molecule Drug Discovery Lab Expansion</h3>
+            <p>A lab expansion milestone translated into a broader innovation story about science, technology, automation and people.</p>
+            <a class="text-link" href="small-molecule-drug-discovery-lab-expansion.html">View Case Study &rarr;</a>
+          </div>
+        </article>
+        <article class="portfolio-project-card reveal">
+          <div class="project-thumb">
+            <img src="images/my-9-5-card-garden-sign.png" alt="My 9-5 social video visual.">
+          </div>
+          <div class="portfolio-project-body">
+            <span class="project-meta">Amgen | Executive Communications</span>
+            <h3>My 9-5 Social Video</h3>
+            <p>A social-first executive storytelling project that humanized scientific leadership through a behind-the-scenes day-in-the-life format.</p>
+            <a class="text-link" href="my-9-5-social-video.html">View Case Study &rarr;</a>
+          </div>
+        </article>
+        <article class="portfolio-project-card reveal">
+          <div class="project-thumb">
+            <img src="images/acs-heroes-of-chemistry-card.webp" alt="ACS Heroes of Chemistry visual.">
+          </div>
+          <div class="portfolio-project-body">
+            <span class="project-meta">Amgen | Scientific Storytelling</span>
+            <h3>ACS Heroes of Chemistry</h3>
+            <p>A scientific recognition campaign that elevated breakthrough oncology innovation, scientist visibility and reputation-building storytelling.</p>
+            <a class="text-link" href="acs-heroes-of-chemistry.html">View Case Study &rarr;</a>
+          </div>
+        </article>
+        <article class="portfolio-project-card reveal">
+          <div class="project-thumb">
+            <img src="images/covid-vaccine-card.png" alt="COVID-19 vaccine awareness campaign visual.">
+          </div>
+          <div class="portfolio-project-body">
+            <span class="project-meta">Health Net | Community Engagement</span>
+            <h3>Health Net COVID-19 Campaign</h3>
+            <p>A public health awareness campaign using trusted messengers, media relations and community partnerships to support vaccine access.</p>
+            <a class="text-link" href="covid-19-vaccine-awareness.html">View Case Study &rarr;</a>
+          </div>
+        </article>
+        <article class="portfolio-project-card reveal">
+          <div class="project-thumb">
+            <img src="images/health-net-mobile-rv-card.jpg" alt="Health Net mobile community outreach program visual.">
+          </div>
+          <div class="portfolio-project-body">
+            <span class="project-meta">Health Net | Community Engagement</span>
+            <h3>Health Net Mobile Community Outreach Program</h3>
+            <p>A mobile health outreach program that brought screenings, wellness resources and vaccine access directly into communities.</p>
+            <a class="text-link" href="health-net-mobile-rv-community-health-screenings.html">View Case Study &rarr;</a>
+          </div>
+        </article>
+        <article class="portfolio-project-card reveal">
+          <div class="project-thumb">
+            <img src="images/ican-afford-college-card.png" alt="I CAN Afford College campaign visual.">
+          </div>
+          <div class="portfolio-project-body">
+            <span class="project-meta">California Community Colleges | Multimedia Storytelling</span>
+            <h3>I CAN Afford College</h3>
+            <p>A multicultural education campaign that used telenovela-style storytelling to make financial aid and college pathways more relevant.</p>
+            <a class="text-link" href="ican-afford-college-financial-aid-awareness.html">View Case Study &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="impact-band" aria-label="Selected impact metrics">
+      <div class="impact-inner">
+        <div class="home-section-header reveal">
+          <p class="eyebrow">Selected Impact</p>
+          <h2>Proof Points Across Campaigns</h2>
+          <p>Representative outcomes from portfolio work across corporate storytelling, executive visibility and public health communications.</p>
         </div>
-        <div class="featured-case-copy">
-          <p class="hero-kicker">Featured Case Study</p>
-          <h2>Meeting the Moment: AI in Drug Discovery</h2>
-          <p>A flagship multimedia storytelling initiative that turned a 30-minute expert conversation into a broader communications platform across video, social media, executive thought leadership, digital content and paid amplification.</p>
-          <ul class="result-list" aria-label="Featured case study highlights">
-            <li>Flagship multimedia campaign</li>
-            <li>Multi-channel content activation</li>
-            <li>AI-enabled drug discovery narrative</li>
-          </ul>
-          <div class="hero-actions">
-            <a class="button primary" href="meeting-the-moment-ai-drug-discovery.html">View Full Case Study &rarr;</a>
+        <div class="impact-grid">
+          <div class="impact-stat reveal">
+            <strong>20+</strong>
+            <span>Years of Communications Leadership</span>
+          </div>
+          <div class="impact-stat reveal">
+            <strong>120K+</strong>
+            <span>Campaign Impressions</span>
+          </div>
+          <div class="impact-stat reveal">
+            <strong>35K+</strong>
+            <span>Video Views</span>
+          </div>
+          <div class="impact-stat reveal">
+            <strong>#1</strong>
+            <span>Social Campaign in Q4 2025</span>
+          </div>
+          <div class="impact-stat reveal">
+            <strong>20K+</strong>
+            <span>Vaccinations Supported Through Public Health Campaigns</span>
+          </div>
+          <div class="impact-stat reveal">
+            <strong>Global</strong>
+            <span>Enterprise Communications Supporting Global Audiences</span>
           </div>
         </div>
-      </article>
+      </div>
     </section>
 
     <section class="home-section final-cta">
       <div class="reveal">
-        <h2>Explore My Communications Portfolio</h2>
-        <p>View additional projects across strategic communications, executive visibility, multimedia storytelling, scientific communications, community engagement and AI-enabled communications.</p>
+        <h2>Explore the Experience Behind the Work</h2>
+        <p>Review my resume or connect with me on LinkedIn to learn more about my communications background, leadership experience and AI-enabled approach to modern communications work.</p>
         <div class="hero-actions">
-          <a class="button primary" href="communications-portfolio.html">Explore Communications Portfolio</a>
+          <a class="button primary" href="resume.html">View Resume</a>
           <a class="button secondary" href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">Connect on LinkedIn</a>
         </div>
       </div>
