@@ -3689,7 +3689,7 @@
     }
 
     main {
-      overflow: hidden;
+      overflow: hidden !important;
     }
 
     .case-actions,
@@ -3743,6 +3743,7 @@
 
     .meeting-overview {
       padding-top: 0 !important;
+      padding-bottom: clamp(1.2rem, 2vw, 1.8rem) !important;
       background: transparent !important;
     }
 
@@ -3810,24 +3811,26 @@
     }
 
     .case-section-nav {
-      max-width: 1040px;
-      margin: 0 auto clamp(1.4rem, 2.4vw, 2rem);
+      max-width: 1120px;
+      margin: 0 auto clamp(1.5rem, 2.8vw, 2.4rem);
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      justify-content: center;
+      gap: 0.9rem;
     }
 
     .case-section-nav a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 40px;
-      padding: 0.62rem 0.9rem;
+      min-height: 52px;
+      min-width: 150px;
+      padding: 0.82rem 1.25rem;
       color: #071926;
       border: 1px solid rgba(7, 25, 38, 0.14);
       border-radius: 999px;
       background: #ffffff;
-      font-size: 0.78rem;
+      font-size: 0.86rem;
       font-weight: 900;
       letter-spacing: 0.08em;
       text-decoration: none;
@@ -3922,12 +3925,25 @@
       visibility: visible !important;
       opacity: 1 !important;
       scroll-margin-top: 86px;
-      padding-top: clamp(2rem, 3.6vw, 3.2rem) !important;
-      padding-bottom: clamp(2rem, 3.6vw, 3.2rem) !important;
+      margin-top: 0 !important;
+      padding-top: clamp(1.4rem, 2.6vw, 2.2rem) !important;
+      padding-bottom: clamp(1.4rem, 2.6vw, 2.2rem) !important;
+    }
+
+    .meeting-overview,
+    .strategy-section,
+    .content-section,
+    .impact-section {
+      position: relative !important;
+      z-index: 1 !important;
+      min-height: 0 !important;
+      overflow: visible !important;
+      clip-path: none !important;
+      box-shadow: none !important;
     }
 
     .strategy-section {
-      background: #f7f5ef !important;
+      background: transparent !important;
     }
 
     .strategy-section .strategy-narrative {
@@ -3940,9 +3956,13 @@
     }
 
     .content-section {
-      background: #ffffff !important;
-      box-shadow: 0 0 0 100vmax #ffffff !important;
-      clip-path: inset(0 -100vmax);
+      background: transparent !important;
+    }
+
+    .meeting-overview + .strategy-section,
+    .strategy-section + .content-section,
+    .content-section + .impact-section {
+      margin-top: 0 !important;
     }
 
     .content-section .section-header,
@@ -4028,8 +4048,7 @@
 
     .impact-section {
       background: #f4f1ea !important;
-      box-shadow: 0 0 0 100vmax #f4f1ea !important;
-      clip-path: inset(0 -100vmax);
+      border-radius: 22px !important;
     }
 
     .results-mindmap {
@@ -4113,6 +4132,7 @@
       .case-study-hero-panel {
         grid-template-columns: 1fr;
       }
+
     }
 
   </style>
@@ -4157,13 +4177,6 @@
           <img src="images/meeting-the-moment-panel.png" alt="Meeting the Moment AI in Drug Discovery panel conversation.">
         </figure>
       </article>
-
-      <div class="project-snapshot" aria-label="Project snapshot">
-        <div class="snapshot-item"><span>Role</span><strong>Strategic Communications Lead</strong></div>
-        <div class="snapshot-item"><span>Organization</span><strong>Amgen</strong></div>
-        <div class="snapshot-item"><span>Focus</span><strong>Science Storytelling</strong></div>
-        <div class="snapshot-item"><span>Deliverables</span><strong>Video, Editorial, Social, Measurement</strong></div>
-      </div>
 
       <nav class="case-section-nav" aria-label="Case study sections">
         <a href="#meeting-detail">Overview</a>
