@@ -3636,6 +3636,12 @@
       object-position: center !important;
     }
 
+    .activation-thumbnail img.post-screenshot {
+      object-fit: contain !important;
+      padding: 0.45rem !important;
+      background: #ffffff !important;
+    }
+
     .article-thumbnail span {
       max-width: 82%;
       color: #071926 !important;
@@ -3678,6 +3684,13 @@
       font-size: 0.92rem !important;
       font-weight: 500 !important;
       line-height: 1.45 !important;
+    }
+
+    .button-row {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 0.6rem !important;
+      align-items: center !important;
     }
 
     .impact-graphic,
@@ -3786,38 +3799,41 @@
 
       <div class="activation-examples">
         <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Scientist Profile</span>
+          <div class="activation-thumbnail">
+            <img src="images/acs-scientist-spotlight-card.png" alt="Scientist spotlight portrait for ACS Heroes of Chemistry story.">
           </div>
           <div class="activation-body">
             <span class="activation-type">Profile</span>
             <h3>Scientist Spotlight</h3>
             <p>Scientist-centered storytelling featuring an Amgen research leader and the people behind the ACS Heroes of Chemistry recognition.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
+            <a class="mini-button" href="https://www.amgen.com/stories/2025/08/meet-one-amgen-scientist-who-helped-crack-the-undruggable-kras-code" target="_blank" rel="noopener">Read More</a>
           </div>
         </article>
 
         <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Science Article</span>
+          <div class="activation-thumbnail">
+            <img src="images/acs-cracking-kras-card.png" alt="Molecular visual for Cracking the KRAS Code article.">
           </div>
           <div class="activation-body">
             <span class="activation-type">Article</span>
             <h3>Cracking the KRAS Code</h3>
             <p>Amgen.com feature content explaining the scientific journey behind LUMAKRAS and the persistence required to pursue a once-undruggable target.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
+            <a class="mini-button" href="https://www.amgen.com/stories/2025/08/cracking-kras" target="_blank" rel="noopener">Read More</a>
           </div>
         </article>
 
         <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Social &amp; Executive</span>
+          <div class="activation-thumbnail">
+            <img class="post-screenshot" src="images/acs-enterprise-social-card.png" alt="Enterprise LinkedIn post preview for ACS Heroes of Chemistry recognition.">
           </div>
           <div class="activation-body">
-            <span class="activation-type">Amplification</span>
+            <span class="activation-type">Social Media</span>
             <h3>Executive &amp; Channel Activation</h3>
             <p>LinkedIn, X, ACS-produced social video, executive thought leadership posts, internal news, and Viva Engage amplification extended the story across audiences.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
+            <div class="button-row">
+              <a class="mini-button" href="https://www.linkedin.com/posts/margaretchumoyer_mycompany-acsindustry-share-7365901576009355264-jFau/?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAFS9GkBg0jxSlclN5U5kjMR_LBuUCsMdes" target="_blank" rel="noopener">Executive</a>
+              <a class="mini-button" href="https://www.linkedin.com/posts/amgen-was-recognized-as-one-of-the-american-share-7365863389786546177-WQNx/?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAFS9GkBg0jxSlclN5U5kjMR_LBuUCsMdes" target="_blank" rel="noopener">Enterprise</a>
+            </div>
           </div>
         </article>
       </div>

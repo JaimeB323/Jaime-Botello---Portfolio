@@ -3761,17 +3761,15 @@
     }
 
     .case-study-hero-panel {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.78fr);
-      gap: clamp(1.4rem, 3vw, 2.4rem);
-      align-items: center;
+      display: block;
       max-width: 1120px;
       margin: 0 auto clamp(1.4rem, 2.6vw, 2.2rem);
-      padding: clamp(1.2rem, 2.5vw, 2rem);
+      padding: 0;
       border: 1px solid rgba(7, 25, 38, 0.12);
       border-radius: 22px;
       background: #ffffff;
       box-shadow: 0 18px 42px rgba(7, 25, 38, 0.08);
+      overflow: hidden;
     }
 
     .case-study-hero-copy h1 {
@@ -3791,16 +3789,17 @@
     }
 
     .case-study-hero-panel .case-hero-image {
-      height: clamp(300px, 34vw, 430px);
+      height: auto;
       margin: 0 !important;
       box-shadow: none !important;
     }
 
     .case-study-hero-panel .case-hero-image img {
       width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
+      height: auto !important;
+      object-fit: contain !important;
       object-position: center !important;
+      background: #0789cf !important;
     }
 
     .project-snapshot {
@@ -3976,7 +3975,7 @@
 
     .content-section .activation-examples.meeting-assets {
       display: grid !important;
-      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
 
     .activation-examples {
@@ -3988,6 +3987,8 @@
     }
 
     .meeting-assets .activation-card {
+      display: grid !important;
+      grid-template-rows: auto 1fr !important;
       padding: 0 !important;
       overflow: hidden !important;
       border: 1px solid rgba(7, 25, 38, 0.12) !important;
@@ -4008,6 +4009,11 @@
       background: #f4f1ea !important;
     }
 
+    .meeting-assets .activation-thumbnail.contain-thumbnail img {
+      object-fit: contain !important;
+      background: #071926 !important;
+    }
+
     .meeting-assets .activation-type {
       min-height: auto !important;
       min-width: auto !important;
@@ -4025,6 +4031,10 @@
     }
 
     .meeting-assets .activation-body {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      height: 100% !important;
       padding: 1.05rem !important;
     }
 
@@ -4039,11 +4049,28 @@
       font-size: 0.92rem !important;
       font-weight: 500 !important;
       line-height: 1.45 !important;
+      margin-bottom: 1rem !important;
     }
 
     .meeting-assets .activation-body .mini-button {
-      margin-top: 1rem !important;
+      margin-top: auto !important;
       font-size: 0.76rem !important;
+    }
+
+    .meeting-assets .activation-body .button-row {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      gap: 0.55rem !important;
+      width: 100% !important;
+      margin-top: auto !important;
+    }
+
+    .meeting-assets .activation-body .button-row .mini-button {
+      flex: 1 1 0 !important;
+      margin-top: 0 !important;
+      padding-left: 0.65rem !important;
+      padding-right: 0.65rem !important;
+      white-space: nowrap !important;
     }
 
     .impact-section {
@@ -4168,13 +4195,8 @@
 
     <section class="section meeting-overview" id="meeting-detail">
       <article class="case-study-hero-panel">
-        <div class="case-study-hero-copy">
-          <p class="hero-kicker">Case Study</p>
-          <h1>Meeting the Moment: AI in Drug Discovery</h1>
-          <p>A flagship multimedia storytelling initiative that translated a complex conversation about AI-enabled drug discovery into a coordinated platform for video, social, executive thought leadership, digital content and paid amplification.</p>
-        </div>
         <figure class="case-hero-image">
-          <img src="images/meeting-the-moment-panel.png" alt="Meeting the Moment AI in Drug Discovery panel conversation.">
+          <img src="images/meeting-the-moment-hero-blue.png" alt="Meeting the Moment: Designing Medicines with Intelligence campaign graphic.">
         </figure>
       </article>
 
@@ -4233,7 +4255,7 @@
       <div class="activation-examples meeting-assets">
         <article class="activation-card">
           <div class="activation-thumbnail">
-            <img src="images/social-video-thumbnail.png" alt="Thumbnail for AI in Drug Discovery social video featuring the panel conversation.">
+            <img src="images/meeting-social-video-card.png" alt="Thumbnail for the AI in Drug Discovery social video featuring an expert speaker.">
           </div>
           <div class="activation-body">
             <span class="activation-type">Social Video</span>
@@ -4244,41 +4266,29 @@
         </article>
 
         <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>External Article Placeholder</span>
+          <div class="activation-thumbnail contain-thumbnail">
+            <img src="images/meeting-external-article-card.png" alt="Panel conversation image for the AI in Drug Discovery article.">
           </div>
           <div class="activation-body">
             <span class="activation-type">External Article</span>
             <h3>AI in Drug Discovery Feature</h3>
             <p>Public-facing editorial content that expanded the core video story and helped audiences understand why AI matters for biomedical research.</p>
-            <!-- UPDATE: Replace this with the live article URL. -->
-            <a class="mini-button" href="https://www.amgen.com/stories" target="_blank" rel="noopener">Read Article</a>
+            <a class="mini-button" href="https://www.amgen.com/stories/2026/07/how-ai-is-changing-drug-discovery-and-what-it-will-take-to-unlock-its-full-potential" target="_blank" rel="noopener">Read Article</a>
           </div>
         </article>
 
         <article class="activation-card">
-          <div class="activation-thumbnail social-post-thumb executive-amplification-thumb">
-            <img src="images/executive-amplification-social-post.png" alt="LinkedIn social post thumbnail for executive amplification.">
+          <div class="activation-thumbnail contain-thumbnail social-post-thumb">
+            <img src="images/meeting-social-media-card.png" alt="LinkedIn post screenshot for Meeting the Moment social media amplification.">
           </div>
           <div class="activation-body">
-            <span class="activation-type">Social Post</span>
-            <h3>Executive Amplification</h3>
-            <p>Placeholder for a LinkedIn or social post that extended the story through executive thought leadership and digital-first packaging.</p>
-            <!-- UPDATE: Replace this with the live social post URL if available. -->
-            <a class="mini-button" href="https://www.linkedin.com/posts/drhoward-chang_one-of-the-greatest-opportunities-in-drug-ugcPost-7474782400124776449-63Dl/?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAFS9GkBg0jxSlclN5U5kjMR_LBuUCsMdes" target="_blank" rel="noopener">View LinkedIn Channel</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail social-post-thumb">
-            <img src="images/meeting-the-moment-panel.png" alt="Panel conversation thumbnail for enterprise LinkedIn amplification.">
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Post</span>
-            <h3>Enterprise Channel Amplification</h3>
-            <p>Company-channel LinkedIn content designed to expand reach, reinforce the enterprise science narrative, and connect the story to broader innovation priorities.</p>
-            <!-- UPDATE: Replace this with the live enterprise LinkedIn post URL. -->
-            <a class="mini-button" href="https://www.linkedin.com/posts/amgen_ai-is-helping-reshape-drug-discovery-but-activity-7473132372520046592-62Jr?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAFS9GkBg0jxSlclN5U5kjMR_LBuUCsMdes" target="_blank" rel="noopener">View LinkedIn Post</a>
+            <span class="activation-type">Social Media</span>
+            <h3>Social Media Amplification</h3>
+            <p>Executive and enterprise social media content extended the story across LinkedIn, supported thought leadership, reinforced the science narrative, and connected the campaign to broader innovation priorities.</p>
+            <div class="button-row">
+              <a class="mini-button" href="https://www.linkedin.com/posts/drhoward-chang_one-of-the-greatest-opportunities-in-drug-ugcPost-7474782400124776449-63Dl/?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAFS9GkBg0jxSlclN5U5kjMR_LBuUCsMdes" target="_blank" rel="noopener">Executive</a>
+              <a class="mini-button" href="https://www.linkedin.com/posts/amgen_ai-is-helping-reshape-drug-discovery-but-activity-7473132372520046592-62Jr?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAFS9GkBg0jxSlclN5U5kjMR_LBuUCsMdes" target="_blank" rel="noopener">Enterprise</a>
+            </div>
           </div>
         </article>
       </div>
