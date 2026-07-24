@@ -3636,6 +3636,20 @@
       object-position: center !important;
     }
 
+    .activation-thumbnail img.post-screenshot {
+      object-fit: contain !important;
+      padding: 0.45rem !important;
+      background: #ffffff !important;
+    }
+
+    .activation-thumbnail img.full-frame-thumbnail {
+      box-sizing: border-box !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      padding: 0 !important;
+      background: #071926 !important;
+    }
+
     .article-thumbnail span {
       max-width: 82%;
       color: #071926 !important;
@@ -3680,6 +3694,94 @@
       line-height: 1.45 !important;
     }
 
+    .asset-carousel {
+      max-width: 760px;
+      margin-top: 1.2rem;
+    }
+
+    .asset-carousel-viewport {
+      overflow: hidden;
+      border-radius: 22px;
+    }
+
+    .asset-carousel .activation-examples.compact-assets {
+      display: flex !important;
+      grid-template-columns: none !important;
+      gap: 1rem !important;
+      margin-top: 0 !important;
+      overflow-x: auto;
+      padding: 0.2rem 0.1rem 1.1rem;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .asset-carousel .activation-examples.compact-assets::-webkit-scrollbar {
+      display: none;
+    }
+
+    .asset-carousel .activation-card {
+      flex: 0 0 100%;
+      min-width: 0;
+      scroll-snap-align: start;
+    }
+
+    .asset-carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .carousel-button {
+      display: inline-grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      color: #ffffff;
+      border: 0;
+      border-radius: 50%;
+      background: #071926;
+      cursor: pointer;
+      font-size: 1.35rem;
+      font-weight: 900;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .carousel-button:hover {
+      transform: translateY(-2px);
+      background: #a80f3b;
+    }
+
+    .carousel-button:focus-visible {
+      outline: 3px solid rgba(246, 191, 61, 0.8);
+      outline-offset: 3px;
+    }
+
+    .carousel-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(7, 25, 38, 0.24);
+      cursor: pointer;
+    }
+
+    .carousel-dot.active {
+      width: 28px;
+      border-radius: 999px;
+      background: #f6bf3d;
+    }
+
     .impact-graphic,
     .results-mindmap,
     .placeholder-results,
@@ -3704,6 +3806,10 @@
 
       .case-section-nav a {
         width: 100%;
+      }
+
+      .asset-carousel .activation-card {
+        flex-basis: 100%;
       }
     }
 
@@ -3784,78 +3890,88 @@
         <p class="eyebrow">Campaign Assets</p>
       </div>
 
-      <div class="activation-examples compact-assets">
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Video Asset Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Video</span>
-            <h3>90-Second Social Video</h3>
-            <p>Short-form video introducing the lab expansion story.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
+      <div class="asset-carousel" data-carousel>
+        <div class="asset-carousel-viewport">
+          <div class="activation-examples compact-assets" data-carousel-track>
+            <article class="activation-card">
+              <div class="activation-thumbnail">
+                <img src="images/small-molecule-90-sec-video-thumb.jpg" alt="Small Molecule Drug Discovery lab expansion social video thumbnail.">
+              </div>
+              <div class="activation-body">
+                <span class="activation-type">Social Video</span>
+                <h3>90-Second Social Video</h3>
+                <p>Short-form video introducing the lab expansion story.</p>
+                <a class="mini-button" href="https://youtube.com/shorts/PFaLaNONWl4?si=CUsubUzHyyog2mJ2" target="_blank" rel="noopener">Watch Video</a>
+              </div>
+            </article>
 
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Video Recap Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Recap Video</span>
-            <h3>2-Minute Recap</h3>
-            <p>Recap content capturing the ribbon-cutting milestone.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
+            <article class="activation-card">
+              <div class="activation-thumbnail">
+                <img src="images/small-molecule-2-min-video-thumb.jpg" alt="Small Molecule Drug Discovery lab recap video thumbnail.">
+              </div>
+              <div class="activation-body">
+                <span class="activation-type">Recap Video</span>
+                <h3>2-Minute Recap</h3>
+                <p>Recap content capturing the ribbon-cutting milestone.</p>
+                <a class="mini-button" href="https://youtu.be/EUDE8xYsIeI?si=cR7zLeCBpBIEdy69" target="_blank" rel="noopener">Watch Video</a>
+              </div>
+            </article>
 
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Editorial Asset Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Editorial Content</span>
-            <h3>Amgen.com Featured Story</h3>
-            <p>Editorial story connecting the milestone to R&amp;D innovation.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
+            <article class="activation-card">
+              <div class="activation-thumbnail">
+                <img src="images/small-molecule-featured-story-thumb.png" alt="Amgen South San Francisco small molecule lab featured story thumbnail.">
+              </div>
+              <div class="activation-body">
+                <span class="activation-type">Editorial Content</span>
+                <h3>Amgen.com Featured Story</h3>
+                <p>Editorial story connecting the milestone to R&amp;D innovation.</p>
+                <a class="mini-button" href="https://www.amgen.com/stories/2026/05/inside-amgens-next-generation-labs-powering-faster-smarter-small-molecule-drug-discovery" target="_blank" rel="noopener">Read Story</a>
+              </div>
+            </article>
 
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Enterprise Social Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Post</span>
-            <h3>Amgen LinkedIn Post</h3>
-            <p>Enterprise post extending visibility for the lab story.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
+            <article class="activation-card">
+              <div class="activation-thumbnail">
+                <img class="post-screenshot" src="images/small-molecule-amgen-linkedin-frame.png" alt="Amgen LinkedIn post preview for the Small Molecule Drug Discovery Lab Expansion story.">
+              </div>
+              <div class="activation-body">
+                <span class="activation-type">Social Post</span>
+                <h3>Amgen LinkedIn Post</h3>
+                <p>Enterprise post extending visibility for the lab story.</p>
+                <a class="mini-button" href="https://www.linkedin.com/posts/amgen_how-does-drug-discovery-actually-work-activity-7457780082636541953-dRtZ?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAFS9GkBg0jxSlclN5U5kjMR_LBuUCsMdes" target="_blank" rel="noopener">View Post</a>
+              </div>
+            </article>
 
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Executive Social Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Post</span>
-            <h3>Executive LinkedIn Post</h3>
-            <p>Leadership post connecting the milestone to discovery priorities.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
+            <article class="activation-card">
+              <div class="activation-thumbnail">
+                <img class="post-screenshot" src="images/small-molecule-exec-linkedin-jay-frame.png" alt="Executive LinkedIn post preview for the Small Molecule Drug Discovery Lab Expansion story.">
+              </div>
+              <div class="activation-body">
+                <span class="activation-type">Social Post</span>
+                <h3>Executive LinkedIn Post</h3>
+                <p>Leadership post connecting the milestone to discovery priorities.</p>
+                <a class="mini-button" href="https://www.linkedin.com/posts/jaybradner_mycompany-activity-7459595441681305601-mpX-?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAFS9GkBg0jxSlclN5U5kjMR_LBuUCsMdes" target="_blank" rel="noopener">View Post</a>
+              </div>
+            </article>
 
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Executive Social Placeholder</span>
+            <article class="activation-card">
+              <div class="activation-thumbnail">
+                <img class="post-screenshot" src="images/small-molecule-exec-linkedin-howard-frame.png" alt="Executive LinkedIn post preview with a different frame from the Small Molecule Drug Discovery Lab Expansion story.">
+              </div>
+              <div class="activation-body">
+                <span class="activation-type">Social Post</span>
+                <h3>Executive LinkedIn Post</h3>
+                <p>Additional leadership amplification for priority audiences.</p>
+                <a class="mini-button" href="https://www.linkedin.com/posts/drhoward-chang_mycompany-ugcPost-7457829425510981632-FRrb/?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAFS9GkBg0jxSlclN5U5kjMR_LBuUCsMdes" target="_blank" rel="noopener">View Post</a>
+              </div>
+            </article>
           </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Post</span>
-            <h3>Executive LinkedIn Post</h3>
-            <p>Additional leadership amplification for priority audiences.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
+        </div>
+
+        <div class="asset-carousel-controls" aria-label="Campaign asset carousel controls">
+          <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous campaign asset">&lsaquo;</button>
+          <div class="carousel-dots" data-carousel-dots aria-label="Select campaign asset"></div>
+          <button class="carousel-button" type="button" data-carousel-next aria-label="Next campaign asset">&rsaquo;</button>
+        </div>
       </div>
     </section>
 
@@ -3960,6 +4076,52 @@
 
       sections.forEach((section) => observer.observe(section));
     }
+
+    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+      const track = carousel.querySelector("[data-carousel-track]");
+      const prev = carousel.querySelector("[data-carousel-prev]");
+      const next = carousel.querySelector("[data-carousel-next]");
+      const dotsTarget = carousel.querySelector("[data-carousel-dots]");
+      const cards = [...carousel.querySelectorAll(".activation-card")];
+      if (!track || !prev || !next || !dotsTarget || !cards.length) return;
+
+      const dots = cards.map((_, index) => {
+        const dot = document.createElement("button");
+        dot.className = "carousel-dot";
+        dot.type = "button";
+        dot.setAttribute("aria-label", `Show campaign asset ${index + 1}`);
+        dot.addEventListener("click", () => scrollToCard(index));
+        dotsTarget.appendChild(dot);
+        return dot;
+      });
+
+      const getCardStep = () => {
+        const first = cards[0];
+        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "0");
+        return first.getBoundingClientRect().width + gap;
+      };
+
+      const getActiveIndex = () => {
+        const step = getCardStep();
+        return step ? Math.round(track.scrollLeft / step) : 0;
+      };
+
+      const updateDots = () => {
+        const active = Math.max(0, Math.min(cards.length - 1, getActiveIndex()));
+        dots.forEach((dot, index) => dot.classList.toggle("active", index === active));
+      };
+
+      const scrollToCard = (index) => {
+        const bounded = Math.max(0, Math.min(cards.length - 1, index));
+        track.scrollTo({ left: bounded * getCardStep(), behavior: "smooth" });
+      };
+
+      prev.addEventListener("click", () => scrollToCard(getActiveIndex() - 1));
+      next.addEventListener("click", () => scrollToCard(getActiveIndex() + 1));
+      track.addEventListener("scroll", () => window.requestAnimationFrame(updateDots));
+      window.addEventListener("resize", updateDots);
+      updateDots();
+    });
   </script>
 </body>
 </html>

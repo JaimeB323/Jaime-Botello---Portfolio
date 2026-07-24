@@ -2978,6 +2978,20 @@
       overflow: hidden !important;
     }
 
+    .my-9-5-hero .hero-photo-placeholder {
+      display: grid !important;
+      place-items: center !important;
+      background: #f5efe2 !important;
+    }
+
+    .my-9-5-hero .hero-photo-placeholder img {
+      width: auto !important;
+      max-width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      object-position: center !important;
+    }
+
     .case-hero-image {
       max-width: min(100%, 1120px) !important;
       margin-top: 0 !important;
@@ -2990,6 +3004,19 @@
       object-fit: contain !important;
       object-position: center !important;
       display: block !important;
+      margin-inline: auto !important;
+    }
+
+    .case-hero-image.portrait-hero {
+      display: grid !important;
+      place-items: center !important;
+      max-width: min(100%, 520px) !important;
+      margin-inline: auto !important;
+    }
+
+    .case-hero-image.portrait-hero img {
+      width: min(100%, 360px) !important;
+      max-height: 560px !important;
     }
 
     .collection-thumb,
@@ -3628,6 +3655,12 @@
       margin-top: 1.2rem !important;
     }
 
+    .content-section .activation-examples.single-feature {
+      max-width: 520px !important;
+      margin-inline: auto !important;
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+
     .activation-card {
       padding: 0 !important;
       overflow: hidden !important;
@@ -3660,6 +3693,12 @@
       display: block !important;
       object-fit: cover !important;
       object-position: center !important;
+    }
+
+    .activation-thumbnail img.full-card-image {
+      object-fit: contain !important;
+      padding: 0.35rem !important;
+      background: #071926 !important;
     }
 
     .article-thumbnail span {
@@ -3809,40 +3848,16 @@
         <p class="eyebrow">Campaign Assets</p>
       </div>
 
-      <div class="activation-examples">
+      <div class="activation-examples single-feature">
         <article class="activation-card">
           <div class="activation-thumbnail">
-            <img src="images/my-9-5-case-study-hero-anonymous.png" alt="My 9-5 social video case study graphic featuring an Amgen R&D executive.">
+            <img class="full-card-image" src="images/my-9-5-social-video-card.png" alt="My 9-5 social video preview featuring a senior Amgen R&D leader visiting a campus bee exhibit.">
           </div>
           <div class="activation-body">
             <span class="activation-type">Social Video</span>
             <h3>My 9-5 Social Video</h3>
             <p>Social-first executive video designed to capture attention, humanize scientific leadership, and make the story feel native to digital platforms.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Executive Story Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Executive Story</span>
-            <h3>Leadership Visibility</h3>
-            <p>Content approach designed to elevate a senior scientific leader in a way that felt approachable, credible, and audience-ready.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
-          </div>
-        </article>
-
-        <article class="activation-card">
-          <div class="activation-thumbnail article-thumbnail" aria-hidden="true">
-            <span>Social Post Placeholder</span>
-          </div>
-          <div class="activation-body">
-            <span class="activation-type">Social Post</span>
-            <h3>Platform Amplification</h3>
-            <p>Placeholder for LinkedIn, YouTube Shorts, or other digital amplification that helped extend the executive story.</p>
-            <a class="mini-button disabled" href="#">Add Link</a>
+            <a class="mini-button" href="https://www.tiktok.com/@amgenbiotech/video/7579233623010757919?is_from_webapp=1&amp;sender_device=pc" target="_blank" rel="noopener">Watch Video</a>
           </div>
         </article>
       </div>
