@@ -198,11 +198,12 @@
 
     .contact-details {
       width: 100%;
-      padding: 1rem;
-      border: 2px solid rgba(5, 5, 5, 0.18);
-      border-radius: 10px;
-      background: #ffffff;
-      box-shadow: 0 10px 24px rgba(5, 5, 5, 0.08);
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      text-align: left;
     }
 
     .contact-details a,
@@ -254,6 +255,22 @@
       color: var(--ink);
     }
 
+    .hero-education {
+      max-width: 720px;
+      margin-top: 1rem;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+      line-height: 1.35;
+    }
+
+    .hero-education p {
+      white-space: nowrap;
+    }
+
     .resume-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -295,9 +312,9 @@
     }
 
     .panel h2 {
-      font-size: clamp(1.08rem, 1.45vw, 1.35rem);
+      font-size: clamp(0.82rem, 1vw, 0.95rem);
       line-height: 1;
-      white-space: normal;
+      white-space: nowrap;
     }
 
     .skill-list,
@@ -320,9 +337,9 @@
     }
 
     .education-card h2 {
-      font-size: clamp(1.08rem, 1.45vw, 1.35rem);
+      font-size: clamp(0.82rem, 1vw, 0.95rem);
       line-height: 1;
-      white-space: normal;
+      white-space: nowrap;
       margin-bottom: 0.85rem;
     }
 
@@ -1603,6 +1620,143 @@
       padding: clamp(1rem, 1.5vw, 1.15rem) !important;
     }
 
+    .profile-actions a.download-button {
+      background: var(--linkedin) !important;
+      color: #ffffff !important;
+    }
+
+    .resume-skills-section .sidebar {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .resume-skills-section .panel h2 {
+      font-size: clamp(1.08rem, 1.5vw, 1.45rem) !important;
+      line-height: 1 !important;
+      white-space: nowrap !important;
+    }
+
+    @media (max-width: 760px) {
+      .resume-skills-section .sidebar {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* Mobile navigation polish - August 2026 */
+    @media (max-width: 760px) {
+      .site-header {
+        border-bottom-width: 1px !important;
+      }
+
+      .nav {
+        width: min(100% - 1rem, var(--max, 1280px)) !important;
+        min-height: 52px !important;
+        padding: 0.35rem 0 !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+      }
+
+      .nav::before {
+        font-size: 0.95rem !important;
+        letter-spacing: 0.04em !important;
+        white-space: nowrap !important;
+      }
+
+      .nav-toggle {
+        display: inline-grid !important;
+        place-items: center !important;
+        width: 40px !important;
+        height: 36px !important;
+        margin-left: auto !important;
+        padding: 0 !important;
+        border: 1px solid rgba(7, 25, 38, 0.25) !important;
+        border-radius: 999px !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+      }
+
+      .nav-toggle span {
+        width: 18px !important;
+        height: 2px !important;
+        margin: 2px auto !important;
+      }
+
+      .nav-links {
+        position: fixed !important;
+        top: 56px !important;
+        left: 0.5rem !important;
+        right: 0.5rem !important;
+        bottom: auto !important;
+        width: auto !important;
+        max-height: min(72vh, 520px) !important;
+        overflow-y: auto !important;
+        display: none !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        gap: 0.35rem !important;
+        padding: 0.6rem !important;
+        border: 1px solid rgba(7, 25, 38, 0.18) !important;
+        border-radius: 14px !important;
+        background: rgba(255, 250, 241, 0.98) !important;
+        box-shadow: 0 16px 34px rgba(7, 25, 38, 0.14) !important;
+      }
+
+      .nav-links.open {
+        display: flex !important;
+      }
+
+      .nav-links > a,
+      .nav-menu-button {
+        min-height: 40px !important;
+        width: 100% !important;
+        padding: 0.62rem 0.75rem !important;
+        border: 1px solid rgba(7, 25, 38, 0.14) !important;
+        border-radius: 10px !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+        color: var(--ink, #071926) !important;
+        font-size: 0.86rem !important;
+        line-height: 1.15 !important;
+        text-align: left !important;
+        text-decoration: none !important;
+      }
+
+      .nav-links > a:hover,
+      .nav-links > a.active,
+      .nav-menu-button:hover {
+        background: rgba(246, 191, 61, 0.28) !important;
+      }
+
+      .nav-menu {
+        width: 100% !important;
+        display: grid !important;
+        gap: 0.3rem !important;
+      }
+
+      .dropdown-menu {
+        position: static !important;
+        display: grid !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        gap: 0.25rem !important;
+        padding: 0 0 0 0.6rem !important;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+
+      .dropdown-menu a {
+        min-height: 36px !important;
+        padding: 0.55rem 0.7rem !important;
+        border: 1px solid rgba(7, 25, 38, 0.12) !important;
+        border-radius: 9px !important;
+        background: rgba(255, 255, 255, 0.78) !important;
+        font-size: 0.8rem !important;
+        line-height: 1.15 !important;
+        white-space: normal !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1632,10 +1786,13 @@
         <p class="hero-copy">
           Strategic communications leader with 20+ years of experience at the intersection of corporate affairs, AI, and multimedia storytelling.
         </p>
+        <div class="hero-education">
+          <p>California State University Dominguez Hills | B.A. in Kinesiology, Minor in Marketing | 1999-2005</p>
+        </div>
         <div class="profile-actions" aria-label="Profile actions">
           <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">View LinkedIn</a>
           <a href="index.html#projects">View Work</a>
-          <a href="assets/jaime-botello-resume-august-2026.docx" download>Download Resume</a>
+          <a class="download-button" href="assets/jaime-botello-resume-august-2026.docx" download>Download Resume</a>
         </div>
       </div>
 
@@ -1643,8 +1800,8 @@
         <img class="headshot-placeholder" src="images/jaime-botello-headshot.jpg" alt="Headshot of Jaime Botello">
         <div class="contact-details">
           <h3>Contact</h3>
-          <a href="tel:13233710265">(323) 371-0265</a>
-          <a href="mailto:Jaime.Botello@me.com">Jaime.Botello@me.com</a>
+          <a href="tel:13233710265">Cell: (323) 371-0265</a>
+          <a href="mailto:JaimeBotello310@gmail.com">JaimeBotello310@gmail.com</a>
         </div>
       </aside>
     </section>
@@ -1657,7 +1814,7 @@
     </section>
 
     <section class="section resume-grid resume-skills-section">
-      <h2 class="section-heading" data-script="skills">Skills &amp; Education</h2>
+      <h2 class="section-heading" data-script="skills">Skills</h2>
       <aside class="sidebar">
         <div class="panel">
           <h2>AI &amp; Productivity</h2>
@@ -1683,13 +1840,6 @@
             <li>Meltwater</li>
             <li>Cision</li>
           </ul>
-        </div>
-
-        <div class="education-card">
-          <h2>Education</h2>
-          <p><strong>California State University Dominguez Hills</strong></p>
-          <p>B.A. in Kinesiology, Minor in Marketing</p>
-          <p>1999-2005</p>
         </div>
       </aside>
 
