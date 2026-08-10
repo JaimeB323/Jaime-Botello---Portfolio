@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calendar event and payroll estimate dashboard for SoFi Stadium and Intuit Dome shifts.">
+  <meta name="theme-color" content="#f7fafc">
+  <title>Event Payroll Breakdown | SoFi and Intuit Dome</title>
+  <style>
+    :root {
+      --ink: #14212b;
+      --muted: #5a6875;
+      --paper: #f7fafc;
+      --panel: #ffffff;
+      --line: #d7e2e8;
+      --sofi: #006b9f;
+      --intuit: #ac3d64;
+      --mint: #1f9d7a;
+      --amber: #c9822b;
+      --shadow: 0 18px 48px rgba(20, 33, 43, 0.1);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #ffffff 0%, var(--paper) 44%, #eef5f7 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 3rem 0 4rem;
+    }
+
+    .hero {
+      padding: 2.5rem 0 2rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.65rem;
+      color: var(--sofi);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dashboard-title {
+      max-width: none;
+      margin: 0 0 1rem;
+      color: var(--sofi);
+      font-size: clamp(2.3rem, 5.4vw, 5.1rem);
+      font-weight: 900;
+      line-height: 0.96;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: clamp(1.6rem, 3vw, 2.35rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 0.35rem;
+      font-size: 1.05rem;
+    }
+
+    .lede {
+      max-width: 760px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .summary-grid,
+    .venue-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0 2.25rem;
+    }
+
+    .venue-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .metric,
+    .venue {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 12px 34px rgba(20, 33, 43, 0.07);
+    }
+
+    .metric {
+      padding: 1rem;
+    }
+
+    .metric span,
+    .venue span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: clamp(1.45rem, 3vw, 2.25rem);
+      line-height: 1.08;
+    }
+
+    .metric small {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .venue {
+      overflow: hidden;
+    }
+
+    .venue header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .venue.sofi header {
+      border-top: 5px solid var(--sofi);
+    }
+
+    .venue.intuit header {
+      border-top: 5px solid var(--intuit);
+    }
+
+    .venue strong {
+      font-size: 1.35rem;
+    }
+
+    .venue dl {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .venue dt {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .venue dd {
+      margin: 0.2rem 0 0;
+      font-size: 1.2rem;
+      font-weight: 850;
+    }
+
+    section {
+      margin-top: 2.5rem;
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 1rem;
+    }
+
+    .section-head p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      min-width: 1320px;
+    }
+
+    col.event-name {
+      width: 17%;
+    }
+
+    col.event-day {
+      width: 12%;
+    }
+
+    col.event-time {
+      width: 8%;
+    }
+
+    col.event-hours {
+      width: 13%;
+    }
+
+    col.event-money {
+      width: 15%;
+    }
+
+    col.event-pay-date {
+      width: 12%;
+    }
+
+    th,
+    td {
+      padding: 0.78rem 0.9rem;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      background: #f5f9fb;
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.18;
+      white-space: nowrap;
+    }
+
+    td {
+      font-size: 0.95rem;
+    }
+
+    th.number,
+    th.money,
+    td.number,
+    td.money {
+      padding-right: 0.7rem;
+      padding-left: 0.55rem;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    tfoot td {
+      border-top: 2px solid var(--ink);
+      border-bottom: 0;
+      background: #eef5f7;
+      font-weight: 900;
+    }
+
+    tfoot td:first-child {
+      color: var(--ink);
+    }
+
+    .number,
+    .money {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    th.number,
+    th.money {
+      white-space: nowrap;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .tag.sofi {
+      background: var(--sofi);
+    }
+
+    .tag.intuit {
+      background: var(--intuit);
+    }
+
+    .table-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 12px 34px rgba(20, 33, 43, 0.07);
+      overflow: hidden;
+    }
+
+    .filter-bar {
+      display: grid;
+      gap: 0.85rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--line);
+      background: #fbfdfe;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.5rem;
+      overflow-x: auto;
+    }
+
+    .filter-button {
+      min-height: 38px;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      background: #ffffff;
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .filter-button[aria-pressed="true"] {
+      color: #ffffff;
+      border-color: var(--ink);
+      background: var(--ink);
+    }
+
+    .filter-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 280px));
+      gap: 0.65rem;
+      align-items: end;
+    }
+
+    .filter-field {
+      display: none;
+    }
+
+    .filter-field.is-active {
+      display: block;
+    }
+
+    label {
+      display: grid;
+      gap: 0.25rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    select,
+    input {
+      min-height: 38px;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0.45rem 0.55rem;
+      color: var(--ink);
+      background: #ffffff;
+      font: inherit;
+      font-size: 0.9rem;
+    }
+
+    .note {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .venue-grid,
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-title {
+        font-size: clamp(2rem, 11vw, 4.2rem);
+        white-space: normal;
+      }
+
+      .filter-bar,
+      .filter-fields {
+        grid-template-columns: 1fr;
+      }
+
+      .venue dl {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <h1 class="dashboard-title" id="page-title">Calendar Payroll Dashboard</h1>
+      </div>
+    </section>
+
+    <section aria-labelledby="summary-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Summary</p>
+          <h2 id="summary-title">Estimated earnings</h2>
+        </div>
+        <p>Sofi net pay uses the withholding pattern from the July 31, 2026 Hollywood Park pay stub. Intuit Dome net pay uses the withholding pattern from the July 24, 2026 Murphys Bowl statement.</p>
+      </div>
+      <div class="summary-grid" id="summaryGrid"></div>
+      <div class="venue-grid" id="venueGrid"></div>
+    </section>
+
+    <section aria-labelledby="sofi-events-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">SoFi</p>
+          <h2 id="sofi-events-title">SoFi event pay table</h2>
+        </div>
+        <p>Pay periods are mapped from the prior biweekly Wednesday-through-Tuesday window, matching the July 31 stub period of July 15 through July 28.</p>
+      </div>
+      <div class="table-panel" data-table-panel="sofi">
+        <div class="filter-bar" data-filter="sofi"></div>
+        <div class="table-wrap">
+          <table>
+            <colgroup>
+              <col class="event-name">
+              <col class="event-day">
+              <col class="event-time">
+              <col class="event-time">
+              <col class="event-hours">
+              <col class="event-money">
+              <col class="event-money">
+              <col class="event-pay-date">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Event Name</th>
+                <th>Event Day</th>
+                <th>Start</th>
+                <th>End</th>
+                <th class="number">Estimated Hours</th>
+                <th class="money">Estimated Withholding</th>
+                <th class="money">Estimated Net</th>
+                <th>Pay Date</th>
+              </tr>
+            </thead>
+            <tbody id="sofiEventRows"></tbody>
+            <tfoot id="sofiEventTotals"></tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="intuit-events-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Intuit Dome</p>
+          <h2 id="intuit-events-title">Intuit Dome event pay table</h2>
+        </div>
+        <p>Events on the 26th through the 9th are assigned to the 10th; events on the 10th through the 25th are assigned to the 26th.</p>
+      </div>
+      <div class="table-panel" data-table-panel="intuit">
+        <div class="filter-bar" data-filter="intuit"></div>
+        <div class="table-wrap">
+          <table>
+            <colgroup>
+              <col class="event-name">
+              <col class="event-day">
+              <col class="event-time">
+              <col class="event-time">
+              <col class="event-hours">
+              <col class="event-money">
+              <col class="event-money">
+              <col class="event-pay-date">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Event Name</th>
+                <th>Event Day</th>
+                <th>Start</th>
+                <th>End</th>
+                <th class="number">Estimated Hours</th>
+                <th class="money">Estimated Withholding</th>
+                <th class="money">Estimated Net</th>
+                <th>Pay Date</th>
+              </tr>
+            </thead>
+            <tbody id="intuitEventRows"></tbody>
+            <tfoot id="intuitEventTotals"></tfoot>
+          </table>
+        </div>
+      </div>
+      <p class="note">Totals update with the active filter so each pay date can be read as a paycheck estimate.</p>
+    </section>
+  </main>
+
+  <script>
+    const events = [
+      { venue: "Intuit Dome", title: "Grupo Frontera", date: "2026-08-07", start: "5:15 PM", end: "12:45 AM" },
+      { venue: "SoFi Stadium", title: "Ed Sheeran", date: "2026-08-08", start: "2:30 PM", end: "11:30 PM" },
+      { venue: "Intuit Dome", title: "Lionel Ritchie", date: "2026-08-09", start: "4:45 PM", end: "12:15 AM" },
+      { venue: "Intuit Dome", title: "Training", date: "2026-08-11", start: "6:00 PM", end: "9:00 PM" },
+      { venue: "SoFi Stadium", title: "Karol G", date: "2026-08-14", start: "3:30 PM", end: "11:30 PM" },
+      { venue: "SoFi Stadium", title: "Karol G", date: "2026-08-15", start: "3:30 PM", end: "11:30 PM" },
+      { venue: "SoFi Stadium", title: "Karol G", date: "2026-08-16", start: "3:30 PM", end: "11:30 PM" },
+      { venue: "SoFi Stadium", title: "Chargers vs 49ers", date: "2026-08-20", start: "3:30 PM", end: "11:30 PM" },
+      { venue: "Intuit Dome", title: "Neyo", date: "2026-08-21", start: "5:15 PM", end: "12:45 AM" },
+      { venue: "SoFi Stadium", title: "Rams vs Saints", date: "2026-08-22", start: "9:30 AM", end: "5:30 PM" },
+      { venue: "SoFi Stadium", title: "Chargers vs Rams", date: "2026-08-27", start: "3:30 PM", end: "11:30 PM" },
+      { venue: "SoFi Stadium", title: "BTS", date: "2026-09-01", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "BTS", date: "2026-09-02", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "J Cole", date: "2026-09-03", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "J Cole", date: "2026-09-04", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "BTS", date: "2026-09-05", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "BTS", date: "2026-09-06", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "World of Warcraft", date: "2026-09-10", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Chargers vs Cards", date: "2026-09-13", start: "9:00 AM", end: "6:00 PM" },
+      { venue: "Intuit Dome", title: "Mana", date: "2026-09-18", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Chargers vs Raiders", date: "2026-09-20", start: "9:00 AM", end: "6:00 PM" },
+      { venue: "SoFi Stadium", title: "Chris Brown | Usher", date: "2026-09-25", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Chris Brown | Usher", date: "2026-09-26", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Bruno Mars", date: "2026-09-30", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Bruno Mars", date: "2026-10-02", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Bruno Mars", date: "2026-10-03", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Bruno Mars", date: "2026-10-06", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Bruno Mars", date: "2026-10-07", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "TLC Salt & Peppa", date: "2026-10-10", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Chargers vs Broncos", date: "2026-10-11", start: "9:00 AM", end: "6:00 PM" },
+      { venue: "SoFi Stadium", title: "Rams vs Bills", date: "2026-10-12", start: "1:30 PM", end: "9:00 PM" },
+      { venue: "Intuit Dome", title: "Young Miko", date: "2026-10-17", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Rams vs Cardinals", date: "2026-10-18", start: "9:30 AM", end: "6:30 PM" },
+      { venue: "Intuit Dome", title: "Pokemon Night Out", date: "2026-10-24", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Rams vs. Chargers", date: "2026-11-01", start: "9:00 AM", end: "6:00 PM" },
+      { venue: "SoFi Stadium", title: "Chargers vs Texans", date: "2026-11-08", start: "9:00 AM", end: "6:00 PM" },
+      { venue: "SoFi Stadium", title: "Chris Brown | Usher", date: "2026-11-15", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Three Days Grace", date: "2026-11-22", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Rams vs Packers", date: "2026-11-25", start: "2:00 PM", end: "9:00 PM" },
+      { venue: "SoFi Stadium", title: "Chargers vs Pats", date: "2026-11-29", start: "9:00 AM", end: "6:00 PM" },
+      { venue: "SoFi Stadium", title: "Rams vs. Chiefs", date: "2026-12-03", start: "1:30 PM", end: "9:30 PM" },
+      { venue: "SoFi Stadium", title: "Chargers vs 49ers", date: "2026-12-17", start: "1:30 PM", end: "9:30 PM" },
+      { venue: "SoFi Stadium", title: "Rams vs Cowboys", date: "2026-12-20", start: "9:00 AM", end: "6:00 PM" }
+    ];
+
+    const settings = {
+      "SoFi Stadium": { label: "SoFi", rate: 25, hours: 7.5, css: "sofi" },
+      "Intuit Dome": { label: "Intuit Dome", rate: 27, hours: 6.5, css: "intuit" }
+    };
+
+    const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+    const number = new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 });
+    const displayDate = new Intl.DateTimeFormat("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+    const shortDate = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+
+    function asUtcDate(value) {
+      const [year, month, day] = value.split("-").map(Number);
+      return new Date(Date.UTC(year, month - 1, day));
+    }
+
+    function dateKey(date) {
+      return date.toISOString().slice(0, 10);
+    }
+
+    function addDays(date, days) {
+      const next = new Date(date);
+      next.setUTCDate(next.getUTCDate() + days);
+      return next;
+    }
+
+    function grossFor(event) {
+      const setting = settings[event.venue];
+      return setting.rate * setting.hours;
+    }
+
+    function sofiWithholding(gross, hasPay) {
+      if (!hasPay) return 0;
+      const deduction = gross * 0.05;
+      const medicare = gross * 0.0145;
+      const socialSecurity = gross * 0.062;
+      const caSdi = gross * 0.013;
+      const federalAdditional = 100;
+      return deduction + medicare + socialSecurity + caSdi + federalAdditional;
+    }
+
+    function intuitWithholding(gross, hasPay) {
+      if (!hasPay) return 0;
+      const statementGross = 519.75;
+      const federalBase = gross * (18.48 / statementGross);
+      const socialSecurity = gross * (32.26 / statementGross);
+      const medicare = gross * (7.54 / statementGross);
+      const caSdi = gross * (6.76 / statementGross);
+      const federalAdditional = 100;
+      return federalBase + socialSecurity + medicare + caSdi + federalAdditional;
+    }
+
+    function withholdingFor(venue, gross, hasPay) {
+      if (venue === "SoFi Stadium") return sofiWithholding(gross, hasPay);
+      if (venue === "Intuit Dome") return intuitWithholding(gross, hasPay);
+      return 0;
+    }
+
+    function sofiPayDateFor(value) {
+      const eventDate = asUtcDate(value);
+      let payDate = asUtcDate("2026-07-31");
+      while (eventDate > addDays(payDate, -3)) {
+        payDate = addDays(payDate, 14);
+      }
+      return dateKey(payDate);
+    }
+
+    function intuitPayDateFor(value) {
+      const eventDate = asUtcDate(value);
+      const year = eventDate.getUTCFullYear();
+      const month = eventDate.getUTCMonth();
+      const day = eventDate.getUTCDate();
+      if (day <= 9) return dateKey(new Date(Date.UTC(year, month, 10)));
+      if (day <= 25) return dateKey(new Date(Date.UTC(year, month, 26)));
+      return dateKey(new Date(Date.UTC(year, month + 1, 10)));
+    }
+
+    function groupByPayDate(venue, payDateFor) {
+      return events
+        .filter((event) => event.venue === venue)
+        .reduce((groups, event) => {
+          const payDate = payDateFor(event.date);
+          if (!groups[payDate]) groups[payDate] = [];
+          groups[payDate].push(event);
+          return groups;
+        }, {});
+    }
+
+    function eventDateList(items) {
+      return items.map((item) => shortDate.format(asUtcDate(item.date))).join(", ");
+    }
+
+    function payDateForEvent(event) {
+      return event.venue === "SoFi Stadium" ? sofiPayDateFor(event.date) : intuitPayDateFor(event.date);
+    }
+
+    function enrichedEventsFor(venue) {
+      const venueEvents = events.filter((event) => event.venue === venue);
+      const payGroups = venueEvents.reduce((groups, event) => {
+        const payDate = payDateForEvent(event);
+        if (!groups[payDate]) groups[payDate] = [];
+        groups[payDate].push(event);
+        return groups;
+      }, {});
+
+      return venueEvents.map((event) => {
+        const setting = settings[event.venue];
+        const gross = grossFor(event);
+        const payDate = payDateForEvent(event);
+        let withholding = 0;
+
+        const group = payGroups[payDate];
+        const groupGross = group.reduce((sum, item) => sum + grossFor(item), 0);
+        withholding = withholdingFor(event.venue, groupGross, group.length > 0) * (gross / groupGross);
+
+        return {
+          ...event,
+          gross,
+          payDate,
+          hours: setting.hours,
+          withholding,
+          net: withholding === null ? null : gross - withholding
+        };
+      });
+    }
+
+    function monthKey(value) {
+      return value.slice(0, 7);
+    }
+
+    function weekKey(value) {
+      const eventDate = asUtcDate(value);
+      const day = eventDate.getUTCDay();
+      const weekStart = addDays(eventDate, -day);
+      const weekEnd = addDays(weekStart, 6);
+      return `${dateKey(weekStart)}|${dateKey(weekEnd)}`;
+    }
+
+    function labelForMonth(value) {
+      const [year, month] = value.split("-").map(Number);
+      return new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(Date.UTC(year, month - 1, 1)));
+    }
+
+    function labelForWeek(value) {
+      const [start, end] = value.split("|");
+      return `${shortDate.format(asUtcDate(start))} - ${shortDate.format(asUtcDate(end))}`;
+    }
+
+    function uniqueOptions(items, valueFor, labelFor) {
+      const values = [...new Set(items.map(valueFor))].sort();
+      return values.map((value) => ({ value, label: labelFor(value) }));
+    }
+
+    function optionMarkup(options) {
+      return [`<option value="all">All</option>`, ...options.map((option) => `<option value="${option.value}">${option.label}</option>`)].join("");
+    }
+
+    const filters = {
+      sofi: { mode: "month", month: "all", week: "all", payDate: "all", start: "", end: "" },
+      intuit: { mode: "month", month: "all", week: "all", payDate: "all", start: "", end: "" }
+    };
+
+    function createFilterControls(key, items) {
+      const monthOptions = optionMarkup(uniqueOptions(items, (item) => monthKey(item.date), labelForMonth));
+      const weekOptions = optionMarkup(uniqueOptions(items, (item) => weekKey(item.date), labelForWeek));
+      const payDateOptions = optionMarkup(uniqueOptions(items, (item) => item.payDate, (value) => displayDate.format(asUtcDate(value))));
+      const filter = filters[key];
+
+      document.querySelector(`[data-filter="${key}"]`).innerHTML = `
+        <div class="filter-buttons" aria-label="Filter ${key} table">
+          ${["month", "week", "payDate", "custom"].map((mode) => `
+            <button class="filter-button" type="button" data-filter-mode="${mode}" aria-pressed="${filter.mode === mode}">
+              ${mode === "payDate" ? "Pay Date" : mode === "custom" ? "Custom Time Frame" : mode[0].toUpperCase() + mode.slice(1)}
+            </button>
+          `).join("")}
+        </div>
+        <div class="filter-fields">
+          <label class="filter-field ${filter.mode === "month" ? "is-active" : ""}" data-filter-field="month">
+            Month
+            <select data-filter-input="month">${monthOptions}</select>
+          </label>
+          <label class="filter-field ${filter.mode === "week" ? "is-active" : ""}" data-filter-field="week">
+            Week
+            <select data-filter-input="week">${weekOptions}</select>
+          </label>
+          <label class="filter-field ${filter.mode === "payDate" ? "is-active" : ""}" data-filter-field="payDate">
+            Pay Date
+            <select data-filter-input="payDate">${payDateOptions}</select>
+          </label>
+          <label class="filter-field ${filter.mode === "custom" ? "is-active" : ""}" data-filter-field="custom">
+            Start
+            <input type="date" data-filter-input="start">
+          </label>
+          <label class="filter-field ${filter.mode === "custom" ? "is-active" : ""}" data-filter-field="custom">
+            End
+            <input type="date" data-filter-input="end">
+          </label>
+        </div>
+      `;
+
+      document.querySelector(`[data-filter="${key}"] [data-filter-input="month"]`).value = filter.month;
+      document.querySelector(`[data-filter="${key}"] [data-filter-input="week"]`).value = filter.week;
+      document.querySelector(`[data-filter="${key}"] [data-filter-input="payDate"]`).value = filter.payDate;
+      document.querySelector(`[data-filter="${key}"] [data-filter-input="start"]`).value = filter.start;
+      document.querySelector(`[data-filter="${key}"] [data-filter-input="end"]`).value = filter.end;
+    }
+
+    function wireFilterControls(key, render) {
+      const container = document.querySelector(`[data-filter="${key}"]`);
+      container.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-filter-mode]");
+        if (!button) return;
+        filters[key].mode = button.dataset.filterMode;
+        render();
+      });
+      container.addEventListener("input", (event) => {
+        const input = event.target.closest("[data-filter-input]");
+        if (!input) return;
+        filters[key][input.dataset.filterInput] = input.value;
+        render();
+      });
+      container.addEventListener("change", (event) => {
+        const input = event.target.closest("[data-filter-input]");
+        if (!input) return;
+        filters[key][input.dataset.filterInput] = input.value;
+        render();
+      });
+    }
+
+    function filterItems(key, items) {
+      const filter = filters[key];
+      return items.filter((item) => {
+        if (filter.mode === "month" && filter.month !== "all") return monthKey(item.date) === filter.month;
+        if (filter.mode === "week" && filter.week !== "all") return weekKey(item.date) === filter.week;
+        if (filter.mode === "payDate" && filter.payDate !== "all") return item.payDate === filter.payDate;
+        if (filter.mode === "custom") {
+          if (filter.start && item.date < filter.start) return false;
+          if (filter.end && item.date > filter.end) return false;
+        }
+        return true;
+      });
+    }
+
+    function moneyOrPending(value) {
+      return value === null ? "Not estimated" : money.format(value);
+    }
+
+    function totalMoneyOrPending(items, valueName) {
+      if (!items.length || items.some((item) => item[valueName] === null)) return "Not estimated";
+      return money.format(items.reduce((sum, item) => sum + item[valueName], 0));
+    }
+
+    function payDateSummary(items) {
+      if (!items.length) return "";
+      const payDates = [...new Set(items.map((item) => item.payDate))].sort();
+      return payDates.length === 1 ? displayDate.format(asUtcDate(payDates[0])) : "Multiple pay dates";
+    }
+
+    function renderSummary() {
+      const totals = Object.keys(settings).reduce((acc, venue) => {
+        const venueEvents = events.filter((event) => event.venue === venue);
+        const setting = settings[venue];
+        const gross = venueEvents.reduce((sum, event) => sum + grossFor(event), 0);
+        acc[venue] = {
+          events: venueEvents.length,
+          hours: venueEvents.length * setting.hours,
+          gross
+        };
+        return acc;
+      }, {});
+
+      const sofiPayGroups = groupByPayDate("SoFi Stadium", sofiPayDateFor);
+      const sofiWithholdings = Object.values(sofiPayGroups).reduce((sum, items) => {
+        const gross = items.reduce((itemSum, event) => itemSum + grossFor(event), 0);
+        return sum + sofiWithholding(gross, items.length > 0);
+      }, 0);
+      const intuitPayGroups = groupByPayDate("Intuit Dome", intuitPayDateFor);
+      const intuitWithholdings = Object.values(intuitPayGroups).reduce((sum, items) => {
+        const gross = items.reduce((itemSum, event) => itemSum + grossFor(event), 0);
+        return sum + intuitWithholding(gross, items.length > 0);
+      }, 0);
+      const sofiNet = totals["SoFi Stadium"].gross - sofiWithholdings;
+      const intuitNet = totals["Intuit Dome"].gross - intuitWithholdings;
+      const combinedGross = totals["SoFi Stadium"].gross + totals["Intuit Dome"].gross;
+      const combinedNet = sofiNet + intuitNet;
+
+      document.getElementById("summaryGrid").innerHTML = [
+        ["Total events", events.length, "SoFi and Intuit Dome"],
+        ["Total hours", number.format(totals["SoFi Stadium"].hours + totals["Intuit Dome"].hours), "Estimated shift hours"],
+        ["Combined gross", money.format(combinedGross), "Before withholdings"],
+        ["Combined est. net", money.format(combinedNet), "After modeled withholdings"]
+      ].map(([label, value, detail]) => `
+        <article class="metric">
+          <span>${label}</span>
+          <strong>${value}</strong>
+          <small>${detail}</small>
+        </article>
+      `).join("");
+
+      document.getElementById("venueGrid").innerHTML = Object.entries(totals).map(([venue, total]) => {
+        const setting = settings[venue];
+        const netLabel = venue === "SoFi Stadium" ? money.format(sofiNet) : money.format(intuitNet);
+        return `
+          <article class="venue ${setting.css}">
+            <header>
+              <div>
+                <span>${venue}</span>
+                <strong>${setting.label}</strong>
+              </div>
+              <span class="tag ${setting.css}">${money.format(setting.rate)}/hr</span>
+            </header>
+            <dl>
+              <div>
+                <dt>Events</dt>
+                <dd>${total.events}</dd>
+              </div>
+              <div>
+                <dt>Hours</dt>
+                <dd>${number.format(total.hours)}</dd>
+              </div>
+              <div>
+                <dt>Est. net</dt>
+                <dd>${netLabel}</dd>
+              </div>
+            </dl>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderVenueRows(key, venue, targetId, totalsId) {
+      const items = enrichedEventsFor(venue);
+      createFilterControls(key, items);
+      const filtered = filterItems(key, items);
+      const totalHours = filtered.reduce((sum, event) => sum + event.hours, 0);
+
+      document.getElementById(targetId).innerHTML = filtered.map((event) => `
+        <tr>
+          <td>${event.title}</td>
+          <td class="nowrap">${displayDate.format(asUtcDate(event.date))}</td>
+          <td class="nowrap">${event.start}</td>
+          <td class="nowrap">${event.end}</td>
+          <td class="number">${number.format(event.hours)}</td>
+          <td class="money">${moneyOrPending(event.withholding)}</td>
+          <td class="money">${moneyOrPending(event.net)}</td>
+          <td class="nowrap">${displayDate.format(asUtcDate(event.payDate))}</td>
+        </tr>
+      `).join("") || `
+        <tr>
+          <td colspan="8">No events match this filter.</td>
+        </tr>
+      `;
+
+      document.getElementById(totalsId).innerHTML = `
+        <tr>
+          <td>Total</td>
+          <td>${filtered.length ? `${filtered.length} event${filtered.length === 1 ? "" : "s"}` : "No events"}</td>
+          <td></td>
+          <td></td>
+          <td class="number">${number.format(totalHours)}</td>
+          <td class="money">${totalMoneyOrPending(filtered, "withholding")}</td>
+          <td class="money">${totalMoneyOrPending(filtered, "net")}</td>
+          <td class="nowrap">${payDateSummary(filtered)}</td>
+        </tr>
+      `;
+    }
+
+    function renderSofiEvents() {
+      renderVenueRows("sofi", "SoFi Stadium", "sofiEventRows", "sofiEventTotals");
+    }
+
+    function renderIntuitEvents() {
+      renderVenueRows("intuit", "Intuit Dome", "intuitEventRows", "intuitEventTotals");
+    }
+
+    renderSummary();
+    renderSofiEvents();
+    renderIntuitEvents();
+    wireFilterControls("sofi", renderSofiEvents);
+    wireFilterControls("intuit", renderIntuitEvents);
+  </script>
+</body>
+</html>
