@@ -2037,6 +2037,107 @@
       line-height: 1.48;
     }
 
+    .capability-rows {
+      display: grid;
+      gap: 1.15rem;
+    }
+
+    .capability-row {
+      padding: clamp(1.1rem, 2vw, 1.55rem);
+      border: 1px solid rgba(7, 25, 38, 0.12);
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 14px 32px rgba(7, 25, 38, 0.06);
+    }
+
+    .capability-row-header {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.85rem;
+      align-items: start;
+      max-width: 980px;
+      margin-bottom: 1rem;
+    }
+
+    .capability-row-header h3 {
+      color: #071926;
+      font-size: clamp(1.45rem, 2.1vw, 2rem) !important;
+      line-height: 1 !important;
+    }
+
+    .capability-row-header p {
+      margin-top: 0.45rem;
+      color: #344752;
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    .capability-case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .capability-case-card {
+      display: grid;
+      grid-template-rows: 150px 1fr;
+      overflow: hidden;
+      min-height: 100%;
+      border: 1px solid rgba(7, 25, 38, 0.12);
+      border-radius: 16px;
+      background: #fbfaf6;
+      color: inherit;
+      text-decoration: none;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .capability-case-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(246, 191, 61, 0.9);
+      box-shadow: 0 14px 30px rgba(7, 25, 38, 0.12);
+    }
+
+    .capability-case-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 220ms ease;
+    }
+
+    .capability-case-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .capability-case-body {
+      display: grid;
+      align-content: start;
+      gap: 0.45rem;
+      padding: 0.9rem;
+    }
+
+    .capability-case-body span {
+      color: #a80f3b;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .capability-case-body strong {
+      color: #071926;
+      font-family: var(--condensed);
+      font-size: clamp(1.05rem, 1.45vw, 1.3rem);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .capability-case-body p {
+      color: #344752;
+      font-size: 0.88rem;
+      line-height: 1.38;
+    }
+
     .featured-case {
       background: #ffffff;
       box-shadow: 0 0 0 100vmax #ffffff;
@@ -2209,6 +2310,10 @@
       .home-capability-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+
+      .capability-case-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 860px) {
@@ -2238,6 +2343,10 @@
       .home-capability-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .capability-row-header {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 620px) {
@@ -2255,9 +2364,14 @@
       .home-project-grid,
       .impact-grid,
       .home-capability-grid,
+      .capability-case-grid,
       .credibility-inner,
       .result-list {
         grid-template-columns: 1fr;
+      }
+
+      .capability-case-card {
+        grid-template-rows: 180px 1fr;
       }
 
       .proof-item,
@@ -2696,25 +2810,188 @@
       </div>
     </section>
 
-    <section class="home-section featured-case">
-      <article class="featured-case-card reveal">
-        <div class="featured-case-media">
-          <img src="images/meeting-the-moment-panel.png" alt="Meeting the Moment AI in Drug Discovery project visual.">
-        </div>
-        <div class="featured-case-copy">
-          <p class="hero-kicker">Featured Case Study</p>
-          <h2>Meeting the Moment: AI in Drug Discovery</h2>
-          <p>A flagship multimedia storytelling initiative that turned a 30-minute expert conversation into a broader communications platform across video, social media, executive thought leadership, digital content and paid amplification.</p>
-          <ul class="result-list" aria-label="Featured case study highlights">
-            <li>Flagship multimedia campaign</li>
-            <li>Multi-channel content activation</li>
-            <li>AI-enabled drug discovery narrative</li>
-          </ul>
-          <div class="hero-actions">
-            <a class="button primary" href="meeting-the-moment-ai-drug-discovery.html">View Full Case Study &rarr;</a>
+    <section class="home-section expertise-section" id="expertise">
+      <div class="home-section-header reveal">
+        <p class="eyebrow">Expertise</p>
+        <h2>Communications Capabilities</h2>
+        <p>
+          My work sits at the intersection of strategy, storytelling, reputation and channel activation. These focus areas show how I help organizations clarify complex ideas, elevate leaders and reach audiences with communications that feel credible, useful and human.
+        </p>
+      </div>
+
+      <div class="capability-rows">
+        <section class="capability-row reveal" aria-labelledby="corporate-executive-row">
+          <div class="capability-row-header">
+            <div class="capability-icon" aria-hidden="true">01</div>
+            <div>
+              <h3 id="corporate-executive-row">Corporate &amp; Executive Communications</h3>
+              <p>Enterprise narratives, leadership visibility and executive messaging that connect business priorities to audiences across internal, external and digital channels.</p>
+            </div>
           </div>
-        </div>
-      </article>
+          <div class="capability-case-grid">
+            <a class="capability-case-card" href="meeting-the-moment-ai-drug-discovery.html">
+              <img src="images/meeting-the-moment-hero-blue.png" alt="Meeting the Moment project visual.">
+              <div class="capability-case-body">
+                <span>Corporate Storytelling</span>
+                <strong>Meeting the Moment</strong>
+                <p>AI in drug discovery story expanded across video, social, executive and digital channels.</p>
+              </div>
+            </a>
+            <a class="capability-case-card" href="my-9-5-social-video.html">
+              <img src="images/my-9-5-social-video-card.png" alt="My 9-5 social video project visual.">
+              <div class="capability-case-body">
+                <span>Executive Visibility</span>
+                <strong>My 9-5 Social Video</strong>
+                <p>Social-first executive storytelling designed to humanize scientific leadership.</p>
+              </div>
+            </a>
+            <a class="capability-case-card" href="dna-day-social-activation.html">
+              <img src="images/dna-day-social-combined-card.jpg" alt="DNA Day social activation project visual.">
+              <div class="capability-case-body">
+                <span>Executive Social</span>
+                <strong>DNA Day Social Activation</strong>
+                <p>Executive-led science content created for social engagement and visibility.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="capability-row reveal" aria-labelledby="earned-media-row">
+          <div class="capability-row-header">
+            <div class="capability-icon" aria-hidden="true">02</div>
+            <div>
+              <h3 id="earned-media-row">Earned Media &amp; Community Engagement</h3>
+              <p>Media strategy, message development, spokesperson preparation and community-centered campaigns that help organizations build visibility, trust and local relevance.</p>
+            </div>
+          </div>
+          <div class="capability-case-grid">
+            <a class="capability-case-card" href="acs-heroes-of-chemistry.html">
+              <img src="images/acs-heroes-of-chemistry-card.webp" alt="ACS Heroes of Chemistry recognition visual.">
+              <div class="capability-case-body">
+                <span>Reputation Storytelling</span>
+                <strong>ACS Heroes of Chemistry</strong>
+                <p>Scientific recognition translated into a broader story of innovation and impact.</p>
+              </div>
+            </a>
+            <a class="capability-case-card" href="covid-19-vaccine-awareness.html">
+              <img src="images/covid-vaccine-card.png" alt="COVID-19 vaccine awareness campaign visual.">
+              <div class="capability-case-body">
+                <span>Media Relations</span>
+                <strong>COVID-19 Vaccine Awareness</strong>
+                <p>Community-centered campaign supporting trusted information and vaccine access.</p>
+              </div>
+            </a>
+            <a class="capability-case-card" href="health-net-mobile-rv-community-health-screenings.html">
+              <img src="images/health-net-rv-community-card.jpg" alt="Health Net mobile RV community outreach.">
+              <div class="capability-case-body">
+                <span>Community Reputation</span>
+                <strong>Health Net Mobile RV</strong>
+                <p>Statewide outreach program connecting health resources with local communities.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="capability-row reveal" aria-labelledby="social-digital-row">
+          <div class="capability-row-header">
+            <div class="capability-icon" aria-hidden="true">03</div>
+            <div>
+              <h3 id="social-digital-row">Social Media &amp; Digital Content</h3>
+              <p>Social-first video, editorial planning, LinkedIn strategy and digital content systems designed to move stories across platforms and formats.</p>
+            </div>
+          </div>
+          <div class="capability-case-grid">
+            <a class="capability-case-card" href="my-9-5-social-video.html">
+              <img src="images/my-9-5-card-garden-sign.png" alt="My 9-5 social video thumbnail.">
+              <div class="capability-case-body">
+                <span>Social Video</span>
+                <strong>My 9-5 Social Video</strong>
+                <p>A day-in-the-life format adapted for social engagement and executive visibility.</p>
+              </div>
+            </a>
+            <a class="capability-case-card" href="ican-afford-college-financial-aid-awareness.html">
+              <img src="images/ican-afford-college-card.png" alt="I Can Afford College campaign visual.">
+              <div class="capability-case-body">
+                <span>Multicultural Content</span>
+                <strong>I Can Afford College</strong>
+                <p>Telenovela-style stories turned financial aid messaging into accessible content.</p>
+              </div>
+            </a>
+            <a class="capability-case-card" href="meeting-the-moment-ai-drug-discovery.html">
+              <img src="images/meeting-social-media-card.png" alt="Meeting the Moment LinkedIn social media card.">
+              <div class="capability-case-body">
+                <span>Social Amplification</span>
+                <strong>Meeting the Moment</strong>
+                <p>Executive and enterprise social content extended the science story across channels.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="capability-row reveal" aria-labelledby="crisis-issues-row">
+          <div class="capability-row-header">
+            <div class="capability-icon" aria-hidden="true">04</div>
+            <div>
+              <h3 id="crisis-issues-row">Crisis &amp; Issues Communications</h3>
+              <p>Clear, coordinated communications support for sensitive topics, fast-moving issues and moments that require disciplined judgment and trusted information.</p>
+            </div>
+          </div>
+          <div class="capability-case-grid">
+            <a class="capability-case-card" href="covid-19-vaccine-awareness.html">
+              <img src="images/covid-vaccine-case-hero.png" alt="COVID-19 vaccine awareness case study hero.">
+              <div class="capability-case-body">
+                <span>Public Health Response</span>
+                <strong>COVID-19 Vaccine Awareness</strong>
+                <p>Messaging and media outreach built around trust, access and local credibility.</p>
+              </div>
+            </a>
+            <a class="capability-case-card" href="health-net-mobile-rv-community-health-screenings.html">
+              <img src="images/health-net-rv-case-hero.jpg" alt="Health Net RV in front of the California State Capitol.">
+              <div class="capability-case-body">
+                <span>Access &amp; Outreach</span>
+                <strong>Health Net Mobile RV</strong>
+                <p>Mobile health resources adapted to urgent community needs during COVID-19.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="capability-row reveal" aria-labelledby="science-health-row">
+          <div class="capability-row-header">
+            <div class="capability-icon" aria-hidden="true">05</div>
+            <div>
+              <h3 id="science-health-row">Science, Health &amp; Public Affairs</h3>
+              <p>Accessible storytelling for complex health, science and public-sector topics, with an emphasis on clarity, trust and community relevance.</p>
+            </div>
+          </div>
+          <div class="capability-case-grid">
+            <a class="capability-case-card" href="small-molecule-drug-discovery-lab-expansion.html">
+              <img src="images/small-molecule-case-study-hero.png" alt="Small molecule drug discovery lab expansion visual.">
+              <div class="capability-case-body">
+                <span>Science Communications</span>
+                <strong>Small Molecule Lab Expansion</strong>
+                <p>A facility milestone expanded into a broader innovation and discovery story.</p>
+              </div>
+            </a>
+            <a class="capability-case-card" href="acs-heroes-of-chemistry.html">
+              <img src="images/acs-cracking-kras-card.png" alt="KRAS science article visual.">
+              <div class="capability-case-body">
+                <span>Scientific Storytelling</span>
+                <strong>ACS Heroes of Chemistry</strong>
+                <p>Breakthrough oncology science made accessible through people-centered storytelling.</p>
+              </div>
+            </a>
+            <a class="capability-case-card" href="covid-19-vaccine-awareness.html">
+              <img src="images/covid-community-messaging-card.png" alt="Community COVID-19 messaging campaign visual.">
+              <div class="capability-case-body">
+                <span>Public Affairs</span>
+                <strong>COVID-19 Vaccine Awareness</strong>
+                <p>Community partnerships and public health storytelling connected information to action.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+      </div>
     </section>
 
     <section class="home-section final-cta">

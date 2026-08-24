@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Calendar event and payroll estimate dashboard for SoFi Stadium and Intuit Dome shifts.">
+  <meta name="description" content="Personal finance dashboard with monthly expense tracking and SoFi Stadium and Intuit Dome shift calendar.">
   <meta name="theme-color" content="#f7fafc">
-  <title>Event Payroll Breakdown | SoFi and Intuit Dome</title>
+  <title>Personal Finance Dashboard</title>
   <style>
     :root {
       --ink: #14212b;
@@ -106,6 +106,129 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .top-earnings {
+      margin-top: 0;
+    }
+
+    .overview-year-summary {
+      margin: 0.85rem 0 1rem;
+    }
+
+    .budget-visuals {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
+      gap: 1rem;
+      margin: 0 0 1.5rem;
+    }
+
+    .chart-panel,
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 12px 34px rgba(20, 33, 43, 0.07);
+    }
+
+    .chart-panel {
+      padding: 1rem;
+    }
+
+    .chart-panel h3,
+    .visual-card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1rem;
+    }
+
+    .bar-chart {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 138px minmax(0, 1fr) 112px;
+      gap: 0.75rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+
+    .bar-track {
+      height: 14px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #edf4f7;
+    }
+
+    .bar-fill {
+      display: block;
+      width: var(--bar-width);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar-color);
+    }
+
+    .bar-value {
+      color: var(--ink);
+      text-align: right;
+      font-weight: 850;
+    }
+
+    .source-chart {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .source-row {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .source-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .visual-card {
+      min-height: 190px;
+      overflow: hidden;
+      display: grid;
+      align-content: end;
+      padding: 1.1rem;
+      color: #ffffff;
+      background:
+        linear-gradient(180deg, rgba(20, 33, 43, 0.1), rgba(20, 33, 43, 0.72)),
+        radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.9) 0 8%, transparent 9%),
+        radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.7) 0 5%, transparent 6%),
+        linear-gradient(135deg, var(--sofi), var(--mint));
+    }
+
+    .visual-card.debt-focus {
+      background:
+        linear-gradient(180deg, rgba(20, 33, 43, 0.04), rgba(20, 33, 43, 0.72)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.22) 0 10px, transparent 10px 20px),
+        linear-gradient(135deg, var(--intuit), var(--amber));
+    }
+
+    .visual-card p {
+      margin: 0;
+      max-width: 520px;
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 700;
+    }
+
     .metric,
     .venue {
       border: 1px solid var(--line);
@@ -188,6 +311,61 @@
       font-weight: 850;
     }
 
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin: 0 0 2rem;
+      padding: 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 12px 34px rgba(20, 33, 43, 0.07);
+    }
+
+    .nav-group {
+      position: relative;
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      min-height: 42px;
+      padding: 0.6rem 0.95rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      background: var(--panel);
+      font: inherit;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .nav-link[aria-selected="true"] {
+      color: #ffffff;
+      border-color: var(--sofi);
+      background: var(--sofi);
+    }
+
+    .view-panel {
+      display: none;
+    }
+
+    .view-panel.is-active {
+      display: block;
+    }
+
     section {
       margin-top: 2.5rem;
     }
@@ -218,6 +396,36 @@
       min-width: 1320px;
     }
 
+    .overview-table {
+      min-width: 0;
+    }
+
+    .overview-year + .overview-year {
+      margin-top: 2.25rem;
+    }
+
+    .finance-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .finance-summary-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .overview-table th,
+    .overview-table td {
+      padding-right: 0.65rem;
+      padding-left: 0.65rem;
+    }
+
+    .overview-table th,
+    .overview-table .number,
+    .overview-table .money {
+      white-space: normal;
+    }
+
     col.event-name {
       width: 17%;
     }
@@ -240,6 +448,46 @@
 
     col.event-pay-date {
       width: 12%;
+    }
+
+    col.overview-month {
+      width: 18%;
+    }
+
+    col.overview-count {
+      width: 12%;
+    }
+
+    col.overview-hours {
+      width: 12%;
+    }
+
+    col.overview-money {
+      width: 20%;
+    }
+
+    col.overview-withholding {
+      width: 19%;
+    }
+
+    col.overview-net {
+      width: 19%;
+    }
+
+    col.credit-card-name {
+      width: 28%;
+    }
+
+    col.credit-card-due {
+      width: 13%;
+    }
+
+    col.credit-card-money {
+      width: 21%;
+    }
+
+    col.credit-card-rate {
+      width: 16%;
     }
 
     th,
@@ -426,6 +674,20 @@
         grid-template-columns: 1fr;
       }
 
+      .budget-visuals,
+      .visual-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row {
+        grid-template-columns: minmax(110px, 1fr) minmax(0, 1fr);
+      }
+
+      .bar-value {
+        grid-column: 2;
+        text-align: left;
+      }
+
       .venue dl {
         grid-template-columns: 1fr;
       }
@@ -434,29 +696,46 @@
 </head>
 <body>
   <main class="page">
+    <nav class="navbar" aria-label="Dashboard pages">
+      <button class="nav-link" type="button" data-dashboard-view="overview" aria-selected="true">Overview</button>
+      <button class="nav-link" type="button" data-dashboard-view="income-expenses" aria-selected="false">Monthly Expenses</button>
+      <button class="nav-link" type="button" data-dashboard-view="spending-trends" aria-selected="false">Spending Trends</button>
+      <button class="nav-link" type="button" data-dashboard-view="debt" aria-selected="false">Debt</button>
+      <div class="nav-group" aria-label="Calendar pages">
+        <span class="nav-label">Shift Calendar</span>
+        <button class="nav-link" type="button" data-dashboard-view="2026" aria-selected="false">2026</button>
+        <button class="nav-link" type="button" data-dashboard-view="2027" aria-selected="false">2027</button>
+      </div>
+    </nav>
+
     <section class="hero" aria-labelledby="page-title">
       <div>
-        <h1 class="dashboard-title" id="page-title">Calendar Payroll Dashboard</h1>
+        <h1 class="dashboard-title" id="page-title">Personal Finance Dashboard</h1>
       </div>
     </section>
 
-    <section aria-labelledby="summary-title">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Summary</p>
-          <h2 id="summary-title">Estimated earnings</h2>
-        </div>
-        <p>Sofi net pay uses the withholding pattern from the July 31, 2026 Hollywood Park pay stub. Intuit Dome net pay uses the withholding pattern from the July 24, 2026 Murphys Bowl statement.</p>
-      </div>
-      <div class="summary-grid" id="summaryGrid"></div>
-      <div class="venue-grid" id="venueGrid"></div>
+    <section class="top-earnings" aria-label="Total earnings">
+      <div class="summary-grid" id="topEarningsGrid"></div>
     </section>
+
+    <div class="view-panel" data-view-panel="year">
+      <section aria-labelledby="summary-title">
+        <div class="section-head">
+          <div>
+          <p class="eyebrow">Shift Calendar</p>
+            <h2 id="summary-title"><span id="summaryYear">2026</span> part-time shift summary</h2>
+          </div>
+          <p>Track SoFi Stadium and Intuit Dome shifts with estimated hours, pay, withholding, and pay dates.</p>
+        </div>
+        <div class="summary-grid" id="summaryGrid"></div>
+        <div class="venue-grid" id="venueGrid"></div>
+      </section>
 
     <section aria-labelledby="sofi-events-title">
       <div class="section-head">
         <div>
           <p class="eyebrow">SoFi</p>
-          <h2 id="sofi-events-title">SoFi event pay table</h2>
+          <h2 id="sofi-events-title">SoFi shift calendar</h2>
         </div>
         <p>Pay periods are mapped from the prior biweekly Wednesday-through-Tuesday window, matching the July 31 stub period of July 15 through July 28.</p>
       </div>
@@ -497,7 +776,7 @@
       <div class="section-head">
         <div>
           <p class="eyebrow">Intuit Dome</p>
-          <h2 id="intuit-events-title">Intuit Dome event pay table</h2>
+          <h2 id="intuit-events-title">Intuit Dome shift calendar</h2>
         </div>
         <p>Events on the 26th through the 9th are assigned to the 10th; events on the 10th through the 25th are assigned to the 26th.</p>
       </div>
@@ -534,10 +813,312 @@
       </div>
       <p class="note">Totals update with the active filter so each pay date can be read as a paycheck estimate.</p>
     </section>
+    </div>
+
+    <section class="view-panel is-active" data-view-panel="overview" aria-labelledby="overview-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Annual Budget</p>
+          <h2 id="overview-title"><span id="overviewYear">2026</span> budget overview</h2>
+        </div>
+        <p id="overviewPeriodLabel">Year-to-date income, expenses, and remaining difference for the current budget year.</p>
+      </div>
+      <div class="overview-year">
+        <div class="summary-grid overview-year-summary" id="overviewSummaryYtd"></div>
+        <div class="budget-visuals" aria-label="Budget charts">
+          <div class="chart-panel">
+            <h3>Money Flow</h3>
+            <div class="bar-chart" id="overviewMoneyFlowChart"></div>
+          </div>
+          <div class="chart-panel">
+            <h3>Income Sources</h3>
+            <div class="source-chart" id="overviewIncomeSourceChart"></div>
+          </div>
+        </div>
+        <div class="visual-grid" id="overviewImageHighlights" aria-label="Budget highlights"></div>
+        <div class="table-panel">
+          <div class="table-wrap">
+            <table class="overview-table">
+            <colgroup>
+              <col class="overview-month">
+              <col class="overview-money">
+              <col class="overview-withholding">
+              <col class="overview-net">
+              <col class="overview-count">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th class="money">Income</th>
+                <th class="money">Expenses</th>
+                <th class="money">Difference</th>
+                <th>Budget Status</th>
+              </tr>
+            </thead>
+            <tbody id="overviewRowsYtd"></tbody>
+            <tfoot id="overviewTotalsYtd"></tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view-panel" data-view-panel="income-expenses" aria-labelledby="finance-title">
+      <div class="filter-bar">
+        <div class="filter-fields">
+          <label>
+            Month
+            <select id="financeMonthFilter"></select>
+          </label>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Expense Tracker</p>
+          <h2 id="finance-title">Monthly expenses</h2>
+        </div>
+        <p>Track fixed expenses, debt payments, income, and remaining cash month by month.</p>
+      </div>
+
+      <div class="summary-grid finance-summary-grid" id="financeSummaryGrid"></div>
+
+      <div class="finance-grid">
+        <div class="table-panel">
+          <div class="table-wrap">
+            <table class="overview-table">
+              <colgroup>
+                <col class="credit-card-name">
+                <col class="credit-card-due">
+                <col class="credit-card-money">
+                <col class="credit-card-rate">
+                <col class="credit-card-money">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Income Source</th>
+                  <th class="money">Gross Earnings</th>
+                  <th class="money">Withholding</th>
+                  <th class="money">Net</th>
+                </tr>
+              </thead>
+              <tbody id="incomeRows"></tbody>
+              <tfoot id="incomeTotals"></tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-panel">
+          <h3>Monthly Expenses</h3>
+          <div class="table-wrap">
+            <table class="overview-table">
+              <thead>
+                <tr>
+                  <th>Expense</th>
+                  <th>Schedule</th>
+                  <th class="money">Amount</th>
+                </tr>
+              </thead>
+              <tbody id="monthlyExpenseRows"></tbody>
+              <tfoot id="monthlyExpenseTotals"></tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-panel">
+          <h3>Monthly Expense Trend</h3>
+          <div class="bar-chart" id="monthlyExpenseTrend"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view-panel" data-view-panel="spending-trends" aria-labelledby="spending-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Month Over Month</p>
+          <h2 id="spending-title">Spending trends</h2>
+        </div>
+        <p>Track the categories that move most month to month: groceries, fast food, restaurants, Brooklynne, Londyn, and electric charging.</p>
+      </div>
+
+      <div class="summary-grid finance-summary-grid" id="spendingSummaryGrid"></div>
+
+      <div class="budget-visuals" aria-label="Spending trend charts">
+        <div class="chart-panel">
+          <h3>Current Month by Category</h3>
+          <div class="bar-chart" id="spendingCategoryChart"></div>
+        </div>
+        <div class="chart-panel">
+          <h3>Monthly Total Trend</h3>
+          <div class="bar-chart" id="spendingMonthlyTrend"></div>
+        </div>
+      </div>
+
+      <div class="finance-grid">
+        <div class="table-panel">
+          <h3>Category Movement</h3>
+          <div class="table-wrap">
+            <table class="overview-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th class="money">Current Month</th>
+                  <th class="money">Previous Month</th>
+                  <th class="money">Change</th>
+                  <th class="money">YTD</th>
+                  <th class="money">Monthly Avg</th>
+                </tr>
+              </thead>
+              <tbody id="spendingCategoryRows"></tbody>
+              <tfoot id="spendingCategoryTotals"></tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-panel">
+          <h3>Month by Month</h3>
+          <div class="table-wrap">
+            <table class="overview-table">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th class="money">Groceries</th>
+                  <th class="money">Fast Food</th>
+                  <th class="money">Restaurants</th>
+                  <th class="money">Brooklynne</th>
+                  <th class="money">Londyn</th>
+                  <th class="money">Electric Charging</th>
+                  <th class="money">Total</th>
+                </tr>
+              </thead>
+              <tbody id="spendingMonthRows"></tbody>
+              <tfoot id="spendingMonthTotals"></tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view-panel" data-view-panel="debt" aria-labelledby="debt-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Debt</p>
+          <h2 id="debt-title">Debt analysis</h2>
+        </div>
+        <p>Credit card bills and personal loans are listed separately from regular monthly expenses.</p>
+      </div>
+
+      <div class="summary-grid" id="debtSummaryGrid"></div>
+
+      <div class="finance-grid">
+        <div class="table-panel">
+          <h3>Credit Card Bills</h3>
+          <div class="filter-bar">
+            <div class="filter-fields">
+              <label>
+                Credit Card
+                <select id="creditCardFilter"></select>
+              </label>
+              <label>
+                Month
+                <select id="creditCardMonthFilter"></select>
+              </label>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="overview-table">
+              <thead>
+                <tr>
+                  <th>Credit Card</th>
+                  <th>Due Date</th>
+                  <th class="money">Balance</th>
+                  <th class="number">Interest Rate</th>
+                  <th class="money">Monthly Payment</th>
+                </tr>
+              </thead>
+              <tbody id="creditCardExpenseRows"></tbody>
+              <tfoot id="creditCardExpenseTotals"></tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-panel">
+          <h3>Credit Card Usage</h3>
+          <div class="filter-bar">
+            <div class="filter-fields">
+              <label>
+                Month
+                <select id="cardUsageMonthFilter"></select>
+              </label>
+            </div>
+          </div>
+          <div class="budget-visuals" aria-label="Credit card usage charts">
+            <div class="chart-panel">
+              <h3>Spend by Card</h3>
+              <div class="bar-chart" id="cardSpendChart"></div>
+            </div>
+            <div class="chart-panel">
+              <h3>Interest by Card</h3>
+              <div class="bar-chart" id="cardInterestChart"></div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="overview-table">
+              <thead>
+                <tr>
+                  <th>Credit Card</th>
+                  <th class="money">Monthly Spend</th>
+                  <th class="number">Interest Rate</th>
+                  <th class="money">Estimated Interest</th>
+                  <th class="money">Balance</th>
+                  <th class="money">Monthly Payment</th>
+                </tr>
+              </thead>
+              <tbody id="cardUsageRows"></tbody>
+              <tfoot id="cardUsageTotals"></tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-panel">
+          <h3>Personal Loans</h3>
+          <div class="table-wrap">
+            <table class="overview-table">
+              <colgroup>
+                <col class="credit-card-name">
+                <col class="credit-card-due">
+                <col class="credit-card-money">
+                <col class="credit-card-rate">
+                <col class="credit-card-money">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Personal Loan</th>
+                  <th>Due Date</th>
+                  <th class="money">Balance</th>
+                  <th class="number">Interest Rate</th>
+                  <th class="money">Monthly Payment</th>
+                </tr>
+              </thead>
+              <tbody id="personalLoanExpenseRows"></tbody>
+              <tfoot id="personalLoanExpenseTotals"></tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>
     const events = [
+      { venue: "SoFi Stadium", title: "FIFA World Cup: Game TBD", date: "2026-07-02", start: "5:00 AM", end: "7:00 PM" },
+      { venue: "SoFi Stadium", title: "FIFA World Cup: Game TBD", date: "2026-07-10", start: "5:00 AM", end: "7:00 PM" },
+      { venue: "Intuit Dome", title: "Joji", date: "2026-07-11", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Joji", date: "2026-07-12", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Intuit Dome Recertification", date: "2026-07-13", start: "5:00 PM", end: "9:00 PM" },
+      { venue: "Intuit Dome", title: "Forrest Frank", date: "2026-07-17", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "All Hands on Deck Training Sofi", date: "2026-07-25", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Monday Night Raw", date: "2026-07-27", start: "All day", end: "All day" },
       { venue: "Intuit Dome", title: "Grupo Frontera", date: "2026-08-07", start: "5:15 PM", end: "12:45 AM" },
       { venue: "SoFi Stadium", title: "Ed Sheeran", date: "2026-08-08", start: "2:30 PM", end: "11:30 PM" },
       { venue: "Intuit Dome", title: "Lionel Ritchie", date: "2026-08-09", start: "4:45 PM", end: "12:15 AM" },
@@ -558,6 +1139,7 @@
       { venue: "Intuit Dome", title: "World of Warcraft", date: "2026-09-10", start: "All day", end: "All day" },
       { venue: "SoFi Stadium", title: "Chargers vs Cards", date: "2026-09-13", start: "9:00 AM", end: "6:00 PM" },
       { venue: "Intuit Dome", title: "Mana", date: "2026-09-18", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Mana", date: "2026-09-19", start: "All day", end: "All day" },
       { venue: "SoFi Stadium", title: "Chargers vs Raiders", date: "2026-09-20", start: "9:00 AM", end: "6:00 PM" },
       { venue: "SoFi Stadium", title: "Chris Brown | Usher", date: "2026-09-25", start: "All day", end: "All day" },
       { venue: "SoFi Stadium", title: "Chris Brown | Usher", date: "2026-09-26", start: "All day", end: "All day" },
@@ -571,16 +1153,68 @@
       { venue: "SoFi Stadium", title: "Rams vs Bills", date: "2026-10-12", start: "1:30 PM", end: "9:00 PM" },
       { venue: "Intuit Dome", title: "Young Miko", date: "2026-10-17", start: "All day", end: "All day" },
       { venue: "SoFi Stadium", title: "Rams vs Cardinals", date: "2026-10-18", start: "9:30 AM", end: "6:30 PM" },
+      { venue: "SoFi Stadium", title: "Jay Z", date: "2026-10-23", start: "1:00 PM", end: "11:55 PM" },
+      { venue: "SoFi Stadium", title: "Jay Z", date: "2026-10-24", start: "All day", end: "All day" },
       { venue: "Intuit Dome", title: "Pokemon Night Out", date: "2026-10-24", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Lakers", date: "2026-10-28", start: "All day", end: "All day" },
       { venue: "SoFi Stadium", title: "Rams vs. Chargers", date: "2026-11-01", start: "9:00 AM", end: "6:00 PM" },
+      { venue: "Intuit Dome", title: "Clippers vs Raptors", date: "2026-11-02", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Heat", date: "2026-11-04", start: "All day", end: "All day" },
       { venue: "SoFi Stadium", title: "Chargers vs Texans", date: "2026-11-08", start: "9:00 AM", end: "6:00 PM" },
+      { venue: "Intuit Dome", title: "Clippers vs OKC", date: "2026-11-13", start: "All day", end: "All day" },
       { venue: "SoFi Stadium", title: "Chris Brown | Usher", date: "2026-11-15", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Jazz", date: "2026-11-17", start: "All day", end: "All day" },
       { venue: "Intuit Dome", title: "Three Days Grace", date: "2026-11-22", start: "All day", end: "All day" },
       { venue: "SoFi Stadium", title: "Rams vs Packers", date: "2026-11-25", start: "2:00 PM", end: "9:00 PM" },
+      { venue: "Intuit Dome", title: "Clippers vs New Orleans", date: "2026-11-27", start: "All day", end: "All day" },
       { venue: "SoFi Stadium", title: "Chargers vs Pats", date: "2026-11-29", start: "9:00 AM", end: "6:00 PM" },
+      { venue: "Intuit Dome", title: "Clippers vs Wolves", date: "2026-12-02", start: "All day", end: "All day" },
       { venue: "SoFi Stadium", title: "Rams vs. Chiefs", date: "2026-12-03", start: "1:30 PM", end: "9:30 PM" },
       { venue: "SoFi Stadium", title: "Chargers vs 49ers", date: "2026-12-17", start: "1:30 PM", end: "9:30 PM" },
-      { venue: "SoFi Stadium", title: "Rams vs Cowboys", date: "2026-12-20", start: "9:00 AM", end: "6:00 PM" }
+      { venue: "SoFi Stadium", title: "Rams vs Cowboys", date: "2026-12-20", start: "9:00 AM", end: "6:00 PM" },
+      { venue: "Intuit Dome", title: "Clippers vs Nuggets", date: "2026-12-21", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Warriors", date: "2026-12-23", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Grizzlies", date: "2026-12-26", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs 76ers", date: "2026-12-27", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Boston", date: "2027-01-09", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Lakers", date: "2027-01-10", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Olivia Rodrigo", date: "2027-01-12", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Olivia Rodrigo", date: "2027-01-13", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Magic", date: "2027-01-15", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Olivia Rodrigo", date: "2027-01-16", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Olivia Rodrigo", date: "2027-01-17", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Suns", date: "2027-01-18", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Olivia Rodrigo", date: "2027-01-20", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Olivia Rodrigo", date: "2027-01-21", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Wizards", date: "2027-01-22", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Olivia Rodrigo", date: "2027-01-24", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Olivia Rodrigo", date: "2027-01-25", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Olivia Rodrigo", date: "2027-01-28", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Olivia Rodrigo", date: "2027-01-29", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Spurs", date: "2027-02-02", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Warriors", date: "2027-02-03", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Pistons", date: "2027-02-09", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Don Omar", date: "2027-02-12", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Los Tucanes", date: "2027-02-13", start: "All day", end: "All day" },
+      { venue: "SoFi Stadium", title: "Super Bowl", date: "2027-02-14", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Rockets", date: "2027-02-16", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Bulls", date: "2027-02-17", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Jazz", date: "2027-02-25", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "MORAT", date: "2027-02-26", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Blazers", date: "2027-02-28", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Nets", date: "2027-03-04", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Rockets", date: "2027-03-08", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Knicks", date: "2027-03-10", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Cavs", date: "2027-03-11", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Nuggets", date: "2027-03-16", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Grizzlies", date: "2027-03-18", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Hawks", date: "2027-03-20", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Mavs", date: "2027-03-22", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Bucks", date: "2027-03-24", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Spurs", date: "2027-04-02", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Suns", date: "2027-04-04", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Wolves", date: "2027-04-06", start: "All day", end: "All day" },
+      { venue: "Intuit Dome", title: "Clippers vs Kings", date: "2027-04-11", start: "All day", end: "All day" }
     ];
 
     const settings = {
@@ -588,9 +1222,74 @@
       "Intuit Dome": { label: "Intuit Dome", rate: 27, hours: 6.5, css: "intuit" }
     };
 
+    const viewPeriods = {
+      overview: { start: "2026-07-01", end: "2027-04-30", label: "Jul 1, 2026-Apr 30, 2027" },
+      2026: { start: "2026-07-01", end: "2026-12-31", label: "Jul 1-Dec 31, 2026" },
+      2027: { start: "2027-01-01", end: "2027-04-30", label: "Jan 1-Apr 30, 2027" },
+      "income-expenses": { start: "2027-01-01", end: "2027-04-30", label: "Jan 1-Apr 30, 2027" },
+      debt: { start: "2026-07-01", end: "2027-04-30", label: "Jul 1, 2026-Apr 30, 2027" }
+    };
+
+    const amgenPay = {
+      amount: 4208,
+      firstPayDate: "2026-07-01"
+    };
+
+    const expenses = [
+      { name: "Mortgage", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Groceries", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Fast Food", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Restaurants", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Brooklynne", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Londyn", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Cable TV", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Wi-Fi", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Eating Out", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Gardener", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Car Insurance", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Car Payment", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Electric Charging", category: "Monthly Expenses", schedule: "Monthly", amount: 0 },
+      { name: "Barclay", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Citi Double Cash", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Best Buy", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Discover", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Citi Diamond", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Citi Simplicity", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Amazon Credit Card", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Chase Disney", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Bank Of America", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Old Navy", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Citi Custom Cash", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Chase Freedom", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Home Depot", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Apple Card", category: "Credit Card Bills", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Lightstream", category: "Personal Loans", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "Discover", category: "Personal Loans", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "SoFi Loan #1", category: "Personal Loans", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 },
+      { name: "SoFi Loan #2", category: "Personal Loans", dueDate: "", dueMonth: "all", balance: 0, interestRate: null, monthlyPayment: 0, schedule: "Monthly", amount: 0 }
+    ];
+
+    const spendingCategories = ["Groceries", "Fast Food", "Restaurants", "Brooklynne", "Londyn", "Electric Charging"];
+    const spendingByMonth = Object.fromEntries(
+      monthRange(`${currentYear()}-01`, `${currentYear()}-12`).map((month) => [
+        month,
+        Object.fromEntries(spendingCategories.map((category) => [category, 0]))
+      ])
+    );
+    const creditCardNames = expenses
+      .filter((expense) => expense.category === "Credit Card Bills")
+      .map((expense) => expense.name);
+    const creditCardUsageByMonth = Object.fromEntries(
+      monthRange(`${currentYear()}-01`, `${currentYear()}-12`).map((month) => [
+        month,
+        Object.fromEntries(creditCardNames.map((card) => [card, { spend: 0, interestPaid: null }]))
+      ])
+    );
+
     const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
     const number = new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 });
     const displayDate = new Intl.DateTimeFormat("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+    const periodDate = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
     const shortDate = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 
     function asUtcDate(value) {
@@ -600,6 +1299,24 @@
 
     function dateKey(date) {
       return date.toISOString().slice(0, 10);
+    }
+
+    function todayKey() {
+      const today = new Date();
+      return dateKey(new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())));
+    }
+
+    function currentYear() {
+      return todayKey().slice(0, 4);
+    }
+
+    function ytdPeriod() {
+      const year = currentYear();
+      return {
+        start: `${year}-01-01`,
+        end: todayKey(),
+        label: `${periodDate.format(asUtcDate(`${year}-01-01`))}-${periodDate.format(asUtcDate(todayKey()))}`
+      };
     }
 
     function addDays(date, days) {
@@ -659,8 +1376,8 @@
       return dateKey(new Date(Date.UTC(year, month + 1, 10)));
     }
 
-    function groupByPayDate(venue, payDateFor) {
-      return events
+    function groupByPayDate(venue, payDateFor, sourceEvents = events) {
+      return sourceEvents
         .filter((event) => event.venue === venue)
         .reduce((groups, event) => {
           const payDate = payDateFor(event.date);
@@ -678,8 +1395,8 @@
       return event.venue === "SoFi Stadium" ? sofiPayDateFor(event.date) : intuitPayDateFor(event.date);
     }
 
-    function enrichedEventsFor(venue) {
-      const venueEvents = events.filter((event) => event.venue === venue);
+    function enrichedEventsFor(venue, sourceEvents = currentYearEvents()) {
+      const venueEvents = sourceEvents.filter((event) => event.venue === venue);
       const payGroups = venueEvents.reduce((groups, event) => {
         const payDate = payDateForEvent(event);
         if (!groups[payDate]) groups[payDate] = [];
@@ -744,11 +1461,42 @@
       intuit: { mode: "month", month: "all", week: "all", payDate: "all", start: "", end: "" }
     };
 
+    const creditCardFilters = {
+      card: "all",
+      month: "all"
+    };
+
+    const financeFilters = {
+      month: "all"
+    };
+
+    const cardUsageFilters = {
+      month: todayKey().slice(0, 7)
+    };
+
+    const dashboardViews = ["overview", "income-expenses", "spending-trends", "debt", "2026", "2027"];
+    let activeView = dashboardViews.includes(window.location.hash.slice(1)) ? window.location.hash.slice(1) : "overview";
+
+    function eventYear(event) {
+      return event.date.slice(0, 4);
+    }
+
+    function currentYearEvents() {
+      return events.filter((event) => eventYear(event) === activeView);
+    }
+
     function createFilterControls(key, items) {
-      const monthOptions = optionMarkup(uniqueOptions(items, (item) => monthKey(item.date), labelForMonth));
-      const weekOptions = optionMarkup(uniqueOptions(items, (item) => weekKey(item.date), labelForWeek));
-      const payDateOptions = optionMarkup(uniqueOptions(items, (item) => item.payDate, (value) => displayDate.format(asUtcDate(value))));
+      const monthItems = uniqueOptions(items, (item) => monthKey(item.date), labelForMonth);
+      const weekItems = uniqueOptions(items, (item) => weekKey(item.date), labelForWeek);
+      const payDateItems = uniqueOptions(items, (item) => item.payDate, (value) => displayDate.format(asUtcDate(value)));
+      const monthOptions = optionMarkup(monthItems);
+      const weekOptions = optionMarkup(weekItems);
+      const payDateOptions = optionMarkup(payDateItems);
       const filter = filters[key];
+
+      if (filter.month !== "all" && !monthItems.some((item) => item.value === filter.month)) filter.month = "all";
+      if (filter.week !== "all" && !weekItems.some((item) => item.value === filter.week)) filter.week = "all";
+      if (filter.payDate !== "all" && !payDateItems.some((item) => item.value === filter.payDate)) filter.payDate = "all";
 
       document.querySelector(`[data-filter="${key}"]`).innerHTML = `
         <div class="filter-buttons" aria-label="Filter ${key} table">
@@ -840,9 +1588,798 @@
       return payDates.length === 1 ? displayDate.format(asUtcDate(payDates[0])) : "Multiple pay dates";
     }
 
+    function monthRange(startMonth, endMonth) {
+      const [startYear, startMonthIndex] = startMonth.split("-").map(Number);
+      const [endYear, endMonthIndex] = endMonth.split("-").map(Number);
+      const months = [];
+      let cursor = new Date(Date.UTC(startYear, startMonthIndex - 1, 1));
+      const end = new Date(Date.UTC(endYear, endMonthIndex - 1, 1));
+
+      while (cursor <= end) {
+        months.push(dateKey(cursor).slice(0, 7));
+        cursor = new Date(Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth() + 1, 1));
+      }
+
+      return months;
+    }
+
+    function metricCards(items) {
+      return items.map(([label, value, helper]) => `
+        <article class="metric">
+          <span>${label}</span>
+          <strong>${value}</strong>
+          ${helper ? `<small>${helper}</small>` : ""}
+        </article>
+      `).join("");
+    }
+
+    function allEnrichedEvents() {
+      return Object.keys(settings)
+        .flatMap((venue) => enrichedEventsFor(venue, events))
+        .sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    function totalsForItems(items) {
+      return {
+        events: items.length,
+        hours: items.reduce((sum, event) => sum + event.hours, 0),
+        gross: items.reduce((sum, event) => sum + event.gross, 0),
+        withholding: items.reduce((sum, event) => sum + event.withholding, 0),
+        net: items.reduce((sum, event) => sum + event.net, 0)
+      };
+    }
+
+    function totalsForRows(rows) {
+      return {
+        events: rows.reduce((sum, row) => sum + row.events, 0),
+        hours: rows.reduce((sum, row) => sum + row.hours, 0),
+        gross: rows.reduce((sum, row) => sum + row.gross, 0),
+        withholding: rows.reduce((sum, row) => sum + row.withholding, 0),
+        net: rows.reduce((sum, row) => sum + row.net, 0)
+      };
+    }
+
+    function overviewRowsFor(startMonth, endMonth, enriched, period = null) {
+      return monthRange(startMonth, endMonth).map((month) => {
+        const items = enriched.filter((event) => {
+          if (monthKey(event.date) !== month) return false;
+          if (period && !isWithinPeriod(event.date, period)) return false;
+          return true;
+        });
+        return { month, ...totalsForItems(items) };
+      });
+    }
+
+    function periodForMonth(month, outerPeriod) {
+      const [year, monthNumber] = month.split("-").map(Number);
+      const lastDay = new Date(Date.UTC(year, monthNumber, 0)).getUTCDate();
+      const monthPeriod = {
+        start: `${month}-01`,
+        end: `${month}-${String(lastDay).padStart(2, "0")}`,
+        label: labelForMonth(month)
+      };
+
+      return {
+        start: outerPeriod ? [monthPeriod.start, outerPeriod.start].sort().pop() : monthPeriod.start,
+        end: outerPeriod ? [monthPeriod.end, outerPeriod.end].sort()[0] : monthPeriod.end,
+        label: monthPeriod.label
+      };
+    }
+
+    function expenseTotalForPeriod(period) {
+      const expenseRows = expensesForPeriod(period);
+      const creditCardDebtTotal = expenseRows
+        .filter((expense) => expense.category === "Credit Card Bills")
+        .reduce((sum, expense) => sum + expense.monthlyPayment, 0);
+      const personalLoanDebtTotal = expenseRows
+        .filter((expense) => expense.category === "Personal Loans")
+        .reduce((sum, expense) => sum + expense.monthlyPayment, 0);
+
+      return totalForExpenseCategory("Monthly Expenses", expenseRows) + creditCardDebtTotal + personalLoanDebtTotal;
+    }
+
+    function budgetRowsFor(startMonth, endMonth, period) {
+      return monthRange(startMonth, endMonth).map((month) => {
+        const monthPeriod = periodForMonth(month, period);
+        const incomeTotals = totalsForIncomeRows(incomeBreakdownForPeriod(monthPeriod));
+        const expensesTotal = expenseTotalForPeriod(monthPeriod);
+        const difference = incomeTotals.net - expensesTotal;
+
+        return {
+          month,
+          income: incomeTotals.net,
+          expenses: expensesTotal,
+          difference,
+          status: difference >= 0 ? "On track" : "Needs attention"
+        };
+      });
+    }
+
+    function renderOverviewSummary(targetId, rows) {
+      const totals = rows.reduce((sum, row) => ({
+        income: sum.income + row.income,
+        expenses: sum.expenses + row.expenses,
+        difference: sum.difference + row.difference
+      }), { income: 0, expenses: 0, difference: 0 });
+      const averageDifference = rows.length ? totals.difference / rows.length : 0;
+
+      document.getElementById(targetId).innerHTML = metricCards([
+        ["YTD Income", money.format(totals.income), ""],
+        ["YTD Expenses", money.format(totals.expenses), ""],
+        ["Difference", money.format(totals.difference), "Income after expenses"],
+        ["Monthly Average", money.format(averageDifference), "Average remaining"]
+      ]);
+    }
+
+    function renderOverviewVisuals(rows, period) {
+      const totals = rows.reduce((sum, row) => ({
+        income: sum.income + row.income,
+        expenses: sum.expenses + row.expenses,
+        difference: sum.difference + row.difference
+      }), { income: 0, expenses: 0, difference: 0 });
+      const maxFlow = Math.max(totals.income, totals.expenses, Math.abs(totals.difference), 1);
+      const sourceRows = incomeBreakdownForPeriod(period);
+      const sourceMax = Math.max(...sourceRows.map((row) => row.net), 1);
+      const bestMonth = rows.reduce((best, row) => row.difference > best.difference ? row : best, rows[0]);
+      const tightestMonth = rows.reduce((tightest, row) => row.difference < tightest.difference ? row : tightest, rows[0]);
+      const flowRows = [
+        { label: "Income", value: totals.income, color: "var(--mint)" },
+        { label: "Expenses", value: totals.expenses, color: "var(--amber)" },
+        { label: "Left Over", value: totals.difference, color: totals.difference >= 0 ? "var(--sofi)" : "var(--intuit)" }
+      ];
+
+      document.getElementById("overviewMoneyFlowChart").innerHTML = flowRows.map((row) => `
+        <div class="bar-row">
+          <span>${row.label}</span>
+          <span class="bar-track">
+            <span class="bar-fill" style="--bar-width: ${Math.max(4, Math.abs(row.value) / maxFlow * 100)}%; --bar-color: ${row.color};"></span>
+          </span>
+          <span class="bar-value">${money.format(row.value)}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("overviewIncomeSourceChart").innerHTML = sourceRows.map((row) => `
+        <div class="source-row">
+          <div class="source-label">
+            <span>${row.source}</span>
+            <strong>${money.format(row.net)}</strong>
+          </div>
+          <span class="bar-track">
+            <span class="bar-fill" style="--bar-width: ${Math.max(4, row.net / sourceMax * 100)}%; --bar-color: ${row.source === "Amgen" ? "var(--sofi)" : row.source === "Sofi Stadium" ? "var(--mint)" : "var(--intuit)"};"></span>
+          </span>
+        </div>
+      `).join("");
+
+      document.getElementById("overviewImageHighlights").innerHTML = `
+        <article class="visual-card" role="img" aria-label="Budget momentum highlight">
+          <h3>Strongest Month</h3>
+          <p>${labelForMonth(bestMonth.month)} is projected at ${money.format(bestMonth.difference)} after expenses.</p>
+        </article>
+        <article class="visual-card debt-focus" role="img" aria-label="Expense pressure highlight">
+          <h3>Watch Point</h3>
+          <p>${labelForMonth(tightestMonth.month)} has the tightest spread at ${money.format(tightestMonth.difference)}.</p>
+        </article>
+      `;
+    }
+
+    function renderOverviewTable(startMonth, endMonth, rowId, totalId, summaryId, period = null) {
+      const rows = budgetRowsFor(startMonth, endMonth, period);
+      const totals = rows.reduce((sum, row) => ({
+        income: sum.income + row.income,
+        expenses: sum.expenses + row.expenses,
+        difference: sum.difference + row.difference
+      }), { income: 0, expenses: 0, difference: 0 });
+
+      renderOverviewSummary(summaryId, rows);
+      renderOverviewVisuals(rows, period);
+
+      document.getElementById(rowId).innerHTML = rows.map((row) => `
+        <tr>
+          <td>${labelForMonth(row.month)}</td>
+          <td class="money">${money.format(row.income)}</td>
+          <td class="money">${money.format(row.expenses)}</td>
+          <td class="money">${money.format(row.difference)}</td>
+          <td>${row.status}</td>
+        </tr>
+      `).join("");
+
+      document.getElementById(totalId).innerHTML = `
+        <tr>
+          <td>Total</td>
+          <td class="money">${money.format(totals.income)}</td>
+          <td class="money">${money.format(totals.expenses)}</td>
+          <td class="money">${money.format(totals.difference)}</td>
+          <td>${totals.difference >= 0 ? "On track" : "Needs attention"}</td>
+        </tr>
+      `;
+    }
+
+    function activeViewPeriod() {
+      if (activeView === "overview") return ytdPeriod();
+      if (activeView === "income-expenses") return financePeriod();
+      if (activeView === "spending-trends") return ytdPeriod();
+      return viewPeriods[activeView] || viewPeriods.overview;
+    }
+
+    function isWithinPeriod(date, period) {
+      return date >= period.start && date <= period.end;
+    }
+
+    function amgenPaycheckCount(period) {
+      let count = 0;
+      let payDate = asUtcDate(amgenPay.firstPayDate);
+      const start = asUtcDate(period.start);
+      const end = asUtcDate(period.end);
+
+      while (payDate <= end) {
+        if (payDate >= start) count += 1;
+        payDate = addDays(payDate, 14);
+      }
+
+      return count;
+    }
+
+    function renderTopEarnings() {
+      const period = activeViewPeriod();
+      const incomeRows = incomeBreakdownForPeriod(period);
+      const incomeTotals = totalsForIncomeRows(incomeRows);
+      const expenseTotal = expenseTotalForPeriod(period);
+      const shiftNet = incomeRows
+        .filter((row) => row.source === "Sofi Stadium" || row.source === "Intuit Dome")
+        .reduce((sum, row) => sum + row.net, 0);
+
+      document.getElementById("topEarningsGrid").innerHTML = metricCards([
+        ["Income", money.format(incomeTotals.net), period.label],
+        ["Expenses", money.format(expenseTotal), period.label],
+        ["Remaining", money.format(incomeTotals.net - expenseTotal), "Income after expenses"],
+        ["Part-Time Shifts", money.format(shiftNet), "SoFi + Intuit net"]
+      ]);
+    }
+
+    function incomeBreakdownForPeriod(period) {
+      const enriched = allEnrichedEvents().filter((event) => isWithinPeriod(event.date, period));
+      const sofiItems = enriched.filter((event) => event.venue === "SoFi Stadium");
+      const intuitItems = enriched.filter((event) => event.venue === "Intuit Dome");
+      const sofiTotals = totalsForItems(sofiItems);
+      const intuitTotals = totalsForItems(intuitItems);
+      const amgenGross = amgenPaycheckCount(period) * amgenPay.amount;
+
+      return [
+        { source: "Amgen", gross: amgenGross, withholding: 0, net: amgenGross },
+        { source: "Sofi Stadium", gross: sofiTotals.gross, withholding: sofiTotals.withholding, net: sofiTotals.net },
+        { source: "Intuit Dome", gross: intuitTotals.gross, withholding: intuitTotals.withholding, net: intuitTotals.net }
+      ];
+    }
+
+    function financePeriod() {
+      const year = currentYear();
+      const base = { start: `${year}-01-01`, end: `${year}-12-31`, label: year };
+      if (financeFilters.month === "all") return base;
+      const [selectedYear, month] = financeFilters.month.split("-").map(Number);
+      const lastDay = new Date(Date.UTC(selectedYear, month, 0)).getUTCDate();
+      return {
+        start: `${financeFilters.month}-01`,
+        end: `${financeFilters.month}-${String(lastDay).padStart(2, "0")}`,
+        label: labelForMonth(financeFilters.month)
+      };
+    }
+
+    function renderFinanceMonthFilter() {
+      const year = currentYear();
+      const months = monthRange(`${year}-01`, `${year}-12`);
+      const select = document.getElementById("financeMonthFilter");
+      select.innerHTML = optionMarkup([
+        { value: "all", label: `All ${year}` },
+        ...months.map((month) => ({ value: month, label: labelForMonth(month) }))
+      ]);
+      select.value = financeFilters.month;
+      select.onchange = () => {
+        financeFilters.month = select.value;
+        renderIncomeExpenses();
+      };
+    }
+
+    function financeIncomeBreakdown(period) {
+      const enriched = allEnrichedEvents().filter((event) => isWithinPeriod(event.date, period));
+      const hollywoodPark = totalsForItems(enriched.filter((event) => event.venue === "SoFi Stadium"));
+      const murphysBowl = totalsForItems(enriched.filter((event) => event.venue === "Intuit Dome"));
+      const amgenGross = amgenPaycheckCount(period) * amgenPay.amount;
+
+      return [
+        { source: "Amgen", gross: amgenGross, withholding: 0, net: amgenGross },
+        { source: "Sofi Stadium", gross: hollywoodPark.gross, withholding: hollywoodPark.withholding, net: hollywoodPark.net },
+        { source: "Intuit Dome", gross: murphysBowl.gross, withholding: murphysBowl.withholding, net: murphysBowl.net }
+      ];
+    }
+
+    function totalsForIncomeRows(rows) {
+      return {
+        gross: rows.reduce((sum, row) => sum + row.gross, 0),
+        withholding: rows.reduce((sum, row) => sum + row.withholding, 0),
+        net: rows.reduce((sum, row) => sum + row.net, 0)
+      };
+    }
+
+    function expensesForPeriod(period) {
+      return expenses.filter((expense) => !expense.date || isWithinPeriod(expense.date, period));
+    }
+
+    function renderVenueScheduleTable(venue, rowId, totalId, period) {
+      const rows = enrichedEventsFor(venue, events)
+        .filter((event) => isWithinPeriod(event.date, period))
+        .sort((a, b) => a.date.localeCompare(b.date));
+      const totals = totalsForItems(rows);
+
+      document.getElementById(rowId).innerHTML = rows.map((event) => `
+        <tr>
+          <td>${event.title}</td>
+          <td class="nowrap">${displayDate.format(asUtcDate(event.date))} · ${event.start}-${event.end}</td>
+          <td class="money">${money.format(event.gross)}</td>
+          <td class="money">${money.format(event.net)}</td>
+        </tr>
+      `).join("") || `
+        <tr>
+          <td colspan="4">No scheduled events for this month.</td>
+        </tr>
+      `;
+
+      document.getElementById(totalId).innerHTML = `
+        <tr>
+          <td>Total</td>
+          <td>${rows.length ? `${rows.length} event${rows.length === 1 ? "" : "s"}` : "No events"}</td>
+          <td class="money">${money.format(totals.gross)}</td>
+          <td class="money">${money.format(totals.net)}</td>
+        </tr>
+      `;
+    }
+
+    function totalForExpenseCategory(category, expenseRows) {
+      return expenseRows
+        .filter((expense) => expense.category === category)
+        .reduce((sum, expense) => sum + expense.amount, 0);
+    }
+
+    function renderExpenseCategory(category, rowId, totalId, expenseRows, extraRows = []) {
+      const rows = [
+        ...expenseRows.filter((expense) => expense.category === category),
+        ...extraRows
+      ];
+      const total = rows.reduce((sum, expense) => sum + expense.amount, 0);
+
+      document.getElementById(rowId).innerHTML = rows.map((expense) => `
+        <tr>
+          <td>${expense.name}</td>
+          <td class="nowrap">${expense.date ? displayDate.format(asUtcDate(expense.date)) : expense.schedule}</td>
+          <td class="money">${money.format(expense.amount)}</td>
+        </tr>
+      `).join("") || `
+        <tr>
+          <td colspan="3">No expenses have been added yet.</td>
+        </tr>
+      `;
+
+      document.getElementById(totalId).innerHTML = `
+        <tr>
+          <td>Total</td>
+          <td>${rows.length ? `${rows.length} expense${rows.length === 1 ? "" : "s"}` : "No expenses"}</td>
+          <td class="money">${money.format(total)}</td>
+        </tr>
+      `;
+    }
+
+    function renderCreditCardFilters(rows) {
+      const cardOptions = [
+        { value: "all", label: "All credit cards" },
+        ...rows.map((row) => ({ value: row.name, label: row.name }))
+      ];
+      const monthOptions = [
+        { value: "all", label: "All months" },
+        ...monthRange("2026-07", "2027-04").map((month) => ({ value: month, label: labelForMonth(month) }))
+      ];
+
+      const cardSelect = document.getElementById("creditCardFilter");
+      const monthSelect = document.getElementById("creditCardMonthFilter");
+
+      cardSelect.innerHTML = optionMarkup(cardOptions);
+      monthSelect.innerHTML = optionMarkup(monthOptions);
+      cardSelect.value = creditCardFilters.card;
+      monthSelect.value = creditCardFilters.month;
+
+      cardSelect.onchange = () => {
+        creditCardFilters.card = cardSelect.value;
+        renderDebt();
+      };
+      monthSelect.onchange = () => {
+        creditCardFilters.month = monthSelect.value;
+        renderDebt();
+      };
+    }
+
+    function creditCardMonthFor(card) {
+      if (card.dueMonth) return card.dueMonth;
+      if (card.dueDate) return monthKey(card.dueDate);
+      return "all";
+    }
+
+    function renderCreditCardBills(expenseRows) {
+      const rows = expenseRows.filter((expense) => expense.category === "Credit Card Bills");
+      renderCreditCardFilters(rows);
+
+      const filtered = rows.filter((card) => {
+        if (creditCardFilters.card !== "all" && card.name !== creditCardFilters.card) return false;
+        if (creditCardFilters.month !== "all") {
+          const dueMonth = creditCardMonthFor(card);
+          if (dueMonth !== "all" && dueMonth !== creditCardFilters.month) return false;
+        }
+        return true;
+      });
+      const balanceTotal = filtered.reduce((sum, card) => sum + card.balance, 0);
+      const paymentTotal = filtered.reduce((sum, card) => sum + card.monthlyPayment, 0);
+
+      document.getElementById("creditCardExpenseRows").innerHTML = filtered.map((card) => `
+        <tr>
+          <td>${card.name}</td>
+          <td class="nowrap">${card.dueDate ? displayDate.format(asUtcDate(card.dueDate)) : "Not set"}</td>
+          <td class="money">${money.format(card.balance)}</td>
+          <td class="number">${card.interestRate === null ? "Not set" : `${number.format(card.interestRate)}%`}</td>
+          <td class="money">${money.format(card.monthlyPayment)}</td>
+        </tr>
+      `).join("") || `
+        <tr>
+          <td colspan="5">No credit card bills match this filter.</td>
+        </tr>
+      `;
+
+      document.getElementById("creditCardExpenseTotals").innerHTML = `
+        <tr>
+          <td>Total</td>
+          <td>${filtered.length ? `${filtered.length} card${filtered.length === 1 ? "" : "s"}` : "No cards"}</td>
+          <td class="money">${money.format(balanceTotal)}</td>
+          <td></td>
+          <td class="money">${money.format(paymentTotal)}</td>
+        </tr>
+      `;
+    }
+
+    function estimatedMonthlyInterest(card) {
+      if (!card.interestRate || !card.balance) return 0;
+      return card.balance * (card.interestRate / 100 / 12);
+    }
+
+    function renderCardUsageMonthFilter() {
+      const year = currentYear();
+      const months = monthRange(`${year}-01`, `${year}-12`);
+      const select = document.getElementById("cardUsageMonthFilter");
+      if (!months.includes(cardUsageFilters.month)) cardUsageFilters.month = todayKey().slice(0, 7);
+
+      select.innerHTML = optionMarkup(months.map((month) => ({ value: month, label: labelForMonth(month) })));
+      select.value = cardUsageFilters.month;
+      select.onchange = () => {
+        cardUsageFilters.month = select.value;
+        renderDebt();
+      };
+    }
+
+    function renderCardUsage(expenseRows) {
+      renderCardUsageMonthFilter();
+
+      const cards = expenseRows.filter((expense) => expense.category === "Credit Card Bills");
+      const monthUsage = creditCardUsageByMonth[cardUsageFilters.month] || {};
+      const rows = cards.map((card) => {
+        const usage = monthUsage[card.name] || { spend: 0, interestPaid: null };
+        const estimatedInterest = usage.interestPaid === null ? estimatedMonthlyInterest(card) : usage.interestPaid;
+        return {
+          card,
+          spend: usage.spend || 0,
+          interest: estimatedInterest
+        };
+      });
+      const totalSpend = rows.reduce((sum, row) => sum + row.spend, 0);
+      const totalInterest = rows.reduce((sum, row) => sum + row.interest, 0);
+      const totalBalance = rows.reduce((sum, row) => sum + row.card.balance, 0);
+      const totalPayment = rows.reduce((sum, row) => sum + row.card.monthlyPayment, 0);
+      const maxSpend = Math.max(...rows.map((row) => row.spend), 1);
+      const maxInterest = Math.max(...rows.map((row) => row.interest), 1);
+
+      document.getElementById("cardSpendChart").innerHTML = rows.map((row) => `
+        <div class="bar-row">
+          <span>${row.card.name}</span>
+          <span class="bar-track">
+            <span class="bar-fill" style="--bar-width: ${Math.max(4, row.spend / maxSpend * 100)}%; --bar-color: var(--sofi);"></span>
+          </span>
+          <span class="bar-value">${money.format(row.spend)}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("cardInterestChart").innerHTML = rows.map((row) => `
+        <div class="bar-row">
+          <span>${row.card.name}</span>
+          <span class="bar-track">
+            <span class="bar-fill" style="--bar-width: ${Math.max(4, row.interest / maxInterest * 100)}%; --bar-color: var(--intuit);"></span>
+          </span>
+          <span class="bar-value">${money.format(row.interest)}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("cardUsageRows").innerHTML = rows.map((row) => `
+        <tr>
+          <td>${row.card.name}</td>
+          <td class="money">${money.format(row.spend)}</td>
+          <td class="number">${row.card.interestRate === null ? "Not set" : `${number.format(row.card.interestRate)}%`}</td>
+          <td class="money">${money.format(row.interest)}</td>
+          <td class="money">${money.format(row.card.balance)}</td>
+          <td class="money">${money.format(row.card.monthlyPayment)}</td>
+        </tr>
+      `).join("");
+
+      document.getElementById("cardUsageTotals").innerHTML = `
+        <tr>
+          <td>Total</td>
+          <td class="money">${money.format(totalSpend)}</td>
+          <td></td>
+          <td class="money">${money.format(totalInterest)}</td>
+          <td class="money">${money.format(totalBalance)}</td>
+          <td class="money">${money.format(totalPayment)}</td>
+        </tr>
+      `;
+    }
+
+    function renderDebtTable(category, rowId, totalId, expenseRows, emptyMessage, countLabel) {
+      const rows = expenseRows.filter((expense) => expense.category === category);
+      const balanceTotal = rows.reduce((sum, debt) => sum + debt.balance, 0);
+      const paymentTotal = rows.reduce((sum, debt) => sum + debt.monthlyPayment, 0);
+
+      document.getElementById(rowId).innerHTML = rows.map((debt) => `
+        <tr>
+          <td>${debt.name}</td>
+          <td class="nowrap">${debt.dueDate ? displayDate.format(asUtcDate(debt.dueDate)) : "Not set"}</td>
+          <td class="money">${money.format(debt.balance)}</td>
+          <td class="number">${debt.interestRate === null ? "Not set" : `${number.format(debt.interestRate)}%`}</td>
+          <td class="money">${money.format(debt.monthlyPayment)}</td>
+        </tr>
+      `).join("") || `
+        <tr>
+          <td colspan="5">${emptyMessage}</td>
+        </tr>
+      `;
+
+      document.getElementById(totalId).innerHTML = `
+        <tr>
+          <td>Total</td>
+          <td>${rows.length ? `${rows.length} ${countLabel}${rows.length === 1 ? "" : "s"}` : "No accounts"}</td>
+          <td class="money">${money.format(balanceTotal)}</td>
+          <td></td>
+          <td class="money">${money.format(paymentTotal)}</td>
+        </tr>
+      `;
+    }
+
+    function renderMonthlyExpenseTrend() {
+      const year = currentYear();
+      const months = monthRange(`${year}-01`, `${year}-12`);
+      const rows = months.map((month) => {
+        const period = periodForMonth(month);
+        return {
+          month,
+          total: expenseTotalForPeriod(period)
+        };
+      });
+      const maxExpense = Math.max(...rows.map((row) => row.total), 1);
+
+      document.getElementById("monthlyExpenseTrend").innerHTML = rows.map((row) => `
+        <div class="bar-row">
+          <span>${labelForMonth(row.month).slice(0, 3)}</span>
+          <span class="bar-track">
+            <span class="bar-fill" style="--bar-width: ${Math.max(4, row.total / maxExpense * 100)}%; --bar-color: var(--amber);"></span>
+          </span>
+          <span class="bar-value">${money.format(row.total)}</span>
+        </div>
+      `).join("");
+    }
+
+    function spendingMonthTotal(month) {
+      const values = spendingByMonth[month] || {};
+      return spendingCategories.reduce((sum, category) => sum + (values[category] || 0), 0);
+    }
+
+    function spendingCategoryTotal(category, months) {
+      return months.reduce((sum, month) => sum + ((spendingByMonth[month] || {})[category] || 0), 0);
+    }
+
+    function renderSpendingTrends() {
+      const year = currentYear();
+      const months = monthRange(`${year}-01`, `${year}-12`);
+      const todayMonth = todayKey().slice(0, 7);
+      const currentMonth = months.includes(todayMonth) ? todayMonth : months[months.length - 1];
+      const previousMonth = months[Math.max(0, months.indexOf(currentMonth) - 1)];
+      const ytdMonths = months.filter((month) => month <= currentMonth);
+      const currentTotal = spendingMonthTotal(currentMonth);
+      const previousTotal = spendingMonthTotal(previousMonth);
+      const ytdTotal = ytdMonths.reduce((sum, month) => sum + spendingMonthTotal(month), 0);
+      const monthlyAverage = ytdMonths.length ? ytdTotal / ytdMonths.length : 0;
+      const categoryRows = spendingCategories.map((category) => {
+        const current = (spendingByMonth[currentMonth] || {})[category] || 0;
+        const previous = (spendingByMonth[previousMonth] || {})[category] || 0;
+        const ytd = spendingCategoryTotal(category, ytdMonths);
+        return {
+          category,
+          current,
+          previous,
+          change: current - previous,
+          ytd,
+          average: ytdMonths.length ? ytd / ytdMonths.length : 0
+        };
+      });
+      const maxCategory = Math.max(...categoryRows.map((row) => row.current), 1);
+      const monthRows = months.map((month) => ({
+        month,
+        total: spendingMonthTotal(month)
+      }));
+      const maxMonth = Math.max(...monthRows.map((row) => row.total), 1);
+
+      document.getElementById("spendingSummaryGrid").innerHTML = metricCards([
+        ["Current Month", money.format(currentTotal), labelForMonth(currentMonth)],
+        ["Previous Month", money.format(previousTotal), labelForMonth(previousMonth)],
+        ["Month Change", money.format(currentTotal - previousTotal), "Current vs previous"],
+        ["YTD Spending", money.format(ytdTotal), year],
+        ["Monthly Average", money.format(monthlyAverage), "YTD average"]
+      ]);
+
+      document.getElementById("spendingCategoryChart").innerHTML = categoryRows.map((row) => `
+        <div class="bar-row">
+          <span>${row.category}</span>
+          <span class="bar-track">
+            <span class="bar-fill" style="--bar-width: ${Math.max(4, row.current / maxCategory * 100)}%; --bar-color: var(--sofi);"></span>
+          </span>
+          <span class="bar-value">${money.format(row.current)}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("spendingMonthlyTrend").innerHTML = monthRows.map((row) => `
+        <div class="bar-row">
+          <span>${labelForMonth(row.month).slice(0, 3)}</span>
+          <span class="bar-track">
+            <span class="bar-fill" style="--bar-width: ${Math.max(4, row.total / maxMonth * 100)}%; --bar-color: var(--mint);"></span>
+          </span>
+          <span class="bar-value">${money.format(row.total)}</span>
+        </div>
+      `).join("");
+
+      document.getElementById("spendingCategoryRows").innerHTML = categoryRows.map((row) => `
+        <tr>
+          <td>${row.category}</td>
+          <td class="money">${money.format(row.current)}</td>
+          <td class="money">${money.format(row.previous)}</td>
+          <td class="money">${money.format(row.change)}</td>
+          <td class="money">${money.format(row.ytd)}</td>
+          <td class="money">${money.format(row.average)}</td>
+        </tr>
+      `).join("");
+
+      document.getElementById("spendingCategoryTotals").innerHTML = `
+        <tr>
+          <td>Total</td>
+          <td class="money">${money.format(currentTotal)}</td>
+          <td class="money">${money.format(previousTotal)}</td>
+          <td class="money">${money.format(currentTotal - previousTotal)}</td>
+          <td class="money">${money.format(ytdTotal)}</td>
+          <td class="money">${money.format(monthlyAverage)}</td>
+        </tr>
+      `;
+
+      document.getElementById("spendingMonthRows").innerHTML = months.map((month) => {
+        const values = spendingByMonth[month] || {};
+        const total = spendingMonthTotal(month);
+        return `
+          <tr>
+            <td>${labelForMonth(month)}</td>
+            ${spendingCategories.map((category) => `<td class="money">${money.format(values[category] || 0)}</td>`).join("")}
+            <td class="money">${money.format(total)}</td>
+          </tr>
+        `;
+      }).join("");
+
+      document.getElementById("spendingMonthTotals").innerHTML = `
+        <tr>
+          <td>Total</td>
+          ${spendingCategories.map((category) => `<td class="money">${money.format(spendingCategoryTotal(category, months))}</td>`).join("")}
+          <td class="money">${money.format(months.reduce((sum, month) => sum + spendingMonthTotal(month), 0))}</td>
+        </tr>
+      `;
+    }
+
+    function renderIncomeExpenses() {
+      renderFinanceMonthFilter();
+
+      const period = financePeriod();
+      const incomeRows = financeIncomeBreakdown(period);
+      const incomeTotals = totalsForIncomeRows(incomeRows);
+      const expenseRows = expensesForPeriod(period);
+      const creditCardDebtTotal = expenseRows
+        .filter((expense) => expense.category === "Credit Card Bills")
+        .reduce((sum, expense) => sum + expense.monthlyPayment, 0);
+      const personalLoanDebtTotal = expenseRows
+        .filter((expense) => expense.category === "Personal Loans")
+        .reduce((sum, expense) => sum + expense.monthlyPayment, 0);
+      const fixedExpenseTotal = totalForExpenseCategory("Monthly Expenses", expenseRows);
+      const expenseTotal = fixedExpenseTotal + creditCardDebtTotal + personalLoanDebtTotal;
+
+      document.getElementById("financeSummaryGrid").innerHTML = metricCards([
+        ["Income", money.format(incomeTotals.net), period.label],
+        ["Fixed Expenses", money.format(fixedExpenseTotal), period.label],
+        ["Debt Payments", money.format(creditCardDebtTotal + personalLoanDebtTotal), period.label],
+        ["Total Expenses", money.format(expenseTotal), period.label],
+        ["Remaining", money.format(incomeTotals.net - expenseTotal), "Income after expenses"]
+      ]);
+
+      document.getElementById("incomeRows").innerHTML = incomeRows.map((row) => `
+        <tr>
+          <td>${row.source}</td>
+          <td class="money">${money.format(row.gross)}</td>
+          <td class="money">${money.format(row.withholding)}</td>
+          <td class="money">${money.format(row.net)}</td>
+        </tr>
+      `).join("");
+
+      document.getElementById("incomeTotals").innerHTML = `
+        <tr>
+          <td>Total</td>
+          <td class="money">${money.format(incomeTotals.gross)}</td>
+          <td class="money">${money.format(incomeTotals.withholding)}</td>
+          <td class="money">${money.format(incomeTotals.net)}</td>
+        </tr>
+      `;
+
+      renderExpenseCategory("Monthly Expenses", "monthlyExpenseRows", "monthlyExpenseTotals", expenseRows, [
+        { name: "Credit Card Debt", schedule: "Monthly", amount: creditCardDebtTotal },
+        { name: "Personal Loans", schedule: "Monthly", amount: personalLoanDebtTotal }
+      ]);
+      renderMonthlyExpenseTrend();
+    }
+
+    function renderDebt() {
+      const period = viewPeriods.debt;
+      const expenseRows = expensesForPeriod(period);
+      const cardUsage = creditCardUsageByMonth[cardUsageFilters.month] || {};
+      const creditCards = expenseRows.filter((expense) => expense.category === "Credit Card Bills");
+      const creditCardTotal = expenseRows
+        .filter((expense) => expense.category === "Credit Card Bills")
+        .reduce((sum, expense) => sum + expense.monthlyPayment, 0);
+      const loanTotal = expenseRows
+        .filter((expense) => expense.category === "Personal Loans")
+        .reduce((sum, expense) => sum + expense.monthlyPayment, 0);
+      const debtTotal = creditCardTotal + loanTotal;
+      const cardSpendTotal = creditCards.reduce((sum, card) => sum + ((cardUsage[card.name] || {}).spend || 0), 0);
+      const cardInterestTotal = creditCards.reduce((sum, card) => {
+        const usage = cardUsage[card.name] || {};
+        return sum + (usage.interestPaid === null || usage.interestPaid === undefined ? estimatedMonthlyInterest(card) : usage.interestPaid);
+      }, 0);
+
+      document.getElementById("debtSummaryGrid").innerHTML = metricCards([
+        ["Total Debt Payments", money.format(debtTotal), period.label],
+        ["Card Spend", money.format(cardSpendTotal), labelForMonth(cardUsageFilters.month)],
+        ["Card Interest", money.format(cardInterestTotal), labelForMonth(cardUsageFilters.month)],
+        ["Credit Card Bills", money.format(creditCardTotal), ""],
+        ["Personal Loans", money.format(loanTotal), ""]
+      ]);
+
+      renderCreditCardBills(expenseRows);
+      renderCardUsage(expenseRows);
+      renderDebtTable("Personal Loans", "personalLoanExpenseRows", "personalLoanExpenseTotals", expenseRows, "No personal loans have been added yet.", "loan");
+    }
+
+    function renderOverview() {
+      const period = ytdPeriod();
+      const year = currentYear();
+      document.getElementById("overviewYear").textContent = year;
+      document.getElementById("overviewPeriodLabel").textContent = `Annual budget snapshot for ${period.label}, using income after withholding and monthly expense totals.`;
+      renderOverviewTable(`${year}-01`, todayKey().slice(0, 7), "overviewRowsYtd", "overviewTotalsYtd", "overviewSummaryYtd", period);
+    }
+
     function renderSummary() {
+      const scopedEvents = currentYearEvents();
       const totals = Object.keys(settings).reduce((acc, venue) => {
-        const venueEvents = events.filter((event) => event.venue === venue);
+        const venueEvents = scopedEvents.filter((event) => event.venue === venue);
         const setting = settings[venue];
         const gross = venueEvents.reduce((sum, event) => sum + grossFor(event), 0);
         acc[venue] = {
@@ -853,12 +2390,14 @@
         return acc;
       }, {});
 
-      const sofiPayGroups = groupByPayDate("SoFi Stadium", sofiPayDateFor);
+      document.getElementById("summaryYear").textContent = activeView;
+
+      const sofiPayGroups = groupByPayDate("SoFi Stadium", sofiPayDateFor, scopedEvents);
       const sofiWithholdings = Object.values(sofiPayGroups).reduce((sum, items) => {
         const gross = items.reduce((itemSum, event) => itemSum + grossFor(event), 0);
         return sum + sofiWithholding(gross, items.length > 0);
       }, 0);
-      const intuitPayGroups = groupByPayDate("Intuit Dome", intuitPayDateFor);
+      const intuitPayGroups = groupByPayDate("Intuit Dome", intuitPayDateFor, scopedEvents);
       const intuitWithholdings = Object.values(intuitPayGroups).reduce((sum, items) => {
         const gross = items.reduce((itemSum, event) => itemSum + grossFor(event), 0);
         return sum + intuitWithholding(gross, items.length > 0);
@@ -869,7 +2408,7 @@
       const combinedNet = sofiNet + intuitNet;
 
       document.getElementById("summaryGrid").innerHTML = [
-        ["Total events", events.length, "SoFi and Intuit Dome"],
+        ["Total events", scopedEvents.length, "SoFi and Intuit Dome"],
         ["Total hours", number.format(totals["SoFi Stadium"].hours + totals["Intuit Dome"].hours), "Estimated shift hours"],
         ["Combined gross", money.format(combinedGross), "Before withholdings"],
         ["Combined est. net", money.format(combinedNet), "After modeled withholdings"]
@@ -957,9 +2496,54 @@
       renderVenueRows("intuit", "Intuit Dome", "intuitEventRows", "intuitEventTotals");
     }
 
-    renderSummary();
-    renderSofiEvents();
-    renderIntuitEvents();
+    function renderYearView() {
+      renderSummary();
+      renderSofiEvents();
+      renderIntuitEvents();
+    }
+
+    function renderDashboard() {
+      renderTopEarnings();
+
+      document.querySelectorAll("[data-dashboard-view]").forEach((button) => {
+        button.setAttribute("aria-selected", String(button.dataset.dashboardView === activeView));
+      });
+
+      document.querySelector('[data-view-panel="year"]').classList.toggle("is-active", activeView === "2026" || activeView === "2027");
+      document.querySelector('[data-view-panel="overview"]').classList.toggle("is-active", activeView === "overview");
+      document.querySelector('[data-view-panel="income-expenses"]').classList.toggle("is-active", activeView === "income-expenses");
+      document.querySelector('[data-view-panel="spending-trends"]').classList.toggle("is-active", activeView === "spending-trends");
+      document.querySelector('[data-view-panel="debt"]').classList.toggle("is-active", activeView === "debt");
+
+      if (activeView === "overview") {
+        renderOverview();
+      } else if (activeView === "income-expenses") {
+        renderIncomeExpenses();
+      } else if (activeView === "spending-trends") {
+        renderSpendingTrends();
+      } else if (activeView === "debt") {
+        renderDebt();
+      } else {
+        renderYearView();
+      }
+    }
+
+    document.querySelectorAll("[data-dashboard-view]").forEach((button) => {
+      button.addEventListener("click", () => {
+        activeView = button.dataset.dashboardView;
+        window.location.hash = activeView;
+        renderDashboard();
+      });
+    });
+
+    window.addEventListener("hashchange", () => {
+      const nextView = window.location.hash.slice(1);
+      if (!dashboardViews.includes(nextView) || nextView === activeView) return;
+      activeView = nextView;
+      renderDashboard();
+    });
+
+    renderDashboard();
     wireFilterControls("sofi", renderSofiEvents);
     wireFilterControls("intuit", renderIntuitEvents);
   </script>
