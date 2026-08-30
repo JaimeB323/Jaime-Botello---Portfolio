@@ -1979,11 +1979,58 @@
       }
     }
 
+    function extractResultFromResponseText(text) {
+      if (!text || !text.trim()) {
+        throw new Error("Tool returned an empty result");
+      }
+
+      try {
+        const data = JSON.parse(text);
+        if (data && typeof data.result === "string" && data.result.trim()) {
+          return data.result.trim();
+        }
+      } catch {
+        const marker = '"result":"';
+        const markerIndex = text.indexOf(marker);
+
+        if (markerIndex >= 0) {
+          const rawResult = text
+            .slice(markerIndex + marker.length)
+            .replace(/"}\s*$/, "")
+            .replace(/\\n/g, "\n")
+            .replace(/\\"/g, '"')
+            .replace(/\\\\/g, "\\")
+            .trim();
+
+          if (rawResult) {
+            return `${rawResult}\n\nNote: The AI response ended early. Please try generating again for a fuller version.`;
+          }
+        }
+      }
+
+      throw new Error("Tool returned an unreadable result");
+    }
+
+    function getFriendlyErrorMessage(error) {
+      if (window.location.protocol === "file:") {
+        return "This AI tool needs to run from your live website, not from a local file preview. Please test it from jaime-botello.com.";
+      }
+
+      if (error && error.name === "TypeError") {
+        return "The AI tool could not connect from this page. Please refresh and try again.";
+      }
+
+      return "We couldn't generate the strategy right now. Please try again.";
+    }
+
     async function callPortfolioAI(tool, input) {
       const response = await fetch(portfolioAIEndpoint, {
         method: "POST",
+        mode: "cors",
+        cache: "no-store",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify({ tool, input })
       });
@@ -1992,12 +2039,8 @@
         throw new Error("Tool request failed");
       }
 
-      const data = await response.json();
-      if (!data || typeof data.result !== "string" || !data.result.trim()) {
-        throw new Error("Tool returned an empty result");
-      }
-
-      return data.result.trim();
+      const responseText = await response.text();
+      return extractResultFromResponseText(responseText);
     }
 
     function getTrimmedFormValue(formData, key) {
@@ -2027,8 +2070,8 @@
       try {
         const result = await callPortfolioAI("communications_strategy", input);
         displayToolResult(result);
-      } catch {
-        showToolError();
+      } catch (error) {
+        showToolError(getFriendlyErrorMessage(error));
       } finally {
         setLoadingState(false);
       }
