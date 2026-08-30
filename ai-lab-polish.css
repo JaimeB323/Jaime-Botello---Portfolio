@@ -63,7 +63,7 @@ h3,
 .ai-hero {
   width: min(var(--max), calc(100% - 2rem)) !important;
   min-height: auto !important;
-  grid-template-columns: minmax(0, 1fr) minmax(290px, 0.56fr) !important;
+  grid-template-columns: minmax(0, 1fr) !important;
   gap: clamp(1.5rem, 4vw, 3rem) !important;
   margin-inline: auto !important;
   margin-top: 1.25rem !important;
@@ -74,6 +74,10 @@ h3,
     radial-gradient(circle at 86% 14%, rgba(200, 20, 79, 0.26), transparent 18rem),
     var(--navy) !important;
   box-shadow: var(--ai-shadow) !important;
+}
+
+.ai-hero > .reveal:first-child {
+  max-width: 860px !important;
 }
 
 .ai-hero::after {
