@@ -18,7 +18,7 @@
       --aqua: #00c2d1;
       --bio-green: #42c77b;
       --innovation: #6d5dfc;
-      --gold: #f2a93b;
+      --gold: #a80f3b;
       --mist: #eef8fb;
       --shadow: 0 24px 70px rgba(8, 49, 74, 0.14);
       --radius: 8px;
@@ -373,7 +373,7 @@
       --aqua: #145f59;
       --bio-green: #145f59;
       --innovation: #c2174b;
-      --gold: #f6bf3d;
+      --gold: #a80f3b;
       --mist: #f8f0e3;
       --shadow: 8px 8px 0 #050505;
       --radius: 6px;
@@ -415,10 +415,18 @@
     }
 
     .nav::before {
-      content: "JAIME BOTELLO";
-      font-family: var(--condensed);
-      font-size: 1.2rem;
-      letter-spacing: 0.02em;
+      content: "JAIME\00a0\00a0\00a0\00a0 BOTELLO";
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+      min-height: 42px;
+      min-width: max-content;
+      padding: 0.55rem 1.45rem 0.52rem;
+      font-family: Avenir, "Avenir Next", Montserrat, ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
       color: var(--ink);
     }
 
@@ -1236,6 +1244,8 @@
       .nav::before {
         content: "Menu" !important;
         margin-right: auto !important;
+        min-height: 0 !important;
+        padding: 0 !important;
         color: var(--ink, #111111) !important;
         font-family: var(--condensed, inherit) !important;
         font-size: 1.1rem !important;
@@ -1252,7 +1262,7 @@
         padding: 0 !important;
         border: 3px solid var(--ink, #111111) !important;
         border-radius: 6px !important;
-        background: var(--gold, #f2c14e) !important;
+        background: var(--gold, #a80f3b) !important;
         box-shadow: 4px 4px 0 var(--ink, #111111) !important;
         cursor: pointer !important;
       }
@@ -1688,7 +1698,7 @@
 
     .nav a.active {
       color: #071926 !important;
-      background: rgba(246, 191, 61, 0.26) !important;
+      background: rgba(168, 15, 59, 0.26) !important;
     }
 
     .homepage-main {
@@ -1806,7 +1816,7 @@
       place-items: center;
       border-radius: 999px;
       color: #071926;
-      background: #f6bf3d;
+      background: #a80f3b;
       font-size: 1.05rem;
       font-weight: 900;
     }
@@ -1830,7 +1840,7 @@
 
     .home-section-header h2 {
       font-size: clamp(2.2rem, 4vw, 3.65rem) !important;
-      line-height: 0.96 !important;
+      line-height: 1.08 !important;
     }
 
     .home-section-header p:not(.eyebrow) {
@@ -1868,7 +1878,7 @@
 
     .home-project-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(246, 191, 61, 0.8) !important;
+      border-color: rgba(168, 15, 59, 0.8) !important;
       box-shadow: 0 22px 48px rgba(7, 25, 38, 0.13) !important;
     }
 
@@ -1933,7 +1943,7 @@
       width: 42px;
       height: 3px;
       margin-top: 0.45rem;
-      background: #f6bf3d;
+      background: #a80f3b;
       transition: width 180ms ease;
     }
 
@@ -1962,7 +1972,7 @@
     }
 
     .impact-band .eyebrow {
-      color: #f6bf3d !important;
+      color: #a80f3b !important;
     }
 
     .impact-grid {
@@ -1982,7 +1992,7 @@
 
     .impact-stat strong {
       display: block;
-      color: #f6bf3d;
+      color: #a80f3b;
       font-family: var(--condensed);
       font-size: clamp(2.6rem, 5vw, 4.5rem);
       line-height: 0.95;
@@ -2020,7 +2030,7 @@
 
     .home-capability-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(246, 191, 61, 0.9);
+      border-color: rgba(168, 15, 59, 0.9);
     }
 
     .home-capability-card h3 {
@@ -2078,6 +2088,16 @@
       gap: 0.85rem;
     }
 
+    .capability-case-grid.is-scrollable {
+      display: flex;
+      gap: 0.85rem;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      padding-bottom: 0.35rem;
+      scroll-snap-type: x proximity;
+      scrollbar-width: thin;
+    }
+
     .capability-case-card {
       display: grid;
       grid-template-rows: 150px 1fr;
@@ -2091,9 +2111,15 @@
       transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
     }
 
+    .capability-case-grid.is-scrollable .capability-case-card {
+      flex: 0 0 calc((100% - 1.7rem) / 3);
+      min-width: 260px;
+      scroll-snap-align: start;
+    }
+
     .capability-case-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(246, 191, 61, 0.9);
+      border-color: rgba(168, 15, 59, 0.9);
       box-shadow: 0 14px 30px rgba(7, 25, 38, 0.12);
     }
 
@@ -2103,6 +2129,24 @@
       display: block;
       object-fit: cover;
       transition: transform 220ms ease;
+    }
+
+    .capability-card-placeholder {
+      display: grid;
+      place-items: end start;
+      min-height: 150px;
+      padding: 1rem;
+      background:
+        linear-gradient(135deg, rgba(7, 25, 38, 0.86), rgba(168, 15, 59, 0.76)),
+        linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+      background-size: auto, 42px 42px, 42px 42px;
+      color: #ffffff;
+      font-family: var(--condensed);
+      font-size: 1.45rem;
+      font-weight: 900;
+      line-height: 0.95;
+      text-transform: uppercase;
     }
 
     .capability-case-card:hover img {
@@ -2136,6 +2180,17 @@
       color: #344752;
       font-size: 0.88rem;
       line-height: 1.38;
+    }
+
+    .scroll-cue {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.55rem;
+      color: #a80f3b;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .featured-case {
@@ -2201,7 +2256,7 @@
 
     .result-list li {
       padding: 0.8rem;
-      border-left: 4px solid #f6bf3d;
+      border-left: 4px solid #a80f3b;
       background: #ffffff;
       color: #071926;
       font-size: 0.9rem;
@@ -2411,7 +2466,7 @@
       --executive-muted: #344752;
       --executive-cream: #f4f1ea;
       --executive-white: #ffffff;
-      --executive-gold: #f6bf3d;
+      --executive-gold: #a80f3b;
       --executive-red: #a80f3b;
       --executive-radius: 18px;
       --executive-soft-shadow: 0 16px 36px rgba(7, 25, 38, 0.08);
@@ -2441,7 +2496,7 @@
     .nav-links a.active,
     .nav-links a[aria-current="page"] {
       color: var(--executive-navy) !important;
-      background: rgba(246, 191, 61, 0.28) !important;
+      background: rgba(168, 15, 59, 0.28) !important;
     }
 
     .dropdown-menu {
@@ -2452,7 +2507,7 @@
     }
 
     .dropdown-menu a:hover {
-      background: rgba(246, 191, 61, 0.22) !important;
+      background: rgba(168, 15, 59, 0.22) !important;
     }
 
     .section,
@@ -2495,7 +2550,7 @@
     .home-project-card:hover,
     .resume-card:hover {
       transform: translateY(-4px) !important;
-      border-color: rgba(246, 191, 61, 0.9) !important;
+      border-color: rgba(168, 15, 59, 0.9) !important;
       box-shadow: var(--executive-hover-shadow) !important;
     }
 
@@ -2548,8 +2603,8 @@
     }
 
     .button.secondary {
-      color: var(--executive-navy) !important;
-      border-color: rgba(7, 25, 38, 0.22) !important;
+      color: #ffffff !important;
+      border-color: var(--executive-gold) !important;
       background: var(--executive-gold) !important;
     }
 
@@ -2639,6 +2694,8 @@
       }
 
       .nav::before {
+        min-height: 0 !important;
+        padding: 0 !important;
         font-size: 0.95rem !important;
         letter-spacing: 0.04em !important;
         white-space: nowrap !important;
@@ -2707,7 +2764,7 @@
       .nav-links > a:hover,
       .nav-links > a.active,
       .nav-menu-button:hover {
-        background: rgba(246, 191, 61, 0.28) !important;
+        background: rgba(168, 15, 59, 0.28) !important;
       }
 
       .nav-menu {
@@ -2739,7 +2796,989 @@
         white-space: normal !important;
       }
     }
-  </style>
+
+    /* Intuit Dome-inspired homepage polish - August 2026
+       High-contrast arena feel, oversized hierarchy and event-style case study cards. */
+    .homepage-main {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(168, 15, 59, 0.18), transparent 24rem),
+        radial-gradient(circle at 88% 14%, rgba(168, 15, 59, 0.18), transparent 26rem),
+        linear-gradient(180deg, #071926 0 30rem, #f4f1ea 30rem 100%) !important;
+    }
+
+    body:has(.homepage-main) .site-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: rgba(7, 25, 38, 0.94) !important;
+    }
+
+    body:has(.homepage-main) .brand,
+    body:has(.homepage-main) .brand span,
+    body:has(.homepage-main) .nav-links a {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    body:has(.homepage-main) .brand-mark {
+      color: #071926 !important;
+      background: #ffffff !important;
+    }
+
+    body:has(.homepage-main) .nav-links a:hover,
+    body:has(.homepage-main) .nav-links a.active,
+    body:has(.homepage-main) .nav-links a[aria-current="page"] {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.14) !important;
+    }
+
+    .home-hero {
+      position: relative;
+      width: min(1380px, calc(100% - 3rem)) !important;
+      min-height: clamp(460px, 66vh, 680px) !important;
+      padding: clamp(3rem, 6vw, 5.8rem) clamp(1.2rem, 4vw, 3rem) !important;
+      border-radius: 0 0 34px 34px;
+      color: #ffffff;
+      background:
+        linear-gradient(90deg, rgba(7, 25, 38, 0.96) 0%, rgba(7, 25, 38, 0.74) 48%, rgba(7, 25, 38, 0.22) 100%),
+        radial-gradient(circle at 86% 18%, rgba(168, 15, 59, 0.22), transparent 24rem),
+        #071926 !important;
+      isolation: isolate;
+    }
+
+    .home-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 8px;
+      background: linear-gradient(90deg, #a80f3b, #d91f57, #ffffff);
+      z-index: -1;
+    }
+
+    .home-hero h1 {
+      max-width: 850px !important;
+      color: #ffffff !important;
+      font-size: clamp(4rem, 9.5vw, 9.4rem) !important;
+      line-height: 1.08 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    .home-hero .hero-kicker {
+      color: #d91f57 !important;
+      font-size: 0.86rem !important;
+      letter-spacing: 0.22em !important;
+    }
+
+    .home-hero .hero-positioning {
+      max-width: 780px !important;
+      color: #ffffff !important;
+      font-size: clamp(1.22rem, 2.1vw, 1.65rem) !important;
+      line-height: 1.35 !important;
+    }
+
+    .home-hero .hero-support {
+      max-width: 760px !important;
+      color: rgba(255, 255, 255, 0.76) !important;
+      font-size: clamp(1rem, 1.25vw, 1.14rem) !important;
+    }
+
+    .home-hero .hero-photo-placeholder {
+      height: clamp(360px, 46vw, 570px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
+      border-radius: 28px !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32) !important;
+    }
+
+    .home-hero .hero-photo-placeholder img {
+      border-radius: 28px !important;
+      object-fit: cover !important;
+    }
+
+    .credibility-strip {
+      background: #071926 !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .proof-item {
+      color: #ffffff !important;
+      border-right: 1px solid rgba(255, 255, 255, 0.14) !important;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .proof-icon,
+    .capability-icon {
+      color: #071926 !important;
+      background: #a80f3b !important;
+    }
+
+    .expertise-section {
+      width: 100% !important;
+      padding-left: max(1.5rem, calc((100vw - var(--max)) / 2)) !important;
+      padding-right: max(1.5rem, calc((100vw - var(--max)) / 2)) !important;
+      background: #f4f1ea !important;
+      box-shadow: none !important;
+    }
+
+    .expertise-section .home-section-header {
+      max-width: 940px !important;
+      margin-bottom: 2rem !important;
+    }
+
+    .expertise-section .home-section-header .eyebrow {
+      color: #a80f3b !important;
+    }
+
+    .expertise-section .home-section-header .eyebrow {
+      margin-bottom: 0 !important;
+      font-size: clamp(2.4rem, 5.8vw, 5.8rem) !important;
+      letter-spacing: 0.02em !important;
+      line-height: 0.82 !important;
+    }
+
+    .expertise-section .home-section-header h2 {
+      display: none !important;
+    }
+
+    .expertise-section .home-section-header h2 {
+      font-size: clamp(3.1rem, 7vw, 7.2rem) !important;
+      line-height: 0.82 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    .capability-rows {
+      gap: clamp(1.6rem, 3vw, 2.4rem) !important;
+    }
+
+    .capability-row {
+      padding: clamp(1.25rem, 2.4vw, 2rem) !important;
+      border: 0 !important;
+      border-radius: 28px !important;
+      background:
+        linear-gradient(135deg, #071926, #0c2a3c 65%, #071926) !important;
+      box-shadow: 0 24px 60px rgba(7, 25, 38, 0.18) !important;
+      overflow: hidden;
+    }
+
+    .capability-row:nth-child(even) {
+      background:
+        linear-gradient(135deg, #ffffff, #f7f2e7) !important;
+      border: 1px solid rgba(7, 25, 38, 0.12) !important;
+    }
+
+    .capability-row-header {
+      max-width: none !important;
+      margin-bottom: 1.35rem !important;
+      align-items: center !important;
+    }
+
+    .capability-row-header h3 {
+      color: #ffffff !important;
+      font-size: clamp(2.1rem, 4.6vw, 4.8rem) !important;
+      line-height: 0.85 !important;
+      letter-spacing: -0.015em !important;
+    }
+
+    .capability-row-header p {
+      max-width: 760px;
+      color: rgba(255, 255, 255, 0.74) !important;
+      font-size: 1rem !important;
+    }
+
+    .capability-row:nth-child(even) .capability-row-header h3 {
+      color: #071926 !important;
+    }
+
+    .capability-row:nth-child(even) .capability-row-header p {
+      color: #344752 !important;
+    }
+
+    .capability-case-grid,
+    .capability-case-grid.is-scrollable {
+      gap: 1.05rem !important;
+    }
+
+    .capability-case-card {
+      grid-template-rows: minmax(270px, auto) 1fr !important;
+      min-height: 500px !important;
+      border: 1px solid rgba(255, 255, 255, 0.14) !important;
+      border-radius: 24px !important;
+      background: #ffffff !important;
+      box-shadow: none !important;
+      position: relative;
+    }
+
+    .capability-row:nth-child(odd) .capability-case-card {
+      background: #0d2331 !important;
+    }
+
+    .capability-case-grid.is-scrollable .capability-case-card {
+      flex: 0 0 calc((100% - 2.1rem) / 3) !important;
+      min-width: 330px !important;
+    }
+
+    .capability-case-card:hover {
+      transform: translateY(-7px) !important;
+      border-color: #a80f3b !important;
+      box-shadow: 0 22px 54px rgba(0, 0, 0, 0.22) !important;
+    }
+
+    .capability-case-card img {
+      width: 100% !important;
+      min-height: 270px !important;
+      height: 270px !important;
+      padding: 0.7rem;
+      object-fit: contain !important;
+      object-position: center center !important;
+      background: #071926 !important;
+    }
+
+    .capability-card-placeholder {
+      min-height: 270px !important;
+      padding: 1.35rem !important;
+      place-items: center start !important;
+      color: #ffffff !important;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(168, 15, 59, 0.24), transparent 12rem),
+        linear-gradient(135deg, #071926, #a80f3b) !important;
+      font-size: clamp(2rem, 3vw, 3rem) !important;
+    }
+
+    .capability-case-body {
+      min-height: 230px;
+      padding: 1.2rem 1.25rem 1.35rem !important;
+      align-content: start !important;
+      gap: 0.6rem !important;
+    }
+
+    .capability-case-body span {
+      color: #d91f57 !important;
+      font-size: 0.74rem !important;
+      letter-spacing: 0.16em !important;
+    }
+
+    .capability-row:nth-child(even) .capability-case-body span {
+      color: #a80f3b !important;
+    }
+
+    .capability-case-body strong {
+      color: #ffffff !important;
+      font-size: clamp(1.55rem, 2.3vw, 2.25rem) !important;
+      line-height: 0.9 !important;
+    }
+
+    .capability-row:nth-child(even) .capability-case-body strong {
+      color: #071926 !important;
+    }
+
+    .capability-case-body p {
+      color: rgba(255, 255, 255, 0.76) !important;
+      font-size: 0.98rem !important;
+      line-height: 1.45 !important;
+    }
+
+    .capability-row:nth-child(even) .capability-case-body p {
+      color: #344752 !important;
+    }
+
+    .scroll-cue {
+      color: #d91f57 !important;
+      font-size: 0.85rem !important;
+      letter-spacing: 0.14em !important;
+    }
+
+    .capability-row:nth-child(even) .scroll-cue {
+      color: #a80f3b !important;
+    }
+
+    .final-cta {
+      width: 100% !important;
+      max-width: none !important;
+      padding-left: max(1.5rem, calc((100vw - var(--max)) / 2)) !important;
+      padding-right: max(1.5rem, calc((100vw - var(--max)) / 2)) !important;
+      color: #ffffff !important;
+      background: #071926 !important;
+      box-shadow: none !important;
+    }
+
+    .final-cta h2 {
+      color: #ffffff !important;
+      font-size: clamp(3rem, 7vw, 7rem) !important;
+      line-height: 0.82 !important;
+    }
+
+    .final-cta p {
+      color: rgba(255, 255, 255, 0.76) !important;
+    }
+
+    .homepage-main .button.secondary,
+    .homepage-main .button.secondary:visited,
+    .homepage-main .button.secondary:hover,
+    .homepage-main .button.secondary:focus-visible {
+      color: #ffffff !important;
+    }
+
+    @media (max-width: 1100px) {
+      .capability-case-grid.is-scrollable .capability-case-card {
+        flex-basis: min(78vw, 390px) !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      body:has(.homepage-main) .nav-links {
+        background: rgba(7, 25, 38, 0.98) !important;
+      }
+
+      body:has(.homepage-main) .nav-links > a,
+      body:has(.homepage-main) .nav-menu-button {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border-color: rgba(255, 255, 255, 0.14) !important;
+      }
+
+      body:has(.homepage-main) .nav-toggle {
+        border-color: rgba(255, 255, 255, 0.22) !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+      }
+
+      body:has(.homepage-main) .nav-toggle span {
+        background: #ffffff !important;
+      }
+
+      .home-hero {
+        width: min(100% - 1rem, var(--max)) !important;
+        min-height: auto !important;
+        padding: 2.2rem 1rem !important;
+        border-radius: 0 0 24px 24px !important;
+      }
+
+      .home-hero h1 {
+        font-size: clamp(3.9rem, 19vw, 6.4rem) !important;
+      }
+
+      .home-hero .hero-photo-placeholder {
+        width: 100%;
+        height: 360px !important;
+      }
+
+      .credibility-inner {
+        width: min(100% - 1rem, var(--max)) !important;
+      }
+
+      .proof-item {
+        border-right: 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+      }
+
+      .expertise-section {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+      }
+
+      .expertise-section .home-section-header h2,
+      .final-cta h2 {
+        font-size: clamp(3rem, 15vw, 5rem) !important;
+      }
+
+      .capability-row {
+        border-radius: 22px !important;
+      }
+
+      .capability-row-header h3 {
+        font-size: clamp(2.4rem, 12vw, 4rem) !important;
+      }
+
+      .capability-case-grid,
+      .capability-case-grid.is-scrollable {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        padding-bottom: 0.5rem;
+      }
+
+      .capability-case-grid .capability-case-card,
+      .capability-case-grid.is-scrollable .capability-case-card {
+        flex: 0 0 min(86vw, 360px) !important;
+        min-width: 0 !important;
+      }
+
+      .capability-case-card {
+        grid-template-rows: 245px 1fr !important;
+        min-height: 470px !important;
+      }
+
+      .capability-case-card img,
+      .capability-card-placeholder {
+        min-height: 245px !important;
+        height: 245px !important;
+      }
+    }
+
+    /* Event-card refinement from the provided reference. */
+    .expertise-section .home-section-header h2,
+    .final-cta h2,
+    .capability-row-header h3 {
+      white-space: nowrap !important;
+      overflow-wrap: normal !important;
+      text-wrap: nowrap !important;
+    }
+
+    .expertise-section .home-section-header h2 {
+      font-size: clamp(2.35rem, 5.6vw, 5.9rem) !important;
+      letter-spacing: -0.035em !important;
+    }
+
+    .capability-row-header h3 {
+      font-size: clamp(1.75rem, 3.8vw, 3.75rem) !important;
+      letter-spacing: -0.03em !important;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(2.2rem, 5vw, 5.4rem) !important;
+      letter-spacing: -0.035em !important;
+    }
+
+    .capability-row,
+    .capability-row:nth-child(even) {
+      background: #efefef !important;
+      border: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .capability-row-header h3,
+    .capability-row:nth-child(even) .capability-row-header h3 {
+      color: #071926 !important;
+    }
+
+    .capability-row-header p,
+    .capability-row:nth-child(even) .capability-row-header p {
+      color: #344752 !important;
+    }
+
+    .capability-case-grid,
+    .capability-case-grid.is-scrollable {
+      gap: 1.25rem !important;
+    }
+
+    .capability-case-card,
+    .capability-row:nth-child(odd) .capability-case-card,
+    .capability-row:nth-child(even) .capability-case-card {
+      display: grid !important;
+      grid-template-rows: minmax(265px, 1fr) 230px !important;
+      min-height: 530px !important;
+      overflow: hidden !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: #171717 !important;
+      color: #ffffff !important;
+      box-shadow: 0 18px 34px rgba(7, 25, 38, 0.18) !important;
+    }
+
+    .capability-case-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      height: 18px;
+      background:
+        linear-gradient(135deg, #efefef 0 24%, transparent 24% 31%, #efefef 31% 62%, transparent 62% 71%, #efefef 71% 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 52%, 94% 43%, 87% 66%, 76% 47%, 67% 62%, 56% 45%, 48% 58%, 35% 44%, 27% 61%, 15% 45%, 8% 57%, 0 46%);
+      pointer-events: none;
+    }
+
+    .capability-case-card::after {
+      content: "→";
+      position: absolute;
+      right: 1.15rem;
+      bottom: 1rem;
+      z-index: 3;
+      color: #ffffff;
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+      pointer-events: none;
+    }
+
+    .capability-case-body {
+      order: 1 !important;
+      min-height: 0 !important;
+      padding: clamp(1.35rem, 2.2vw, 2rem) !important;
+      background: #171717 !important;
+      align-content: center !important;
+      gap: clamp(0.85rem, 1.7vw, 1.35rem) !important;
+    }
+
+    .capability-case-card img,
+    .capability-card-placeholder {
+      order: 2 !important;
+      width: 100% !important;
+      min-height: 230px !important;
+      height: 230px !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      background: #111111 !important;
+    }
+
+    .capability-case-card img {
+      object-fit: contain !important;
+      object-position: center center !important;
+    }
+
+    .capability-card-placeholder {
+      display: grid !important;
+      place-items: center !important;
+      color: #ffffff !important;
+      background:
+        radial-gradient(circle at 70% 30%, rgba(168, 15, 59, 0.24), transparent 11rem),
+        linear-gradient(135deg, #111111, #1c1c1c) !important;
+      font-size: clamp(2rem, 3vw, 3.3rem) !important;
+      text-align: left;
+    }
+
+    .capability-case-body strong,
+    .capability-row:nth-child(even) .capability-case-body strong {
+      order: 1;
+      color: #ffffff !important;
+      font-size: clamp(1.65rem, 2.45vw, 2.35rem) !important;
+      line-height: 0.95 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    .capability-case-body p,
+    .capability-row:nth-child(even) .capability-case-body p {
+      order: 2;
+      max-width: 34ch;
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-size: clamp(0.95rem, 1.05vw, 1.05rem) !important;
+      line-height: 1.55 !important;
+    }
+
+    .capability-case-body span,
+    .capability-row:nth-child(even) .capability-case-body span {
+      order: 3;
+      margin-top: auto;
+      color: #ffffff !important;
+      font-family: var(--condensed);
+      font-size: clamp(1.15rem, 1.6vw, 1.45rem) !important;
+      font-weight: 900 !important;
+      letter-spacing: 0 !important;
+      line-height: 1 !important;
+    }
+
+    .capability-case-card:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 24px 44px rgba(7, 25, 38, 0.28) !important;
+    }
+
+    .capability-case-card:hover img {
+      transform: none !important;
+    }
+
+    @media (max-width: 1180px) {
+      .expertise-section .home-section-header h2 {
+        font-size: clamp(2rem, 5.2vw, 4.7rem) !important;
+      }
+
+      .capability-row-header h3 {
+        font-size: clamp(1.35rem, 3.15vw, 3rem) !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .expertise-section .home-section-header h2,
+      .final-cta h2,
+      .capability-row-header h3 {
+        white-space: nowrap !important;
+      }
+
+      .expertise-section .home-section-header h2 {
+        font-size: clamp(1.65rem, 8.4vw, 3.1rem) !important;
+      }
+
+      .capability-row-header h3 {
+        font-size: clamp(1.05rem, 5.4vw, 2.05rem) !important;
+      }
+
+      .final-cta h2 {
+        font-size: clamp(1.6rem, 7.4vw, 3rem) !important;
+      }
+
+      .capability-case-card,
+      .capability-row:nth-child(odd) .capability-case-card,
+      .capability-row:nth-child(even) .capability-case-card {
+        grid-template-rows: minmax(260px, 1fr) 220px !important;
+        min-height: 510px !important;
+      }
+
+      .capability-case-card img,
+      .capability-card-placeholder {
+        min-height: 220px !important;
+        height: 220px !important;
+      }
+    }
+      /* Unified portfolio navigation - matches homepage */
+    .site-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: rgba(7, 25, 38, 0.94) !important;
+      backdrop-filter: blur(16px) !important;
+    }
+
+    .nav {
+      width: min(var(--max, 1180px), calc(100% - 3rem)) !important;
+      min-height: 72px !important;
+      justify-content: flex-end !important;
+    }
+
+    .nav::before {
+      content: none !important;
+    }
+
+    .nav-links a,
+    .nav-links > a {
+      padding: 0.62rem 0.78rem !important;
+      color: rgba(255, 255, 255, 0.9) !important;
+      background: transparent !important;
+      border: 0 !important;
+      border-radius: 8px !important;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+      font-size: 0.92rem !important;
+      font-weight: 780 !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+      text-decoration: none !important;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active,
+    .nav-links a[aria-current="page"],
+    .nav-links > a:hover,
+    .nav-links > a.active {
+      color: #fff !important;
+      background: rgba(255, 255, 255, 0.14) !important;
+    }
+
+    .nav-toggle {
+      border-color: rgba(255, 255, 255, 0.22) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .nav-toggle span {
+      background: #fff !important;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        width: min(100% - 1rem, var(--max, 1180px)) !important;
+        min-height: 64px !important;
+      }
+
+      .nav-links {
+        background: rgba(7, 25, 38, 0.98) !important;
+      }
+
+      .nav-links > a,
+      .nav-links a {
+        min-height: 44px !important;
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+      }
+    }
+
+
+    /* Mobile employer-review polish - August 2026 */
+    @media (max-width: 760px) {
+      html {
+        scroll-padding-top: 72px !important;
+      }
+
+      body {
+        overflow-x: hidden !important;
+      }
+
+      .site-header {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+      }
+
+      .nav {
+        width: 100% !important;
+        min-height: 58px !important;
+        padding: 0.45rem 0.85rem !important;
+        justify-content: flex-end !important;
+      }
+
+      .nav-toggle {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 46px !important;
+        height: 46px !important;
+        flex: 0 0 46px !important;
+        border-radius: 999px !important;
+        border: 1px solid rgba(255, 255, 255, 0.34) !important;
+        background: rgba(255, 255, 255, 0.12) !important;
+      }
+
+      .nav-toggle span {
+        width: 20px !important;
+        height: 2px !important;
+        margin: 3px 0 !important;
+        background: #ffffff !important;
+      }
+
+      .nav-links,
+      body:has(.homepage-main) .nav-links {
+        position: absolute !important;
+        top: calc(100% + 0.5rem) !important;
+        left: 0.85rem !important;
+        right: 0.85rem !important;
+        width: auto !important;
+        display: none !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.55rem !important;
+        padding: 0.75rem !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+        border-radius: 18px !important;
+        background: rgba(7, 25, 38, 0.98) !important;
+        box-shadow: 0 22px 48px rgba(7, 25, 38, 0.28) !important;
+        max-height: calc(100vh - 78px) !important;
+        overflow-y: auto !important;
+      }
+
+      .nav-links.open,
+      body:has(.homepage-main) .nav-links.open {
+        display: grid !important;
+      }
+
+      .nav-links > a,
+      .nav-links a,
+      body:has(.homepage-main) .nav-links > a,
+      body:has(.homepage-main) .nav-links a {
+        width: 100% !important;
+        min-height: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0.85rem 1rem !important;
+        border: 1px solid rgba(255, 255, 255, 0.18) !important;
+        border-radius: 14px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+        font-size: 1rem !important;
+        line-height: 1.1 !important;
+        text-align: center !important;
+        text-decoration: none !important;
+      }
+
+      .nav-links > a:hover,
+      .nav-links > a.active,
+      .nav-links a[aria-current="page"] {
+        background: #c8144f !important;
+        color: #ffffff !important;
+      }
+
+      .section,
+      .home-section,
+      .content-section,
+      .impact-section,
+      .strategy-section,
+      .meeting-overview,
+      .resume-section,
+      .ai-section {
+        padding-top: clamp(2rem, 8vw, 3rem) !important;
+        padding-bottom: clamp(2rem, 8vw, 3rem) !important;
+      }
+
+      .section-header,
+      .capability-row-header,
+      .case-hero,
+      .hero,
+      .home-hero,
+      .resume-hero,
+      .ai-hero {
+        gap: 1rem !important;
+      }
+
+      h1,
+      .hero h1,
+      .home-hero h1,
+      .resume-hero h1 {
+        font-size: clamp(3rem, 16vw, 4.8rem) !important;
+        line-height: 0.94 !important;
+        letter-spacing: 0 !important;
+      }
+
+      h2,
+      .section-title,
+      .section-header h2,
+      .capability-row-header h3,
+      .case-title,
+      .resume-heading {
+        font-size: clamp(2.1rem, 10vw, 3.35rem) !important;
+        line-height: 0.98 !important;
+        letter-spacing: 0 !important;
+        overflow-wrap: anywhere !important;
+      }
+
+      h3,
+      .capability-case-body strong,
+      .activation-card h3,
+      .asset-card h3,
+      .timeline-role {
+        font-size: clamp(1.25rem, 6.2vw, 1.8rem) !important;
+        line-height: 1.05 !important;
+      }
+
+      p,
+      li,
+      .body-copy,
+      .intro-copy,
+      .section-copy,
+      .case-copy,
+      .capability-case-body p,
+      .activation-card p,
+      .asset-card p {
+        font-size: 1rem !important;
+        line-height: 1.55 !important;
+      }
+
+      .capability-case-grid,
+      .capability-case-grid.is-scrollable,
+      .activation-examples,
+      .activation-examples.compact-assets,
+      .meeting-assets,
+      .asset-grid,
+      .case-grid,
+      .work-grid,
+      .featured-grid,
+      .project-grid,
+      .portfolio-grid,
+      .results-grid,
+      .cards-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        overflow: visible !important;
+        scroll-snap-type: none !important;
+      }
+
+      .capability-case-card,
+      .capability-case-grid.is-scrollable .capability-case-card,
+      .activation-card,
+      .asset-card,
+      .case-card,
+      .work-card,
+      .featured-case-card,
+      .project-card,
+      .result-card {
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        flex: 0 1 auto !important;
+        min-height: 0 !important;
+      }
+
+      .capability-case-card img,
+      .activation-card img,
+      .asset-card img,
+      .case-card img,
+      .work-card img,
+      .featured-case-card img,
+      .project-card img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 320px !important;
+        aspect-ratio: 16 / 10 !important;
+        object-fit: cover !important;
+        object-position: center !important;
+      }
+
+      .capability-case-body,
+      .activation-card-content,
+      .asset-card-content,
+      .case-card-body,
+      .work-card-body {
+        padding: 1rem !important;
+      }
+
+      .button,
+      .hero-actions a,
+      .card-actions a,
+      .activation-card a,
+      .asset-card a {
+        min-height: 46px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        white-space: normal !important;
+        text-align: center !important;
+      }
+
+      .hero-actions,
+      .card-actions,
+      .asset-actions {
+        gap: 0.65rem !important;
+      }
+
+      .scroll-cue {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav {
+        padding-inline: 0.65rem !important;
+      }
+
+      .nav-links,
+      body:has(.homepage-main) .nav-links {
+        left: 0.65rem !important;
+        right: 0.65rem !important;
+      }
+
+      .section,
+      .home-section,
+      .content-section,
+      .impact-section,
+      .strategy-section,
+      .meeting-overview,
+      .resume-section,
+      .ai-section {
+        padding-top: 1.65rem !important;
+        padding-bottom: 1.65rem !important;
+      }
+
+      h1,
+      .hero h1,
+      .home-hero h1,
+      .resume-hero h1 {
+        font-size: clamp(2.8rem, 15vw, 4.1rem) !important;
+      }
+
+      h2,
+      .section-title,
+      .section-header h2,
+      .capability-row-header h3,
+      .case-title,
+      .resume-heading {
+        font-size: clamp(1.85rem, 9vw, 2.7rem) !important;
+      }
+
+      .capability-case-card img,
+      .activation-card img,
+      .asset-card img,
+      .case-card img,
+      .work-card img,
+      .featured-case-card img,
+      .project-card img {
+        max-height: 260px !important;
+      }
+    }
+
+</style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-56WQ7QRKCD"></script>
   <script>
@@ -2760,7 +3799,7 @@
 
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
-        <a href="communications-portfolio.html">Communications Portfolio</a>
+        <a href="ai-lab.html">AI Lab</a>
         <a href="resume.html">Resume</a>
         <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:JaimeBotello310@gmail.com">Contact</a>
@@ -2780,7 +3819,7 @@
           With nearly 20 years of experience across healthcare and life sciences, consumer brands, public sector and higher education, my work spans corporate storytelling, executive communications, multimedia content, digital strategy, integrated campaigns and AI-enabled communications workflows.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="communications-portfolio.html">Explore Communications Portfolio</a>
+          <a class="button secondary" href="mailto:JaimeBotello310@gmail.com">Contact</a>
           <a class="button secondary" href="resume.html">View Resume</a>
         </div>
       </div>
@@ -2811,14 +3850,6 @@
     </section>
 
     <section class="home-section expertise-section" id="expertise">
-      <div class="home-section-header reveal">
-        <p class="eyebrow">Expertise</p>
-        <h2>Communications Capabilities</h2>
-        <p>
-          My work sits at the intersection of strategy, storytelling, reputation and channel activation. These focus areas show how I help organizations clarify complex ideas, elevate leaders and reach audiences with communications that feel credible, useful and human.
-        </p>
-      </div>
-
       <div class="capability-rows">
         <section class="capability-row reveal" aria-labelledby="corporate-executive-row">
           <div class="capability-row-header">
@@ -2829,28 +3860,28 @@
             </div>
           </div>
           <div class="capability-case-grid">
-            <a class="capability-case-card" href="meeting-the-moment-ai-drug-discovery.html">
-              <img src="images/meeting-the-moment-hero-blue.png" alt="Meeting the Moment project visual.">
+            <a class="capability-case-card" href="acs-heroes-of-chemistry.html">
+              <img src="images/acs-heroes-of-chemistry-card.webp" alt="ACS Heroes of Chemistry recognition visual.">
               <div class="capability-case-body">
                 <span>Corporate Storytelling</span>
-                <strong>Meeting the Moment</strong>
-                <p>AI in drug discovery story expanded across video, social, executive and digital channels.</p>
+                <strong>KRAS - Heroes of Chemistry Award</strong>
+                <p>Scientific recognition translated into a broader corporate reputation story.</p>
               </div>
             </a>
-            <a class="capability-case-card" href="my-9-5-social-video.html">
-              <img src="images/my-9-5-social-video-card.png" alt="My 9-5 social video project visual.">
+            <a class="capability-case-card" href="small-molecule-drug-discovery-lab-expansion.html">
+              <img src="images/small-molecule-case-study-hero.png" alt="Life of a Molecule project visual.">
               <div class="capability-case-body">
-                <span>Executive Visibility</span>
-                <strong>My 9-5 Social Video</strong>
-                <p>Social-first executive storytelling designed to humanize scientific leadership.</p>
+                <span>Science Communications</span>
+                <strong>Life of A Molecule</strong>
+                <p>A science story showing how discovery moves from idea to potential medicine.</p>
               </div>
             </a>
-            <a class="capability-case-card" href="dna-day-social-activation.html">
-              <img src="images/dna-day-social-combined-card.jpg" alt="DNA Day social activation project visual.">
+            <a class="capability-case-card" href="covid-19-vaccine-awareness.html">
+              <img src="images/covid-vaccine-card.png" alt="COVID-19 vaccine awareness campaign visual.">
               <div class="capability-case-body">
-                <span>Executive Social</span>
-                <strong>DNA Day Social Activation</strong>
-                <p>Executive-led science content created for social engagement and visibility.</p>
+                <span>Public Health</span>
+                <strong>COVID-19 Awareness Campaign</strong>
+                <p>Community-centered campaign supporting trusted information and vaccine access.</p>
               </div>
             </a>
           </div>
@@ -2861,35 +3892,44 @@
             <div class="capability-icon" aria-hidden="true">02</div>
             <div>
               <h3 id="earned-media-row">Earned Media &amp; Community Engagement</h3>
-              <p>Media strategy, message development, spokesperson preparation and community-centered campaigns that help organizations build visibility, trust and local relevance.</p>
+              <p>Media strategy, community partnerships and public-facing campaigns that build visibility, trust and local relevance.</p>
             </div>
           </div>
-          <div class="capability-case-grid">
-            <a class="capability-case-card" href="acs-heroes-of-chemistry.html">
-              <img src="images/acs-heroes-of-chemistry-card.webp" alt="ACS Heroes of Chemistry recognition visual.">
-              <div class="capability-case-body">
-                <span>Reputation Storytelling</span>
-                <strong>ACS Heroes of Chemistry</strong>
-                <p>Scientific recognition translated into a broader story of innovation and impact.</p>
-              </div>
-            </a>
-            <a class="capability-case-card" href="covid-19-vaccine-awareness.html">
-              <img src="images/covid-vaccine-card.png" alt="COVID-19 vaccine awareness campaign visual.">
-              <div class="capability-case-body">
-                <span>Media Relations</span>
-                <strong>COVID-19 Vaccine Awareness</strong>
-                <p>Community-centered campaign supporting trusted information and vaccine access.</p>
-              </div>
-            </a>
+          <div class="capability-case-grid is-scrollable" aria-label="Earned Media and Community Engagement case studies">
             <a class="capability-case-card" href="health-net-mobile-rv-community-health-screenings.html">
               <img src="images/health-net-rv-community-card.jpg" alt="Health Net mobile RV community outreach.">
               <div class="capability-case-body">
-                <span>Community Reputation</span>
-                <strong>Health Net Mobile RV</strong>
+                <span>Community Engagement</span>
+                <strong>Mobile Health Screening RV Program</strong>
                 <p>Statewide outreach program connecting health resources with local communities.</p>
               </div>
             </a>
+            <article class="capability-case-card">
+              <div class="capability-card-placeholder">Nintendo</div>
+              <div class="capability-case-body">
+                <span>Earned Media</span>
+                <strong>Nintendo Hispanic Media Outreach</strong>
+                <p>Placeholder for multicultural media outreach and consumer communications examples.</p>
+              </div>
+            </article>
+            <article class="capability-case-card">
+              <div class="capability-card-placeholder">Access</div>
+              <div class="capability-case-body">
+                <span>Community Affairs</span>
+                <strong>Restoring Free Access to Care in Sacramento</strong>
+                <p>Placeholder for community access, stakeholder and earned media work.</p>
+              </div>
+            </article>
+            <article class="capability-case-card">
+              <div class="capability-card-placeholder">Telehealth</div>
+              <div class="capability-case-body">
+                <span>Provider Outreach</span>
+                <strong>Telehealth Grants to CA Providers</strong>
+                <p>Placeholder for healthcare access, provider relations and community impact work.</p>
+              </div>
+            </article>
           </div>
+          <div class="scroll-cue" aria-hidden="true">Scroll for more &rarr;</div>
         </section>
 
         <section class="capability-row reveal" aria-labelledby="social-digital-row">
@@ -2900,7 +3940,7 @@
               <p>Social-first video, editorial planning, LinkedIn strategy and digital content systems designed to move stories across platforms and formats.</p>
             </div>
           </div>
-          <div class="capability-case-grid">
+          <div class="capability-case-grid is-scrollable" aria-label="Social Media and Digital Content case studies">
             <a class="capability-case-card" href="my-9-5-social-video.html">
               <img src="images/my-9-5-card-garden-sign.png" alt="My 9-5 social video thumbnail.">
               <div class="capability-case-body">
@@ -2909,101 +3949,72 @@
                 <p>A day-in-the-life format adapted for social engagement and executive visibility.</p>
               </div>
             </a>
+            <a class="capability-case-card" href="meeting-the-moment-ai-drug-discovery.html">
+              <img src="images/meeting-the-moment-hero-blue.png" alt="Meeting the Moment roundtable visual.">
+              <div class="capability-case-body">
+                <span>Multimedia Storytelling</span>
+                <strong>Meeting the Moment Roundtable</strong>
+                <p>AI in drug discovery story expanded across video, social and digital channels.</p>
+              </div>
+            </a>
+            <a class="capability-case-card" href="dna-day-social-activation.html">
+              <img src="images/dna-day-social-combined-card.jpg" alt="DNA Day social activation project visual.">
+              <div class="capability-case-body">
+                <span>Executive Social</span>
+                <strong>DNA Day Social Video</strong>
+                <p>Science content created for social engagement and leadership visibility.</p>
+              </div>
+            </a>
             <a class="capability-case-card" href="ican-afford-college-financial-aid-awareness.html">
               <img src="images/ican-afford-college-card.png" alt="I Can Afford College campaign visual.">
               <div class="capability-case-body">
-                <span>Multicultural Content</span>
-                <strong>I Can Afford College</strong>
+                <span>Video Series</span>
+                <strong>I Can Afford College Video Series</strong>
                 <p>Telenovela-style stories turned financial aid messaging into accessible content.</p>
               </div>
             </a>
-            <a class="capability-case-card" href="meeting-the-moment-ai-drug-discovery.html">
-              <img src="images/meeting-social-media-card.png" alt="Meeting the Moment LinkedIn social media card.">
-              <div class="capability-case-body">
-                <span>Social Amplification</span>
-                <strong>Meeting the Moment</strong>
-                <p>Executive and enterprise social content extended the science story across channels.</p>
-              </div>
-            </a>
           </div>
+          <div class="scroll-cue" aria-hidden="true">Scroll for more &rarr;</div>
         </section>
 
         <section class="capability-row reveal" aria-labelledby="crisis-issues-row">
           <div class="capability-row-header">
             <div class="capability-icon" aria-hidden="true">04</div>
             <div>
-              <h3 id="crisis-issues-row">Crisis &amp; Issues Communications</h3>
+              <h3 id="crisis-issues-row">Crisis &amp; Issues Management</h3>
               <p>Clear, coordinated communications support for sensitive topics, fast-moving issues and moments that require disciplined judgment and trusted information.</p>
             </div>
           </div>
           <div class="capability-case-grid">
-            <a class="capability-case-card" href="covid-19-vaccine-awareness.html">
-              <img src="images/covid-vaccine-case-hero.png" alt="COVID-19 vaccine awareness case study hero.">
+            <a class="capability-case-card" href="healthcare-payer-comms-provider-dispute.html">
+              <div class="capability-card-placeholder">Healthcare</div>
+              <div class="capability-case-body">
+                <span>Issues Management</span>
+                <strong>Healthcare Payer Comms</strong>
+                <p>Values-based response strategy for a sensitive provider dispute involving patient access, legal restraint and reputation risk.</p>
+              </div>
+            </a>
+            <article class="capability-case-card">
+              <div class="capability-card-placeholder">Wildfires</div>
+              <div class="capability-case-body">
+                <span>Crisis Response</span>
+                <strong>Palisades Wildfires</strong>
+                <p>Placeholder for rapid response, stakeholder updates and community messaging.</p>
+              </div>
+            </article>
+            <article class="capability-case-card">
+              <div class="capability-card-placeholder">COVID-19</div>
               <div class="capability-case-body">
                 <span>Public Health Response</span>
-                <strong>COVID-19 Vaccine Awareness</strong>
-                <p>Messaging and media outreach built around trust, access and local credibility.</p>
+                <strong>COVID-19 LA County</strong>
+                <p>Placeholder for public health communications and urgent community information.</p>
               </div>
-            </a>
-            <a class="capability-case-card" href="health-net-mobile-rv-community-health-screenings.html">
-              <img src="images/health-net-rv-case-hero.jpg" alt="Health Net RV in front of the California State Capitol.">
-              <div class="capability-case-body">
-                <span>Access &amp; Outreach</span>
-                <strong>Health Net Mobile RV</strong>
-                <p>Mobile health resources adapted to urgent community needs during COVID-19.</p>
-              </div>
-            </a>
-          </div>
-        </section>
-
-        <section class="capability-row reveal" aria-labelledby="science-health-row">
-          <div class="capability-row-header">
-            <div class="capability-icon" aria-hidden="true">05</div>
-            <div>
-              <h3 id="science-health-row">Science, Health &amp; Public Affairs</h3>
-              <p>Accessible storytelling for complex health, science and public-sector topics, with an emphasis on clarity, trust and community relevance.</p>
-            </div>
-          </div>
-          <div class="capability-case-grid">
-            <a class="capability-case-card" href="small-molecule-drug-discovery-lab-expansion.html">
-              <img src="images/small-molecule-case-study-hero.png" alt="Small molecule drug discovery lab expansion visual.">
-              <div class="capability-case-body">
-                <span>Science Communications</span>
-                <strong>Small Molecule Lab Expansion</strong>
-                <p>A facility milestone expanded into a broader innovation and discovery story.</p>
-              </div>
-            </a>
-            <a class="capability-case-card" href="acs-heroes-of-chemistry.html">
-              <img src="images/acs-cracking-kras-card.png" alt="KRAS science article visual.">
-              <div class="capability-case-body">
-                <span>Scientific Storytelling</span>
-                <strong>ACS Heroes of Chemistry</strong>
-                <p>Breakthrough oncology science made accessible through people-centered storytelling.</p>
-              </div>
-            </a>
-            <a class="capability-case-card" href="covid-19-vaccine-awareness.html">
-              <img src="images/covid-community-messaging-card.png" alt="Community COVID-19 messaging campaign visual.">
-              <div class="capability-case-body">
-                <span>Public Affairs</span>
-                <strong>COVID-19 Vaccine Awareness</strong>
-                <p>Community partnerships and public health storytelling connected information to action.</p>
-              </div>
-            </a>
+            </article>
           </div>
         </section>
       </div>
     </section>
 
-    <section class="home-section final-cta">
-      <div class="reveal">
-        <h2>Explore My Communications Portfolio</h2>
-        <p>View additional projects across strategic communications, executive visibility, multimedia storytelling, scientific communications, community engagement and AI-enabled communications.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="communications-portfolio.html">Explore Communications Portfolio</a>
-          <a class="button secondary" href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
@@ -3014,7 +4025,7 @@
       </div>
       <div class="footer-links" aria-label="Footer navigation">
         <a href="index.html">Home</a>
-        <a href="communications-portfolio.html">Communications Portfolio</a>
+        <a href="ai-lab.html">AI Lab</a>
         <a href="resume.html">Resume</a>
         <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
       </div>

@@ -1,0 +1,744 @@
+/* Shared case-study redesign: aligns individual case studies with the current homepage direction. */
+:root {
+  --case-navy: #071926;
+  --case-ink: #071926;
+  --case-copy: #243746;
+  --case-muted: #62727c;
+  --case-paper: #f4f1ea;
+  --case-panel: #ffffff;
+  --case-red: #a80f3b;
+  --case-red-bright: #d91f57;
+  --case-line: rgba(7, 25, 38, 0.14);
+  --case-shadow: 0 18px 46px rgba(7, 25, 38, 0.12);
+  --case-condensed: "Arial Narrow", "Roboto Condensed", Impact, Haettenschweiler, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--case-ink) !important;
+  background:
+    linear-gradient(rgba(7, 25, 38, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 25, 38, 0.035) 1px, transparent 1px),
+    var(--case-paper) !important;
+  background-size: 70px 70px !important;
+}
+
+.site-header {
+  background: rgba(7, 25, 38, 0.96) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 10px 28px rgba(7, 25, 38, 0.18) !important;
+}
+
+.brand,
+.brand span:last-child,
+.nav-links a,
+.nav-menu-button,
+.nav-toggle {
+  color: #ffffff !important;
+}
+
+.brand-mark {
+  color: var(--case-navy) !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.nav-links a[aria-current="page"],
+.nav-menu:hover .nav-menu-button,
+.nav-menu-button[aria-expanded="true"] {
+  color: #ffffff !important;
+  background: rgba(168, 15, 59, 0.92) !important;
+}
+
+.nav-toggle {
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.nav-toggle span {
+  background: #ffffff !important;
+}
+
+main,
+.homepage-main {
+  background: transparent !important;
+}
+
+.section,
+.case-section,
+.content-section,
+.strategy-section,
+.impact-section,
+.meeting-overview {
+  width: min(1180px, calc(100% - 3rem)) !important;
+  margin-inline: auto !important;
+  padding: clamp(2rem, 3.5vw, 3.6rem) 0 !important;
+  scroll-margin-top: 88px !important;
+}
+
+.case-actions {
+  padding-top: clamp(1rem, 2vw, 1.6rem) !important;
+  padding-bottom: 0 !important;
+}
+
+.case-actions .hero-actions {
+  justify-content: center !important;
+}
+
+.hero-actions,
+.button-row,
+.asset-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+}
+
+.button,
+.btn,
+.mini-button,
+.asset-button,
+.carousel-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 44px !important;
+  padding: 0.72rem 1.1rem !important;
+  border: 1px solid var(--case-red) !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  background: var(--case-red) !important;
+  box-shadow: none !important;
+  font-family: var(--case-condensed) !important;
+  font-size: 0.95rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+}
+
+.button:hover,
+.btn:hover,
+.mini-button:hover,
+.asset-button:hover,
+.carousel-button:hover {
+  background: var(--case-navy) !important;
+  border-color: var(--case-navy) !important;
+  transform: translateY(-1px);
+}
+
+.button.secondary,
+.btn.secondary,
+.button.gold,
+.btn.gold {
+  color: #ffffff !important;
+  background: var(--case-red) !important;
+  border-color: var(--case-red) !important;
+}
+
+.case-section-nav,
+.case-jump-nav {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.55rem !important;
+  justify-content: center !important;
+  margin: 1rem 0 0 !important;
+}
+
+.case-section-nav a,
+.case-jump-nav a {
+  min-height: 40px !important;
+  padding: 0.64rem 0.9rem !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  background: var(--case-navy) !important;
+  border: 1px solid var(--case-navy) !important;
+  font-family: var(--case-condensed) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.04em !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+}
+
+.case-section-nav a:hover,
+.case-jump-nav a:hover {
+  background: var(--case-red) !important;
+  border-color: var(--case-red) !important;
+}
+
+.section-header,
+.section-heading,
+.home-section-header {
+  max-width: 920px !important;
+  margin: 0 0 1rem !important;
+}
+
+.hero-kicker,
+.eyebrow,
+.section-header .eyebrow {
+  display: block !important;
+  margin: 0 0 0.45rem !important;
+  padding: 0 !important;
+  color: var(--case-red) !important;
+  background: transparent !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: clamp(0.78rem, 0.95vw, 0.94rem) !important;
+  font-style: normal !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.16em !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase !important;
+}
+
+.strategy-section .section-header .eyebrow::before,
+.content-section .section-header .eyebrow::before,
+.impact-section .section-header .eyebrow::before {
+  display: none !important;
+}
+
+.section-header h1,
+.section-header h2,
+.section-heading h1,
+.section-heading h2,
+.case-copy-block .section-header h2,
+.hero h1,
+.hero-copy h1,
+.case-title,
+h1,
+h2 {
+  max-width: 100% !important;
+  margin: 0 !important;
+  color: var(--case-ink) !important;
+  font-family: var(--case-condensed) !important;
+  font-size: clamp(2rem, 5.2vw, 4.9rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  line-height: 0.93 !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+
+.hero .section-header h1,
+.hero-copy h1 {
+  font-size: clamp(2rem, 4.5vw, 4.2rem) !important;
+  white-space: normal !important;
+}
+
+.section-header p:not(.hero-kicker):not(.eyebrow),
+.section-heading p:not(.hero-kicker):not(.eyebrow),
+.copy-stack p,
+.strategy-narrative p,
+.content-panel p,
+.narrative-card p,
+.statement-card p,
+.lesson-card p,
+.impact-card p,
+.hero-copy p,
+.case-copy-block p {
+  max-width: 920px !important;
+  color: var(--case-copy) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: clamp(1rem, 1.15vw, 1.16rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.62 !important;
+}
+
+.copy-stack,
+.strategy-narrative,
+.content-panel {
+  display: grid !important;
+  gap: 1rem !important;
+  max-width: 920px !important;
+}
+
+.split,
+.split.text-only,
+.overview-grid,
+.strategy-grid {
+  gap: clamp(1rem, 2vw, 1.6rem) !important;
+}
+
+.case-study-hero-panel,
+.hero,
+.case-hero {
+  width: min(1180px, 100%) !important;
+  margin-inline: auto !important;
+  padding: clamp(0.8rem, 1.5vw, 1.2rem) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  background: var(--case-navy) !important;
+  box-shadow: 0 26px 70px rgba(7, 25, 38, 0.22) !important;
+  overflow: hidden !important;
+}
+
+.case-study-hero-panel .section-header h1,
+.case-study-hero-panel .section-header h2,
+.case-study-hero-panel .hero-kicker,
+.case-study-hero-panel p,
+.hero .section-header h1,
+.hero .section-header h2,
+.hero .hero-kicker,
+.hero p,
+.case-hero p {
+  color: #ffffff !important;
+}
+
+.case-hero-image,
+.hero-visual,
+.portfolio-hero-visual {
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: var(--case-navy) !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+.placeholder-hero-image {
+  min-height: clamp(280px, 46vw, 560px) !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: clamp(2rem, 5vw, 4.5rem) !important;
+  color: #ffffff !important;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(217, 31, 87, 0.38), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 34%),
+    var(--case-navy) !important;
+}
+
+.placeholder-hero-image span {
+  display: block !important;
+  color: var(--case-red-bright) !important;
+  font-size: 0.85rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+.placeholder-hero-image strong {
+  display: block !important;
+  max-width: 860px !important;
+  margin-top: 0.4rem !important;
+  color: #ffffff !important;
+  font-family: var(--case-condensed) !important;
+  font-size: clamp(2.4rem, 7vw, 6.6rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  line-height: 0.9 !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+}
+
+.activation-thumbnail.placeholder-hero-image {
+  min-height: 230px !important;
+  padding: 1.25rem !important;
+}
+
+.activation-thumbnail.placeholder-hero-image strong {
+  font-size: clamp(1.6rem, 3vw, 2.8rem) !important;
+}
+
+.case-narrative-story {
+  width: min(920px, 100%) !important;
+  margin: clamp(1.6rem, 3vw, 2.5rem) auto 0 !important;
+  color: var(--case-copy) !important;
+}
+
+.case-narrative-story p,
+.case-narrative-story blockquote {
+  margin: 0 0 1.25rem !important;
+  color: var(--case-copy) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.68 !important;
+}
+
+.case-narrative-story blockquote {
+  margin: 1.7rem 0 !important;
+  padding: 1.5rem 1.7rem !important;
+  border-left: 6px solid var(--case-red) !important;
+  background: #ffffff !important;
+  box-shadow: 0 16px 40px rgba(7, 25, 38, 0.09) !important;
+}
+
+.case-narrative-story .disclaimer {
+  margin-top: 2rem !important;
+  padding-top: 1rem !important;
+  border-top: 1px solid var(--case-line) !important;
+  color: var(--case-muted) !important;
+  font-size: 0.95rem !important;
+}
+
+.case-hero-image img,
+.hero-visual img,
+.portfolio-hero-visual img,
+.hero img,
+.case-hero img {
+  display: block !important;
+  width: 100% !important;
+  max-height: min(62vh, 660px) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: 0 !important;
+  background: var(--case-navy) !important;
+}
+
+.narrative-card,
+.statement-card,
+.strategy-card,
+.lesson-card,
+.impact-card,
+.result-card,
+.results-card,
+.overview-card,
+.timeline-card,
+.contribution-card,
+.proof-strip,
+.timeline-proof-strip {
+  border: 1px solid var(--case-line) !important;
+  border-radius: 0 !important;
+  color: var(--case-ink) !important;
+  background: var(--case-panel) !important;
+  box-shadow: var(--case-shadow) !important;
+}
+
+.activation-examples,
+.meeting-assets,
+.compact-assets,
+.asset-grid,
+.content-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.25rem !important;
+}
+
+.activation-card,
+.collection-card,
+.project-card,
+.asset-card {
+  position: relative !important;
+  display: grid !important;
+  grid-template-rows: minmax(250px, 1fr) 230px !important;
+  min-height: 500px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  background: #171717 !important;
+  box-shadow: 0 18px 48px rgba(7, 25, 38, 0.2) !important;
+  overflow: hidden !important;
+  transition: transform 180ms ease, box-shadow 180ms ease !important;
+}
+
+.activation-card:hover,
+.collection-card:hover,
+.project-card:hover,
+.asset-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 24px 60px rgba(7, 25, 38, 0.24) !important;
+}
+
+.activation-card::after,
+.collection-card::after,
+.project-card::after,
+.asset-card::after {
+  content: "→";
+  position: absolute;
+  right: 1rem;
+  bottom: 0.8rem;
+  z-index: 3;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.activation-body,
+.collection-body,
+.project-body,
+.asset-body,
+.card-body {
+  order: 1 !important;
+  display: flex !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 0.8rem !important;
+  padding: 1.35rem !important;
+  color: #ffffff !important;
+  background: #171717 !important;
+}
+
+.activation-thumbnail,
+.collection-thumb,
+.project-thumb,
+.asset-thumb,
+.card-image {
+  order: 2 !important;
+  width: 100% !important;
+  height: 230px !important;
+  min-height: 230px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #0f0f0f !important;
+  overflow: hidden !important;
+}
+
+.activation-thumbnail img,
+.collection-thumb img,
+.project-thumb img,
+.asset-thumb img,
+.card-image img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  padding: 0 !important;
+  background: #0f0f0f !important;
+  border-radius: 0 !important;
+  transform: none !important;
+}
+
+.activation-type,
+.category-label,
+.asset-label {
+  display: block !important;
+  color: var(--case-red-bright) !important;
+  background: transparent !important;
+  font-size: 0.78rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.16em !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase !important;
+}
+
+.activation-body h3,
+.collection-body h3,
+.project-body h3,
+.asset-body h3,
+.card-body h3 {
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-family: var(--case-condensed) !important;
+  font-size: clamp(1.45rem, 2vw, 2rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+}
+
+.activation-body p,
+.collection-body p,
+.project-body p,
+.asset-body p,
+.card-body p {
+  margin: 0 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.98rem !important;
+  line-height: 1.52 !important;
+}
+
+.activation-card .button-row {
+  margin-top: auto !important;
+}
+
+.activation-card .mini-button {
+  margin-top: auto !important;
+  align-self: flex-start !important;
+  background: var(--case-red) !important;
+  border-color: var(--case-red) !important;
+}
+
+.asset-carousel {
+  position: relative !important;
+}
+
+.asset-carousel-viewport {
+  overflow: hidden !important;
+}
+
+.asset-carousel .activation-examples,
+.asset-carousel .activation-examples.compact-assets {
+  display: flex !important;
+  gap: 1.25rem !important;
+  overflow-x: auto !important;
+  scroll-snap-type: x mandatory !important;
+  padding-bottom: 0.8rem !important;
+}
+
+.asset-carousel .activation-card {
+  flex: 0 0 min(360px, 84vw) !important;
+  scroll-snap-align: start !important;
+}
+
+.asset-carousel-controls {
+  justify-content: center !important;
+}
+
+.results-mindmap,
+.rv-results-infographic,
+.dna-results-infographic,
+.impact-infographic,
+.results-infographic {
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  background: var(--case-navy) !important;
+  box-shadow: 0 22px 58px rgba(7, 25, 38, 0.22) !important;
+}
+
+.results-mindmap *,
+.rv-results-infographic *,
+.dna-results-infographic *,
+.impact-infographic *,
+.results-infographic * {
+  color: inherit;
+}
+
+.mindmap-title span,
+.results-label,
+.metric-value,
+.rv-results-number,
+.dna-results-number {
+  color: var(--case-red-bright) !important;
+}
+
+@media (max-width: 980px) {
+  .activation-examples,
+  .meeting-assets,
+  .compact-assets,
+  .asset-grid,
+  .content-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .section-header h1,
+  .section-header h2,
+  .section-heading h1,
+  .section-heading h2,
+  .case-copy-block .section-header h2,
+  .hero h1,
+  .hero-copy h1,
+  .case-title,
+  h1,
+  h2 {
+    font-size: clamp(1.8rem, 7vw, 3.6rem) !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .section,
+  .case-section,
+  .content-section,
+  .strategy-section,
+  .impact-section,
+  .meeting-overview {
+    width: min(100% - 1.25rem, 1180px) !important;
+    padding: 1.8rem 0 !important;
+  }
+
+  .nav {
+    min-height: 58px !important;
+  }
+
+  .nav-links {
+    background: var(--case-navy) !important;
+    border-color: rgba(255, 255, 255, 0.14) !important;
+  }
+
+  .nav-links a {
+    min-height: 46px !important;
+    color: #ffffff !important;
+  }
+
+  .case-study-hero-panel,
+  .hero,
+  .case-hero {
+    padding: 0.55rem !important;
+  }
+
+  .case-hero-image img,
+  .hero-visual img,
+  .portfolio-hero-visual img,
+  .hero img,
+  .case-hero img {
+    max-height: 52vh !important;
+  }
+
+  .section-header h1,
+  .section-header h2,
+  .section-heading h1,
+  .section-heading h2,
+  .case-copy-block .section-header h2,
+  .hero h1,
+  .hero-copy h1,
+  .case-title,
+  h1,
+  h2 {
+    font-size: clamp(1.25rem, 5.8vw, 2.45rem) !important;
+    line-height: 0.98 !important;
+    white-space: nowrap !important;
+  }
+
+  .activation-examples,
+  .meeting-assets,
+  .compact-assets,
+  .asset-grid,
+  .content-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .activation-card,
+  .collection-card,
+  .project-card,
+  .asset-card {
+    grid-template-rows: minmax(220px, auto) 210px !important;
+    min-height: 430px !important;
+  }
+
+  .activation-thumbnail,
+  .collection-thumb,
+  .project-thumb,
+  .asset-thumb,
+  .card-image {
+    height: 210px !important;
+    min-height: 210px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .section-header h1,
+  .section-header h2,
+  .section-heading h1,
+  .section-heading h2,
+  .case-copy-block .section-header h2,
+  .hero h1,
+  .hero-copy h1,
+  .case-title,
+  h1,
+  h2 {
+    font-size: clamp(1.05rem, 5.1vw, 1.8rem) !important;
+  }
+
+  .button,
+  .btn,
+  .mini-button,
+  .asset-button,
+  .carousel-button {
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A healthcare payer communications case study focused on issues management, media response, legal coordination and values-based messaging during a sensitive provider dispute.">
+  <meta property="og:title" content="Healthcare Payer Comms | Jaime Botello">
+  <meta property="og:description" content="Protecting trust during a high-profile provider dispute through disciplined, values-based communications.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f4eddf">
+  <title>Healthcare Payer Comms | Jaime Botello</title>
+  <style>
+    :root {
+      --ink: #071926;
+      --ink-soft: #334653;
+      --muted: #60717b;
+      --paper: #f4eddf;
+      --panel: #ffffff;
+      --line: rgba(7, 25, 38, 0.14);
+      --navy: #071926;
+      --red: #c9164e;
+      --gold: #f5bd38;
+      --sage: #dfe9df;
+      --blush: #f4dbe2;
+      --shadow: 0 18px 46px rgba(7, 25, 38, 0.1);
+      --radius: 18px;
+      --max: 1180px;
+      --condensed: "Arial Narrow", "Roboto Condensed", Impact, Haettenschweiler, sans-serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --script: "Brush Script MT", "Segoe Script", cursive;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(7, 25, 38, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7, 25, 38, 0.035) 1px, transparent 1px),
+        var(--paper);
+      background-size: 70px 70px;
+      font-family: var(--sans);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(7, 25, 38, 0.12);
+      background: rgba(244, 237, 223, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 2rem));
+      min-height: 70px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #ffffff;
+      font-family: var(--condensed);
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.35rem;
+    }
+
+    .nav-links a {
+      padding: 0.55rem 0.75rem;
+      border-radius: 999px;
+      color: var(--ink-soft);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ffffff;
+      background: var(--navy);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .section {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      padding: clamp(2.8rem, 6vw, 4.5rem) 0;
+      scroll-margin-top: 90px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      align-items: center;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      padding-top: clamp(2rem, 4vw, 3.2rem);
+      padding-bottom: clamp(2.4rem, 5vw, 4rem);
+    }
+
+    .eyebrow {
+      margin: 0 0 -0.1rem;
+      color: var(--red);
+      font-family: var(--script);
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 0.8;
+      text-transform: lowercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: var(--condensed);
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 880px;
+      font-size: clamp(3.1rem, 8vw, 6.9rem);
+      line-height: 0.9;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4.4vw, 4rem);
+      line-height: 0.92;
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      line-height: 1;
+    }
+
+    p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: clamp(1rem, 1.25vw, 1.08rem);
+    }
+
+    .lead {
+      max-width: 720px;
+      margin-top: 1.25rem;
+      color: var(--ink);
+      font-size: clamp(1.08rem, 1.8vw, 1.35rem);
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.78rem 1.15rem;
+      border: 2px solid var(--navy);
+      border-radius: 999px;
+      background: var(--navy);
+      color: #ffffff;
+      font-family: var(--condensed);
+      font-size: 1rem;
+      font-weight: 900;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .btn.gold {
+      background: var(--gold);
+      color: var(--ink);
+      box-shadow: inset 0 -3px 0 rgba(7, 25, 38, 0.16);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(7, 25, 38, 0.16);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 450px;
+      padding: clamp(1.2rem, 2.5vw, 2rem);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(245, 189, 56, 0.35), transparent 16rem),
+        linear-gradient(135deg, #ffffff, #f7f1e7);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 1rem;
+      border: 2px solid rgba(7, 25, 38, 0.08);
+      border-radius: 22px;
+    }
+
+    .visual-title {
+      position: relative;
+      display: grid;
+      gap: 0.75rem;
+      max-width: 430px;
+    }
+
+    .visual-title span {
+      color: var(--red);
+      font-family: var(--script);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 0.85;
+    }
+
+    .visual-title strong {
+      color: var(--ink);
+      font-family: var(--condensed);
+      font-size: clamp(2.2rem, 5vw, 4.6rem);
+      font-weight: 900;
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .balance-map {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .map-card {
+      min-height: 112px;
+      padding: 1rem;
+      border: 2px solid var(--ink);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .map-card:nth-child(2),
+    .map-card:nth-child(3) {
+      background: var(--sage);
+    }
+
+    .map-card span {
+      display: block;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .map-card strong {
+      display: block;
+      margin-top: 0.35rem;
+      font-family: var(--condensed);
+      font-size: 1.4rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.6rem;
+    }
+
+    .proof-item {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 26px rgba(7, 25, 38, 0.06);
+    }
+
+    .proof-item span {
+      display: block;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .proof-item strong {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 0.98rem;
+      line-height: 1.25;
+    }
+
+    .section-heading {
+      margin-bottom: 1.25rem;
+    }
+
+    .content-panel {
+      display: grid;
+      gap: 1.15rem;
+      max-width: 900px;
+    }
+
+    .narrative-card,
+    .statement-card {
+      padding: clamp(1.2rem, 2.5vw, 1.8rem);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 12px 32px rgba(7, 25, 38, 0.07);
+    }
+
+    .statement-card {
+      border: 2px solid var(--ink);
+      background:
+        linear-gradient(135deg, rgba(244, 219, 226, 0.86), rgba(255, 255, 255, 0.92));
+    }
+
+    .statement-card blockquote {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .strategy-grid,
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .strategy-card,
+    .lesson-card {
+      padding: 1.2rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(7, 25, 38, 0.06);
+    }
+
+    .strategy-card:first-child,
+    .lesson-card:nth-child(even) {
+      background: var(--blush);
+    }
+
+    .strategy-card:nth-child(2),
+    .lesson-card:nth-child(odd) {
+      background: var(--sage);
+    }
+
+    .strategy-card span,
+    .lesson-card span {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 0.8rem;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--gold);
+      font-family: var(--condensed);
+      font-weight: 900;
+    }
+
+    .strategy-card p,
+    .lesson-card p {
+      margin-top: 0.65rem;
+      font-size: 0.98rem;
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: start;
+    }
+
+    .disclaimer {
+      padding: 1rem;
+      border-left: 5px solid var(--red);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 1rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      .nav {
+        align-items: flex-start;
+        padding: 0.8rem 0;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero,
+      .split-section {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .proof-strip,
+      .strategy-grid,
+      .lessons-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .balance-map {
+        grid-template-columns: 1fr;
+      }
+    }
+      /* Unified portfolio navigation - matches homepage */
+    .site-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: rgba(7, 25, 38, 0.94) !important;
+      backdrop-filter: blur(16px) !important;
+    }
+
+    .nav {
+      width: min(var(--max, 1180px), calc(100% - 3rem)) !important;
+      min-height: 72px !important;
+      justify-content: flex-end !important;
+    }
+
+    .nav::before {
+      content: none !important;
+    }
+
+    .nav-links a,
+    .nav-links > a {
+      padding: 0.62rem 0.78rem !important;
+      color: rgba(255, 255, 255, 0.9) !important;
+      background: transparent !important;
+      border: 0 !important;
+      border-radius: 8px !important;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+      font-size: 0.92rem !important;
+      font-weight: 780 !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+      text-decoration: none !important;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active,
+    .nav-links a[aria-current="page"],
+    .nav-links > a:hover,
+    .nav-links > a.active {
+      color: #fff !important;
+      background: rgba(255, 255, 255, 0.14) !important;
+    }
+
+    .nav-toggle {
+      border-color: rgba(255, 255, 255, 0.22) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .nav-toggle span {
+      background: #fff !important;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        width: min(100% - 1rem, var(--max, 1180px)) !important;
+        min-height: 64px !important;
+      }
+
+      .nav-links {
+        background: rgba(7, 25, 38, 0.98) !important;
+      }
+
+      .nav-links > a,
+      .nav-links a {
+        min-height: 44px !important;
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+      }
+    }
+
+
+    /* Mobile employer-review polish - August 2026 */
+    @media (max-width: 760px) {
+      html {
+        scroll-padding-top: 72px !important;
+      }
+
+      body {
+        overflow-x: hidden !important;
+      }
+
+      .site-header {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+      }
+
+      .nav {
+        width: 100% !important;
+        min-height: 58px !important;
+        padding: 0.45rem 0.85rem !important;
+        justify-content: flex-end !important;
+      }
+
+      .nav-toggle {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 46px !important;
+        height: 46px !important;
+        flex: 0 0 46px !important;
+        border-radius: 999px !important;
+        border: 1px solid rgba(255, 255, 255, 0.34) !important;
+        background: rgba(255, 255, 255, 0.12) !important;
+      }
+
+      .nav-toggle span {
+        width: 20px !important;
+        height: 2px !important;
+        margin: 3px 0 !important;
+        background: #ffffff !important;
+      }
+
+      .nav-links,
+      body:has(.homepage-main) .nav-links {
+        position: absolute !important;
+        top: calc(100% + 0.5rem) !important;
+        left: 0.85rem !important;
+        right: 0.85rem !important;
+        width: auto !important;
+        display: none !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.55rem !important;
+        padding: 0.75rem !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+        border-radius: 18px !important;
+        background: rgba(7, 25, 38, 0.98) !important;
+        box-shadow: 0 22px 48px rgba(7, 25, 38, 0.28) !important;
+        max-height: calc(100vh - 78px) !important;
+        overflow-y: auto !important;
+      }
+
+      .nav-links.open,
+      body:has(.homepage-main) .nav-links.open {
+        display: grid !important;
+      }
+
+      .nav-links > a,
+      .nav-links a,
+      body:has(.homepage-main) .nav-links > a,
+      body:has(.homepage-main) .nav-links a {
+        width: 100% !important;
+        min-height: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0.85rem 1rem !important;
+        border: 1px solid rgba(255, 255, 255, 0.18) !important;
+        border-radius: 14px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+        font-size: 1rem !important;
+        line-height: 1.1 !important;
+        text-align: center !important;
+        text-decoration: none !important;
+      }
+
+      .nav-links > a:hover,
+      .nav-links > a.active,
+      .nav-links a[aria-current="page"] {
+        background: #c8144f !important;
+        color: #ffffff !important;
+      }
+
+      .section,
+      .home-section,
+      .content-section,
+      .impact-section,
+      .strategy-section,
+      .meeting-overview,
+      .resume-section,
+      .ai-section {
+        padding-top: clamp(2rem, 8vw, 3rem) !important;
+        padding-bottom: clamp(2rem, 8vw, 3rem) !important;
+      }
+
+      .section-header,
+      .capability-row-header,
+      .case-hero,
+      .hero,
+      .home-hero,
+      .resume-hero,
+      .ai-hero {
+        gap: 1rem !important;
+      }
+
+      h1,
+      .hero h1,
+      .home-hero h1,
+      .resume-hero h1 {
+        font-size: clamp(3rem, 16vw, 4.8rem) !important;
+        line-height: 0.94 !important;
+        letter-spacing: 0 !important;
+      }
+
+      h2,
+      .section-title,
+      .section-header h2,
+      .capability-row-header h3,
+      .case-title,
+      .resume-heading {
+        font-size: clamp(2.1rem, 10vw, 3.35rem) !important;
+        line-height: 0.98 !important;
+        letter-spacing: 0 !important;
+        overflow-wrap: anywhere !important;
+      }
+
+      h3,
+      .capability-case-body strong,
+      .activation-card h3,
+      .asset-card h3,
+      .timeline-role {
+        font-size: clamp(1.25rem, 6.2vw, 1.8rem) !important;
+        line-height: 1.05 !important;
+      }
+
+      p,
+      li,
+      .body-copy,
+      .intro-copy,
+      .section-copy,
+      .case-copy,
+      .capability-case-body p,
+      .activation-card p,
+      .asset-card p {
+        font-size: 1rem !important;
+        line-height: 1.55 !important;
+      }
+
+      .capability-case-grid,
+      .capability-case-grid.is-scrollable,
+      .activation-examples,
+      .activation-examples.compact-assets,
+      .meeting-assets,
+      .asset-grid,
+      .case-grid,
+      .work-grid,
+      .featured-grid,
+      .project-grid,
+      .portfolio-grid,
+      .results-grid,
+      .cards-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        overflow: visible !important;
+        scroll-snap-type: none !important;
+      }
+
+      .capability-case-card,
+      .capability-case-grid.is-scrollable .capability-case-card,
+      .activation-card,
+      .asset-card,
+      .case-card,
+      .work-card,
+      .featured-case-card,
+      .project-card,
+      .result-card {
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        flex: 0 1 auto !important;
+        min-height: 0 !important;
+      }
+
+      .capability-case-card img,
+      .activation-card img,
+      .asset-card img,
+      .case-card img,
+      .work-card img,
+      .featured-case-card img,
+      .project-card img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 320px !important;
+        aspect-ratio: 16 / 10 !important;
+        object-fit: cover !important;
+        object-position: center !important;
+      }
+
+      .capability-case-body,
+      .activation-card-content,
+      .asset-card-content,
+      .case-card-body,
+      .work-card-body {
+        padding: 1rem !important;
+      }
+
+      .button,
+      .hero-actions a,
+      .card-actions a,
+      .activation-card a,
+      .asset-card a {
+        min-height: 46px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        white-space: normal !important;
+        text-align: center !important;
+      }
+
+      .hero-actions,
+      .card-actions,
+      .asset-actions {
+        gap: 0.65rem !important;
+      }
+
+      .scroll-cue {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav {
+        padding-inline: 0.65rem !important;
+      }
+
+      .nav-links,
+      body:has(.homepage-main) .nav-links {
+        left: 0.65rem !important;
+        right: 0.65rem !important;
+      }
+
+      .section,
+      .home-section,
+      .content-section,
+      .impact-section,
+      .strategy-section,
+      .meeting-overview,
+      .resume-section,
+      .ai-section {
+        padding-top: 1.65rem !important;
+        padding-bottom: 1.65rem !important;
+      }
+
+      h1,
+      .hero h1,
+      .home-hero h1,
+      .resume-hero h1 {
+        font-size: clamp(2.8rem, 15vw, 4.1rem) !important;
+      }
+
+      h2,
+      .section-title,
+      .section-header h2,
+      .capability-row-header h3,
+      .case-title,
+      .resume-heading {
+        font-size: clamp(1.85rem, 9vw, 2.7rem) !important;
+      }
+
+      .capability-case-card img,
+      .activation-card img,
+      .asset-card img,
+      .case-card img,
+      .work-card img,
+      .featured-case-card img,
+      .project-card img {
+        max-height: 260px !important;
+      }
+    }
+
+</style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-56WQ7QRKCD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-56WQ7QRKCD");
+  </script>
+  <link rel="stylesheet" href="case-study-redesign.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">JB</span>
+        <span>Jaime Botello</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-lab.html">AI Lab</a>
+        <a href="resume.html">Resume</a>
+        <a href="https://www.linkedin.com/in/jbotello310/">LinkedIn</a>
+        <a href="mailto:JaimeBotello310@gmail.com">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section meeting-overview" id="payer-comms-detail">
+      <article class="case-study-hero-panel">
+        <figure class="case-hero-image placeholder-hero-image" aria-label="Placeholder hero image for healthcare payer communications case study">
+          <span>Case Study</span>
+          <strong>Healthcare Payer Communications</strong>
+        </figure>
+      </article>
+
+      <article class="case-narrative-story">
+        <p>
+          While serving as PR Manager for a large California health plan, I supported communications during a sensitive, high-profile legal dispute with an out-of-network behavioral health provider. The matter drew media attention because it involved behavioral health services, patient access, claims payment practices, and competing public narratives. The provider positioned itself as a smaller organization challenging a large insurer, creating a reputational risk that could quickly shape public perception if the organization remained silent.
+        </p>
+        <p>
+          The legal team initially preferred not to comment on coverage. That approach protected the litigation strategy, but it also risked allowing one side of the story to define the organization’s reputation. I advised senior leaders and legal counsel that silence was not a neutral choice. In an emotionally charged healthcare issue involving patient care, behavioral health services, and a perceived imbalance of power, a lack of response could be interpreted as indifference or unwillingness to address legitimate concerns.
+        </p>
+        <p>
+          My recommendation was to protect the legal strategy while still giving the organization a principled, values-based voice. The communications approach needed to respect the boundaries of active litigation while helping reporters and readers understand the broader public-interest context: member access, affordability, healthcare resources, and the responsibility to address suspected fraud, waste, and abuse.
+        </p>
+        <p>
+          We developed a response framework built around three priorities. First, we would protect the legal process by avoiding any discussion of the specific facts, allegations, or merits of active litigation. Second, we would reinforce the organization’s purpose by affirming its commitment to helping members access needed benefits and care. Third, we would explain why preventing fraud, waste, and abuse matters to Californians who rely on affordable healthcare coverage and stable benefits.
+        </p>
+        <p>
+          The resulting media statement was concise, disciplined, and grounded in public accountability:
+        </p>
+        <blockquote>
+          Because this matter involves active legal proceedings, we cannot comment on the specific allegations or facts at issue. We remain committed to protecting our members' access to quality, affordable care and to addressing suspected fraud, waste, and abuse whenever it occurs. These practices can drive up healthcare costs and put benefits at risk for Californians who depend on them. We will continue to work with appropriate partners to protect the integrity of the healthcare system and the people it serves.
+        </blockquote>
+        <p>
+          The statement did not attempt to win the legal argument in public. Instead, it gave reporters and readers the context silence would have withheld: the organization had a responsibility to protect members, safeguard healthcare resources, and preserve access to benefits. It also created a clear bridge between legal restraint and public accountability, allowing the organization to communicate responsibly while honoring the limits of an active case.
+        </p>
+        <p>
+          This experience reinforced several principles that continue to guide my approach to issues management. Silence can create its own narrative, especially when an issue involves vulnerable people and a perceived imbalance of power. Legal and communications teams have to work together, because effective issues management protects both the case and the organization’s long-term reputation. Values-based messaging is strongest when it is specific, credible, and tied to the public interest. And in healthcare, reputational response must always return to the people affected: members, families, providers, and communities.
+        </p>
+        <p>
+          By balancing legal discipline with a clear public-interest message, the response helped ensure the organization could speak responsibly during a sensitive and highly visible dispute.
+        </p>
+        <p class="disclaimer">
+          This personal portfolio case study is anonymized and presented for professional context only. It does not disclose confidential legal details, name the parties involved, or represent an official statement from any organization.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Jaime Botello | Strategic Communications | Executive Communications | Issues Management</p>
+  </footer>
+  <script>
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector("#nav-links");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  </script>
+</body>
+</html>
