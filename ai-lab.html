@@ -509,6 +509,298 @@
       font-weight: 800;
     }
 
+    .tool-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1rem, 3vw, 2rem);
+      background: rgba(7, 25, 38, 0.72);
+      backdrop-filter: blur(10px);
+    }
+
+    .tool-modal.is-open {
+      display: flex;
+    }
+
+    .tool-modal-panel {
+      width: min(920px, 100%);
+      max-height: min(88vh, 900px);
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 26px;
+      background: #ffffff;
+      box-shadow: 0 34px 90px rgba(7, 25, 38, 0.34);
+    }
+
+    .tool-modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: clamp(1.2rem, 3vw, 1.8rem);
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 86% 12%, rgba(217, 31, 87, 0.38), transparent 14rem),
+        linear-gradient(135deg, var(--navy), var(--navy-soft));
+    }
+
+    .tool-modal-title-block {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .tool-modal-kicker {
+      color: var(--red-bright);
+      font-family: var(--condensed);
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .tool-modal-title-block h2 {
+      display: block;
+      color: #ffffff;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 0.95;
+      white-space: normal;
+    }
+
+    .tool-modal-title-block p {
+      max-width: 620px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .tool-modal-close {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 999px;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .tool-modal-close:hover {
+      background: var(--red);
+      transform: translateY(-1px);
+    }
+
+    .tool-modal-body {
+      min-height: 0;
+      overflow-y: auto;
+      padding: clamp(1.2rem, 3vw, 1.8rem);
+    }
+
+    .strategy-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      color: var(--ink);
+      font-family: var(--condensed);
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid rgba(7, 25, 38, 0.16);
+      border-radius: 16px;
+      background: #f9f7f1;
+      color: var(--ink);
+      font: inherit;
+      font-size: 1rem;
+      line-height: 1.45;
+      padding: 0.9rem 1rem;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .form-field textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--red);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(168, 15, 59, 0.12);
+    }
+
+    .form-hint {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .tool-form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: 0.35rem;
+    }
+
+    .tool-form-actions .button[disabled] {
+      opacity: 0.7;
+      cursor: wait;
+      transform: none;
+    }
+
+    .tool-loader {
+      display: none;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--copy);
+      font-weight: 800;
+    }
+
+    .tool-loader.is-visible {
+      display: inline-flex;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 3px solid rgba(168, 15, 59, 0.22);
+      border-top-color: var(--red);
+      border-radius: 999px;
+      animation: spin 800ms linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .tool-message {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      color: #ffffff;
+      background: var(--red);
+      font-weight: 800;
+    }
+
+    .tool-message.is-visible {
+      display: block;
+    }
+
+    .tool-result {
+      display: none;
+      margin-top: 1.25rem;
+      border: 1px solid rgba(7, 25, 38, 0.12);
+      border-radius: 20px;
+      background: #f9f7f1;
+      overflow: hidden;
+    }
+
+    .tool-result.is-visible {
+      display: block;
+    }
+
+    .tool-result-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid rgba(7, 25, 38, 0.1);
+      background: #ffffff;
+    }
+
+    .tool-result-header h3 {
+      color: var(--ink);
+      font-size: clamp(1.4rem, 2vw, 2rem);
+    }
+
+    .tool-result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: flex-end;
+    }
+
+    .tool-result-actions .button {
+      min-height: 40px;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .button.ghost {
+      border-color: rgba(7, 25, 38, 0.18);
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    .button.ghost:hover {
+      border-color: var(--red);
+      color: #ffffff;
+      background: var(--red);
+    }
+
+    .tool-result-text {
+      max-height: 38vh;
+      overflow-y: auto;
+      padding: 1rem;
+      color: var(--copy);
+      font-size: 1rem;
+      line-height: 1.65;
+      white-space: pre-wrap;
+    }
+
+    .tool-coming-soon {
+      display: grid;
+      gap: 1rem;
+      padding: clamp(1.2rem, 3vw, 1.8rem);
+      border: 1px solid rgba(7, 25, 38, 0.12);
+      border-radius: 22px;
+      background: #f9f7f1;
+    }
+
+    .tool-coming-soon strong {
+      font-family: var(--condensed);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .tool-coming-soon p {
+      max-width: 680px;
+      color: var(--copy);
+    }
+
     .process-section {
       width: 100%;
       padding-left: max(1rem, calc((100vw - var(--max)) / 2));
@@ -882,6 +1174,49 @@
     }
 
     @media (max-width: 760px) {
+      .tool-modal {
+        align-items: stretch;
+        padding: 0.75rem;
+      }
+
+      .tool-modal-panel {
+        max-height: calc(100vh - 1.5rem);
+        border-radius: 20px;
+      }
+
+      .tool-modal-header {
+        padding: 1rem;
+      }
+
+      .tool-modal-title-block h2 {
+        font-size: clamp(1.8rem, 10vw, 2.6rem);
+      }
+
+      .tool-modal-body {
+        padding: 1rem;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-form-actions,
+      .tool-result-header,
+      .tool-result-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .tool-form-actions .button,
+      .tool-result-actions .button,
+      .tool-coming-soon .button {
+        width: 100%;
+      }
+
+      .tool-result-text {
+        max-height: 34vh;
+      }
+
       .nav {
         width: min(100% - 1rem, var(--max, 1180px)) !important;
         min-height: 64px !important;
@@ -1294,18 +1629,18 @@
       </div>
 
       <div class="tool-grid">
-        <a class="tool-card reveal" href="#" data-destination="/ai-lab/swot-analysis">
+        <a class="tool-card reveal" href="#" data-tool="communications_strategy">
           <div class="tool-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4z"></path><path d="M13 4h7v7h-7z"></path><path d="M4 13h7v7H4z"></path><path d="M13 13h7v7h-7z"></path></svg>
           </div>
           <div class="tool-copy">
-            <h3>SWOT Analysis Generator</h3>
-            <p>Turn a company, brand, campaign or communications challenge into a structured SWOT analysis identifying strengths, weaknesses, opportunities and threats.</p>
+            <h3>Communications Strategy Builder</h3>
+            <p>Turn a business objective, audience, situation and desired outcome into a focused communications strategy.</p>
           </div>
-          <span class="button tool-cta">Run a SWOT &rarr;</span>
+          <span class="button tool-cta">Try Tool &rarr;</span>
         </a>
 
-        <a class="tool-card reveal" href="#" data-destination="/ai-lab/peso-plan">
+        <a class="tool-card reveal" href="#" data-tool="competitive_analysis">
           <div class="tool-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M8 4h8l3 3v13H5V4z"></path><path d="M15 4v4h4"></path><path d="M8 12h8"></path><path d="M8 16h6"></path></svg>
           </div>
@@ -1313,10 +1648,10 @@
             <h3>Plan on a Page Generator</h3>
             <p>Build an integrated communications plan complete with objectives, audiences, strategy, tactics, channel recommendations and measurement.</p>
           </div>
-          <span class="button tool-cta">Build a Plan &rarr;</span>
+          <span class="button tool-cta">Try Tool &rarr;</span>
         </a>
 
-        <a class="tool-card reveal" href="#" data-destination="/ai-lab/social-content">
+        <a class="tool-card reveal" href="#" data-tool="executive_content">
           <div class="tool-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M4 5h16v10H8l-4 4z"></path><path d="M8 9h8"></path><path d="M8 12h5"></path></svg>
           </div>
@@ -1324,10 +1659,10 @@
             <h3>Social Content Studio</h3>
             <p>Turn one idea, article or announcement into platform-native content for LinkedIn, Instagram, X and TikTok.</p>
           </div>
-          <span class="button tool-cta">Create Content &rarr;</span>
+          <span class="button tool-cta">Try Tool &rarr;</span>
         </a>
 
-        <a class="tool-card reveal" href="#" data-destination="/ai-lab/thought-leadership">
+        <a class="tool-card reveal" href="#" data-tool="executive_content">
           <div class="tool-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M12 2a6 6 0 0 0-3 11.2V16h6v-2.8A6 6 0 0 0 12 2z"></path></svg>
           </div>
@@ -1335,10 +1670,10 @@
             <h3>Thought Leadership</h3>
             <p>Transform executive expertise, industry trends and business priorities into compelling thought leadership ideas, narratives and content.</p>
           </div>
-          <span class="button tool-cta">Build a POV &rarr;</span>
+          <span class="button tool-cta">Try Tool &rarr;</span>
         </a>
 
-        <a class="tool-card reveal" href="#" data-destination="/ai-lab/kpi-builder">
+        <a class="tool-card reveal" href="#" data-tool="media_analysis">
           <div class="tool-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0-9-9"></path><path d="M12 12l5-5"></path><path d="M7 12a5 5 0 1 0 5-5"></path></svg>
           </div>
@@ -1346,10 +1681,10 @@
             <h3>Campaign KPI Builder</h3>
             <p>Define the right communications KPIs based on campaign objectives, audiences, channels and desired business outcomes.</p>
           </div>
-          <span class="button tool-cta">Build KPIs &rarr;</span>
+          <span class="button tool-cta">Try Tool &rarr;</span>
         </a>
 
-        <a class="tool-card reveal" href="#" data-destination="/ai-lab/campaign-reporting">
+        <a class="tool-card reveal" href="#" data-tool="media_analysis">
           <div class="tool-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M8 16v-5"></path><path d="M12 16V8"></path><path d="M16 16v-3"></path></svg>
           </div>
@@ -1357,12 +1692,26 @@
             <h3>Campaign Reporting</h3>
             <p>Turn campaign performance data into a clear executive-level report highlighting results, insights, business impact and opportunities for optimization.</p>
           </div>
-          <span class="button tool-cta">Build a Report &rarr;</span>
+          <span class="button tool-cta">Try Tool &rarr;</span>
         </a>
       </div>
 
       <p class="status-note" id="tool-status" role="status" aria-live="polite"></p>
     </section>
+
+    <div class="tool-modal" id="tool-modal" role="dialog" aria-modal="true" aria-labelledby="tool-modal-title" aria-describedby="tool-modal-description">
+      <div class="tool-modal-panel" role="document">
+        <div class="tool-modal-header">
+          <div class="tool-modal-title-block">
+            <span class="tool-modal-kicker" id="tool-modal-kicker">AI Communications Tool</span>
+            <h2 id="tool-modal-title">Communications Strategy Builder</h2>
+            <p id="tool-modal-description">Turn a business objective into a focused communications strategy.</p>
+          </div>
+          <button class="tool-modal-close" type="button" aria-label="Close tool">&times;</button>
+        </div>
+        <div class="tool-modal-body" id="tool-modal-body"></div>
+      </div>
+    </div>
 
     <section class="section positioning">
       <div class="reveal">
@@ -1424,16 +1773,287 @@
       });
     }
 
+    const portfolioAIEndpoint = "https://portfolio-ai-api.zwnb57455y.workers.dev/";
     const toolStatus = document.querySelector("#tool-status");
-    document.querySelectorAll("[data-destination]").forEach((card) => {
+    const toolModal = document.querySelector("#tool-modal");
+    const toolModalBody = document.querySelector("#tool-modal-body");
+    const toolModalTitle = document.querySelector("#tool-modal-title");
+    const toolModalDescription = document.querySelector("#tool-modal-description");
+    const toolModalClose = document.querySelector(".tool-modal-close");
+    let lastFocusedElement = null;
+
+    const toolConfig = {
+      communications_strategy: {
+        title: "Communications Strategy Builder",
+        description: "Turn a business objective into a focused communications strategy.",
+        status: "live"
+      },
+      competitive_analysis: {
+        title: "Competitive Analysis Builder",
+        description: "Future tool for organizing competitors, narratives, proof points and communications opportunities.",
+        status: "coming-soon"
+      },
+      executive_content: {
+        title: "Executive Content Builder",
+        description: "Future tool for turning executive priorities into thought leadership, social posts and talking points.",
+        status: "coming-soon"
+      },
+      media_analysis: {
+        title: "Media & Measurement Builder",
+        description: "Future tool for translating coverage, metrics and campaign performance into executive-ready insights.",
+        status: "coming-soon"
+      }
+    };
+
+    function openToolModal(toolName) {
+      if (!toolModal || !toolModalBody) return;
+
+      const config = toolConfig[toolName] || toolConfig.communications_strategy;
+      lastFocusedElement = document.activeElement;
+      toolModalTitle.textContent = config.title;
+      toolModalDescription.textContent = config.description;
+      toolModalBody.innerHTML = config.status === "live" ? getStrategyFormMarkup() : getComingSoonMarkup(config);
+      toolModal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", handleToolModalKeydown);
+
+      const firstField = toolModalBody.querySelector("textarea, input, button");
+      if (firstField) firstField.focus();
+
+      const strategyForm = toolModalBody.querySelector("#strategy-form");
+      if (strategyForm) {
+        strategyForm.addEventListener("submit", handleStrategySubmit);
+      }
+    }
+
+    function closeToolModal() {
+      if (!toolModal) return;
+
+      toolModal.classList.remove("is-open");
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleToolModalKeydown);
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }
+
+    function handleToolModalKeydown(event) {
+      if (event.key === "Escape") {
+        closeToolModal();
+        return;
+      }
+
+      if (event.key !== "Tab" || !toolModal?.classList.contains("is-open")) return;
+
+      const focusable = [...toolModal.querySelectorAll("a[href], button:not([disabled]), textarea, input")]
+        .filter((element) => element.offsetParent !== null);
+
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    function getStrategyFormMarkup() {
+      return `
+        <form class="strategy-form" id="strategy-form">
+          <div class="form-grid">
+            <div class="form-field full">
+              <label for="business-objective">Business Objective</label>
+              <textarea id="business-objective" name="businessObjective" maxlength="1000" required placeholder="What are you trying to accomplish?"></textarea>
+              <span class="form-hint">Required. Maximum 1,000 characters.</span>
+            </div>
+            <div class="form-field">
+              <label for="target-audience">Target Audience</label>
+              <input id="target-audience" name="targetAudience" maxlength="300" required placeholder="Who needs to hear this?">
+            </div>
+            <div class="form-field">
+              <label for="desired-outcome">Desired Outcome</label>
+              <input id="desired-outcome" name="desiredOutcome" maxlength="500" required placeholder="What should the audience think, feel or do?">
+            </div>
+            <div class="form-field full">
+              <label for="situation-context">Situation / Context</label>
+              <textarea id="situation-context" name="situationContext" maxlength="1500" required placeholder="Provide any relevant background, challenge, opportunity or timing."></textarea>
+              <span class="form-hint">Required. Maximum 1,500 characters.</span>
+            </div>
+          </div>
+          <div class="tool-form-actions">
+            <button class="button" type="submit" id="generate-strategy">Generate Strategy</button>
+            <span class="tool-loader" id="tool-loader"><span class="spinner" aria-hidden="true"></span>Building your strategy...</span>
+          </div>
+          <div class="tool-message" id="tool-message" role="alert"></div>
+          <section class="tool-result" id="tool-result" aria-live="polite">
+            <div class="tool-result-header">
+              <h3>Your Communications Strategy</h3>
+              <div class="tool-result-actions">
+                <button class="button ghost" type="button" id="copy-result">Copy Result</button>
+                <button class="button ghost" type="button" id="new-strategy">New Strategy</button>
+              </div>
+            </div>
+            <div class="tool-result-text" id="tool-result-text"></div>
+          </section>
+        </form>
+      `;
+    }
+
+    function getComingSoonMarkup(config) {
+      return `
+        <div class="tool-coming-soon">
+          <strong>${config.title}</strong>
+          <p>${config.description}</p>
+          <p>This prototype is part of the AI Lab architecture and is prepared for a future Worker connection.</p>
+          <button class="button" type="button" data-close-modal>Close</button>
+        </div>
+      `;
+    }
+
+    function setLoadingState(isLoading) {
+      const submitButton = toolModalBody.querySelector("#generate-strategy");
+      const loader = toolModalBody.querySelector("#tool-loader");
+
+      if (submitButton) {
+        submitButton.disabled = isLoading;
+        submitButton.textContent = isLoading ? "Generating..." : "Generate Strategy";
+      }
+
+      if (loader) {
+        loader.classList.toggle("is-visible", isLoading);
+      }
+    }
+
+    function showToolError(message = "We couldn't generate the strategy right now. Please try again.") {
+      const messageTarget = toolModalBody.querySelector("#tool-message");
+      if (!messageTarget) return;
+
+      messageTarget.textContent = message;
+      messageTarget.classList.add("is-visible");
+    }
+
+    function clearToolError() {
+      const messageTarget = toolModalBody.querySelector("#tool-message");
+      if (!messageTarget) return;
+
+      messageTarget.textContent = "";
+      messageTarget.classList.remove("is-visible");
+    }
+
+    function displayToolResult(result) {
+      const resultPanel = toolModalBody.querySelector("#tool-result");
+      const resultText = toolModalBody.querySelector("#tool-result-text");
+      if (!resultPanel || !resultText) return;
+
+      resultText.textContent = result;
+      resultPanel.classList.add("is-visible");
+
+      const copyButton = toolModalBody.querySelector("#copy-result");
+      const newButton = toolModalBody.querySelector("#new-strategy");
+
+      if (copyButton) {
+        copyButton.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(result);
+            copyButton.textContent = "Copied";
+            setTimeout(() => { copyButton.textContent = "Copy Result"; }, 1600);
+          } catch {
+            showToolError("Copying is not available in this browser. You can still select and copy the text manually.");
+          }
+        }, { once: true });
+      }
+
+      if (newButton) {
+        newButton.addEventListener("click", () => {
+          const form = toolModalBody.querySelector("#strategy-form");
+          if (form) form.reset();
+          resultPanel.classList.remove("is-visible");
+          resultText.textContent = "";
+          clearToolError();
+          const firstField = toolModalBody.querySelector("#business-objective");
+          if (firstField) firstField.focus();
+        });
+      }
+    }
+
+    async function callPortfolioAI(tool, input) {
+      const response = await fetch(portfolioAIEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ tool, input })
+      });
+
+      if (!response.ok) {
+        throw new Error("Tool request failed");
+      }
+
+      const data = await response.json();
+      if (!data || typeof data.result !== "string" || !data.result.trim()) {
+        throw new Error("Tool returned an empty result");
+      }
+
+      return data.result.trim();
+    }
+
+    function getTrimmedFormValue(formData, key) {
+      return String(formData.get(key) || "").trim();
+    }
+
+    async function handleStrategySubmit(event) {
+      event.preventDefault();
+      clearToolError();
+
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+      const businessObjective = getTrimmedFormValue(formData, "businessObjective");
+      const targetAudience = getTrimmedFormValue(formData, "targetAudience");
+      const situationContext = getTrimmedFormValue(formData, "situationContext");
+      const desiredOutcome = getTrimmedFormValue(formData, "desiredOutcome");
+
+      if (!businessObjective || !targetAudience || !situationContext || !desiredOutcome) {
+        showToolError("Please complete all four fields before generating your strategy.");
+        return;
+      }
+
+      const input = `Business Objective:\n${businessObjective}\n\nTarget Audience:\n${targetAudience}\n\nSituation / Context:\n${situationContext}\n\nDesired Outcome:\n${desiredOutcome}`;
+
+      setLoadingState(true);
+
+      try {
+        const result = await callPortfolioAI("communications_strategy", input);
+        displayToolResult(result);
+      } catch {
+        showToolError();
+      } finally {
+        setLoadingState(false);
+      }
+    }
+
+    document.querySelectorAll("[data-tool]").forEach((card) => {
       card.addEventListener("click", (event) => {
         event.preventDefault();
-        const destination = card.getAttribute("data-destination");
-        if (toolStatus) {
-          toolStatus.textContent = `Tool page placeholder ready for future build: ${destination}`;
-        }
+        const toolName = card.getAttribute("data-tool") || "communications_strategy";
+        openToolModal(toolName);
+        if (toolStatus) toolStatus.textContent = "";
       });
     });
+
+    if (toolModalClose) {
+      toolModalClose.addEventListener("click", closeToolModal);
+    }
+
+    if (toolModal) {
+      toolModal.addEventListener("click", (event) => {
+        if (event.target === toolModal || event.target.matches("[data-close-modal]")) {
+          closeToolModal();
+        }
+      });
+    }
 
     const revealItems = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window) {
