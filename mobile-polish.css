@@ -1,0 +1,474 @@
+/* Final mobile fit polish - August 2026 */
+@media (max-width: 900px) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+  }
+
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  img,
+  video,
+  iframe,
+  svg,
+  canvas {
+    max-width: 100% !important;
+  }
+
+  .section,
+  .home-section,
+  .resume-section,
+  .ai-section,
+  .case-section,
+  .meeting-overview,
+  .strategy-section,
+  .content-section,
+  .impact-section,
+  .timeline-hero,
+  .timeline-proof-strip,
+  .ai-timeline,
+  .footer-inner,
+  .nav {
+    width: min(100% - 1.5rem, 1180px) !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .hero-title,
+  .section-title,
+  .resume-section-title,
+  .case-title,
+  .tool-modal-title-block h2 {
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    letter-spacing: 0 !important;
+  }
+
+  p,
+  li,
+  a,
+  button,
+  span,
+  strong,
+  .copy-stack,
+  .strategy-narrative,
+  .activation-body,
+  .capability-case-body,
+  .timeline-role,
+  .timeline-company {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+  }
+
+  .nav {
+    min-height: 58px !important;
+    padding: 0 0.75rem !important;
+    gap: 0.75rem !important;
+  }
+
+  .brand,
+  .nav-logo {
+    max-width: calc(100vw - 5.25rem) !important;
+    overflow: hidden !important;
+  }
+
+  .brand span,
+  .nav-logo span {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .nav-toggle {
+    display: inline-grid !important;
+    flex: 0 0 46px !important;
+    place-items: center !important;
+    width: 46px !important;
+    height: 46px !important;
+    margin-left: auto !important;
+    padding: 0.55rem !important;
+  }
+
+  .nav-toggle span {
+    width: 22px !important;
+    margin: 2px 0 !important;
+  }
+
+  .nav-links,
+  body:has(.homepage-main) .nav-links {
+    position: fixed !important;
+    top: 64px !important;
+    right: 0.75rem !important;
+    left: 0.75rem !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.45rem !important;
+    width: auto !important;
+    max-width: calc(100vw - 1.5rem) !important;
+    max-height: calc(100dvh - 78px) !important;
+    padding: 0.75rem !important;
+    overflow-y: auto !important;
+    border-radius: 16px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(-8px) !important;
+  }
+
+  .nav-links.open,
+  .nav-links.is-open,
+  body:has(.homepage-main) .nav-links.open,
+  body:has(.homepage-main) .nav-links.is-open {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+
+  .nav-links > a,
+  .nav-links a,
+  .nav-menu,
+  .nav-menu-button {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .nav-links > a,
+  .nav-links a,
+  .nav-menu-button {
+    min-height: 48px !important;
+    justify-content: flex-start !important;
+    padding: 0.9rem 1rem !important;
+    border-radius: 12px !important;
+    font-size: 0.98rem !important;
+    line-height: 1.15 !important;
+    text-align: left !important;
+    white-space: normal !important;
+  }
+
+  .dropdown-menu {
+    position: static !important;
+    display: grid !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0.25rem 0 0 !important;
+    padding: 0.45rem !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .section,
+  .home-section,
+  .resume-section,
+  .ai-section,
+  .case-section,
+  .meeting-overview,
+  .strategy-section,
+  .content-section,
+  .impact-section,
+  .timeline-hero,
+  .timeline-proof-strip,
+  .ai-timeline {
+    width: min(100% - 1rem, 1180px) !important;
+    max-width: calc(100vw - 1rem) !important;
+    padding-top: 1.45rem !important;
+    padding-bottom: 1.45rem !important;
+    overflow: hidden !important;
+  }
+
+  .hero,
+  .home-hero,
+  .resume-hero,
+  .ai-hero,
+  .case-hero,
+  .case-study-hero-panel,
+  .split,
+  .intro-layout,
+  .featured-layout,
+  .capabilities-layout,
+  .resume-profile,
+  .resume-capabilities,
+  .tool-showcase,
+  .timeline-layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+  }
+
+  h1,
+  .hero-title {
+    font-size: clamp(1.75rem, 8vw, 3rem) !important;
+    line-height: 0.96 !important;
+  }
+
+  h2,
+  .section-title,
+  .resume-section-title,
+  .case-title,
+  .tool-modal-title-block h2 {
+    font-size: clamp(1.85rem, 9vw, 2.8rem) !important;
+    line-height: 1 !important;
+  }
+
+  h3,
+  .card-title,
+  .activation-body h3,
+  .capability-case-body strong,
+  .timeline-company {
+    font-size: clamp(1.25rem, 6.4vw, 1.85rem) !important;
+    line-height: 1.05 !important;
+  }
+
+  p,
+  li,
+  .copy-stack p,
+  .strategy-narrative p,
+  .hero-summary,
+  .section-copy,
+  .activation-body p,
+  .capability-case-body p,
+  .resume-intro p {
+    font-size: clamp(0.98rem, 4.2vw, 1.08rem) !important;
+    line-height: 1.5 !important;
+  }
+
+  .capability-case-grid,
+  .capability-case-grid.is-scrollable,
+  .activation-examples,
+  .asset-carousel .activation-examples,
+  .asset-carousel .activation-examples.compact-assets,
+  .meeting-assets,
+  .asset-grid,
+  .content-grid,
+  .work-grid,
+  .portfolio-grid,
+  .project-grid,
+  .cards-grid,
+  .tool-grid,
+  .process-grid,
+  .timeline-grid,
+  .results-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    scroll-snap-type: none !important;
+  }
+
+  .asset-carousel,
+  .asset-carousel-viewport {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .capability-case-card,
+  .activation-card,
+  .asset-carousel .activation-card,
+  .collection-card,
+  .project-card,
+  .asset-card,
+  .tool-card,
+  .resume-card,
+  .timeline-item,
+  .stat-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex: none !important;
+    scroll-snap-align: none !important;
+  }
+
+  .capability-case-card img,
+  .activation-thumbnail,
+  .activation-thumbnail img,
+  .collection-thumb,
+  .collection-thumb img,
+  .project-thumb,
+  .project-thumb img,
+  .asset-thumb,
+  .asset-thumb img,
+  .card-image,
+  .card-image img,
+  .case-hero-image img,
+  .hero-visual img,
+  .portfolio-hero-visual img,
+  .resume-headshot img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 300px !important;
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  .hero-photo-placeholder img,
+  .resume-headshot img {
+    max-height: 320px !important;
+    object-position: center 18% !important;
+  }
+
+  .timeline-entry {
+    padding-left: 2.55rem !important;
+    overflow: hidden !important;
+  }
+
+  .timeline-copy,
+  .timeline-frame,
+  .timeline-year {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+  }
+
+  .ai-timeline::before {
+    left: 0.65rem !important;
+    width: 0.45rem !important;
+    transform: none !important;
+  }
+
+  .timeline-proof-strip {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .button-row,
+  .hero-actions,
+  .asset-actions,
+  .resume-actions,
+  .cta-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+  }
+
+  .button,
+  .btn,
+  .mini-button,
+  .asset-button,
+  .carousel-button,
+  .cta-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 48px !important;
+    padding: 0.85rem 1rem !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
+
+  .scroll-cue {
+    display: none !important;
+  }
+
+  .tool-modal {
+    padding: 0.5rem !important;
+  }
+
+  .tool-modal-panel,
+  .resume-drawer .drawer-panel,
+  .drawer-panel {
+    width: min(100%, calc(100vw - 1rem)) !important;
+    max-width: calc(100vw - 1rem) !important;
+    max-height: calc(100dvh - 1rem) !important;
+    overflow-y: auto !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .section,
+  .home-section,
+  .resume-section,
+  .ai-section,
+  .case-section,
+  .meeting-overview,
+  .strategy-section,
+  .content-section,
+  .impact-section,
+  .timeline-hero,
+  .timeline-proof-strip,
+  .ai-timeline {
+    width: min(100% - 0.8rem, 1180px) !important;
+    max-width: calc(100vw - 0.8rem) !important;
+    padding-top: 1.15rem !important;
+    padding-bottom: 1.15rem !important;
+  }
+
+  h1,
+  .hero-title {
+    font-size: clamp(1.65rem, 7.35vw, 2.55rem) !important;
+  }
+
+  .portfolio-hero h1 {
+    font-size: clamp(1.45rem, 6.7vw, 2.15rem) !important;
+    line-height: 1 !important;
+  }
+
+  h2,
+  .section-title,
+  .resume-section-title,
+  .case-title,
+  .tool-modal-title-block h2 {
+    font-size: clamp(1.55rem, 8vw, 2.25rem) !important;
+  }
+
+  .capability-case-card img,
+  .activation-thumbnail,
+  .activation-thumbnail img,
+  .collection-thumb,
+  .collection-thumb img,
+  .project-thumb,
+  .project-thumb img,
+  .asset-thumb,
+  .asset-thumb img,
+  .card-image,
+  .card-image img,
+  .case-hero-image img,
+  .hero-visual img,
+  .portfolio-hero-visual img {
+    max-height: 245px !important;
+  }
+
+  .timeline-entry {
+    padding-left: 2.15rem !important;
+  }
+
+  .timeline-proof-strip {
+    grid-template-columns: 1fr !important;
+  }
+}
