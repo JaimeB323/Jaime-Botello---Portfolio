@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A community engagement and earned media case study focused on restoring access to free medical care in Sacramento.">
+  <meta property="og:title" content="Restoring Access to Free Care in Sacramento | Jaime Botello">
+  <meta property="og:description" content="How a timely community investment became a public-facing access-to-care story.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f4eddf">
+  <title>Restoring Access to Free Care in Sacramento | Jaime Botello</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4FKX6T14Y4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-4FKX6T14Y4");
+  </script>
+  <link rel="stylesheet" href="case-study-redesign.css">
+  <link rel="stylesheet" href="mobile-polish.css">
+  <link rel="stylesheet" href="portfolio-art-direction.css">
+  <style>
+    .newsroom-feature {
+      margin-top: clamp(1.75rem, 4vw, 3rem);
+    }
+
+    .newsroom-feature > h2 {
+      margin: 0 0 1rem;
+      color: var(--ink, #071d2b);
+      font-family: var(--display-font, Impact, sans-serif);
+      font-size: clamp(2.1rem, 5vw, 4.25rem);
+      line-height: .9;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .newsroom-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(1rem, 2.5vw, 1.5rem);
+    }
+
+    .news-story-card {
+      display: grid;
+      overflow: hidden;
+      min-height: 100%;
+      color: inherit;
+      text-decoration: none;
+      background: #fff;
+      border: 1px solid rgba(7, 29, 43, .14);
+      border-radius: 18px;
+      box-shadow: 0 16px 34px rgba(7, 29, 43, .08);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .news-story-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(190, 18, 74, .35);
+      box-shadow: 0 22px 42px rgba(7, 29, 43, .12);
+    }
+
+    .news-story-image {
+      position: relative;
+      display: grid;
+      align-content: end;
+      min-height: 220px;
+      padding: 1.25rem;
+      overflow: hidden;
+      color: #fff;
+      isolation: isolate;
+      background:
+        linear-gradient(145deg, rgba(7, 29, 43, .18), rgba(7, 29, 43, .72)),
+        radial-gradient(circle at 18% 22%, rgba(255, 255, 255, .55), transparent 24%),
+        linear-gradient(135deg, #b90f46, #092234 58%, #d9a627);
+    }
+
+    .news-story-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .32;
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,.16) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+
+    .news-story-image.kcra-visual {
+      background:
+        linear-gradient(145deg, rgba(7, 29, 43, .18), rgba(7, 29, 43, .7)),
+        radial-gradient(circle at 84% 20%, rgba(255, 255, 255, .5), transparent 24%),
+        linear-gradient(135deg, #0c3b56, #be124a 58%, #d9a627);
+    }
+
+    .news-story-image span {
+      width: fit-content;
+      margin-bottom: .75rem;
+      padding: .45rem .75rem;
+      border: 1px solid rgba(255, 255, 255, .55);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .16);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .news-story-image strong {
+      max-width: 11ch;
+      font-family: var(--display-font, Impact, sans-serif);
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: .9;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+
+    .news-story-body {
+      display: flex;
+      min-height: 245px;
+      flex-direction: column;
+      gap: .75rem;
+      padding: clamp(1.1rem, 2.6vw, 1.5rem);
+    }
+
+    .news-source {
+      color: #be124a;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .news-story-body h3 {
+      margin: 0;
+      color: var(--ink, #071d2b);
+      font-family: var(--display-font, Impact, sans-serif);
+      font-size: clamp(1.45rem, 2.6vw, 2rem);
+      line-height: .95;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+
+    .news-story-body p {
+      margin: 0;
+      color: var(--muted-ink, #263c4a);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .news-story-button {
+      align-self: flex-start;
+      margin-top: auto;
+      padding: .85rem 1.05rem;
+      border-radius: 999px;
+      background: #071d2b;
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 760px) {
+      .newsroom-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-story-image {
+        min-height: 190px;
+      }
+
+      .news-story-body {
+        min-height: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">JB</span>
+        <span>Jaime Botello</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-lab.html">AI Lab</a>
+        <a href="resume.html">Resume</a>
+        <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:JaimeBotello310@gmail.com">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section meeting-overview" id="restoring-access-sacramento-detail">
+      <article class="case-study-hero-panel">
+        <figure class="case-hero-image placeholder-hero-image" aria-label="Placeholder hero image for restoring access to free care in Sacramento case study">
+          <span>Case Study</span>
+          <strong>Restoring Access to Free Care in Sacramento</strong>
+        </figure>
+      </article>
+
+      <article class="case-narrative-story">
+        <p>
+          As PR Manager at Health Net, I worked across Public Affairs, Community Giving, and Communications to coordinate a $75,000 investment that helped California CareForce move forward with its free Sacramento medical clinic after a funding shortfall put the event at risk.
+        </p>
+        <p>
+          The support covered more than half of the funding needed for medical equipment and care-station setup, helping preserve an essential access point for uninsured and underinsured residents. In the prior year, the clinic served nearly 2,000 people with medical, dental, vision, and diagnostic services.
+        </p>
+        <p>
+          My role was to connect the organization’s community investment to a clear public-facing story about access to care. I coordinated internal stakeholders, supported message development, and helped communicate the impact of the funding to media, community leaders, and partners.
+        </p>
+        <p>
+          The effort linked a timely philanthropic decision to Health Net’s broader commitment to improving access to care for Californians facing barriers to essential health services. It also showed how community giving, public affairs, and communications can work together to turn an urgent operational need into a visible demonstration of purpose.
+        </p>
+        <p>
+          The investment helped save the 2019 Sacramento clinic. What had been canceled because of a funding gap was restored in time to provide thousands of low-income, uninsured, and underinsured residents with free care close to home.
+        </p>
+        <p>
+          The work also strengthened Health Net’s connection to the Sacramento community by showing a practical commitment to people who needed access to care. By aligning Public Affairs, Community Giving, and Communications, we turned a timely investment into a clear story of community impact.
+        </p>
+
+        <section class="newsroom-feature" aria-labelledby="coverage-heading">
+          <h2 id="coverage-heading">News Coverage</h2>
+          <div class="newsroom-grid">
+            <a class="news-story-card" href="https://www.sacbee.com/news/local/health-and-medicine/article235978202.html" target="_blank" rel="noopener">
+              <div class="news-story-image sacbee-visual" aria-hidden="true">
+                <span>Local Health News</span>
+                <strong>Sacramento Bee</strong>
+              </div>
+              <div class="news-story-body">
+                <span class="news-source">The Sacramento Bee</span>
+                <h3>Funding support helped restore free clinic access</h3>
+                <p>Coverage connected the investment to a clinic serving uninsured and underinsured residents with essential health services.</p>
+                <span class="news-story-button">Read Story</span>
+              </div>
+            </a>
+
+            <a class="news-story-card" href="https://www.kcra.com/article/sacramento-health-care-clinic-free-medical-services-cal-expo-california/29588555" target="_blank" rel="noopener">
+              <div class="news-story-image kcra-visual" aria-hidden="true">
+                <span>Broadcast Coverage</span>
+                <strong>KCRA 3</strong>
+              </div>
+              <div class="news-story-body">
+                <span class="news-source">KCRA</span>
+                <h3>Free medical services returned to Cal Expo</h3>
+                <p>Broadcast coverage helped show how the restored clinic would bring free medical, dental, vision, and diagnostic services to the community.</p>
+                <span class="news-story-button">View Story</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <p class="disclaimer">
+          This personal portfolio case study is presented for professional context only and is not an official Health Net webpage.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Jaime Botello | Strategic Communications | Community Engagement | Earned Media</p>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector("#nav-links");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  </script>
+  <script src="portfolio-interactions.js"></script>
+</body>
+</html>

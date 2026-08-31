@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A public health communications case study focused on COVID-19 response, crisis communications, media strategy, community outreach, and public trust.">
+  <meta property="og:title" content="COVID-19 LA County | Jaime Botello">
+  <meta property="og:description" content="Leading public health communications support during a high-stakes COVID-19 response.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f4eddf">
+  <title>COVID-19 LA County | Jaime Botello</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4FKX6T14Y4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-4FKX6T14Y4");
+  </script>
+  <link rel="stylesheet" href="case-study-redesign.css">
+  <link rel="stylesheet" href="mobile-polish.css">
+  <link rel="stylesheet" href="portfolio-art-direction.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">JB</span>
+        <span>Jaime Botello</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-lab.html">AI Lab</a>
+        <a href="resume.html">Resume</a>
+        <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:JaimeBotello310@gmail.com">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section meeting-overview" id="covid-la-county-detail">
+      <div class="section-header">
+        <p class="eyebrow">Case Study</p>
+        <h1>COVID-19 LA County Public Health Communications</h1>
+      </div>
+
+      <article class="case-study-hero-panel">
+        <figure class="case-hero-image">
+          <img src="images/covid-la-county-emergency-hero.png" alt="Public health and emergency response workers during the COVID-19 response.">
+        </figure>
+      </article>
+
+      <article class="case-narrative-story">
+        <p>
+          During the COVID-19 pandemic, the Los Angeles County Department of Public Health faced a communications environment unlike any other. Guidance changed quickly, public concern was high, and community members, employers, schools, healthcare providers, media, and local leaders needed information they could understand, trust, and act on.
+        </p>
+        <p>
+          The work carried significant stakes. Public health decisions affected millions of residents and required people to make sense of complex data, changing mitigation measures, vaccine information, and practical steps to protect themselves, their families, and their communities. In that environment, communications had to move quickly while remaining accurate, empathetic, and grounded in public trust.
+        </p>
+        <p>
+          As a Director at Fraser Communications, I served as a strategic communications advisor and agency lead supporting the Department's COVID-19 response. My work included media strategy, crisis communications, community outreach, proactive storytelling, message development, and coordination with public health leaders and subject-matter experts.
+        </p>
+        <p>
+          The communications challenge was not simply sharing information. It was helping the Department communicate with speed, discipline, and clarity in a fragmented information environment. That meant translating public health data into accessible language, responding to media inquiries and misinformation, supporting outreach across diverse communities and sectors, and helping public health experts communicate with confidence during high-pressure moments.
+        </p>
+        <p>
+          My role included developing media strategies, press releases, statements, and story angles connected to COVID-19 response, community outreach, and sector guidance. I evaluated incoming media requests, coordinated timely responses from appropriate Department experts, translated complex health information into clearer content for news and social channels, and helped prepare public health leaders for interviews through message guidance and media training.
+        </p>
+        <p>
+          I built the communications approach around four practical principles. First, make science understandable by connecting public health data to the decisions people were making every day. Second, respond with speed and discipline so delays did not create confusion or allow misinformation to fill the gap. Third, humanize public health expertise by helping experts communicate with empathy and clarity under scrutiny. Fourth, use measurement to improve the response by tracking coverage, social engagement, and other communications signals to identify what was resonating and where additional clarity was needed.
+        </p>
+        <p>
+          The work helped strengthen the Department's ability to tell clear, data-informed public health stories across earned and social channels. The communications model supported stronger relationships with national, regional, local, and trade media; a more proactive outreach approach; and better preparation for Department experts engaging with media during a prolonged public health emergency.
+        </p>
+        <p>
+          Results included a 30% increase in top-tier media coverage, more than 50% growth in social media engagement, stronger media relationships, and a more disciplined editorial and performance-tracking process to guide ongoing outreach. Just as important, the work helped public health information feel more understandable and actionable for audiences navigating uncertainty.
+        </p>
+        <p>
+          This experience shaped how I approach crisis communications and executive counsel. Complex information has to be translated without losing its integrity. Public trust is built through consistency. Communications leaders need to stay close to subject-matter experts and operational decision-makers. Data should inform strategy. And in a public health crisis, empathy is not a soft skill; it is central to helping people hear, understand, and use the information being shared.
+        </p>
+        <p>
+          Leading communications support for the Los Angeles County Department of Public Health demonstrated my ability to advise senior leaders, translate complex science, manage issues in real time, and build integrated communications strategies that strengthen public understanding and trust.
+        </p>
+        <p class="disclaimer">
+          This personal portfolio case study is presented for professional context only and is not an official Los Angeles County Department of Public Health webpage.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Jaime Botello | Strategic Communications | Executive Communications | Issues Management</p>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector("#nav-links");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  </script>
+  <script src="portfolio-interactions.js"></script>
+</body>
+</html>

@@ -3777,6 +3777,113 @@
         max-height: 260px !important;
       }
     }
+
+    body:has(.homepage-main) .capability-case-grid,
+    body:has(.homepage-main) .capability-case-grid.is-scrollable {
+      align-items: stretch !important;
+    }
+
+    body:has(.homepage-main) .capability-case-card,
+    body:has(.homepage-main) .capability-row:nth-child(odd) .capability-case-card,
+    body:has(.homepage-main) .capability-row:nth-child(even) .capability-case-card {
+      display: grid !important;
+      grid-template-rows: 248px 220px !important;
+      min-height: 468px !important;
+      height: 468px !important;
+    }
+
+    body:has(.homepage-main) .capability-case-grid.is-scrollable .capability-case-card {
+      min-width: min(360px, 82vw) !important;
+    }
+
+    body:has(.homepage-main) .capability-case-body {
+      display: grid !important;
+      grid-template-rows: 3.9rem 1fr auto !important;
+      align-content: start !important;
+      align-items: start !important;
+      justify-items: start !important;
+      gap: 0.65rem !important;
+      min-height: 248px !important;
+      height: 248px !important;
+      padding: 1.15rem 1.25rem 1.25rem !important;
+      text-align: left !important;
+    }
+
+    body:has(.homepage-main) .capability-case-body strong,
+    body:has(.homepage-main) .capability-row:nth-child(even) .capability-case-body strong {
+      order: 1 !important;
+      align-self: start !important;
+      margin: 0 !important;
+      font-size: clamp(1.35rem, 1.9vw, 1.85rem) !important;
+      line-height: 1.02 !important;
+    }
+
+    body:has(.homepage-main) .capability-case-body p,
+    body:has(.homepage-main) .capability-row:nth-child(even) .capability-case-body p {
+      order: 2 !important;
+      align-self: start !important;
+      max-width: 34ch !important;
+      margin: 0 !important;
+      font-size: 0.96rem !important;
+      line-height: 1.45 !important;
+    }
+
+    body:has(.homepage-main) .capability-case-body span,
+    body:has(.homepage-main) .capability-row:nth-child(even) .capability-case-body span {
+      order: 3 !important;
+      align-self: end !important;
+      justify-self: start !important;
+      margin-top: 0 !important;
+      color: var(--editorial-red-bright) !important;
+      font-size: 0.82rem !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+    }
+
+    body:has(.homepage-main) .capability-case-card > img,
+    body:has(.homepage-main) .capability-card-placeholder {
+      order: 2 !important;
+      display: grid !important;
+      place-items: center !important;
+      width: 100% !important;
+      height: 220px !important;
+      min-height: 220px !important;
+      max-height: 220px !important;
+      aspect-ratio: auto !important;
+      overflow: hidden !important;
+    }
+
+    body:has(.homepage-main) .capability-case-card > img {
+      object-fit: cover !important;
+      object-position: center center !important;
+    }
+
+    body:has(.homepage-main) .capability-case-card > img.home-card-focus-face {
+      object-position: center 22% !important;
+    }
+
+    @media (max-width: 760px) {
+      body:has(.homepage-main) .capability-case-card,
+      body:has(.homepage-main) .capability-row:nth-child(odd) .capability-case-card,
+      body:has(.homepage-main) .capability-row:nth-child(even) .capability-case-card {
+        grid-template-rows: auto 205px !important;
+        height: auto !important;
+        min-height: 0 !important;
+      }
+
+      body:has(.homepage-main) .capability-case-body {
+        grid-template-rows: auto auto auto !important;
+        height: auto !important;
+        min-height: 0 !important;
+      }
+
+      body:has(.homepage-main) .capability-case-card > img,
+      body:has(.homepage-main) .capability-card-placeholder {
+        height: 205px !important;
+        min-height: 205px !important;
+        max-height: 205px !important;
+      }
+    }
 </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4FKX6T14Y4"></script>
@@ -3905,22 +4012,22 @@
                 <p>Statewide outreach program connecting health resources with local communities.</p>
               </div>
             </a>
-            <article class="capability-case-card">
-              <div class="capability-card-placeholder">Nintendo</div>
+            <a class="capability-case-card" href="nintendo-hispanic-media-outreach.html">
+              <img src="images/nintendo-hispanic-media-card.jpeg" alt="Nintendo gaming campaign visual.">
               <div class="capability-case-body">
                 <span>Earned Media</span>
                 <strong>Nintendo Hispanic Media Outreach</strong>
-                <p>Placeholder for multicultural media outreach and consumer communications examples.</p>
+                <p>Multicultural media outreach designed to connect consumer technology and entertainment stories with Hispanic audiences.</p>
               </div>
-            </article>
-            <article class="capability-case-card">
+            </a>
+            <a class="capability-case-card" href="restoring-access-free-care-sacramento.html">
               <div class="capability-card-placeholder">Access</div>
               <div class="capability-case-body">
                 <span>Community Affairs</span>
                 <strong>Restoring Free Access to Care in Sacramento</strong>
-                <p>Placeholder for community access, stakeholder and earned media work.</p>
+                <p>Community investment and earned media storytelling that helped restore a free Sacramento clinic.</p>
               </div>
-            </article>
+            </a>
             <article class="capability-case-card">
               <div class="capability-card-placeholder">Telehealth</div>
               <div class="capability-case-body">
@@ -3943,7 +4050,7 @@
           </div>
           <div class="capability-case-grid is-scrollable" aria-label="Social Media and Digital Content case studies">
             <a class="capability-case-card" href="my-9-5-social-video.html">
-              <img src="images/my-9-5-card-garden-sign.png" alt="My 9-5 social video thumbnail.">
+              <img class="home-card-focus-face" src="images/my-9-5-card-garden-sign.png" alt="My 9-5 social video thumbnail.">
               <div class="capability-case-body">
                 <span>Social Video</span>
                 <strong>My 9-5 Social Video</strong>
@@ -3988,29 +4095,29 @@
           </div>
           <div class="capability-case-grid">
             <a class="capability-case-card" href="healthcare-payer-comms-provider-dispute.html">
-              <div class="capability-card-placeholder">Healthcare</div>
+              <img src="images/healthcare-payer-crisis-hero.jpg" alt="Crisis response meeting visual for healthcare payer communications.">
               <div class="capability-case-body">
                 <span>Issues Management</span>
                 <strong>Healthcare Payer Comms</strong>
                 <p>Values-based response strategy for a sensitive provider dispute involving patient access, legal restraint and reputation risk.</p>
               </div>
             </a>
-            <article class="capability-case-card">
-              <div class="capability-card-placeholder">Wildfires</div>
+            <a class="capability-case-card" href="palisades-wildfires-crisis-communications.html">
+              <img src="images/palisades-wildfires-case-hero.webp" alt="Southern California wildfire response visual.">
               <div class="capability-case-body">
                 <span>Crisis Response</span>
                 <strong>Palisades Wildfires</strong>
-                <p>Placeholder for rapid response, stakeholder updates and community messaging.</p>
+                <p>Healthcare incident response communications focused on care access, operational updates, smoke impacts and community recovery.</p>
               </div>
-            </article>
-            <article class="capability-case-card">
-              <div class="capability-card-placeholder">COVID-19</div>
+            </a>
+            <a class="capability-case-card" href="covid-19-la-county-public-health-communications.html">
+              <img src="images/covid-la-county-emergency-hero.png" alt="COVID-19 public health emergency response visual.">
               <div class="capability-case-body">
                 <span>Public Health Response</span>
                 <strong>COVID-19 LA County</strong>
-                <p>Placeholder for public health communications and urgent community information.</p>
+                <p>Public health communications support focused on trusted guidance, media strategy, crisis response and community understanding.</p>
               </div>
-            </article>
+            </a>
           </div>
         </section>
       </div>

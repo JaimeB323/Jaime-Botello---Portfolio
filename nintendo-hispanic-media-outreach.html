@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A multicultural earned media case study focused on Hispanic media outreach for a consumer gaming campaign.">
+  <meta property="og:title" content="Nintendo Hispanic Media Outreach | Jaime Botello">
+  <meta property="og:description" content="Multicultural media outreach connecting gaming, entertainment, and consumer storytelling with Hispanic audiences.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f4eddf">
+  <title>Nintendo Hispanic Media Outreach | Jaime Botello</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4FKX6T14Y4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-4FKX6T14Y4");
+  </script>
+  <link rel="stylesheet" href="case-study-redesign.css">
+  <link rel="stylesheet" href="mobile-polish.css">
+  <link rel="stylesheet" href="portfolio-art-direction.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">JB</span>
+        <span>Jaime Botello</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-lab.html">AI Lab</a>
+        <a href="resume.html">Resume</a>
+        <a href="https://www.linkedin.com/in/jbotello310/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:JaimeBotello310@gmail.com">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section meeting-overview" id="nintendo-hispanic-media-detail">
+      <div class="section-header">
+        <p class="eyebrow">Case Study</p>
+        <h1>Nintendo Hispanic Media Outreach</h1>
+      </div>
+
+      <article class="case-study-hero-panel">
+        <figure class="case-hero-image">
+          <img src="images/nintendo-hispanic-media-hero.webp" alt="Nintendo Wii Sports Resort basketball gameplay visual.">
+        </figure>
+      </article>
+
+      <article class="case-narrative-story">
+        <p>
+          This multicultural earned media work focused on connecting a consumer gaming story with Hispanic audiences through culturally relevant outreach, entertainment media strategy, and audience-aware messaging.
+        </p>
+        <p>
+          The communications opportunity was to make the campaign feel accessible, fun, and relevant while helping media understand why the product mattered to families, young adults, and entertainment-focused consumers. The work required translating product features and campaign priorities into story angles that could resonate with Spanish-language, bilingual, and multicultural media outlets.
+        </p>
+        <p>
+          My role supported media strategy, message development, outreach planning, and coordination across consumer, multicultural, and entertainment communications priorities. The work demonstrated how earned media can broaden a campaign by meeting audiences through trusted cultural channels and relevant lifestyle storytelling.
+        </p>
+        <p class="disclaimer">
+          This personal portfolio case study is presented for professional context only and is not an official Nintendo webpage.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Jaime Botello | Earned Media | Multicultural Communications | Consumer Storytelling</p>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector("#nav-links");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  </script>
+  <script src="portfolio-interactions.js"></script>
+</body>
+</html>
